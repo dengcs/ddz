@@ -1,10 +1,5 @@
 # Compiled Lua sources
 luac.out
-src/Main.as
-bin/*
-release/*
-.laya/*
-libs/*
 
 # luarocks build files
 *.src.rock
@@ -44,3 +39,8 @@ libs/*
 *.x86_64
 *.hex
 
+src/Main.as
+bin/*
+release/*
+.laya/*
+libs/*
