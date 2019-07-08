@@ -6,6 +6,7 @@ package game.handler
 	import game.proto.*;
 	import game.net.NetClient;
 	import game.base.HandlerBase;
+	import game.control.Action;
 
 	/**
 	 * ...
@@ -55,8 +56,7 @@ package game.handler
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 
-			// var command:CommandParse = CommandParse.getInstance();
-			// command.parse(resp_data.data);
+			Action.update(resp_data.data);
 		}
 	}
 
