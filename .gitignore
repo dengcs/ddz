@@ -40,7 +40,7 @@ luac.out
 *.hex
 
 src/Main.as
-bin/*
-release/*
-.laya/*
-libs/*
+/bin
+/release
+/.laya
+/libs
