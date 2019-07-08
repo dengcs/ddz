@@ -1950,6 +1950,53 @@ var GameEvent=(function(){
 })()
 
 
+//class game.control.Action
+var Action=(function(){
+	function Action(){}
+	__class(Action,'game.control.Action');
+	Action.update=function(data){
+		var uData=JSON.parse(data);
+		var cmd=uData.cmd;
+		switch(cmd){
+			case 1:{
+					console.log(uData.msg);
+					break ;
+				}
+			case 2:{
+					console.log(uData.msg);
+					break ;
+				}
+			case 3:{
+					console.log(uData.msg);
+					break ;
+				}
+			case 11:{
+					console.log(uData.msg);
+					break ;
+				}
+			case 4:{
+					console.log(uData.msg);
+					break ;
+				}
+			case 5:{
+					console.log(uData.msg);
+					break ;
+				}
+			case 6:{
+					console.log(uData.msg);
+					break ;
+				}
+			default :{
+					console.log("error-----------error")
+					break ;
+				}
+			}
+	}
+
+	return Action;
+})()
+
+
 /**
 *<code>EventDispatcher</code> 类是可调度事件的所有类的基类。
 */
@@ -41681,6 +41728,7 @@ var GameHandler=(function(_super){
 		var resp_data=new game_update_notify();
 		resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 		console.log(resp_data)
+		Action.update(resp_data.data);
 	}
 
 	GameHandler.getInstance=function(){
@@ -73556,8 +73604,7 @@ var Rigidbody3D=(function(_super){
 		var rigidBody=rigidBody3D;
 		rigidBody._simulation._updatedRigidbodies++;
 		var physics3D=Laya3D._physics3D;
-		var worldTrans=physics3D.wrapPointer(worldTransPointer,physics3D.btTransform)
-		;
+		var worldTrans=physics3D.wrapPointer(worldTransPointer,physics3D.btTransform);
 		rigidBody._updateTransformComponent(worldTrans);
 	}
 
