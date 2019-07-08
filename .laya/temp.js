@@ -214,8 +214,8 @@ Laya.interface('laya.d3.graphics.IVertex');
 Laya.interface('laya.webgl.submit.ISubmit');
 Laya.interface('laya.resource.ICreateResource');
 Laya.interface('laya.webgl.canvas.save.ISaveData');
-Laya.interface('laya.d3.core.scene.IOctreeObject');
 Laya.interface('laya.resource.ISingletonElement');
+Laya.interface('laya.d3.core.scene.IOctreeObject');
 /**
 *<code>Laya</code> 是全局对象的引用入口集。
 *Laya类引用了一些常用的全局对象，比如Laya.stage：舞台，Laya.timer：时间管理器，Laya.loader：加载管理器，使用时注意大小写。
@@ -40358,6 +40358,39 @@ var verify=(function(_super){
 })(Message)
 
 
+//class game.proto.player_login extends com.google.protobuf.Message
+var player_login=(function(_super){
+	function player_login(){
+		player_login.__super.call(this);
+	}
+
+	__class(player_login,'game.proto.player_login',_super);
+	var __proto=player_login.prototype;
+	__proto.writeTo=function(output){
+		_super.prototype.writeTo.call(this,output);
+	}
+
+	__proto.readFrom=function(input){
+		while(true){
+			var tag=input.readTag();
+			switch(tag){
+				case 0:{
+						return;
+					}
+				default :{
+						if (!input.skipField(tag)){
+							return;
+						}
+						break ;
+					}
+				}
+		}
+	}
+
+	return player_login;
+})(Message)
+
+
 /**
 *<code>Node</code> 类是可放在显示列表中的所有对象的基类。该显示列表管理 Laya 运行时中显示的所有对象。使用 Node 类排列显示列表中的显示对象。Node 对象可以有子显示对象。
 */
@@ -41271,39 +41304,6 @@ var Node=(function(_super){
 	Node.ARRAY_EMPTY=[];
 	return Node;
 })(EventDispatcher)
-
-
-//class game.proto.player_login extends com.google.protobuf.Message
-var player_login=(function(_super){
-	function player_login(){
-		player_login.__super.call(this);
-	}
-
-	__class(player_login,'game.proto.player_login',_super);
-	var __proto=player_login.prototype;
-	__proto.writeTo=function(output){
-		_super.prototype.writeTo.call(this,output);
-	}
-
-	__proto.readFrom=function(input){
-		while(true){
-			var tag=input.readTag();
-			switch(tag){
-				case 0:{
-						return;
-					}
-				default :{
-						if (!input.skipField(tag)){
-							return;
-						}
-						break ;
-					}
-				}
-		}
-	}
-
-	return player_login;
-})(Message)
 
 
 //class game.proto.create_player_resp extends com.google.protobuf.Message
@@ -45028,6 +45028,25 @@ var PhysicsComponent=(function(_super){
 })(Component)
 
 
+//class laya.webgl.shader.d2.skinAnishader.SkinSV extends laya.webgl.shader.d2.value.Value2D
+var SkinSV=(function(_super){
+	function SkinSV(type){
+		this.texcoord=null;
+		this.position=null;
+		this.offsetX=300;
+		this.offsetY=0;
+		SkinSV.__super.call(this,0x200,0);
+		var _vlen=8 *CONST3D2D.BYTES_PE;
+		this.position=[2,0x1406,false,_vlen,0];
+		this.texcoord=[2,0x1406,false,_vlen,2 *CONST3D2D.BYTES_PE];
+		this.color=[4,0x1406,false,_vlen,4 *CONST3D2D.BYTES_PE];
+	}
+
+	__class(SkinSV,'laya.webgl.shader.d2.skinAnishader.SkinSV',_super);
+	return SkinSV;
+})(Value2D)
+
+
 /**
 *<code>Loader</code> 类可用来加载文本、JSON、XML、二进制、图像等资源。
 */
@@ -45578,25 +45597,6 @@ var Loader=(function(_super){
 	Loader._startIndex=0;
 	return Loader;
 })(EventDispatcher)
-
-
-//class laya.webgl.shader.d2.skinAnishader.SkinSV extends laya.webgl.shader.d2.value.Value2D
-var SkinSV=(function(_super){
-	function SkinSV(type){
-		this.texcoord=null;
-		this.position=null;
-		this.offsetX=300;
-		this.offsetY=0;
-		SkinSV.__super.call(this,0x200,0);
-		var _vlen=8 *CONST3D2D.BYTES_PE;
-		this.position=[2,0x1406,false,_vlen,0];
-		this.texcoord=[2,0x1406,false,_vlen,2 *CONST3D2D.BYTES_PE];
-		this.color=[4,0x1406,false,_vlen,4 *CONST3D2D.BYTES_PE];
-	}
-
-	__class(SkinSV,'laya.webgl.shader.d2.skinAnishader.SkinSV',_super);
-	return SkinSV;
-})(Value2D)
 
 
 /**
@@ -73545,7 +73545,8 @@ var Rigidbody3D=(function(_super){
 		var rigidBody=rigidBody3D;
 		rigidBody._simulation._updatedRigidbodies++;
 		var physics3D=Laya3D._physics3D;
-		var worldTrans=physics3D.wrapPointer(worldTransPointer,physics3D.btTransform);
+		var worldTrans=physics3D.wrapPointer(worldTransPointer,physics3D.btTransform)
+		;
 		rigidBody._updateTransformComponent(worldTrans);
 	}
 
