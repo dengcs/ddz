@@ -4201,12 +4201,12 @@ var GameConfig=(function(){
 		reg("common.ButtonRunTime",ButtonRunTime);
 	}
 
-	GameConfig.width=640;
-	GameConfig.height=1136;
-	GameConfig.scaleMode="fixedwidth";
-	GameConfig.screenMode="none";
+	GameConfig.width=1140;
+	GameConfig.height=855;
+	GameConfig.scaleMode="showall";
+	GameConfig.screenMode="horizontal";
 	GameConfig.alignV="top";
-	GameConfig.alignH="left";
+	GameConfig.alignH="center";
 	GameConfig.startScene="main.scene";
 	GameConfig.sceneRoot="";
 	GameConfig.debug=false;
