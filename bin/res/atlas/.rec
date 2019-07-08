@@ -42,4 +42,9 @@ P 5FD17798 vscroll.png
 P DDDDFB9E vslider$bar.png
 P 01BAE7F5 vslider.png
 D game
-R 64430C96 home_bg.jpg
+R 64430C96 main_bg.jpg
+D game/main_btn
+P 47D2A221 room_cc_dsc.png
+P B78A3898 room_cc_gjc.png
+P 562E3E6F room_cc_jyc.png
+P 5174630D room_cc_xsc.png

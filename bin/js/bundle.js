@@ -4209,14 +4209,15 @@ var GameConfig=(function(){
 	__class(GameConfig,'GameConfig');
 	GameConfig.init=function(){
 		var reg=ClassUtils.regClass;
+		reg("common.ButtonRunTime",ButtonRunTime);
 	}
 
-	GameConfig.width=1140;
-	GameConfig.height=855;
-	GameConfig.scaleMode="showall";
-	GameConfig.screenMode="horizontal";
+	GameConfig.width=640;
+	GameConfig.height=1136;
+	GameConfig.scaleMode="fixedwidth";
+	GameConfig.screenMode="none";
 	GameConfig.alignV="top";
-	GameConfig.alignH="center";
+	GameConfig.alignH="left";
 	GameConfig.startScene="main.scene";
 	GameConfig.sceneRoot="";
 	GameConfig.debug=false;
@@ -82449,6 +82450,32 @@ var TrailSprite3D=(function(_super){
 	]);
 	return TrailSprite3D;
 })(RenderableSprite3D)
+
+
+/**
+*...
+*@dengcs
+*/
+//class common.ButtonRunTime extends laya.ui.Button
+var ButtonRunTime=(function(_super){
+	function ButtonRunTime(){
+		ButtonRunTime.__super.call(this);
+		this.on("mousedown",this,this.on_mousedown);
+		this.on("mouseout",this,this.on_mouseout);
+	}
+
+	__class(ButtonRunTime,'common.ButtonRunTime',_super);
+	var __proto=ButtonRunTime.prototype;
+	__proto.on_mousedown=function(){
+		Tween.to(this,{scaleX:1.1,scaleY:1.1},100);
+	}
+
+	__proto.on_mouseout=function(){
+		Tween.to(this,{scaleX:1,scaleY:1},100);
+	}
+
+	return ButtonRunTime;
+})(Button)
 
 
 /**
