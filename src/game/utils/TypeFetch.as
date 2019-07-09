@@ -11,6 +11,10 @@ package game.utils
 	 * @dengcs
 	 */
 	public class TypeFetch{
+		public static function getCardVal(card:int):int
+		{
+			return Math.ceil(card/4);
+		}
 
 		public static function get_mode(cards:Vector.<int>):Dictionary
 		{
@@ -18,7 +22,7 @@ package game.utils
 			var mode:Dictionary = new Dictionary();
 			for(var i:int in cards)
 			{
-				var card:int = GameFunctions.getCardVal(cards[i]);
+				var card:int = getCardVal(cards[i]);
 				var data:Array = mode.get(card);
 				if(data == null)
 				{

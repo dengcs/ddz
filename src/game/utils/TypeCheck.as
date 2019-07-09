@@ -10,6 +10,28 @@ package game.utils
 	 * @dengcs
 	 */
 	public class TypeCheck{
+		public static function getCardVal(card:int):int
+		{
+			return Math.ceil(card/4);
+		}
+
+		public static function compareObjDes(a:Object, b:Object):Number
+		{
+			if(a.value < b.value)
+			{
+				return 1;
+			}
+			return -1;
+		}
+
+		public static function compareIntAsc(x:int, y:int):Number
+		{
+			if(x > y)
+			{
+				return 1;
+			}
+			return -1;
+		}
 
 		public static function check_type(type:int, cards:Vector.<int>):int
 		{
@@ -252,7 +274,7 @@ package game.utils
 
 			if(len == 1)
 			{
-				return GameFunctions.getCardVal(cards[0]);
+				return getCardVal(cards[0]);
 			}
 
 			return 0;
@@ -264,8 +286,8 @@ package game.utils
 
 			if(len == 2)
 			{
-				var card1:int = GameFunctions.getCardVal(cards[0]);
-				var card2:int = GameFunctions.getCardVal(cards[1]);
+				var card1:int = getCardVal(cards[0]);
+				var card2:int = getCardVal(cards[1]);
 
 				if(card1 == card2 && card1 < GameConstants.GLOBAL_JOKER_VALUE)
 				{
@@ -282,9 +304,9 @@ package game.utils
 
 			if(len == 3)
 			{
-				var card1:int = GameFunctions.getCardVal(cards[0]);
-				var card2:int = GameFunctions.getCardVal(cards[1]);
-				var card3:int = GameFunctions.getCardVal(cards[2]);
+				var card1:int = getCardVal(cards[0]);
+				var card2:int = getCardVal(cards[1]);
+				var card3:int = getCardVal(cards[2]);
 
 				if(card1==card2 && card2==card3)
 				{
@@ -301,10 +323,10 @@ package game.utils
 
 			if(len == 4)
 			{
-				var card1:int = GameFunctions.getCardVal(cards[0]);
-				var card2:int = GameFunctions.getCardVal(cards[1]);
-				var card3:int = GameFunctions.getCardVal(cards[2]);
-				var card4:int = GameFunctions.getCardVal(cards[3]);
+				var card1:int = getCardVal(cards[0]);
+				var card2:int = getCardVal(cards[1]);
+				var card3:int = getCardVal(cards[2]);
+				var card4:int = getCardVal(cards[3]);
 
 				if(card1==card2 && card2==card3 && card3==card4)
 				{
@@ -321,8 +343,8 @@ package game.utils
 
 			if(len == 2)
 			{
-				var card1:int = GameFunctions.getCardVal(cards[0]);
-				var card2:int = GameFunctions.getCardVal(cards[1]);
+				var card1:int = getCardVal(cards[0]);
+				var card2:int = getCardVal(cards[1]);
 
 				if(card1 == card2 && card1 == GameConstants.GLOBAL_JOKER_VALUE)
 				{
@@ -339,14 +361,14 @@ package game.utils
 
 			if(len > 4)
 			{
-				cards.sort(GameFunctions.compareIntAsc);
+				cards.sort(compareIntAsc);
 
-				var firstcard:int = GameFunctions.getCardVal(cards[0]);
+				var firstcard:int = getCardVal(cards[0]);
 				var curcard:int = 0;
 				
 				for(var i:int = 0;i<len;i++)
 				{
-					curcard = GameFunctions.getCardVal(cards[i]);
+					curcard = getCardVal(cards[i]);
 					if(firstcard+i != curcard)
 					{
 						return 0;
@@ -368,19 +390,19 @@ package game.utils
 			var len:int = cards.length;
 			if(len > 5)
 			{
-				cards.sort(GameFunctions.compareIntAsc);
+				cards.sort(compareIntAsc);
 				var child_len:int = Math.ceil(len/2);
 				if(child_len*2 != len)
 				{
 					return 0;
 				}
 
-				var firstcard:int = GameFunctions.getCardVal(cards[0]);
+				var firstcard:int = getCardVal(cards[0]);
 				
 				for(var i:int = 0;i<child_len;i++)
 				{
-					var card1:int = GameFunctions.getCardVal(cards[i*2]);
-					var card2:int = GameFunctions.getCardVal(cards[i*2 + 1]);
+					var card1:int = getCardVal(cards[i*2]);
+					var card2:int = getCardVal(cards[i*2 + 1]);
 					if(card1 != card2)
 					{
 						return 0;
@@ -409,7 +431,7 @@ package game.utils
 
 			if(len > 5)
 			{
-				cards.sort(GameFunctions.compareIntAsc);
+				cards.sort(compareIntAsc);
 
 				var child_len:int = Math.ceil(len/3);
 				if(child_len*3 != len)
@@ -417,13 +439,13 @@ package game.utils
 					return 0;
 				}
 
-				var firstcard:int = GameFunctions.getCardVal(cards[0]);
+				var firstcard:int = getCardVal(cards[0]);
 				
 				for(var i:int = 0;i<child_len;i++)
 				{
-					var card1:int = GameFunctions.getCardVal(cards[i*3]);
-					var card2:int = GameFunctions.getCardVal(cards[i*3 + 1]);
-					var card3:int = GameFunctions.getCardVal(cards[i*3 + 2]);
+					var card1:int = getCardVal(cards[i*3]);
+					var card2:int = getCardVal(cards[i*3 + 1]);
+					var card3:int = getCardVal(cards[i*3 + 2]);
 					if(card1 != card2 || card2 != card3)
 					{
 						return 0;
@@ -457,7 +479,7 @@ package game.utils
 				var check_cards:Vector.<int> = new Vector.<int>();
 				for each(var item:int in cards)
 				{
-					var card:int = GameFunctions.getCardVal(item);
+					var card:int = getCardVal(item);
 					if(temp_data[card] == null)
 					{
 						temp_data[card] = 1;
@@ -478,7 +500,7 @@ package game.utils
 				}
 
 				// 判断连续
-				check_cards.sort(GameFunctions.compareIntAsc);
+				check_cards.sort(compareIntAsc);
 				var first_card:int = check_cards[0]
 				var target_card:int = check_cards[target_count - 1]
 				
@@ -503,7 +525,7 @@ package game.utils
 				var check_cards:Vector.<int> = new Vector.<int>();
 				for each(var item:int in cards)
 				{
-					var card:int = GameFunctions.getCardVal(item);
+					var card:int = getCardVal(item);
 					if(temp_data[card] == null)
 					{
 						temp_data[card] = 1;
@@ -533,7 +555,7 @@ package game.utils
 				}
 
 				// 判断连续
-				check_cards.sort(GameFunctions.compareIntAsc);
+				check_cards.sort(compareIntAsc);
 				var first_card:int = check_cards[0]
 				var target_card:int = check_cards[target_count - 1]
 				
@@ -555,7 +577,7 @@ package game.utils
 				var temp_data:Dictionary = new Dictionary();
 				for each(var item:int in cards)
 				{
-					var card:int = GameFunctions.getCardVal(item);
+					var card:int = getCardVal(item);
 					if(temp_data[card] == null)
 					{
 						temp_data[card] = 1;
@@ -581,7 +603,7 @@ package game.utils
 				var temp_data:Dictionary = new Dictionary();
 				for each(var item:int in cards)
 				{
-					var card:int = GameFunctions.getCardVal(item);
+					var card:int = getCardVal(item);
 					if(temp_data[card] == null)
 					{
 						temp_data[card] = 1;
@@ -609,7 +631,7 @@ package game.utils
 				var temp_data:Dictionary = new Dictionary();
 				for each(var item:int in cards)
 				{
-					var card:int = GameFunctions.getCardVal(item);
+					var card:int = getCardVal(item);
 					if(temp_data[card] == null)
 					{
 						temp_data[card] = 1;
