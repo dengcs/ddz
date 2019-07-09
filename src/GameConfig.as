@@ -4,6 +4,7 @@ package {
 	import laya.ui.View;
 	import laya.webgl.WebGL;
 	import common.ButtonRunTime;
+	import game.script.EnterScript;
 	/**
 	 * 游戏初始化配置
 	 */
@@ -25,6 +26,7 @@ package {
 			//注册Script或者Runtime引用
 			var reg:Function = ClassUtils.regClass;
 			reg("common.ButtonRunTime",ButtonRunTime);
+			reg("game.script.EnterScript",EnterScript);
 		}
 		GameConfig.init();
 	}

@@ -6,7 +6,7 @@
     "searchKey":"Scene",
     "props":{"width":1140,"sceneColor":"#000000","height":855},
     "nodeParent":-1,
-    "maxID":11,
+    "maxID":15,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -34,12 +34,28 @@
                     "props":{"y":222,"x":0,"stateNum":"1","skin":"main/btn/room_cc_xsc.png","runtime":"common.ButtonRunTime"},
                     "nodeParent":4,
                     "label":"Button",
-                    "isDirectory":false,
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":7,
                     "child":[
-                        ]
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/game/script/EnterScript.as",
+                            "searchKey":"Script,EnterScript",
+                            "removeAble":true,
+                            "props":{"btnType":1},
+                            "nodeParent":7,
+                            "label":"EnterScript",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":11,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "x":30,
@@ -48,12 +64,28 @@
                     "props":{"y":222,"x":286,"stateNum":"1","skin":"main/btn/room_cc_gjc.png","runtime":"common.ButtonRunTime"},
                     "nodeParent":4,
                     "label":"Button",
-                    "isDirectory":false,
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":8,
                     "child":[
-                        ]
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/game/script/EnterScript.as",
+                            "searchKey":"Script,EnterScript",
+                            "removeAble":true,
+                            "props":{"btnType":2},
+                            "nodeParent":8,
+                            "label":"EnterScript",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":12,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "x":30,
@@ -62,12 +94,28 @@
                     "props":{"y":222,"x":572,"stateNum":"1","skin":"main/btn/room_cc_dsc.png","runtime":"common.ButtonRunTime"},
                     "nodeParent":4,
                     "label":"Button",
-                    "isDirectory":false,
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":9,
                     "child":[
-                        ]
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/game/script/EnterScript.as",
+                            "searchKey":"Script,EnterScript",
+                            "removeAble":true,
+                            "props":{"btnType":3},
+                            "nodeParent":9,
+                            "label":"EnterScript",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":13,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "x":30,
@@ -76,12 +124,28 @@
                     "props":{"y":222,"x":858,"stateNum":"1","skin":"main/btn/room_cc_jyc.png","runtime":"common.ButtonRunTime"},
                     "nodeParent":4,
                     "label":"Button",
-                    "isDirectory":false,
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":10,
                     "child":[
-                        ]
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/game/script/EnterScript.as",
+                            "searchKey":"Script,EnterScript",
+                            "removeAble":true,
+                            "props":{"btnType":4},
+                            "nodeParent":10,
+                            "label":"EnterScript",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":14,
+                            "child":[
+                                ]
+                        }]
                 }]
         }],
     "animations":[

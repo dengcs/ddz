@@ -5,9 +5,6 @@ package common
 	 * @dengcs
 	 */
 	public class GameConstants{
-		public static const stageWidth:int = 1140;
-		public static const stageHeight:int = (1140 * 3) / 4;
-
 		public static const JOKER_SMALL_VALUE:int 		= 53; 	// 小王
 		public static const JOKER_BIG_VALUE:int 		= 54; 	// 大王
 
