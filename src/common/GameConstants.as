@@ -8,11 +8,12 @@ package common
 		public static const JOKER_SMALL_VALUE:int 		= 53; 	// 小王
 		public static const JOKER_BIG_VALUE:int 		= 54; 	// 大王
 
-		public static const GLOBAL_POKER_MAX:int 		= 54; 	// 扑克数量
+		public static const GLOBAL_POKER_NUM:int 		= 54; 	// 扑克数量
 		public static const GLOBAL_PLAYER_NUM:int		= 3;	// 玩家数量
-		public static const GLOBAL_POKER_NUM:int		= 17;	// 玩家扑克数量
-		public static const GLOBAL_POKER_VALUE2:int		= 13;	// 2的扑克值
-		public static const GLOBAL_JOKER_VALUE:int 		= 14; 	// 王的扑克值
+		public static const GLOBAL_PLAYER_POKER:int		= 17;	// 玩家扑克数量
+
+		public static const POKER_VALUE_2:int			= 13;	// 2的扑克值
+		public static const POKER_VALUE_JOKER:int 		= 14; 	// 王的扑克值
 
 		public static const POKER_TYPE_ONE:int 				= 1; // 单张
 		public static const POKER_TYPE_TWO:int 				= 2; // 对子
@@ -34,9 +35,10 @@ package common
 		public static const PLAY_STATE_DOUBLE:int			= 4; // 加倍
 		public static const PLAY_STATE_PLAY:int				= 5; // 游戏
 		public static const PLAY_STATE_OVER:int				= 6; // 结束
-		public static const PLAY_STATE_CARDS:int			= 11; // 底牌
+		public static const PLAY_STATE_BOTTOM:int			= 11; // 底牌
 
 		public static const gameAccount:String				= "dcs1001";
+		public static const gameScene:String				= "game.scene";
 	}
 
 }

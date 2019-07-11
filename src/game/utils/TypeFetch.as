@@ -2,7 +2,6 @@ package game.utils
 {
 
 	import game.utils.TypeFetch;
-	import common.GameFunctions;
 	import common.GameConstants;
 	import com.utils.Dictionary;
 
@@ -262,7 +261,7 @@ package game.utils
 				{
 					if(modeVals.length == 2)
 					{
-						if((card < firstVal && card < GameConstants.GLOBAL_JOKER_VALUE) || firstVal == 0)
+						if((card < firstVal && card < GameConstants.POKER_VALUE_JOKER) || firstVal == 0)
 						{
 							firstVal = card;
 						}
@@ -377,7 +376,7 @@ package game.utils
 			for each(var card:int in mode.keys)
 			{
 				var modeVals:Array = mode.get(card);
-				if(card == GameConstants.GLOBAL_JOKER_VALUE)
+				if(card == GameConstants.POKER_VALUE_JOKER)
 				{
 					if(modeVals.length == 2)
 					{						
@@ -434,7 +433,7 @@ package game.utils
 				}
 			}
 
-			if(max_value > 0 && max_value < GameConstants.GLOBAL_POKER_VALUE2)
+			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
 			{
 				for(var k:int = count; k>0; k--)
 				{
@@ -488,7 +487,7 @@ package game.utils
 				}
 			}
 
-			if(max_value > 0 && max_value < GameConstants.GLOBAL_POKER_VALUE2)
+			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)
@@ -546,7 +545,7 @@ package game.utils
 
 			}
 
-			if(max_value > 0 && max_value < GameConstants.GLOBAL_POKER_VALUE2)
+			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)
@@ -632,7 +631,7 @@ package game.utils
 				}
 			}
 
-			if(max_value > 0 && max_value < GameConstants.GLOBAL_POKER_VALUE2)
+			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)
@@ -747,7 +746,7 @@ package game.utils
 
 			}
 
-			if(max_value > 0 && max_value < GameConstants.GLOBAL_POKER_VALUE2)
+			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)

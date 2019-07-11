@@ -2,6 +2,7 @@ package game.script {
 	import laya.components.Script;
 	import laya.events.Event;
 	import laya.display.Scene;
+	import common.GameConstants;
 	
 	public class EnterScript extends Script {
 		/** @prop {name:btnType, tips:"比赛类型", type:Int, default:0}*/
@@ -24,7 +25,7 @@ package game.script {
 
 		private function on_open_game():void
 		{
-			Scene.open("game.scene");
+			Scene.open(GameConstants.gameScene);
 		}
 	}
 }

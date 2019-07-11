@@ -12,37 +12,37 @@ package game.control {
 			{
 				case GameConstants.PLAY_STATE_PREPARE:
 				{
-					trace(uData.msg);
+					trace("prepare", uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_DEAL:
 				{
-					trace(uData.msg);
+					trace("deal", uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_SNATCH:
 				{
-					trace(uData.msg);
+					trace("snatch", uData.msg);
 					break;
 				}
-				case GameConstants.PLAY_STATE_CARDS:
+				case GameConstants.PLAY_STATE_BOTTOM:
 				{
-					trace(uData.msg);					
+					trace("bottom", uData.msg);					
 					break;
 				}
 				case GameConstants.PLAY_STATE_DOUBLE:
 				{
-					trace(uData.msg);
+					trace("double", uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_PLAY:
 				{
-					trace(uData.msg);
+					trace("play", uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_OVER:
 				{
-					trace(uData.msg);
+					trace("over", uData.msg);
 					break;
 				}				
 				default:

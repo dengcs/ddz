@@ -3,6 +3,7 @@ package {
 	import laya.utils.ClassUtils;
 	import laya.ui.View;
 	import laya.webgl.WebGL;
+	import game.script.GameScript;
 	import common.ButtonRunTime;
 	import game.script.EnterScript;
 	/**
@@ -25,6 +26,7 @@ package {
 		public static function init():void {
 			//注册Script或者Runtime引用
 			var reg:Function = ClassUtils.regClass;
+			reg("game.script.GameScript",GameScript);
 			reg("common.ButtonRunTime",ButtonRunTime);
 			reg("game.script.EnterScript",EnterScript);
 		}

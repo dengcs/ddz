@@ -2,7 +2,6 @@ package game.utils
 {
 	import game.utils.TypeCheck;
 	import common.GameConstants;
-	import common.GameFunctions;
 	import com.utils.Dictionary;
 
 	/**
@@ -289,7 +288,7 @@ package game.utils
 				var card1:int = getCardVal(cards[0]);
 				var card2:int = getCardVal(cards[1]);
 
-				if(card1 == card2 && card1 < GameConstants.GLOBAL_JOKER_VALUE)
+				if(card1 == card2 && card1 < GameConstants.POKER_VALUE_JOKER)
 				{
 					return card1;
 				}
@@ -346,7 +345,7 @@ package game.utils
 				var card1:int = getCardVal(cards[0]);
 				var card2:int = getCardVal(cards[1]);
 
-				if(card1 == card2 && card1 == GameConstants.GLOBAL_JOKER_VALUE)
+				if(card1 == card2 && card1 == GameConstants.POKER_VALUE_JOKER)
 				{
 					return card1;
 				}
@@ -373,7 +372,7 @@ package game.utils
 					{
 						return 0;
 					}
-					if(curcard >= GameConstants.GLOBAL_POKER_VALUE2)
+					if(curcard >= GameConstants.POKER_VALUE_2)
 					{
 						return 0;
 					}
@@ -413,7 +412,7 @@ package game.utils
 						return 0;
 					}
 
-					if(card1 >= GameConstants.GLOBAL_POKER_VALUE2)
+					if(card1 >= GameConstants.POKER_VALUE_2)
 					{
 						return 0;
 					}
@@ -456,7 +455,7 @@ package game.utils
 						return 0;
 					}
 
-					if(card1 >= GameConstants.GLOBAL_POKER_VALUE2)
+					if(card1 >= GameConstants.POKER_VALUE_2)
 					{
 						return 0;
 					}
@@ -485,7 +484,7 @@ package game.utils
 						temp_data[card] = 1;
 					}else{
 						temp_data[card]++;
-						if(temp_data[card] == 3 && card < GameConstants.GLOBAL_POKER_VALUE2)
+						if(temp_data[card] == 3 && card < GameConstants.POKER_VALUE_2)
 						{
 							target_count++;
 							check_cards.push(card);
@@ -531,7 +530,7 @@ package game.utils
 						temp_data[card] = 1;
 					}else{
 						temp_data[card]++;
-						if(temp_data[card] == 3 && card < GameConstants.GLOBAL_POKER_VALUE2)
+						if(temp_data[card] == 3 && card < GameConstants.POKER_VALUE_2)
 						{
 							target_count++;
 							check_cards.push(card);
