@@ -11,16 +11,16 @@ package game.script {
 	import laya.utils.Handler;
 	
 	public class GameScript extends Script {
-		private var placeX0:int = 100;
+		private var placeX0:int = -300;
 		private var placeY0:int = 100;
-		private var placeX1:int = 200;
+		private var placeX1:int = 0;
 		private var placeY1:int = 100;
 		private var placeX2:int = 300;
 		private var placeY2:int = 100;
 		private var placeXStep1:int = 0;
 
 		private var ownerSprite:Sprite = null;
-		private var pokerList:Array.<Image> = new Array();
+		private var pokerList:Array = [];
 		
 		override public function onAwake():void
 		{
@@ -34,16 +34,16 @@ package game.script {
 			this.owner.offAllCaller(this);
 		}
 
-		override public function onStart():void
-		{
-			var roomMsg:room_create = new room_create();
-			roomMsg.channel = 1;
-			NetClient.send("room_create", roomMsg);
-		}
+		// override public function onStart():void
+		// {
+		// 	var roomMsg:room_create = new room_create();
+		// 	roomMsg.channel = 1;
+		// 	NetClient.send("room_create", roomMsg);
+		// }
 
 		private function onPrepare():void
 		{
-			if (pokerList.length > 0)
+			if (this.pokerList.length > 0)
 			{
 				for each(var pokerImg:Image in this.pokerList)
 				{
@@ -75,7 +75,7 @@ package game.script {
 
 			var pokerImg:Image = this.pokerList[index];
 
-			var x:int =0; // 发牌的目标位置x坐标
+			var x:int = 0; // 发牌的目标位置x坐标
 			var y:int = 0; // 发牌的目标位置y坐标
 			var scaleX:Number = 0.3;
 			var scaleY:Number = 0.3;
@@ -88,7 +88,7 @@ package game.script {
 				y = this.placeY0;
 			}else if(place == 1)
 			{
-				var offsetX:int = int(index/3) * this.placeXStep1;
+				var offsetX:int = Math.floor(index/3) * this.placeXStep1;
 				x = this.placeX1 + offsetX;
 				y = this.placeY1;
 				scaleX = 1;
@@ -98,7 +98,6 @@ package game.script {
 				x = this.placeX2;
 				y = this.placeY2;
 			}
-
 			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 300, Ease.strongIn, Handler.create(this,dealActionComplete,[pokerImg]));
 			Laya.timer.once(100, this, dealAction, [index + 1]);
 		}
