@@ -54,7 +54,6 @@ package game.handler
 		{
 			var resp_data:game_update_notify = new game_update_notify();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
-			trace(resp_data)
 
 			Action.update(resp_data.data);
 		}

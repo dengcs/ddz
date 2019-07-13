@@ -34,12 +34,12 @@ package game.script {
 			this.owner.offAllCaller(this);
 		}
 
-		// override public function onStart():void
-		// {
-		// 	var roomMsg:room_create = new room_create();
-		// 	roomMsg.channel = 1;
-		// 	NetClient.send("room_create", roomMsg);
-		// }
+		override public function onStart():void
+		{
+			var roomMsg:room_create = new room_create();
+			roomMsg.channel = 1;
+			NetClient.send("room_create", roomMsg);
+		}
 
 		private function onPrepare():void
 		{

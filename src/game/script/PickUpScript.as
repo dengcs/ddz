@@ -17,7 +17,7 @@ package game.script {
 
 		override public function onAwake():void
 		{
-			this.ownerSprite = this.owner as List;
+			this.ownerSprite = this.owner as List;			
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_DEAL, this, onDeal);
 		}
@@ -29,25 +29,26 @@ package game.script {
 
 		override public function onEnable():void
 		{
-			this.ownerSprite.array = this.dataArray;
 			this.ownerSprite.renderHandler = new Handler(this, onListRender);
 		}
 
 		private function onPrepare():void
 		{
 			this.dataArray = [];
+			this.ownerSprite.array = [];
+			this.ownerSprite.visible = false;
 		}
 
-		private function onDeal(data:Array):void
-		{
+		private function onDeal(... data):void
+		{			
 			var delay:int = 0;
 			for(var i:int = 0; i<data.length; i++)
 			{
 				delay = 300*(i+1);
 				var value:int = data[i];
-				Laya.timer.once(delay, this, onPickUp, [value]);
+				Laya.timer.once(delay, this, onPickUp, [value], false);
 			}
-			Laya.timer.once(delay, this, onPickUp);
+			Laya.timer.once(delay, this, tweenRotateIn);
 		}
 
 		private function onPickUp(rValue:int):void
@@ -60,13 +61,13 @@ package game.script {
 
 			if(rValue == GameConstants.JOKER_SMALL_VALUE)
 			{
-				itemData.literal = "game/poker/joker_small.png";
-				itemData.scolor = "";
-				itemData.bcolor = "game/poker/big_small.png";
+				itemData.pValue = "game/poker/joker_small.png";
+				itemData.pType1 = "";
+				itemData.pType2 = "game/poker/big_small.png";
 			}else if(rValue == GameConstants.JOKER_BIG_VALUE){
-				itemData.literal = "game/poker/joker_big.png";
-				itemData.scolor = "";
-				itemData.bcolor = "game/poker/big_joker.png";
+				itemData.pValue = "game/poker/joker_big.png";
+				itemData.pType1 = "";
+				itemData.pType2 = "game/poker/big_joker.png";
 			}else{
 				var colorStr:String = "red";
 				if(color%2 == 0)
@@ -74,31 +75,36 @@ package game.script {
 					colorStr = "black";
 				}
 				
-				itemData.literal = "game/poker/" + colorStr + "_" + value + ".png";
-				itemData.scolor = itemData.bcolor = "game/poker/big_" + color + ".png";
+				itemData.pValue = "game/poker/" + colorStr + "_" + value + ".png";
+				itemData.pType1 = itemData.pType2 = "game/poker/big_" + color + ".png";
 			}
 			this.dataArray.push(itemData);
+			this.update();
 		}
 
 		private function onListRender(cell:Box, index:int): void 
 		{
-			var item:Object = this.dataArray[index];
-
 			var parent:Sprite = cell.getChildAt(0) as Sprite;
 
-			var literalImg:Image = parent.getChildByName("literal") as Image;
-			var scolorImg:Image = literalImg.getChildByName("scolor") as Image;
-			var bcolorImg:Image = parent.getChildByName("bcolor") as Image;
+			var valueImg:Image = parent.getChildByName("value") as Image;
+			var typeImg1:Image = valueImg.getChildByName("type1") as Image;
+			var typeImg2:Image = parent.getChildByName("type2") as Image;
 
-			literalImg.skin = item.literal;
-			scolorImg.skin 	= item.scolor;
-			bcolorImg.skin 	= item.bcolor;
+			valueImg.skin 	= cell.dataSource.pValue;
+			typeImg1.skin 	= cell.dataSource.pType1;
+			typeImg2.skin 	= cell.dataSource.pType2;
 		}
 
-		public function sortAndUpdate():void
+		private function update():void
+		{
+			this.ownerSprite.array = this.dataArray;
+			this.ownerSprite.visible = true;
+		}
+
+		private function sortAndUpdate():void
 		{
 			this.dataArray.sort(compareObj);
-			this.ownerSprite.refresh();
+			this.update();
 
 			function compareObj(a:Object, b:Object):Number
 			{

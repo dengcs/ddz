@@ -6,12 +6,18 @@ package game.control {
 	import common.GameEvent;
 
 	public class Action {
-		public static function event(name:String, type:String, data:* = null):void
+		public static function event(names:Array, type:String, data:* = null):void
 		{
 			var gameNode:Node = Scene.root.getChildByName("gameScene");
 			if(gameNode)
 			{
-				var childNode:Node = gameNode.getChildByName(name);
+				var childNode:Node = null;
+				var parentNode:Node = gameNode;
+				for(var i:int = 0;i < names.length; i++)
+				{
+					childNode 	= parentNode.getChildByName(names[i]);
+					parentNode 	= childNode;
+				}
 				if(childNode)
 				{
 					childNode.event(type, data);
@@ -21,12 +27,14 @@ package game.control {
 
 		public static function doPrepare(msg:*):void
 		{			
-			event("dealPoker", GameEvent.EVENT_GAME_PREPARE)
+			event(["dealPosition"], GameEvent.EVENT_GAME_PREPARE)
+			event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE)
 		}
 
 		public static function doDeal(msg:*):void
 		{
-			event("dealPoker", GameEvent.EVENT_GAME_DEAL)
+			event(["dealPosition"], GameEvent.EVENT_GAME_DEAL)
+			event(["Layer1","myList"], GameEvent.EVENT_GAME_DEAL, msg)
 		}
 
 		public static function doSnatch(msg:*):void
