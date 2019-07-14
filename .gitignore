@@ -44,11 +44,6 @@ src/Main.as
 /release
 /.laya
 /libs
-.actionScriptProperties
-.project
-asconfig.json
-ddz.as3proj
-ddz.laya
 laya/.laya
 laya/engine.cfg
 laya/ignore.cfg
