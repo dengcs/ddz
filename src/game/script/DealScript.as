@@ -8,7 +8,7 @@ package game.script {
 	import laya.utils.Ease;
 	import laya.utils.Handler;
 	
-	public class GameScript extends Script {
+	public class DealScript extends Script {
 		private var placeX0:int = -300;
 		private var placeY0:int = 100;
 		private var placeX1:int = 0;
