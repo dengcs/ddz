@@ -5,7 +5,7 @@ package game.script {
 	import common.GameConstants;
 	import common.GameUtils;
 	
-	public class CommandScript extends Script {
+	public class CmdScript extends Script {
 		private var playBtn:Button = null;
 		private var promptBtn:Button = null;
 		private var cancelBtn:Button = null;
