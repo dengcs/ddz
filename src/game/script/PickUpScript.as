@@ -48,6 +48,7 @@ package game.script {
 				var value:int = data[i];
 				Laya.timer.once(delay, this, onPickUp, [value], false);
 			}
+			delay += 300;
 			Laya.timer.once(delay, this, tweenRotateIn);
 		}
 

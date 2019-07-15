@@ -1,7 +1,5 @@
 package game.script {
 	import laya.components.Script;
-	import game.proto.room_create;
-	import game.net.NetClient;
 	import common.GameEvent;
 	import laya.ui.Image;
 	import laya.display.Sprite;
@@ -36,9 +34,6 @@ package game.script {
 
 		override public function onStart():void
 		{
-			var roomMsg:room_create = new room_create();
-			roomMsg.channel = 1;
-			NetClient.send("room_create", roomMsg);
 		}
 
 		private function onPrepare():void
@@ -52,7 +47,7 @@ package game.script {
 			}
 			else
 			{
-				for(var i:int = 0; i<GameConstants.GLOBAL_POKER_NUM; i++)
+				for(var i:int = 0; i<GameConstants.GLOBAL_DEAL_NUM; i++)
 				{
 					pokerImg = new Image("game/poker/poker_bg.png");
 					this.pokerList.push(pokerImg);
@@ -68,7 +63,7 @@ package game.script {
 
 		public function dealAction(index:int):void
 		{
-			if(index >= GameConstants.GLOBAL_POKER_NUM)
+			if(index >= GameConstants.GLOBAL_DEAL_NUM)
 			{
 				return;
 			}
@@ -105,9 +100,7 @@ package game.script {
 		private function dealActionComplete(pokerImg:Image):void
 		{
 			pokerImg.visible = false;
-			pokerImg.pos(0, 0);
-			pokerImg.scaleX = 1;
-			pokerImg.scaleY = 1;
+			pokerImg.scale(1, 1).pos(0,0);
 		}
 	}
 }

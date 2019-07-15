@@ -5,6 +5,8 @@ package game.handler
 	import com.google.protobuf.CodedInputStream;
 	import game.proto.*;
 	import game.base.HandlerBase;
+	import laya.display.Scene;
+	import common.GameConstants;
 
 	/**
 	 * ...
@@ -39,6 +41,10 @@ package game.handler
 			var resp_data:room_create_resp = new room_create_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
+			if(resp_data.ret == 0)
+			{
+				Scene.open(GameConstants.gameScene);
+			}
 		}
 
 		private function handler_room_quit(ntMessage:NetMessage):void

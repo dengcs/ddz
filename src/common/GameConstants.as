@@ -8,6 +8,7 @@ package common
 		public static const JOKER_SMALL_VALUE:int 		= 53; 	// 小王
 		public static const JOKER_BIG_VALUE:int 		= 54; 	// 大王
 
+		public static const GLOBAL_DEAL_NUM:int 		= 51; 	// 发牌数量
 		public static const GLOBAL_POKER_NUM:int 		= 54; 	// 扑克数量
 		public static const GLOBAL_PLAYER_NUM:int		= 3;	// 玩家数量
 		public static const GLOBAL_PLAYER_POKER:int		= 17;	// 玩家扑克数量

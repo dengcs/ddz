@@ -1,8 +1,8 @@
 package game.script {
 	import laya.components.Script;
 	import laya.events.Event;
-	import laya.display.Scene;
-	import common.GameConstants;
+	import game.proto.room_create;
+	import game.net.NetClient;
 	
 	public class EnterScript extends Script {
 		/** @prop {name:btnType, tips:"比赛类型", type:Int, default:0}*/
@@ -25,7 +25,9 @@ package game.script {
 
 		private function on_open_game():void
 		{
-			Scene.open(GameConstants.gameScene);
+			var roomMsg:room_create = new room_create();
+			roomMsg.channel = 1;
+			NetClient.send("room_create", roomMsg);
 		}
 	}
 }
