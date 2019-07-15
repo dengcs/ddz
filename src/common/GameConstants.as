@@ -38,7 +38,6 @@ package common
 		public static const PLAY_STATE_OVER:int				= 6; // 结束
 		public static const PLAY_STATE_BOTTOM:int			= 11; // 底牌
 
-		public static const gameAccount:String				= "dcs1001";
 		public static const gameScene:String				= "game.scene";
 	}
 

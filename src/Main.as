@@ -7,6 +7,7 @@
 	import laya.utils.Stat;
 	import laya.utils.Utils;
 	import game.net.NetClient;
+	import common.GameStatic;
 	
 	public class Main {
 		public function Main() {
@@ -38,7 +39,7 @@
 		}
 		
 		private function onConfigLoaded():void {
-			NetClient.connect("ws://192.168.188.82:50001");
+			NetClient.connect(GameStatic.gameURL);
 			//加载场景
 			GameConfig.startScene && Scene.open(GameConfig.startScene);
 			NetClient.handshake();

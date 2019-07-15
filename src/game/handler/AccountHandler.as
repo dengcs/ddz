@@ -6,7 +6,7 @@ package game.handler
 	import laya.utils.Handler;
 	import game.net.NetClient;
 	import game.proto.*;
-	import common.GameConstants;
+	import common.GameStatic;
 
 	/**
 	 * ...
@@ -62,7 +62,7 @@ package game.handler
 			{
 				var qp_msg:query_players = new query_players();
 				
-				qp_msg.account = GameConstants.gameAccount;
+				qp_msg.account = GameStatic.gameAccount;
 				
 				NetClient.send("query_players", qp_msg);
 			}

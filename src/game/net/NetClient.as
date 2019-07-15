@@ -6,7 +6,7 @@ package game.net
 	import game.net.NetSocket;
 	import game.net.NetClient;
 	import game.proto.*;
-	import common.GameConstants;
+	import common.GameStatic;
 	/**
 	 * ...
 	 * @dengcs
@@ -38,7 +38,7 @@ package game.net
 		{
 			var reg:register = new register();
 				
-			reg.account 	= GameConstants.gameAccount;
+			reg.account 	= GameStatic.gameAccount;
 			reg.passwd 	= "12345678";
 			
 			send("register", reg);

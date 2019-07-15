@@ -3,8 +3,7 @@ package game.script {
 	import laya.ui.Button;
 	import laya.events.Event;
 	import common.GameConstants;
-	import game.proto.game_update;
-	import game.net.NetClient;
+	import common.GameUtils;
 	
 	public class CommandScript extends Script {
 		private var playBtn:Button = null;
@@ -20,13 +19,6 @@ package game.script {
 			playBtn.on(Event.CLICK, this, onClickPlay);
 			promptBtn.on(Event.CLICK, this, onClickPrompt);
 			cancelBtn.on(Event.CLICK, this, onClickCancel);
-		}
-
-		private function notify_game_update(data:Object):void
-		{
-			var sendMsg:game_update = new game_update();
-			sendMsg.data = JSON.stringify(data);
-			NetClient.send("game_update", sendMsg);
 		}
 
 		private function onClickPlay():void
@@ -45,7 +37,7 @@ package game.script {
 			msgData.cmd = GameConstants.PLAY_STATE_PLAY;
 			msgData.msg = 0;
 
-			this.notify_game_update(msgData);
+			GameUtils.notify_game_update(msgData);
 		}
 	}
 }
