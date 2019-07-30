@@ -9,13 +9,13 @@ package game.script {
 	import laya.utils.Handler;
 	
 	public class DealScript extends Script {
-		private var placeX0:int = -300;
-		private var placeY0:int = 100;
-		private var placeX1:int = 0;
-		private var placeY1:int = 100;
-		private var placeX2:int = 300;
-		private var placeY2:int = 100;
-		private var placeXStep1:int = 0;
+		private var placeX0:int = -450;
+		private var placeY0:int = 400;
+		private var placeX1:int = -404;
+		private var placeY1:int = 630;
+		private var placeX2:int = 450;
+		private var placeY2:int = 400;
+		private var placeXStep1:int = 45;
 
 		private var ownerSprite:Sprite = null;
 		private var pokerList:Array = [];
