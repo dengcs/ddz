@@ -11,11 +11,11 @@ package game.script {
 	public class DealScript extends Script {
 		private var placeX0:int = -450;
 		private var placeY0:int = 400;
-		private var placeX1:int = -404;
-		private var placeY1:int = 630;
+		private var placeX1:int = -403;
+		private var placeY1:int = 410;
 		private var placeX2:int = 450;
 		private var placeY2:int = 400;
-		private var placeXStep1:int = 45;
+		private var placeXStep1:int = 41;
 
 		private var ownerSprite:Sprite = null;
 		private var pokerList:Array = [];
