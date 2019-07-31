@@ -7,6 +7,7 @@ package {
 	import game.script.PickUpScript;
 	import common.ButtonRunTime;
 	import game.script.EnterScript;
+	import game.script.TestScript;
 	/**
 	 * 游戏初始化配置
 	 */
@@ -17,7 +18,7 @@ package {
 		public static var screenMode:String = "horizontal";
 		public static var alignV:String = "top";
 		public static var alignH:String = "center";
-		public static var startScene:* = "main.scene";
+		public static var startScene:* = "test.scene";
 		public static var sceneRoot:String = "";
 		public static var debug:Boolean = false;
 		public static var stat:Boolean = false;
@@ -31,6 +32,7 @@ package {
 			reg("game.script.PickUpScript",PickUpScript);
 			reg("common.ButtonRunTime",ButtonRunTime);
 			reg("game.script.EnterScript",EnterScript);
+			reg("game.script.TestScript",TestScript);
 		}
 		GameConfig.init();
 	}
