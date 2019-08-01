@@ -3,6 +3,7 @@ package game.manager
 	import game.manager.MessageManager;
 	import game.proto.NetMessage;
 	import game.handler.*;
+	import game.handler.MailHandler;
 
 	/**
 	 * ...
@@ -29,7 +30,8 @@ package game.manager
 			AccountHandler.getInstance();
 			PlayerHandler.getInstance();
 			RoomHandler.getInstance();
-			GameHandler.getInstance();			
+			GameHandler.getInstance();
+			MailHandler.getInstance();
 		}
 
 		public function messageDispatcher(ntMessage:NetMessage):void
