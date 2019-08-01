@@ -3,6 +3,8 @@ package game.script {
 	import laya.ui.TextInput;
 	import laya.ui.Button;
 	import laya.events.Event;
+	import game.proto.game_cmd_test;
+	import game.net.NetClient;
 	
 	public class TestScript extends Script {
 		private var txtCmd:TextInput;
@@ -21,6 +23,12 @@ package game.script {
 		private function onSubmit():void
 		{
 			trace(txtCmd.text)
+
+			var msg_data:game_cmd_test = new game_cmd_test();
+				
+			msg_data.cmdStr = txtCmd.text
+			
+			NetClient.send("game_cmd_test", msg_data);
 		}
 	}
 }
