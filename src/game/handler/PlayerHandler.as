@@ -30,13 +30,13 @@ package game.handler
 		private function registerMessage():void
 		{
 			var msgManager:MessageManager = MessageManager.getInstance();
-			msgManager.registerMessage("query_players_resp", new Handler(this, handler_query_players_resp));
-			msgManager.registerMessage("create_player_resp", new Handler(this, handler_create_player_resp));
-			msgManager.registerMessage("player_login_resp", new Handler(this, handler_player_login_resp));
-			msgManager.registerMessage("game_login_resp", new Handler(this, handler_game_login_resp));			
+			msgManager.registerMessage("query_players_resp", new Handler(this, handler_query_players));
+			msgManager.registerMessage("create_player_resp", new Handler(this, handler_create_player));
+			msgManager.registerMessage("player_login_resp", new Handler(this, handler_player_login));
+			msgManager.registerMessage("game_login_resp", new Handler(this, handler_game_login));			
 		}
 
-		private function handler_query_players_resp(ntMessage:NetMessage):void
+		private function handler_query_players(ntMessage:NetMessage):void
 		{
 			var resp_data:query_players_resp = new query_players_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
@@ -57,7 +57,7 @@ package game.handler
 			}
 		}
 
-		private function handler_create_player_resp(ntMessage:NetMessage):void
+		private function handler_create_player(ntMessage:NetMessage):void
 		{
 			var resp_data:create_player_resp = new create_player_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
@@ -71,7 +71,7 @@ package game.handler
 			}
 		}
 
-		private function handler_player_login_resp(ntMessage:NetMessage):void
+		private function handler_player_login(ntMessage:NetMessage):void
 		{
 			var resp_data:player_login_resp = new player_login_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
@@ -85,7 +85,7 @@ package game.handler
 			}
 		}
 
-		private function handler_game_login_resp(ntMessage:NetMessage):void
+		private function handler_game_login(ntMessage:NetMessage):void
 		{
 			var resp_data:game_login_resp = new game_login_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));

@@ -31,12 +31,12 @@ package game.handler
 		private function registerMessage():void
 		{
 			var msgManager:MessageManager = MessageManager.getInstance();
-			msgManager.registerMessage("register_resp", new Handler(this, handler_register_resp));
-			msgManager.registerMessage("verify_resp", new Handler(this, handler_verify_resp));
-			msgManager.registerMessage("kick_notify", new Handler(this, handler_kick_notify));
+			msgManager.registerMessage("register_resp", new Handler(this, handler_register));
+			msgManager.registerMessage("verify_resp", new Handler(this, handler_verify));
+			msgManager.registerMessage("kick_notify", new Handler(this, handler_kick));
 		}
 
-		private function handler_register_resp(ntMessage:NetMessage):void
+		private function handler_register(ntMessage:NetMessage):void
 		{
 			var resp_data:register_resp = new register_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
@@ -52,7 +52,7 @@ package game.handler
 			}
 		}
 
-		private function handler_verify_resp(ntMessage:NetMessage):void
+		private function handler_verify(ntMessage:NetMessage):void
 		{
 			var resp_data:verify_resp = new verify_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
@@ -68,7 +68,7 @@ package game.handler
 			}
 		}		
 
-		private function handler_kick_notify(ntMessage:NetMessage):void
+		private function handler_kick(ntMessage:NetMessage):void
 		{
 			var resp_data:kick_notify = new kick_notify();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));

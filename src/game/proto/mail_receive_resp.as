@@ -2,8 +2,8 @@ package game.proto {
 import com.google.protobuf.*;
 import game.proto.mail$attachment;
 
-public class center_mail_receive_resp extends Message {
-    public function center_mail_receive_resp() {
+public class mail_receive_resp extends Message {
+    public function mail_receive_resp() {
     }
 
     private var _ret:int = 0;

@@ -1,8 +1,8 @@
 package game.proto {
 import com.google.protobuf.*;
 
-public class center_friend_reject_application_resp extends Message {
-    public function center_friend_reject_application_resp() {
+public class mail_open_resp extends Message {
+    public function mail_open_resp() {
     }
 
     private var _ret:int = 0;
@@ -13,20 +13,20 @@ public class center_friend_reject_application_resp extends Message {
         _ret = value;
     }
 
-    private var _pid:String = "";
-    public function get pid():String {
-        return _pid;
+    private var _ids:Vector.<String> = new Vector.<String>();
+    public function get ids():Vector.<String> {
+        return _ids;
     }
-    public function set pid(value:String):void {
-        _pid = value || "";
+    public function set ids(value:Vector.<String>):void {
+        _ids = value || new Vector.<String>();
     }
 
     override public function writeTo(output:CodedOutputStream):void {
         if (!(_ret == 0)) {
             output.writeUInt32(1, _ret);
         }
-        if (!(_pid.length == 0)) {
-            output.writeString(2, _pid);
+        if (_ids.length > 0) {
+            output.writeVector(_ids, 2, FieldDescriptorType.STRING);
         }
 
         super.writeTo(output);
@@ -50,7 +50,7 @@ public class center_friend_reject_application_resp extends Message {
                     break;
                 }
                 case 18: {
-                    _pid = input.readString();
+                    _ids.push(input.readString());
                     break;
                 }
             }

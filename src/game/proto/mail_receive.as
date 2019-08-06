@@ -1,16 +1,8 @@
 package game.proto {
 import com.google.protobuf.*;
 
-public class center_mail_remove_resp extends Message {
-    public function center_mail_remove_resp() {
-    }
-
-    private var _ret:int = 0;
-    public function get ret():int {
-        return _ret;
-    }
-    public function set ret(value:int):void {
-        _ret = value;
+public class mail_receive extends Message {
+    public function mail_receive() {
     }
 
     private var _ids:Vector.<String> = new Vector.<String>();
@@ -22,11 +14,8 @@ public class center_mail_remove_resp extends Message {
     }
 
     override public function writeTo(output:CodedOutputStream):void {
-        if (!(_ret == 0)) {
-            output.writeUInt32(1, _ret);
-        }
         if (_ids.length > 0) {
-            output.writeVector(_ids, 2, FieldDescriptorType.STRING);
+            output.writeVector(_ids, 1, FieldDescriptorType.STRING);
         }
 
         super.writeTo(output);
@@ -45,11 +34,7 @@ public class center_mail_remove_resp extends Message {
                     }
                     break;
                 }
-                case 8: {
-                    _ret = input.readUInt32();
-                    break;
-                }
-                case 18: {
+                case 10: {
                     _ids.push(input.readString());
                     break;
                 }

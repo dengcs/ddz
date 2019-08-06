@@ -2,8 +2,8 @@ package game.proto {
 import com.google.protobuf.*;
 import game.proto.friend;
 
-public class center_friend_append_enemy_resp extends Message {
-    public function center_friend_append_enemy_resp() {
+public class friend_search_resp extends Message {
+    public function friend_search_resp() {
     }
 
     private var _ret:int = 0;

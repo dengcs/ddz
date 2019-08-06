@@ -1,22 +1,11 @@
 package game.proto {
 import com.google.protobuf.*;
 
-public class center_friend_reject_application extends Message {
-    public function center_friend_reject_application() {
-    }
-
-    private var _pid:String = "";
-    public function get pid():String {
-        return _pid;
-    }
-    public function set pid(value:String):void {
-        _pid = value || "";
+public class friend_access extends Message {
+    public function friend_access() {
     }
 
     override public function writeTo(output:CodedOutputStream):void {
-        if (!(_pid.length == 0)) {
-            output.writeString(1, _pid);
-        }
 
         super.writeTo(output);
     }
@@ -32,10 +21,6 @@ public class center_friend_reject_application extends Message {
                     if (!input.skipField(tag)) {
                         return;
                     }
-                    break;
-                }
-                case 10: {
-                    _pid = input.readString();
                     break;
                 }
             }

@@ -30,13 +30,13 @@ package game.handler
 		private function registerMessage():void
 		{
 			var msgManager:MessageManager = MessageManager.getInstance();
-			msgManager.registerMessage("mail_append_notice", new Handler(this, notify_mail_append_notice));
-			msgManager.registerMessage("center_mail_open_resp", new Handler(this, handler_mail_open_resp));
-			msgManager.registerMessage("center_mail_remove_resp", new Handler(this, handler_mail_remove_resp));
-			msgManager.registerMessage("center_mail_receive_resp", new Handler(this, handler_mail_receive_resp));
+			msgManager.registerMessage("mail_append_notice", new Handler(this, notify_mail_append));
+			msgManager.registerMessage("mail_open_resp", new Handler(this, handler_mail_open));
+			msgManager.registerMessage("mail_remove_resp", new Handler(this, handler_mail_remove));
+			msgManager.registerMessage("mail_receive_resp", new Handler(this, handler_mail_receive));
 		}
 
-		private function notify_mail_append_notice(ntMessage:NetMessage):void
+		private function notify_mail_append(ntMessage:NetMessage):void
 		{
 			trace(ntMessage)
 			var resp_data:mail_append_notice = new mail_append_notice();
@@ -44,23 +44,23 @@ package game.handler
 			trace(resp_data)
 		}
 
-		private function handler_mail_open_resp(ntMessage:NetMessage):void
+		private function handler_mail_open(ntMessage:NetMessage):void
 		{
-			var resp_data:center_mail_open_resp = new center_mail_open_resp();
+			var resp_data:mail_open_resp = new mail_open_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}
 
-		private function handler_mail_remove_resp(ntMessage:NetMessage):void
+		private function handler_mail_remove(ntMessage:NetMessage):void
 		{
-			var resp_data:center_mail_remove_resp = new center_mail_remove_resp();
+			var resp_data:mail_remove_resp = new mail_remove_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}
 
-		private function handler_mail_receive_resp(ntMessage:NetMessage):void
+		private function handler_mail_receive(ntMessage:NetMessage):void
 		{
-			var resp_data:center_mail_receive_resp = new center_mail_receive_resp();
+			var resp_data:mail_receive_resp = new mail_receive_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}

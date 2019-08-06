@@ -1,8 +1,8 @@
 package game.proto {
 import com.google.protobuf.*;
 
-public class center_friend_agree_application_resp extends Message {
-    public function center_friend_agree_application_resp() {
+public class friend_remove_enemy_resp extends Message {
+    public function friend_remove_enemy_resp() {
     }
 
     private var _ret:int = 0;

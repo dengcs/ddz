@@ -30,71 +30,71 @@ package game.handler
 		private function registerMessage():void
 		{
 			var msgManager:MessageManager = MessageManager.getInstance();
-			msgManager.registerMessage("center_friend_access_resp", new Handler(this, handler_friend_access_resp));
-			msgManager.registerMessage("center_friend_search_resp", new Handler(this, handler_friend_search_resp));
-			msgManager.registerMessage("center_friend_submit_application_resp", new Handler(this, handler_friend_submit_application));
-			msgManager.registerMessage("center_friend_agree_application_resp", new Handler(this, handler_friend_agree_application));
-			msgManager.registerMessage("center_friend_reject_application_resp", new Handler(this, handler_friend_reject_application));
-			msgManager.registerMessage("center_friend_delete_resp", new Handler(this, handler_friend_delete));
-			msgManager.registerMessage("center_friend_append_enemy_resp", new Handler(this, handler_friend_append_enemy));
-			msgManager.registerMessage("center_friend_remove_enemy_resp", new Handler(this, handler_friend_remove_enemy));
+			msgManager.registerMessage("friend_access_resp", new Handler(this, handler_friend_access));
+			msgManager.registerMessage("friend_search_resp", new Handler(this, handler_friend_search));
+			msgManager.registerMessage("friend_submit_application_resp", new Handler(this, handler_friend_submit_application));
+			msgManager.registerMessage("friend_agree_application_resp", new Handler(this, handler_friend_agree_application));
+			msgManager.registerMessage("friend_reject_application_resp", new Handler(this, handler_friend_reject_application));
+			msgManager.registerMessage("friend_delete_resp", new Handler(this, handler_friend_delete));
+			msgManager.registerMessage("friend_append_enemy_resp", new Handler(this, handler_friend_append_enemy));
+			msgManager.registerMessage("friend_remove_enemy_resp", new Handler(this, handler_friend_remove_enemy));
 			msgManager.registerMessage("friend_add_notice", new Handler(this, notify_friend_add));
 			msgManager.registerMessage("friend_del_notice", new Handler(this, notify_friend_del));
 			msgManager.registerMessage("friend_authorize_notice", new Handler(this, notify_friend_authorize));
 		}
 
-		private function handler_friend_access_resp(ntMessage:NetMessage):void
+		private function handler_friend_access(ntMessage:NetMessage):void
 		{
-			var resp_data:center_friend_access_resp = new center_friend_access_resp();
+			var resp_data:friend_access_resp = new friend_access_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}
 
-		private function handler_friend_search_resp(ntMessage:NetMessage):void
+		private function handler_friend_search(ntMessage:NetMessage):void
 		{
-			var resp_data:center_friend_search_resp = new center_friend_search_resp();
+			var resp_data:friend_search_resp = new friend_search_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}
 
 		private function handler_friend_submit_application(ntMessage:NetMessage):void
 		{
-			var resp_data:center_friend_submit_application_resp = new center_friend_submit_application_resp();
+			var resp_data:friend_submit_application_resp = new friend_submit_application_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}
 
 		private function handler_friend_agree_application(ntMessage:NetMessage):void
 		{
-			var resp_data:center_friend_agree_application_resp = new center_friend_agree_application_resp();
+			var resp_data:friend_agree_application_resp = new friend_agree_application_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}
 
 		private function handler_friend_reject_application(ntMessage:NetMessage):void
 		{
-			var resp_data:center_friend_reject_application_resp = new center_friend_reject_application_resp();
+			var resp_data:friend_reject_application_resp = new friend_reject_application_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}
 
 		private function handler_friend_delete(ntMessage:NetMessage):void
 		{
-			var resp_data:center_friend_delete_resp = new center_friend_delete_resp();
+			var resp_data:friend_delete_resp = new friend_delete_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}
 
 		private function handler_friend_append_enemy(ntMessage:NetMessage):void
 		{
-			var resp_data:center_friend_append_enemy_resp = new center_friend_append_enemy_resp();
+			var resp_data:friend_append_enemy_resp = new friend_append_enemy_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}
 
 		private function handler_friend_remove_enemy(ntMessage:NetMessage):void
 		{
-			var resp_data:center_friend_remove_enemy_resp = new center_friend_remove_enemy_resp();
+			var resp_data:friend_remove_enemy_resp = new friend_remove_enemy_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
 		}

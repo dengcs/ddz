@@ -2,8 +2,8 @@ package game.proto {
 import com.google.protobuf.*;
 import game.proto.friend;
 
-public class center_friend_access_resp extends Message {
-    public function center_friend_access_resp() {
+public class friend_access_resp extends Message {
+    public function friend_access_resp() {
     }
 
     private var _friendList:Vector.<game.proto.friend> = new Vector.<game.proto.friend>();

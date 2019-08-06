@@ -1,8 +1,8 @@
 package game.proto {
 import com.google.protobuf.*;
 
-public class center_friend_agree_application extends Message {
-    public function center_friend_agree_application() {
+public class friend_reject_application extends Message {
+    public function friend_reject_application() {
     }
 
     private var _pid:String = "";

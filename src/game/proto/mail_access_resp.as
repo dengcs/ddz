@@ -2,8 +2,8 @@ package game.proto {
 import com.google.protobuf.*;
 import game.proto.mail;
 
-public class center_mail_access_resp extends Message {
-    public function center_mail_access_resp() {
+public class mail_access_resp extends Message {
+    public function mail_access_resp() {
     }
 
     private var _mails:Vector.<game.proto.mail> = new Vector.<game.proto.mail>();

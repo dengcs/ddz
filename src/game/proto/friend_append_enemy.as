@@ -1,21 +1,21 @@
 package game.proto {
 import com.google.protobuf.*;
 
-public class center_mail_open extends Message {
-    public function center_mail_open() {
+public class friend_append_enemy extends Message {
+    public function friend_append_enemy() {
     }
 
-    private var _ids:Vector.<String> = new Vector.<String>();
-    public function get ids():Vector.<String> {
-        return _ids;
+    private var _pid:String = "";
+    public function get pid():String {
+        return _pid;
     }
-    public function set ids(value:Vector.<String>):void {
-        _ids = value || new Vector.<String>();
+    public function set pid(value:String):void {
+        _pid = value || "";
     }
 
     override public function writeTo(output:CodedOutputStream):void {
-        if (_ids.length > 0) {
-            output.writeVector(_ids, 1, FieldDescriptorType.STRING);
+        if (!(_pid.length == 0)) {
+            output.writeString(1, _pid);
         }
 
         super.writeTo(output);
@@ -35,7 +35,7 @@ public class center_mail_open extends Message {
                     break;
                 }
                 case 10: {
-                    _ids.push(input.readString());
+                    _pid = input.readString();
                     break;
                 }
             }

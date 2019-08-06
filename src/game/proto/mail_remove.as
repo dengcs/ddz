@@ -1,21 +1,21 @@
 package game.proto {
 import com.google.protobuf.*;
 
-public class center_friend_search extends Message {
-    public function center_friend_search() {
+public class mail_remove extends Message {
+    public function mail_remove() {
     }
 
-    private var _name:String = "";
-    public function get name():String {
-        return _name;
+    private var _ids:Vector.<String> = new Vector.<String>();
+    public function get ids():Vector.<String> {
+        return _ids;
     }
-    public function set name(value:String):void {
-        _name = value || "";
+    public function set ids(value:Vector.<String>):void {
+        _ids = value || new Vector.<String>();
     }
 
     override public function writeTo(output:CodedOutputStream):void {
-        if (!(_name.length == 0)) {
-            output.writeString(1, _name);
+        if (_ids.length > 0) {
+            output.writeVector(_ids, 1, FieldDescriptorType.STRING);
         }
 
         super.writeTo(output);
@@ -35,7 +35,7 @@ public class center_friend_search extends Message {
                     break;
                 }
                 case 10: {
-                    _name = input.readString();
+                    _ids.push(input.readString());
                     break;
                 }
             }

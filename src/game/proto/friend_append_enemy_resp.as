@@ -1,8 +1,9 @@
 package game.proto {
 import com.google.protobuf.*;
+import game.proto.friend;
 
-public class center_friend_submit_application_resp extends Message {
-    public function center_friend_submit_application_resp() {
+public class friend_append_enemy_resp extends Message {
+    public function friend_append_enemy_resp() {
     }
 
     private var _ret:int = 0;
@@ -13,20 +14,20 @@ public class center_friend_submit_application_resp extends Message {
         _ret = value;
     }
 
-    private var _pid:String = "";
-    public function get pid():String {
-        return _pid;
+    private var _data:game.proto.friend = null;
+    public function get data():game.proto.friend {
+        return _data;
     }
-    public function set pid(value:String):void {
-        _pid = value || "";
+    public function set data(value:game.proto.friend):void {
+        _data = value;
     }
 
     override public function writeTo(output:CodedOutputStream):void {
         if (!(_ret == 0)) {
             output.writeUInt32(1, _ret);
         }
-        if (!(_pid.length == 0)) {
-            output.writeString(2, _pid);
+        if (!(_data == null)) {
+            output.writeMessage(2, _data);
         }
 
         super.writeTo(output);
@@ -50,7 +51,8 @@ public class center_friend_submit_application_resp extends Message {
                     break;
                 }
                 case 18: {
-                    _pid = input.readString();
+                    _data = new game.proto.friend();
+                    input.readMessage(_data);
                     break;
                 }
             }

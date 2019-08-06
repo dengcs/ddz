@@ -1,8 +1,8 @@
 package game.proto {
 import com.google.protobuf.*;
 
-public class center_friend_remove_enemy extends Message {
-    public function center_friend_remove_enemy() {
+public class friend_remove_enemy extends Message {
+    public function friend_remove_enemy() {
     }
 
     private var _pid:String = "";
