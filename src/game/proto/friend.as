@@ -29,12 +29,12 @@ public class friend extends Message {
         _nickname = value || "";
     }
 
-    private var _portrait:int = 0;
-    public function get portrait():int {
+    private var _portrait:String = "";
+    public function get portrait():String {
         return _portrait;
     }
-    public function set portrait(value:int):void {
-        _portrait = value;
+    public function set portrait(value:String):void {
+        _portrait = value || "";
     }
 
     private var _level:int = 0;
@@ -55,8 +55,8 @@ public class friend extends Message {
         if (!(_nickname.length == 0)) {
             output.writeString(3, _nickname);
         }
-        if (!(_portrait == 0)) {
-            output.writeUInt32(4, _portrait);
+        if (!(_portrait.length == 0)) {
+            output.writeString(4, _portrait);
         }
         if (!(_level == 0)) {
             output.writeUInt32(5, _level);
@@ -90,8 +90,8 @@ public class friend extends Message {
                     _nickname = input.readString();
                     break;
                 }
-                case 32: {
-                    _portrait = input.readUInt32();
+                case 34: {
+                    _portrait = input.readString();
                     break;
                 }
                 case 40: {

@@ -37,12 +37,12 @@ public class chat_msg_notice extends Message {
         _sendLevel = value;
     }
 
-    private var _sendPortrait:int = 0;
-    public function get sendPortrait():int {
+    private var _sendPortrait:String = "";
+    public function get sendPortrait():String {
         return _sendPortrait;
     }
-    public function set sendPortrait(value:int):void {
-        _sendPortrait = value;
+    public function set sendPortrait(value:String):void {
+        _sendPortrait = value || "";
     }
 
     private var _receivePid:String = "";
@@ -82,8 +82,8 @@ public class chat_msg_notice extends Message {
         if (!(_sendLevel == 0)) {
             output.writeUInt32(4, _sendLevel);
         }
-        if (!(_sendPortrait == 0)) {
-            output.writeUInt32(5, _sendPortrait);
+        if (!(_sendPortrait.length == 0)) {
+            output.writeString(5, _sendPortrait);
         }
         if (!(_receivePid.length == 0)) {
             output.writeString(6, _receivePid);
@@ -127,8 +127,8 @@ public class chat_msg_notice extends Message {
                     _sendLevel = input.readUInt32();
                     break;
                 }
-                case 40: {
-                    _sendPortrait = input.readUInt32();
+                case 42: {
+                    _sendPortrait = input.readString();
                     break;
                 }
                 case 50: {

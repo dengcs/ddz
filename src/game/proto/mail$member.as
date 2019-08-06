@@ -21,12 +21,12 @@ public class mail$member extends Message {
         _nickname = value || "";
     }
 
-    private var _portrait:int = 0;
-    public function get portrait():int {
+    private var _portrait:String = "";
+    public function get portrait():String {
         return _portrait;
     }
-    public function set portrait(value:int):void {
-        _portrait = value;
+    public function set portrait(value:String):void {
+        _portrait = value || "";
     }
 
     override public function writeTo(output:CodedOutputStream):void {
@@ -36,8 +36,8 @@ public class mail$member extends Message {
         if (!(_nickname.length == 0)) {
             output.writeString(2, _nickname);
         }
-        if (!(_portrait == 0)) {
-            output.writeUInt32(3, _portrait);
+        if (!(_portrait.length == 0)) {
+            output.writeString(3, _portrait);
         }
 
         super.writeTo(output);
@@ -64,8 +64,8 @@ public class mail$member extends Message {
                     _nickname = input.readString();
                     break;
                 }
-                case 24: {
-                    _portrait = input.readUInt32();
+                case 26: {
+                    _portrait = input.readString();
                     break;
                 }
             }
