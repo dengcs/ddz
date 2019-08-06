@@ -38,7 +38,6 @@ package game.handler
 
 		private function notify_mail_append(ntMessage:NetMessage):void
 		{
-			trace(ntMessage)
 			var resp_data:mail_append_notice = new mail_append_notice();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)

@@ -5,6 +5,7 @@ package game.manager
 	import game.handler.*;
 	import game.handler.MailHandler;
 	import game.handler.FriendHandler;
+	import game.handler.ChatHandler;
 
 	/**
 	 * ...
@@ -34,6 +35,7 @@ package game.manager
 			GameHandler.getInstance();
 			MailHandler.getInstance();
 			FriendHandler.getInstance();
+			ChatHandler.getInstance();
 		}
 
 		public function messageDispatcher(ntMessage:NetMessage):void
