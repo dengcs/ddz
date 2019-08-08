@@ -6,6 +6,7 @@ package game.manager
 	import game.handler.MailHandler;
 	import game.handler.FriendHandler;
 	import game.handler.ChatHandler;
+	import game.handler.RankHandler;
 
 	/**
 	 * ...
@@ -36,6 +37,7 @@ package game.manager
 			MailHandler.getInstance();
 			FriendHandler.getInstance();
 			ChatHandler.getInstance();
+			RankHandler.getInstance();
 		}
 
 		public function messageDispatcher(ntMessage:NetMessage):void
