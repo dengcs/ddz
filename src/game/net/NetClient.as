@@ -46,11 +46,11 @@ package game.net
 
 		public static function handshake():void
 		{			
-			if(NetSocket.getInstance().isOpened() == false)
+			if(NetSocket.getInstance().isOpened())
 			{
-				Laya.timer.once(100, null, handshake);
-			}else{
 				login();
+			}else{
+				Laya.timer.once(100, null, handshake);
 			}
 		}
 	}
