@@ -10,7 +10,7 @@ package game.script {
 	import laya.utils.Tween;
 	import laya.utils.Ease;
 
-	public class PickUpScript extends Script {
+	public class RotateScript extends Script {
 		private var ownerSprite:List = null;
 
 		private var dataArray:Array = [];
@@ -104,9 +104,6 @@ package game.script {
 
 		private function sortAndUpdate():void
 		{
-			this.dataArray.sort(compareObj);
-			this.update();
-
 			function compareObj(a:Object, b:Object):Number
 			{
 				if(a.value < b.value)
@@ -115,6 +112,8 @@ package game.script {
 				}
 				return -1;
 			}
+			this.dataArray.sort(compareObj);
+			this.update();
 		}
 
 		private function tweenRotateIn():void

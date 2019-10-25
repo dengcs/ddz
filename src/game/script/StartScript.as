@@ -4,7 +4,7 @@ package game.script {
 	import game.proto.room_create;
 	import game.net.NetClient;
 	
-	public class EnterScript extends Script {
+	public class StartScript extends Script {
 		/** @prop {name:btnType, tips:"比赛类型", type:Int, default:0}*/
 		public var btnType: int = 0;
 

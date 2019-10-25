@@ -4,9 +4,10 @@ package {
 	import laya.ui.View;
 	import laya.webgl.WebGL;
 	import game.script.DealScript;
-	import game.script.PickUpScript;
+	import game.script.RotateScript;
+	import game.script.ControlScript;
 	import common.ButtonRunTime;
-	import game.script.EnterScript;
+	import game.script.StartScript;
 	import game.script.TestScript;
 	/**
 	 * 游戏初始化配置
@@ -18,7 +19,7 @@ package {
 		public static var screenMode:String = "horizontal";
 		public static var alignV:String = "top";
 		public static var alignH:String = "center";
-		public static var startScene:* = "test.scene";
+		public static var startScene:* = "main.scene";
 		public static var sceneRoot:String = "";
 		public static var debug:Boolean = false;
 		public static var stat:Boolean = false;
@@ -29,9 +30,10 @@ package {
 			//注册Script或者Runtime引用
 			var reg:Function = ClassUtils.regClass;
 			reg("game.script.DealScript",DealScript);
-			reg("game.script.PickUpScript",PickUpScript);
+			reg("game.script.RotateScript",RotateScript);
+			reg("game.script.ControlScript",ControlScript);
 			reg("common.ButtonRunTime",ButtonRunTime);
-			reg("game.script.EnterScript",EnterScript);
+			reg("game.script.StartScript",StartScript);
 			reg("game.script.TestScript",TestScript);
 		}
 		GameConfig.init();

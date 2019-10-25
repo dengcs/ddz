@@ -29,6 +29,7 @@ package game.control {
 		{			
 			event(["dealPosition"], GameEvent.EVENT_GAME_PREPARE)
 			event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE)
+			event(["Layer2"], GameEvent.EVENT_GAME_PREPARE)
 		}
 
 		public static function doDeal(msg:*):void
@@ -39,7 +40,7 @@ package game.control {
 
 		public static function doSnatch(msg:*):void
 		{
-			
+			event(["Layer2"], GameEvent.EVENT_GAME_SNATCH)			
 		}
 
 		public static function doBottom(msg:*):void
@@ -49,12 +50,12 @@ package game.control {
 
 		public static function doDouble(msg:*):void
 		{
-			
+			event(["Layer2"], GameEvent.EVENT_GAME_DOUBLE)
 		}
 
 		public static function doPlay(msg:*):void
 		{
-			
+			event(["Layer2"], GameEvent.EVENT_GAME_PLAY)
 		}
 
 		public static function doOver(msg:*):void
@@ -71,43 +72,43 @@ package game.control {
 			{
 				case GameConstants.PLAY_STATE_PREPARE:
 				{
-					trace("prepare", uData.msg);
+					trace("action---prepare", uData.msg);
 					doPrepare(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_DEAL:
 				{
-					trace("deal", uData.msg);
+					trace("action---deal", uData.msg);
 					doDeal(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_SNATCH:
 				{
-					trace("snatch", uData.msg);
+					trace("action---snatch", uData.msg);
 					doSnatch(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_BOTTOM:
 				{
-					trace("bottom", uData.msg);
+					trace("action---bottom", uData.msg);
 					doBottom(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_DOUBLE:
 				{
-					trace("double", uData.msg);
+					trace("action---double", uData.msg);
 					doDouble(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_PLAY:
 				{
-					trace("play", uData.msg);
+					trace("action---play", uData.msg);
 					doPlay(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_OVER:
 				{
-					trace("over", uData.msg);
+					trace("action---over", uData.msg);
 					doOver(uData.msg);
 					break;
 				}				

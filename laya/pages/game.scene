@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":9,
-    "selecteID":10,
+    "selectedBox":2,
+    "selecteID":33,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":33,
+    "maxID":46,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -105,14 +105,13 @@
                             "props":{"renderType":"render"},
                             "nodeParent":10,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":false,
                             "hasChild":true,
                             "compId":11,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,content",
                                     "props":{"skin":"game/poker/poker_fg.png","sizeGrid":"20,15,20,15","name":"content"},
@@ -125,7 +124,6 @@
                                     "compId":12,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "searchKey":"Image,value",
                                             "props":{"y":5,"x":6,"name":"value"},
@@ -138,7 +136,6 @@
                                             "compId":13,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Image",
                                                     "searchKey":"Image,type1",
                                                     "props":{"y":42,"x":0,"scaleY":0.35,"scaleX":0.35,"name":"type1"},
@@ -153,7 +150,6 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "searchKey":"Image,type2",
                                             "props":{"y":61,"x":35,"name":"type2"},
@@ -172,19 +168,188 @@
                             "x":45,
                             "type":"Script",
                             "switchAble":true,
-                            "source":"src/game/script/PickUpScript.as",
-                            "searchKey":"Script,PickUpScript",
+                            "source":"src/game/script/RotateScript.as",
+                            "searchKey":"Script,RotateScript",
                             "removeAble":true,
                             "props":{},
                             "nodeParent":10,
-                            "label":"PickUpScript",
+                            "label":"RotateScript",
                             "isDirectory":false,
                             "isAniNode":false,
                             "hasChild":false,
-                            "compId":31,
+                            "compId":37,
                             "child":[
                                 ]
                         }]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,Layer2",
+            "props":{"y":578,"x":370,"width":400,"name":"Layer2"},
+            "nodeParent":2,
+            "label":"Layer2",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":33,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,snatch",
+                    "props":{"y":0,"x":70,"width":260,"visible":false,"name":"snatch"},
+                    "nodeParent":33,
+                    "label":"snatch",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":34,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "searchKey":"Button,yes",
+                            "props":{"y":0,"x":0,"skin":"comp/button.png","name":"yes","labelColors":"#ffffff","labelBold":true,"label":"叫地主"},
+                            "nodeParent":34,
+                            "label":"yes",
+                            "isOpen":false,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":38,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "searchKey":"Button,no",
+                            "props":{"y":0,"x":132,"skin":"comp/button.png","name":"no","labelColors":"#ffffff","labelBold":true,"label":"不叫"},
+                            "nodeParent":34,
+                            "label":"no",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":39,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,double",
+                    "props":{"y":0,"x":70,"width":260,"visible":false,"name":"double"},
+                    "nodeParent":33,
+                    "label":"double",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":35,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "searchKey":"Button,yes",
+                            "props":{"y":0,"x":0,"skin":"comp/button.png","name":"yes","labelColors":"#ffffff","labelBold":true,"label":"加倍"},
+                            "nodeParent":35,
+                            "label":"yes",
+                            "isOpen":false,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":40,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "searchKey":"Button,no",
+                            "props":{"y":0,"x":132,"skin":"comp/button.png","name":"no","labelColors":"#ffffff","labelBold":true,"label":"不加倍"},
+                            "nodeParent":35,
+                            "label":"no",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":41,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,play",
+                    "props":{"y":0,"x":0,"width":400,"visible":false,"name":"play"},
+                    "nodeParent":33,
+                    "label":"play",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":36,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "searchKey":"Button,play",
+                            "props":{"y":0,"x":0,"skin":"comp/button.png","name":"play","labelColors":"#ffffff","labelBold":true,"label":"出牌"},
+                            "nodeParent":36,
+                            "label":"play",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":42,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "searchKey":"Button,prompt",
+                            "props":{"y":0,"x":136,"skin":"comp/button.png","name":"prompt","labelColors":"#ffffff","labelBold":true,"label":"提示"},
+                            "nodeParent":36,
+                            "label":"prompt",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":43,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "searchKey":"Button,cancel",
+                            "props":{"y":0,"x":272,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"取消"},
+                            "nodeParent":36,
+                            "label":"cancel",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":44,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/game/script/ControlScript.as",
+                    "searchKey":"Script,ControlScript",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":33,
+                    "label":"ControlScript",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":45,
+                    "child":[
+                        ]
                 }]
         }],
     "animations":[
