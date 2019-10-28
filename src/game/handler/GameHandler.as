@@ -6,7 +6,7 @@ package game.handler
 	import game.proto.*;
 	import game.net.NetClient;
 	import game.base.HandlerBase;
-	import game.control.Action;
+	import game.control.NetAction;
 
 	/**
 	 * ...
@@ -55,7 +55,7 @@ package game.handler
 			var resp_data:game_update_notify = new game_update_notify();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 
-			Action.update(resp_data.data);
+			NetAction.update(resp_data.data);
 		}
 	}
 

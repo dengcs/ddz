@@ -9,7 +9,7 @@ package game.script {
 	import laya.utils.Tween;
 	import laya.utils.Ease;
 	
-	public class ThrowScript extends Script {
+	public class ThrowListScript extends Script {
 		/** @prop {name:place, tips:"0:自己;1:右边;2:左边", type:Int, default:0}*/
 		public var place: int = 0;
 		/** @prop {name:target, tips:"出牌目标位置", type:Number, default:0}*/

@@ -9,17 +9,20 @@ package game.script {
 	import common.GameConstants;
 	import laya.utils.Tween;
 	import laya.utils.Ease;
+	import game.control.NetAction;
 
-	public class RotateScript extends Script {
+	public class OwnerListScript extends Script {
 		private var ownerSprite:List = null;
 
 		private var dataArray:Array = [];
+		private var mineIdx:int = 0;
 
 		override public function onAwake():void
 		{
 			this.ownerSprite = this.owner as List;			
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_DEAL, this, onDeal);
+			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
 		}
 
 		override public function onDestroy():void
@@ -32,11 +35,12 @@ package game.script {
 			this.ownerSprite.renderHandler = new Handler(this, onListRender);
 		}
 
-		private function onPrepare():void
+		private function onPrepare(data:Object):void
 		{
 			this.dataArray = [];
 			this.ownerSprite.array = [];
 			this.ownerSprite.visible = false;
+			this.mineIdx = data.idx;
 		}
 
 		private function onDeal(... data):void
@@ -52,7 +56,36 @@ package game.script {
 			Laya.timer.once(delay, this, tweenRotateIn);
 		}
 
-		private function onPickUp(rValue:int):void
+		private function onBottom(... data):void
+		{
+			var subX:Number = (3*41)/2;
+			this.ownerSprite.x -= subX;
+			for(var i:int = 0; i<data.length; i++)
+			{
+				var value:int = data[i];
+				this.pickUp(value);
+			}
+			this.sortAndUpdate();
+			
+			for each(var val:int in data)
+			{
+				for(var j:int = 0; j<this.dataArray.length; j++)
+				{
+					var itemData:Object = this.dataArray[j];
+					if(itemData.value == val)
+					{
+						var cell:Box = this.ownerSprite.getCell(j);
+						if(cell != null)
+						{
+							cell.y = -30;
+							Tween.to(cell, {y : 0}, 300, Ease.quadIn, null, 500);
+						}
+					}
+				}
+			}			
+		}
+
+		private function pickUp(rValue:int):void
 		{
 			var value:int = Math.ceil(rValue/4);
 			var color:int = ((rValue-1) % 4) + 1;
@@ -80,6 +113,11 @@ package game.script {
 				itemData.pType1 = itemData.pType2 = "game/poker/big_" + color + ".png";
 			}
 			this.dataArray.push(itemData);
+		}
+
+		private function onPickUp(rValue:int):void
+		{
+			this.pickUp(rValue);
 			this.update();
 		}
 
@@ -129,6 +167,7 @@ package game.script {
 
 		private function tweenRotateOver():void
 		{
+			NetAction.doSnatch(null);
 		}
 	}
 }

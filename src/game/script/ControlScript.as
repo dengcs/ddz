@@ -6,6 +6,8 @@ package game.script {
 	import common.GameUtils;
 	import laya.display.Sprite;
 	import common.GameEvent;
+	import game.proto.game_update;
+	import game.net.NetClient;
 	
 	public class ControlScript extends Script {
 		private var snatchSp:Sprite = null;
@@ -21,6 +23,9 @@ package game.script {
 		private var playBtn:Button = null;
 		private var promptBtn:Button = null;
 		private var cancelBtn:Button = null;
+
+		private var mineIdx:int = 0;
+		private var snatchCount:int	= 0;
 
 		override public function onAwake():void
 		{
@@ -58,52 +63,75 @@ package game.script {
 			this.owner.offAllCaller(this);
 		}
 
-		private function onPrepare():void
+		private function onPrepare(data:Object):void
 		{
 			snatchSp.visible = false;
 			doubleSp.visible = false;
 			playSp.visible = false;
+			this.snatchCount = 0;
+			this.mineIdx = data.idx;
 		}
 
 		private function onSnatch():void
 		{
-			snatchSp.visible = true;
-			doubleSp.visible = false;
-			playSp.visible = false;
+			this.snatchCount++;
+			if(this.snatchCount > 1)
+			{
+				snatchSp.visible = true;
+			}
 		}
 
 		private function onDouble():void
 		{
 			snatchSp.visible = false;
 			doubleSp.visible = true;
-			playSp.visible = false;
 		}
 
 		private function onPlay():void
 		{
-			snatchSp.visible = false;
 			doubleSp.visible = false;
 			playSp.visible = true;
 		}
 
+		private function send_game_update(data:Object):void
+		{
+			var sendMsg:game_update = new game_update();
+			sendMsg.data = JSON.stringify(data);
+			NetClient.send("game_update", sendMsg);
+		}
+
 		private function onClickSnatchYes():void
 		{
-
+			snatchSp.visible = false;
+			var msg_data:Object = new Object();
+			msg_data.cmd = GameConstants.PLAY_STATE_SNATCH;
+			msg_data.msg = 1;
+			send_game_update(msg_data);
 		}
 
 		private function onClickSnatchNo():void
 		{
-
+			snatchSp.visible = false;
+			var msg_data:Object = new Object();
+			msg_data.cmd = GameConstants.PLAY_STATE_SNATCH;
+			send_game_update(msg_data);
 		}
 
 		private function onClickDoubleYes():void
 		{
-
+			doubleSp.visible = false;
+			var msg_data:Object = new Object();
+			msg_data.cmd = GameConstants.PLAY_STATE_DOUBLE;
+			msg_data.msg = 1;
+			send_game_update(msg_data);
 		}
 
 		private function onClickDoubleNo():void
 		{
-
+			doubleSp.visible = false;
+			var msg_data:Object = new Object();
+			msg_data.cmd = GameConstants.PLAY_STATE_DOUBLE;
+			send_game_update(msg_data);
 		}
 
 		private function onClickPlay():void
@@ -118,6 +146,7 @@ package game.script {
 
 		private function onClickCancel():void
 		{
+			playSp.visible = false;
 			var msgData:Object = new Object();
 			msgData.cmd = GameConstants.PLAY_STATE_PLAY;
 			msgData.msg = 0;

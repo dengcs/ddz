@@ -5,57 +5,50 @@ package game.control {
 	import laya.display.Node;
 	import common.GameEvent;
 
-	public class Action {
-		public static function event(names:Array, type:String, data:* = null):void
-		{
-			var gameNode:Node = Scene.root.getChildByName("gameScene");
-			if(gameNode)
-			{
-				var childNode:Node = null;
-				var parentNode:Node = gameNode;
-				for(var i:int = 0;i < names.length; i++)
-				{
-					childNode 	= parentNode.getChildByName(names[i]);
-					parentNode 	= childNode;
-				}
-				if(childNode)
-				{
-					childNode.event(type, data);
-				}
-			}
-		}
-
+	public class NetAction {
 		public static function doPrepare(msg:*):void
 		{			
-			event(["dealPosition"], GameEvent.EVENT_GAME_PREPARE)
-			event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE)
-			event(["Layer2"], GameEvent.EVENT_GAME_PREPARE)
+			BaseAction.event(["dealPosition"], GameEvent.EVENT_GAME_PREPARE, msg);
+			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE, msg);
+			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PREPARE, msg);
 		}
 
 		public static function doDeal(msg:*):void
 		{
-			event(["dealPosition"], GameEvent.EVENT_GAME_DEAL)
-			event(["Layer1","myList"], GameEvent.EVENT_GAME_DEAL, msg)
+			BaseAction.event(["dealPosition"], GameEvent.EVENT_GAME_DEAL);
+			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_DEAL, msg);
 		}
 
 		public static function doSnatch(msg:*):void
 		{
-			event(["Layer2"], GameEvent.EVENT_GAME_SNATCH)			
+			if(msg == null)
+			{
+				BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_SNATCH);
+			}
 		}
 
-		public static function doBottom(msg:*):void
+		public static function doBottom(data:*):void
 		{
-			
+			if(data)
+			{
+				BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
+			}
 		}
 
 		public static function doDouble(msg:*):void
 		{
-			event(["Layer2"], GameEvent.EVENT_GAME_DOUBLE)
+			if(msg == null)
+			{
+				BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_DOUBLE);
+			}
 		}
 
 		public static function doPlay(msg:*):void
 		{
-			event(["Layer2"], GameEvent.EVENT_GAME_PLAY)
+			if(msg == null)
+			{
+				BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PLAY);
+			}
 		}
 
 		public static function doOver(msg:*):void

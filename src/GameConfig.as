@@ -4,7 +4,7 @@ package {
 	import laya.ui.View;
 	import laya.webgl.WebGL;
 	import game.script.DealScript;
-	import game.script.RotateScript;
+	import game.script.OwnerListScript;
 	import game.script.ControlScript;
 	import common.ButtonRunTime;
 	import game.script.StartScript;
@@ -30,7 +30,7 @@ package {
 			//注册Script或者Runtime引用
 			var reg:Function = ClassUtils.regClass;
 			reg("game.script.DealScript",DealScript);
-			reg("game.script.RotateScript",RotateScript);
+			reg("game.script.OwnerListScript",OwnerListScript);
 			reg("game.script.ControlScript",ControlScript);
 			reg("common.ButtonRunTime",ButtonRunTime);
 			reg("game.script.StartScript",StartScript);
