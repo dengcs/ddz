@@ -20,8 +20,6 @@ package game.script {
 		private var ownerSprite:Sprite = null;
 		private var pokerList:Array = [];
 
-		private var mineIdx:int = 0;
-		
 		override public function onAwake():void
 		{
 			this.ownerSprite = this.owner as Sprite;
@@ -38,9 +36,8 @@ package game.script {
 		{
 		}
 
-		private function onPrepare(data:Object):void
+		private function onPrepare():void
 		{
-			this.mineIdx = data.idx;
 			if (this.pokerList.length > 0)
 			{
 				for each(var pokerImg:Image in this.pokerList)

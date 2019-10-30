@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":47,
-    "selecteID":61,
+    "selecteID":48,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":67,
+    "maxID":71,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -88,16 +88,17 @@
                     "x":30,
                     "type":"List",
                     "searchKey":"List,myList",
-                    "props":{"y":103,"x":403,"width":806,"visible":false,"spaceX":-110,"repeatY":1,"repeatX":20,"name":"myList","height":209,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":103,"x":403,"width":806,"visible":false,"spaceX":-110,"scaleY":1,"scaleX":1,"repeatY":1,"repeatX":20,"name":"myList","height":209,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":9,
                     "label":"myList",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":10,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"renderType":"render"},
@@ -163,12 +164,13 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/OwnerListScript.as",
                             "searchKey":"Script,OwnerListScript",
                             "removeAble":true,
-                            "props":{},
+                            "props":{"y":-1,"x":0,"ownerX":403},
                             "nodeParent":10,
                             "label":"OwnerListScript",
                             "isDirectory":false,
@@ -184,16 +186,17 @@
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite,Layer2",
-            "props":{"y":578,"x":370,"width":400,"name":"Layer2"},
+            "props":{"y":550,"x":370,"width":400,"name":"Layer2"},
             "nodeParent":2,
             "label":"Layer2",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":33,
             "child":[
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,snatch",
                     "props":{"y":0,"x":70,"width":260,"visible":false,"name":"snatch"},
@@ -236,6 +239,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,double",
                     "props":{"y":0,"x":70,"width":260,"visible":false,"name":"double"},
@@ -277,6 +281,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play",
                     "props":{"y":0,"x":0,"width":400,"visible":false,"name":"play"},
@@ -329,6 +334,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/ControlScript.as",
@@ -362,22 +368,23 @@
                     "x":30,
                     "type":"List",
                     "searchKey":"List,mineList",
-                    "props":{"y":500,"x":300,"width":151,"visible":false,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"rotation":0,"repeatY":1,"repeatX":20,"name":"mineList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":500,"x":300,"width":930,"visible":true,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"rotation":0,"repeatY":1,"repeatX":20,"name":"mineList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":47,
                     "label":"mineList",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":48,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":104,"x":75,"renderType":"render","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":48,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":false,
                             "hasChild":true,
@@ -436,6 +443,23 @@
                                         }]
                                 }],
                             "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/game/script/ThrowListScript.as",
+                            "searchKey":"Script,ThrowListScript",
+                            "removeAble":true,
+                            "props":{"target":420,"source":500,"place":0},
+                            "nodeParent":48,
+                            "label":"ThrowListScript",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":68,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":true
                 },
@@ -443,22 +467,23 @@
                     "x":30,
                     "type":"List",
                     "searchKey":"List,leftList",
-                    "props":{"y":301,"x":-160,"width":151,"visible":false,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"rotation":90,"repeatY":1,"repeatX":20,"name":"leftList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":230,"x":-160,"width":930,"visible":true,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"rotation":90,"repeatY":1,"repeatX":20,"name":"leftList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":47,
                     "label":"leftList",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":55,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":104,"x":75,"renderType":"render","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":55,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":false,
                             "hasChild":true,
@@ -517,6 +542,23 @@
                                         }]
                                 }],
                             "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/game/script/ThrowListScript.as",
+                            "searchKey":"Script,ThrowListScript",
+                            "removeAble":true,
+                            "props":{"target":0,"source":-160,"place":2},
+                            "nodeParent":55,
+                            "label":"ThrowListScript",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":69,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":true
                 },
@@ -524,22 +566,23 @@
                     "x":30,
                     "type":"List",
                     "searchKey":"List,rightList",
-                    "props":{"y":304,"x":760,"width":151,"visible":false,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"rotation":-90,"repeatY":1,"repeatX":20,"name":"rightList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":230,"x":760,"width":930,"visible":true,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"rotation":-90,"repeatY":1,"repeatX":20,"name":"rightList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":47,
                     "label":"rightList",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":61,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":104,"x":75,"renderType":"render","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":61,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":false,
                             "hasChild":true,
@@ -598,6 +641,23 @@
                                         }]
                                 }],
                             "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/game/script/ThrowListScript.as",
+                            "searchKey":"Script,ThrowListScript",
+                            "removeAble":true,
+                            "props":{"target":600,"source":760,"place":1},
+                            "nodeParent":61,
+                            "label":"ThrowListScript",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":70,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":true
                 }]

@@ -1,16 +1,32 @@
 package game.control {
 	
 	import common.GameConstants;
-	import laya.display.Scene;
-	import laya.display.Node;
 	import common.GameEvent;
 
 	public class NetAction {
+		private static var _mineIdx:int = 0;
+		private static var _rightIdx:int = 0;
+
+		public static function get rightIdx():int
+		{
+			return _rightIdx;
+		}
+
+		public static function get mineIdx():int
+		{
+			return _mineIdx;
+		}
+
 		public static function doPrepare(msg:*):void
 		{			
-			BaseAction.event(["dealPosition"], GameEvent.EVENT_GAME_PREPARE, msg);
-			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE, msg);
-			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PREPARE, msg);
+			_mineIdx = msg.idx;
+			_rightIdx = (_mineIdx % 3) + 1
+			BaseAction.event(["dealPosition"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Layer3","mineList"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Layer3","leftList"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_PREPARE);
 		}
 
 		public static function doDeal(msg:*):void
@@ -19,7 +35,7 @@ package game.control {
 			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_DEAL, msg);
 		}
 
-		public static function doSnatch(msg:*):void
+		public static function doSnatch(msg:* = null):void
 		{
 			if(msg == null)
 			{
@@ -27,7 +43,7 @@ package game.control {
 			}
 		}
 
-		public static function doBottom(data:*):void
+		public static function doBottom(data:* = null):void
 		{
 			if(data)
 			{
@@ -35,7 +51,7 @@ package game.control {
 			}
 		}
 
-		public static function doDouble(msg:*):void
+		public static function doDouble(msg:* = null):void
 		{
 			if(msg == null)
 			{
@@ -43,15 +59,12 @@ package game.control {
 			}
 		}
 
-		public static function doPlay(msg:*):void
+		public static function doPlay(msg:* = null):void
 		{
-			if(msg == null)
-			{
-				BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PLAY);
-			}
+			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PLAY, msg);
 		}
 
-		public static function doOver(msg:*):void
+		public static function doOver(msg:* = null):void
 		{
 			
 		}
@@ -65,49 +78,49 @@ package game.control {
 			{
 				case GameConstants.PLAY_STATE_PREPARE:
 				{
-					trace("action---prepare", uData.msg);
+					trace("NetAction---prepare", uData.msg);
 					doPrepare(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_DEAL:
 				{
-					trace("action---deal", uData.msg);
+					trace("NetAction---deal", uData.msg);
 					doDeal(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_SNATCH:
 				{
-					trace("action---snatch", uData.msg);
+					trace("NetAction---snatch", uData.msg);
 					doSnatch(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_BOTTOM:
 				{
-					trace("action---bottom", uData.msg);
+					trace("NetAction---bottom", uData.msg);
 					doBottom(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_DOUBLE:
 				{
-					trace("action---double", uData.msg);
+					trace("NetAction---double", uData.msg);
 					doDouble(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_PLAY:
 				{
-					trace("action---play", uData.msg);
+					trace("NetAction---play", uData.msg);
 					doPlay(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_OVER:
 				{
-					trace("action---over", uData.msg);
+					trace("NetAction---over", uData.msg);
 					doOver(uData.msg);
 					break;
 				}				
 				default:
 				{
-					trace("error-----------error")
+					trace("NetAction-----------error=", cmd)
 					break;
 				}
 			}

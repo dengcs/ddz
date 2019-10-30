@@ -8,13 +8,15 @@ package game.script {
 	import laya.ui.Image;
 	import laya.utils.Tween;
 	import laya.utils.Ease;
+	import common.GameConstants;
+	import common.GameFunctions;
 	
 	public class ThrowListScript extends Script {
 		/** @prop {name:place, tips:"0:自己;1:右边;2:左边", type:Int, default:0}*/
 		public var place: int = 0;
 		/** @prop {name:target, tips:"出牌目标位置", type:Number, default:0}*/
 		public var target: Number = 0;
-		/** @prop {name:target, tips:"出牌初始位置", type:Number, default:0}*/
+		/** @prop {name:source, tips:"出牌初始位置", type:Number, default:0}*/
 		public var source: Number = 0;
 
 		private var ownerSprite:List = null;
@@ -23,8 +25,11 @@ package game.script {
 
 		override public function onAwake():void
 		{
-			this.ownerSprite = this.owner as List;			
+			this.ownerSprite = this.owner as List;
+			this.ownerSprite.visible = false;
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
+			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onThrow);
+			this.owner.on(GameEvent.EVENT_GAME_TURN, this, onRecoverState);
 		}
 
 		override public function onDestroy():void
@@ -42,6 +47,7 @@ package game.script {
 			this.dataArray = [];
 			this.ownerSprite.array = [];
 			this.ownerSprite.alpha = 0;
+			this.ownerSprite.visible = true;
 		}
 
 		private function onListRender(cell:Box, index:int): void 
@@ -57,28 +63,67 @@ package game.script {
 			typeImg2.skin 	= cell.dataSource.pType2;
 		}
 
-		private function onThrow(data:Array):void
-		{			
-			this.ownerSprite.scale(0.3, 0.3);
-			this.ownerSprite.array = data;
-			if(place == 0)
+		private function pickUp(rValue:int):void
+		{
+			var value:int = Math.ceil(rValue/4);
+			var color:int = ((rValue-1) % 4) + 1;
+
+			var itemData:Object = new Object();
+			itemData.value = rValue;
+
+			if(rValue == GameConstants.JOKER_SMALL_VALUE)
 			{
-				Tween.to(this.ownerSprite, {y:target,scaleX:0.6,scaleY:0.6,alpha:1}, 300, Ease.quadInOut);
+				itemData.pValue = "game/poker/joker_small.png";
+				itemData.pType1 = "";
+				itemData.pType2 = "game/poker/big_small.png";
+			}else if(rValue == GameConstants.JOKER_BIG_VALUE){
+				itemData.pValue = "game/poker/joker_big.png";
+				itemData.pType1 = "";
+				itemData.pType2 = "game/poker/big_joker.png";
+			}else{
+				var colorStr:String = "red";
+				if(color%2 == 0)
+				{
+					colorStr = "black";
+				}
+				
+				itemData.pValue = "game/poker/" + colorStr + "_" + value + ".png";
+				itemData.pType1 = itemData.pType2 = "game/poker/big_" + color + ".png";
+			}
+			this.dataArray.push(itemData);
+		}
+
+		private function onThrow(... data:Array):void
+		{
+			for(var i:int = 0; i<data.length; i++)
+			{
+				var value:int = data[i];
+				this.pickUp(value);
+			}
+			this.ownerSprite.width = 151 + this.dataArray.length * 41;
+			this.ownerSprite.array = this.dataArray;
+			this.ownerSprite.scale(0.8, 0.8);
+			if(this.place == 0)
+			{
+				GameFunctions.ownerList_delCell.call(null, data);
+				Tween.to(this.ownerSprite, {y:target,scaleX:0.5,scaleY:0.5,alpha:1}, 300, Ease.quadInOut);
 			}else
 			{
-				Tween.to(this.ownerSprite, {x:target,scaleX:0.6,scaleY:0.6,alpha:1}, 300, Ease.quadInOut);
+				Tween.to(this.ownerSprite, {x:target,scaleX:0.5,scaleY:0.5,alpha:1}, 300, Ease.quadInOut);
 			}
 		}
 
-		private function recoverState():void
+		// 还原初始状态
+		private function onRecoverState():void
 		{
+			this.dataArray = [];
 			this.ownerSprite.alpha = 0;
-			if(place == 0)
+			if(this.place == 0)
 			{
-				this.ownerSprite.y = source;
+				this.ownerSprite.y = this.source;
 			}else
 			{
-				this.ownerSprite.x = source;
+				this.ownerSprite.x = this.source;
 			}
 		}
 	}

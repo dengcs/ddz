@@ -34,22 +34,11 @@ package game.net
 			NetSocket.getInstance().connectToServer(url);
 		}
 
-		private static function login():void
-		{
-			var reg:register = new register();
-				
-			reg.account 	= GameStatic.gameAccount;
-			reg.passwd 	= "12345678";
-			
-			send("register", reg);
-		}
-
 		public static function handshake():void
 		{			
-			if(NetSocket.getInstance().isOpened())
+			if(NetSocket.getInstance().isConnected() == false)
 			{
-				login();
-			}else{
+				// 提示重新连接窗口
 				Laya.timer.once(100, null, handshake);
 			}
 		}

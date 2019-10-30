@@ -37,6 +37,7 @@ package common
 		public static const PLAY_STATE_PLAY:int				= 5; // 游戏
 		public static const PLAY_STATE_OVER:int				= 6; // 结束
 		public static const PLAY_STATE_BOTTOM:int			= 11; // 底牌
+		public static const PLAY_STATE_PLAYDATA:int			= 20; // 出牌数据
 
 		public static const gameScene:String				= "game.scene";
 	}

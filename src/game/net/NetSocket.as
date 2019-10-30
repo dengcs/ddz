@@ -41,8 +41,8 @@ package game.net
 
 			socket.on(Event.OPEN, this, onSocketOpen);
 			socket.on(Event.CLOSE, this, onSocketClose);
-			socket.on(Event.MESSAGE, this, onMessageReveived);
-			socket.on(Event.ERROR, this, onConnectError);
+			socket.on(Event.MESSAGE, this, onSocketMessage);
+			socket.on(Event.ERROR, this, onSocketError);
 		}
 
 		public function sendAndFlush(data:*):void
@@ -58,27 +58,25 @@ package game.net
 
 		private function onSocketOpen(e:*=null):void
 		{
-			trace("Connected");
+			NetHandler.getInstance().handlerOpen();
 		}
 		
 		private function onSocketClose(e:*=null):void
 		{
-			trace("closed");
+			NetHandler.getInstance().handlerClose();
 		}
 		
-		private function onMessageReveived(message:*=null):void
+		private function onSocketMessage(message:*=null):void
 		{
-			//trace("reveived");
-
 			NetHandler.getInstance().handlerMsg(message);
 		}
 
-		private function onConnectError(e:*=null):void
+		private function onSocketError(e:*=null):void
 		{
-			trace("error");
+			NetHandler.getInstance().handlerError(e);
 		}
 
-		public function isOpened():Boolean
+		public function isConnected():Boolean
 		{
 			return socket.connected;
 		}

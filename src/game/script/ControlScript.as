@@ -3,11 +3,12 @@ package game.script {
 	import laya.ui.Button;
 	import laya.events.Event;
 	import common.GameConstants;
-	import common.GameUtils;
 	import laya.display.Sprite;
 	import common.GameEvent;
 	import game.proto.game_update;
 	import game.net.NetClient;
+	import common.GameFunctions;
+	import game.control.GameAction;
 	
 	public class ControlScript extends Script {
 		private var snatchSp:Sprite = null;
@@ -24,7 +25,6 @@ package game.script {
 		private var promptBtn:Button = null;
 		private var cancelBtn:Button = null;
 
-		private var mineIdx:int = 0;
 		private var snatchCount:int	= 0;
 
 		override public function onAwake():void
@@ -63,13 +63,12 @@ package game.script {
 			this.owner.offAllCaller(this);
 		}
 
-		private function onPrepare(data:Object):void
+		private function onPrepare():void
 		{
 			snatchSp.visible = false;
 			doubleSp.visible = false;
 			playSp.visible = false;
 			this.snatchCount = 0;
-			this.mineIdx = data.idx;
 		}
 
 		private function onSnatch():void
@@ -87,56 +86,46 @@ package game.script {
 			doubleSp.visible = true;
 		}
 
-		private function onPlay():void
+		private function onPlay(data:Object = null):void
 		{
-			doubleSp.visible = false;
-			playSp.visible = true;
-		}
-
-		private function send_game_update(data:Object):void
-		{
-			var sendMsg:game_update = new game_update();
-			sendMsg.data = JSON.stringify(data);
-			NetClient.send("game_update", sendMsg);
+			if(data == null)
+			{
+				doubleSp.visible = false;
+				playSp.visible = true;
+			}else
+			{
+				playSp.visible = false;
+				GameAction.onPlayData(data);
+			}
 		}
 
 		private function onClickSnatchYes():void
 		{
 			snatchSp.visible = false;
-			var msg_data:Object = new Object();
-			msg_data.cmd = GameConstants.PLAY_STATE_SNATCH;
-			msg_data.msg = 1;
-			send_game_update(msg_data);
+			GameFunctions.send_game_update(GameConstants.PLAY_STATE_SNATCH, 1);
 		}
 
 		private function onClickSnatchNo():void
 		{
 			snatchSp.visible = false;
-			var msg_data:Object = new Object();
-			msg_data.cmd = GameConstants.PLAY_STATE_SNATCH;
-			send_game_update(msg_data);
+			GameFunctions.send_game_update(GameConstants.PLAY_STATE_SNATCH);
 		}
 
 		private function onClickDoubleYes():void
 		{
 			doubleSp.visible = false;
-			var msg_data:Object = new Object();
-			msg_data.cmd = GameConstants.PLAY_STATE_DOUBLE;
-			msg_data.msg = 1;
-			send_game_update(msg_data);
+			GameFunctions.send_game_update(GameConstants.PLAY_STATE_DOUBLE, 1);
 		}
 
 		private function onClickDoubleNo():void
 		{
 			doubleSp.visible = false;
-			var msg_data:Object = new Object();
-			msg_data.cmd = GameConstants.PLAY_STATE_DOUBLE;
-			send_game_update(msg_data);
+			GameFunctions.send_game_update(GameConstants.PLAY_STATE_DOUBLE);
 		}
 
 		private function onClickPlay():void
 		{
-
+			GameFunctions.ownerList_play.call();
 		}
 
 		private function onClickPrompt():void
@@ -146,12 +135,7 @@ package game.script {
 
 		private function onClickCancel():void
 		{
-			playSp.visible = false;
-			var msgData:Object = new Object();
-			msgData.cmd = GameConstants.PLAY_STATE_PLAY;
-			msgData.msg = 0;
-
-			GameUtils.notify_game_update(msgData);
+			GameFunctions.send_game_update(GameConstants.PLAY_STATE_PLAY, 0);
 		}
 	}
 }

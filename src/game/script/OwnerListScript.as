@@ -10,12 +10,17 @@ package game.script {
 	import laya.utils.Tween;
 	import laya.utils.Ease;
 	import game.control.NetAction;
+	import laya.events.Event;
+	import laya.utils.Utils;
+	import common.GameFunctions;
 
 	public class OwnerListScript extends Script {
+		/** @prop {name:ownerX, tips:"初始x坐标值", type:Number, default:0}*/
+		public var ownerX: Number = 0;
 		private var ownerSprite:List = null;
 
 		private var dataArray:Array = [];
-		private var mineIdx:int = 0;
+		private var cellY:int = -30;
 
 		override public function onAwake():void
 		{
@@ -33,17 +38,31 @@ package game.script {
 		override public function onEnable():void
 		{
 			this.ownerSprite.renderHandler = new Handler(this, onListRender);
+			this.ownerSprite.mouseHandler = new Handler(this, onListMouse);
 		}
 
-		private function onPrepare(data:Object):void
+		override public function onStart():void
+		{
+			GameFunctions.ownerList_play = Utils.bind(onPlay, this);
+			GameFunctions.ownerList_delCell = Utils.bind(onDelCell, this);
+		}
+
+		private function onPrepare():void
 		{
 			this.dataArray = [];
 			this.ownerSprite.array = [];
 			this.ownerSprite.visible = false;
-			this.mineIdx = data.idx;
 		}
 
-		private function onDeal(... data):void
+		// 刷新x坐标
+		private function refreshX():void
+		{
+			var subCount:int = 17 - this.dataArray.length;
+			var subX:Number = (subCount*41)/2;
+			this.ownerSprite.x = this.ownerX + subX;
+		}
+
+		private function onDeal(... data:Array):void
 		{			
 			var delay:int = 0;
 			for(var i:int = 0; i<data.length; i++)
@@ -56,15 +75,14 @@ package game.script {
 			Laya.timer.once(delay, this, tweenRotateIn);
 		}
 
-		private function onBottom(... data):void
-		{
-			var subX:Number = (3*41)/2;
-			this.ownerSprite.x -= subX;
+		private function onBottom(... data:Array):void
+		{			
 			for(var i:int = 0; i<data.length; i++)
 			{
 				var value:int = data[i];
 				this.pickUp(value);
 			}
+			this.refreshX();
 			this.sortAndUpdate();
 			
 			for each(var val:int in data)
@@ -77,7 +95,7 @@ package game.script {
 						var cell:Box = this.ownerSprite.getCell(j);
 						if(cell != null)
 						{
-							cell.y = -30;
+							cell.y = this.cellY;
 							Tween.to(cell, {y : 0}, 300, Ease.quadIn, null, 500);
 						}
 					}
@@ -121,7 +139,7 @@ package game.script {
 			this.update();
 		}
 
-		private function onListRender(cell:Box, index:int): void 
+		private function onListRender(cell:Box, index:int):void 
 		{
 			var parent:Sprite = cell.getChildAt(0) as Sprite;
 
@@ -132,6 +150,21 @@ package game.script {
 			valueImg.skin 	= cell.dataSource.pValue;
 			typeImg1.skin 	= cell.dataSource.pType1;
 			typeImg2.skin 	= cell.dataSource.pType2;
+		}
+
+		private function onListMouse(e:Event, index:int):void
+		{
+			// trace("onListMouse--", e, index);
+			if(e.type == Event.CLICK)
+			{
+				if(e.currentTarget.y != this.cellY)
+				{
+					e.currentTarget.y = this.cellY;
+				}else
+				{
+					e.currentTarget.y = 0;
+				}
+			}
 		}
 
 		private function update():void
@@ -168,6 +201,44 @@ package game.script {
 		private function tweenRotateOver():void
 		{
 			NetAction.doSnatch(null);
+		}
+
+		private function onPlay():void
+		{
+			var playArray:Array = [];
+			var len:int = this.dataArray.length;
+			for(var i:int = len - 1; i>=0; i--)
+			{
+				var cell:Box = this.ownerSprite.getCell(i);
+				if(cell != null && cell.y == this.cellY)
+				{
+					playArray.push(cell.dataSource.value);
+				}
+			}
+			GameFunctions.send_game_update(GameConstants.PLAY_STATE_PLAY, playArray);
+		}
+
+		private function onDelCell(data:Array):void
+		{
+			for each(var val:int in data)
+			{
+				var len:int = this.dataArray.length;
+				for(var j:int = len - 1; j>=0; j--)
+				{
+					var itemData:Object = this.dataArray[j];
+					if(itemData.value == val)
+					{
+						var cell:Box = this.ownerSprite.getCell(j);
+						if(cell != null)
+						{
+							cell.y = 0;
+							this.dataArray.splice(j, 1);
+						}
+					}
+				}
+			}
+			this.update();
+			this.refreshX();
 		}
 	}
 }

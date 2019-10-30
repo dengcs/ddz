@@ -4,6 +4,8 @@ package game.net
 	import com.google.protobuf.CodedInputStream;
 	import game.manager.DispatchManager;
 	import game.proto.NetMessage;
+	import game.proto.register;
+	import common.GameStatic;
 
 	/**
 	 * ...
@@ -22,6 +24,21 @@ package game.net
             return _instance;
         }
 
+		public function handlerOpen():void
+		{
+			var reg:register = new register();
+				
+			reg.account 	= GameStatic.gameAccount;
+			reg.passwd 	= "12345678";
+			
+			NetClient.send("register", reg);
+		}
+
+		public function handlerClose():void
+		{
+			trace("closed");
+		}
+
 		public function handlerMsg(message:*=null):void
 		{
 			if(message != null)
@@ -32,6 +49,11 @@ package game.net
 
 				DispatchManager.getInstance().messageDispatcher(ntMessage);
 			}
+		}
+
+		public function handlerError(e:*=null):void
+		{
+			trace("error");
 		}
 	}
 
