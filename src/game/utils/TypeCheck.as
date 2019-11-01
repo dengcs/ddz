@@ -273,7 +273,8 @@ package game.utils
 
 			if(len == 1)
 			{
-				return getCardVal(cards[0]);
+				var addVal:int = (cards[0] == GameConstants.JOKER_BIG_VALUE) ? 1 : 0;
+				return getCardVal(cards[0]) + addVal;
 			}
 
 			return 0;

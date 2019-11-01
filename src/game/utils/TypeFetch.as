@@ -40,7 +40,7 @@ package game.utils
 			{
 				case GameConstants.POKER_TYPE_ONE:
 				{
-					retData = fetch_one(mode, value);
+					retData = fetch_one(mode, cards, value);
 					break;
 				}
 				case GameConstants.POKER_TYPE_TWO:
@@ -120,7 +120,7 @@ package game.utils
 			return retData;
 		}
 
-		public static function fetch_one(mode:Dictionary, value:int):Object
+		public static function fetch_one(mode:Dictionary, cards:Vector.<int>, value:int):Object
 		{
 			var retData:Object = null;
 			var indexes:Array = new Array();
@@ -152,6 +152,13 @@ package game.utils
 						{
 							thirdVal = card;
 						}
+					}
+				}else if(value == GameConstants.POKER_VALUE_JOKER)
+				{
+					// 类型判断时已经把大王的牌值加1了
+					if(card == GameConstants.POKER_VALUE_JOKER)
+					{
+						firstVal = card;
 					}
 				}
 			}
@@ -539,10 +546,8 @@ package game.utils
 
 			var straightCount:int = 0;
 			var first_card:int = mode.keys[0];
-			for(var i:int = 0; i < mode.keys; i++)
+			for each(var card:int in mode.keys)
 			{
-				var card:int = mode.keys[i];
-
 				var length:int = mode.get(card).length;
 				if(length == 3)
 				{
@@ -565,7 +570,7 @@ package game.utils
 				}
 			}
 
-			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
+			if(max_value > 0 && (count == 1 || max_value < GameConstants.POKER_VALUE_2))
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)
@@ -653,10 +658,8 @@ package game.utils
 
 			var straightCount:int = 0;
 			var first_card:int = mode.keys[0];
-			for(var i:int = 0; i < mode.keys.length; i++)
+			for each(var card:int in mode.keys)
 			{
-				var card:int = mode.keys[i];
-
 				var length:int = mode.get(card).length;
 				if(length == 3)
 				{
