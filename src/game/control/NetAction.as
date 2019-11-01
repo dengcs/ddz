@@ -27,6 +27,7 @@ package game.control {
 			BaseAction.event(["Layer3","mineList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer3","leftList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_PREPARE);
+			// GameAction.init();
 		}
 
 		public static function doDeal(msg:*):void
@@ -35,11 +36,17 @@ package game.control {
 			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_DEAL, msg);
 		}
 
-		public static function doSnatch(msg:* = null):void
+		public static function doSnatch(data:* = null):void
 		{
-			if(msg == null)
+			if(data == null)
 			{
 				BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_SNATCH);
+			}else
+			{
+				if(data.msg != null && data.msg == 1)
+				{
+					GameAction.ownerIdx = data.idx;
+				}
 			}
 		}
 

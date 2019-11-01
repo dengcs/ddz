@@ -31,6 +31,7 @@
 			
 			//激活资源版本控制，版本文件由发布功能生成
 			ResourceVersion.enable("version.json", Handler.create(this, this.onVersionLoaded), ResourceVersion.FILENAME_VERSION);
+			NetClient.connect(GameStatic.gameURL);
 		}
 		
 		private function onVersionLoaded():void {
@@ -38,8 +39,7 @@
 			AtlasInfoManager.enable("fileconfig.json", Handler.create(this, this.onConfigLoaded));
 		}
 		
-		private function onConfigLoaded():void {
-			NetClient.connect(GameStatic.gameURL);
+		private function onConfigLoaded():void {			
 			//加载场景
 			GameConfig.startScene && Scene.open(GameConfig.startScene);
 			NetClient.handshake();

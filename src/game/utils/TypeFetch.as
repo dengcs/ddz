@@ -1,7 +1,5 @@
 package game.utils
 {
-
-	import game.utils.TypeFetch;
 	import common.GameConstants;
 	import com.utils.Dictionary;
 
@@ -19,7 +17,7 @@ package game.utils
 		{
 			var len:int = cards.length - 1;
 			var mode:Dictionary = new Dictionary();
-			for(var i:int in cards)
+			for(var i:int = 0; i < len; i++)
 			{
 				var card:int = getCardVal(cards[i]);
 				var data:Array = mode.get(card);
@@ -28,7 +26,7 @@ package game.utils
 					data = new Array();
 					mode.set(card, data);
 				}
-				data.push(len - i);
+				data.push(i);
 			}
 			return mode;
 		}
@@ -120,70 +118,6 @@ package game.utils
 			}
 
 			return retData;
-		}
-
-		public static function auto_type(cards:Vector.<int>):Object
-		{
-			var retData:Object = null;
-
-			var mode:Dictionary = get_mode(cards);
-			retData = fetch_3with2(mode, 0, 1);
-			if(retData != null)
-			{
-				retData.type = GameConstants.POKER_TYPE_3WITH2;
-				return retData;
-			}
-
-			retData = fetch_3with1(mode, 0, 1);
-			if(retData != null)
-			{
-				retData.type = GameConstants.POKER_TYPE_3WITH1;
-				return retData;
-			}
-
-			retData = fetch_3straight(mode, 0, 2);
-			if(retData != null)
-			{
-				retData.type = GameConstants.POKER_TYPE_3STRAIGHT;
-				return retData;
-			}
-
-			retData = fetch_2straight(mode, 0, 3);
-			if(retData != null)
-			{
-				retData.type = GameConstants.POKER_TYPE_2STRAIGHT;
-				return retData;
-			}
-
-			retData = fetch_1straight(mode, 0, 5);
-			if(retData != null)
-			{
-				retData.type = GameConstants.POKER_TYPE_1STRAIGHT;
-				return retData;
-			}
-
-			retData = fetch_three(mode, 0);
-			if(retData != null)
-			{
-				retData.type = GameConstants.POKER_TYPE_THREE;
-				return retData;
-			}
-
-			retData = fetch_two(mode, 0);
-			if(retData != null)
-			{
-				retData.type = GameConstants.POKER_TYPE_TWO;
-				return retData;
-			}
-
-			retData = fetch_one(mode, 0);
-			if(retData != null)
-			{
-				retData.type = GameConstants.POKER_TYPE_ONE;
-				return retData;
-			}
-
-			return null;
 		}
 
 		public static function fetch_one(mode:Dictionary, value:int):Object
@@ -412,7 +346,7 @@ package game.utils
 
 			var straightCount:int = 0;
 			var first_card:int = mode.keys[0];
-			for(var i:int in mode.keys)
+			for(var i:int = 0; i < mode.keys.length; i++)
 			{
 				var card:int = mode.keys[i];
 				if(first_card == card)
@@ -461,7 +395,7 @@ package game.utils
 
 			var straightCount:int = 0;
 			var first_card:int = mode.keys[0];
-			for(var i:int in mode.keys)
+			for(var i:int = 0; i < mode.keys.length; i++)
 			{
 				var card:int = mode.keys[i];
 
@@ -518,7 +452,7 @@ package game.utils
 
 			var straightCount:int = 0;
 			var first_card:int = mode.keys[0];
-			for(var i:int in mode.keys)
+			for(var i:int = 0; i < mode.keys.length; i++)
 			{
 				var card:int = mode.keys[i];
 
@@ -605,7 +539,7 @@ package game.utils
 
 			var straightCount:int = 0;
 			var first_card:int = mode.keys[0];
-			for(var i:int in mode.keys)
+			for(var i:int = 0; i < mode.keys; i++)
 			{
 				var card:int = mode.keys[i];
 
@@ -719,7 +653,7 @@ package game.utils
 
 			var straightCount:int = 0;
 			var first_card:int = mode.keys[0];
-			for(var i:int in mode.keys)
+			for(var i:int = 0; i < mode.keys.length; i++)
 			{
 				var card:int = mode.keys[i];
 
@@ -821,8 +755,8 @@ package game.utils
 			var indexes:Array = new Array();
 			var max_value:int = 0;			
 
-			for(var card:int in targetMap)
-			{				
+			for each(var card:int in targetMap.keys)
+			{
 				if(card > value)
 				{
 					if(max_value == 0 || card < max_value)
@@ -908,7 +842,7 @@ package game.utils
 			var indexes:Array = new Array();
 			var max_value:int = 0;			
 
-			for(var card:int in targetMap)
+			for each(var card:int in targetMap.keys)
 			{				
 				if(card > value)
 				{
@@ -995,7 +929,7 @@ package game.utils
 			var indexes:Array = new Array();
 			var max_value:int = 0;			
 
-			for(var card:int in targetMap)
+			for each(var card:int in targetMap.keys)
 			{				
 				if(card > value)
 				{

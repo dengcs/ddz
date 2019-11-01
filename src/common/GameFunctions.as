@@ -5,6 +5,7 @@ package common {
 	public class GameFunctions{
 		public static var ownerList_play:Function = null;
 		public static var ownerList_delCell:Function = null;
+		public static var ownerList_prompt:Function = null;
 
 		public static function send_game_update(cmd:int, msg:*=null):void
 		{

@@ -13,6 +13,8 @@ package game.script {
 	import laya.events.Event;
 	import laya.utils.Utils;
 	import common.GameFunctions;
+	import game.control.GameAction;
+	import game.utils.TypeFetch;
 
 	public class OwnerListScript extends Script {
 		/** @prop {name:ownerX, tips:"初始x坐标值", type:Number, default:0}*/
@@ -45,6 +47,7 @@ package game.script {
 		{
 			GameFunctions.ownerList_play = Utils.bind(onPlay, this);
 			GameFunctions.ownerList_delCell = Utils.bind(onDelCell, this);
+			GameFunctions.ownerList_prompt = Utils.bind(onPrompt, this);
 		}
 
 		private function onPrepare():void
@@ -239,6 +242,30 @@ package game.script {
 			}
 			this.update();
 			this.refreshX();
+		}
+
+		private function onPrompt():void
+		{
+			var roundData:Object = GameAction.roundData;
+			var cards:Vector.<int> = new Vector.<int>();
+			var len:int = this.dataArray.length;
+			for(var i:int = 0; i<len; i++)
+			{
+				cards.push(this.dataArray[i].value);
+			}
+
+			var retData:Object = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
+			if(retData != null)
+			{
+				for each(var idx:int in retData.indexes)
+				{
+					var cell:Box = this.ownerSprite.getCell(idx);
+					if(cell != null)
+					{
+						cell.y = this.cellY;
+					}
+				}
+			}
 		}
 	}
 }

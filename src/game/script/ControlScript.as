@@ -130,7 +130,7 @@ package game.script {
 
 		private function onClickPrompt():void
 		{
-
+			GameFunctions.ownerList_prompt.call();
 		}
 
 		private function onClickCancel():void
