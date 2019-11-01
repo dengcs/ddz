@@ -10,6 +10,7 @@ package game.script {
 	import laya.utils.Ease;
 	import common.GameConstants;
 	import common.GameFunctions;
+	import com.utils.Dictionary;
 	
 	public class ThrowListScript extends Script {
 		/** @prop {name:place, tips:"0:自己;1:右边;2:左边", type:Int, default:0}*/
@@ -93,11 +94,51 @@ package game.script {
 			this.dataArray.push(itemData);
 		}
 
+		// 排序
+		private function sort(data:Array):Array
+		{
+			var retData:Array = new Array();
+
+			var mode:Dictionary = new Dictionary();
+			for(var i:int = 0; i < data.length; i++)
+			{
+				var card:int = Math.ceil(data[i]/4);
+				var values:Array = mode.get(card);
+				if(values == null)
+				{
+					values = new Array();
+					mode.set(card, values);
+				}
+				values.push(data[i]);
+			}
+
+			mode.keys.sort(null, Array.DESCENDING);
+
+			for(var m:int = 4; m > 0; m--)
+			{
+				for(var k:int = 0; k < mode.keys.length; k++)
+				{
+					var kVal:int = mode.keys[k];
+					var cValues:Array = mode.get(kVal);
+					if(m == cValues.length)
+					{
+						for(var x:int = 0; x < m; x++)
+						{
+							retData.push(cValues[x]);
+						}
+					}
+				}
+			}
+
+			return retData;
+		}
+
 		private function onThrow(... data:Array):void
 		{
-			for(var i:int = 0; i<data.length; i++)
+			var sortData:Array = this.sort(data);
+			for(var i:int = 0; i<sortData.length; i++)
 			{
-				var value:int = data[i];
+				var value:int = sortData[i];
 				this.pickUp(value);
 			}
 			this.ownerSprite.width = 151 + this.dataArray.length * 41;

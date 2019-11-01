@@ -45,9 +45,10 @@ package game.script {
 
 		override public function onStart():void
 		{
-			GameFunctions.ownerList_play = Utils.bind(onPlay, this);
-			GameFunctions.ownerList_delCell = Utils.bind(onDelCell, this);
-			GameFunctions.ownerList_prompt = Utils.bind(onPrompt, this);
+			GameFunctions.ownerList_play = Utils.bind(play, this);
+			GameFunctions.ownerList_delCell = Utils.bind(delCell, this);
+			GameFunctions.ownerList_prompt = Utils.bind(prompt, this);
+			GameFunctions.ownerList_playPrompt = Utils.bind(playPrompt, this);
 		}
 
 		private function onPrepare():void
@@ -206,7 +207,8 @@ package game.script {
 			NetAction.doSnatch(null);
 		}
 
-		private function onPlay():void
+		// 获取要出的牌发送到服务端
+		private function play():void
 		{
 			var playArray:Array = [];
 			var len:int = this.dataArray.length;
@@ -221,7 +223,8 @@ package game.script {
 			GameFunctions.send_game_update(GameConstants.PLAY_STATE_PLAY, playArray);
 		}
 
-		private function onDelCell(data:Array):void
+		// 服务端验证通过把要出的牌删掉
+		private function delCell(data:Array):void
 		{
 			for each(var val:int in data)
 			{
@@ -244,7 +247,8 @@ package game.script {
 			this.refreshX();
 		}
 
-		private function onPrompt():void
+		// 出牌提示
+		private function prompt():void
 		{
 			var roundData:Object = GameAction.roundData;
 			var cards:Vector.<int> = new Vector.<int>();
@@ -266,6 +270,34 @@ package game.script {
 					}
 				}
 			}
+		}
+
+		// 按钮提示
+		private function playPrompt():int
+		{
+			var ret:int = 0;
+
+			var roundData:Object = GameAction.roundData;
+			if(roundData.idx == NetAction.mineIdx)
+			{
+				ret = 1;
+			}else
+			{
+				var cards:Vector.<int> = new Vector.<int>();
+				var len:int = this.dataArray.length;
+				for(var i:int = 0; i<len; i++)
+				{
+					cards.push(this.dataArray[i].value);
+				}
+
+				var retData:Object = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
+				if(retData != null)
+				{
+					ret = 2;
+				}
+			}			
+
+			return ret;
 		}
 	}
 }

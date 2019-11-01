@@ -683,7 +683,7 @@ package game.utils
 
 			}
 
-			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
+			if(max_value > 0 && (count == 1 || max_value < GameConstants.POKER_VALUE_2))
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)

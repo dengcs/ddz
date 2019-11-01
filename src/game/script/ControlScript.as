@@ -90,6 +90,23 @@ package game.script {
 		{
 			if(data == null)
 			{
+				var type:int = GameFunctions.ownerList_playPrompt.call();
+				if(type == 1)
+				{
+					playBtn.visible = true;
+					promptBtn.visible = false;
+					cancelBtn.visible = false;
+				}else if(type == 2)
+				{
+					playBtn.visible = true;
+					promptBtn.visible = true;
+					cancelBtn.visible = true;
+				}else
+				{
+					playBtn.visible = false;
+					promptBtn.visible = false;
+					cancelBtn.visible = true;
+				}
 				doubleSp.visible = false;
 				playSp.visible = true;
 			}else
