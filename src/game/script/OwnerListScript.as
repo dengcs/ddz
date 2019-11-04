@@ -66,6 +66,19 @@ package game.script {
 			this.ownerSprite.x = this.ownerX + subX;
 		}
 
+		private function refreshY():void
+		{
+			var len:int = this.dataArray.length;
+			for(var i:int = 0; i < len; i++)
+			{
+				var cell:Box = this.ownerSprite.getCell(i);
+				if(cell != null)
+				{
+					cell.y = 0;
+				}
+			}
+		}
+
 		private function onDeal(... data:Array):void
 		{			
 			var delay:int = 0;
@@ -237,7 +250,6 @@ package game.script {
 						var cell:Box = this.ownerSprite.getCell(j);
 						if(cell != null)
 						{
-							cell.y = 0;
 							this.dataArray.splice(j, 1);
 						}
 					}
@@ -245,11 +257,12 @@ package game.script {
 			}
 			this.update();
 			this.refreshX();
+			this.refreshY();
 		}
 
 		// 出牌提示
 		private function prompt():void
-		{
+		{			
 			var roundData:Object = GameAction.roundData;
 			var cards:Vector.<int> = new Vector.<int>();
 			var len:int = this.dataArray.length;
@@ -257,6 +270,8 @@ package game.script {
 			{
 				cards.push(this.dataArray[i].value);
 			}
+
+			this.refreshY();
 
 			var retData:Object = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
 			if(retData != null)

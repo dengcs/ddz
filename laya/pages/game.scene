@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":47,
-    "selecteID":48,
+    "selectedBox":2,
+    "selecteID":33,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
@@ -287,13 +287,14 @@
                     "props":{"y":0,"x":0,"width":400,"visible":false,"name":"play"},
                     "nodeParent":33,
                     "label":"play",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":36,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,play",
                             "props":{"y":0,"x":0,"skin":"comp/button.png","name":"play","labelColors":"#ffffff","labelBold":true,"label":"出牌"},
@@ -307,6 +308,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,prompt",
                             "props":{"y":0,"x":136,"skin":"comp/button.png","name":"prompt","labelColors":"#ffffff","labelBold":true,"label":"提示"},
@@ -320,9 +322,10 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,cancel",
-                            "props":{"y":0,"x":272,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"取消"},
+                            "props":{"y":0,"x":272,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"过"},
                             "nodeParent":36,
                             "label":"cancel",
                             "isDirectory":false,

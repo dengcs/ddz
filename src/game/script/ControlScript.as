@@ -93,19 +93,19 @@ package game.script {
 				var type:int = GameFunctions.ownerList_playPrompt.call();
 				if(type == 1)
 				{
-					playBtn.visible = true;
-					promptBtn.visible = false;
-					cancelBtn.visible = false;
+					playBtn.disabled = false;
+					promptBtn.disabled = true;
+					cancelBtn.disabled = true;
 				}else if(type == 2)
 				{
-					playBtn.visible = true;
-					promptBtn.visible = true;
-					cancelBtn.visible = true;
+					playBtn.disabled = false;
+					promptBtn.disabled = false;
+					cancelBtn.disabled = false;
 				}else
 				{
-					playBtn.visible = false;
-					promptBtn.visible = false;
-					cancelBtn.visible = true;
+					playBtn.disabled = true;
+					promptBtn.disabled = true;
+					cancelBtn.disabled = false;
 				}
 				doubleSp.visible = false;
 				playSp.visible = true;

@@ -17,7 +17,7 @@ package game.utils
 		{
 			var len:int = cards.length - 1;
 			var mode:Dictionary = new Dictionary();
-			for(var i:int = 0; i < len; i++)
+			for(var i:int = len; i >= 0; i--)
 			{
 				var card:int = getCardVal(cards[i]);
 				var data:Array = mode.get(card);
@@ -356,25 +356,28 @@ package game.utils
 			for(var i:int = 0; i < mode.keys.length; i++)
 			{
 				var card:int = mode.keys[i];
-				if(first_card == card)
+				if(card < GameConstants.POKER_VALUE_2)
 				{
-					straightCount++;
-				}else{
-					straightCount = 1;
-				}
-				first_card = card + 1;
+					if(first_card == card)
+					{
+						straightCount++;
+					}else{
+						straightCount = 1;
+					}
+					first_card = card + 1;
 
-				if(straightCount >= count)
-				{
-					if(card > value)
-					{						
-						max_value = card;
-						break;
+					if(straightCount >= count)
+					{
+						if(card > value)
+						{						
+							max_value = card;
+							break;
+						}
 					}
 				}
 			}
 
-			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
+			if(max_value > 0)
 			{
 				for(var k:int = count; k>0; k--)
 				{
@@ -406,29 +409,32 @@ package game.utils
 			{
 				var card:int = mode.keys[i];
 
-				var length:int = mode.get(card).length;
-				if(length == 2)
+				if(card < GameConstants.POKER_VALUE_2)
 				{
-					if(first_card == card)
+					var length:int = mode.get(card).length;
+					if(length == 2)
 					{
-						straightCount++;
-					}else{
-						straightCount = 1;
-					}
-					first_card = card + 1;
+						if(first_card == card)
+						{
+							straightCount++;
+						}else{
+							straightCount = 1;
+						}
+						first_card = card + 1;
 
-					if(straightCount >= count)
-					{
-						if(card > value)
-						{						
-							max_value = card;
-							break;
+						if(straightCount >= count)
+						{
+							if(card > value)
+							{						
+								max_value = card;
+								break;
+							}
 						}
 					}
 				}
 			}
 
-			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
+			if(max_value > 0)
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)
@@ -462,31 +468,32 @@ package game.utils
 			for(var i:int = 0; i < mode.keys.length; i++)
 			{
 				var card:int = mode.keys[i];
-
-				var length:int = mode.get(card).length;
-				if(length == 3)
+				if(card < GameConstants.POKER_VALUE_2)
 				{
-					if(first_card == card)
+					var length:int = mode.get(card).length;
+					if(length == 3)
 					{
-						straightCount++;
-					}else{
-						straightCount = 1;
-					}
-					first_card = card + 1;
+						if(first_card == card)
+						{
+							straightCount++;
+						}else{
+							straightCount = 1;
+						}
+						first_card = card + 1;
 
-					if(straightCount >= count)
-					{
-						if(card > value)
-						{						
-							max_value = card;
-							break;
+						if(straightCount >= count)
+						{
+							if(card > value)
+							{						
+								max_value = card;
+								break;
+							}
 						}
 					}
 				}
-
 			}
 
-			if(max_value > 0 && max_value < GameConstants.POKER_VALUE_2)
+			if(max_value > 0)
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)
@@ -548,29 +555,32 @@ package game.utils
 			var first_card:int = mode.keys[0];
 			for each(var card:int in mode.keys)
 			{
-				var length:int = mode.get(card).length;
-				if(length == 3)
+				if(count == 1 || card < GameConstants.POKER_VALUE_2)
 				{
-					if(first_card == card)
+					var length:int = mode.get(card).length;
+					if(length == 3)
 					{
-						straightCount++;
-					}else{
-						straightCount = 1;
-					}
-					first_card = card + 1;
+						if(first_card == card)
+						{
+							straightCount++;
+						}else{
+							straightCount = 1;
+						}
+						first_card = card + 1;
 
-					if(straightCount >= count)
-					{
-						if(card > value)
-						{						
-							max_value = card;
-							break;
+						if(straightCount >= count)
+						{
+							if(card > value)
+							{						
+								max_value = card;
+								break;
+							}
 						}
 					}
 				}
 			}
 
-			if(max_value > 0 && (count == 1 || max_value < GameConstants.POKER_VALUE_2))
+			if(max_value > 0)
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)
@@ -635,7 +645,7 @@ package game.utils
 					targetNum++;
 				}
 
-				if(len == 2)
+				if(len == 2 && m != GameConstants.POKER_VALUE_JOKER)
 				{
 					attachMap.set(m, mode.get(m));
 					attachNum++;
@@ -660,30 +670,32 @@ package game.utils
 			var first_card:int = mode.keys[0];
 			for each(var card:int in mode.keys)
 			{
-				var length:int = mode.get(card).length;
-				if(length == 3)
+				if(count == 1 || card < GameConstants.POKER_VALUE_2)
 				{
-					if(first_card == card)
+					var length:int = mode.get(card).length;
+					if(length == 3)
 					{
-						straightCount++;
-					}else{
-						straightCount = 1;
-					}
-					first_card = card + 1;
+						if(first_card == card)
+						{
+							straightCount++;
+						}else{
+							straightCount = 1;
+						}
+						first_card = card + 1;
 
-					if(straightCount >= count)
-					{
-						if(card > value)
-						{						
-							max_value = card;
-							break;
+						if(straightCount >= count)
+						{
+							if(card > value)
+							{						
+								max_value = card;
+								break;
+							}
 						}
 					}
 				}
-
 			}
 
-			if(max_value > 0 && (count == 1 || max_value < GameConstants.POKER_VALUE_2))
+			if(max_value > 0)
 			{
 				var cardVal:int = 0;
 				for(var k:int = count; k>0; k--)
@@ -697,22 +709,14 @@ package game.utils
 				}
 
 				var attachCount:int = 0;
-
-				for(var n:int = 2; n < 4; n++)
+				for each(var a:int in attachMap.keys)
 				{
-					for each(var a:int in attachMap.keys)
+					indexes.push(attachMap.get(a)[0]);
+					indexes.push(attachMap.get(a)[1]);
+					attachCount++;					
+					if(attachCount >= count)
 					{
-						if(attachCount >= count)
-						{
-							break;
-						}
-
-						if(attachMap.get(a).length == n)
-						{
-							indexes.push(attachMap.get(a)[0]);
-							indexes.push(attachMap.get(a)[1]);
-							attachCount++;
-						}
+						break;
 					}
 				}
 
@@ -762,10 +766,8 @@ package game.utils
 			{
 				if(card > value)
 				{
-					if(max_value == 0 || card < max_value)
-					{
-						max_value = card;
-					}
+					max_value = card;
+					break;
 				}
 			}
 
@@ -793,11 +795,7 @@ package game.utils
 							{
 								indexes.push(b);
 								attachCount++;
-
-								if(attachCount > 0)
-								{
-									break;
-								}
+								break;
 							}
 						}
 					}
@@ -849,10 +847,8 @@ package game.utils
 			{				
 				if(card > value)
 				{
-					if(max_value == 0 || card < max_value)
-					{
-						max_value = card;
-					}
+					max_value = card;
+					break;
 				}
 			}
 
@@ -912,7 +908,7 @@ package game.utils
 				{
 					targetMap.set(m, mode.get(m));
 					targetNum++;
-				}else if(len > 1)
+				}else if(len > 1 && m != GameConstants.POKER_VALUE_JOKER)
 				{
 					attachMap.set(m, mode.get(m));
 					attachNum++;
@@ -936,10 +932,8 @@ package game.utils
 			{				
 				if(card > value)
 				{
-					if(max_value == 0 || card < max_value)
-					{
-						max_value = card;
-					}
+					max_value = card;
+					break;
 				}
 			}
 

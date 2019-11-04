@@ -485,7 +485,7 @@ package game.utils
 						temp_data[card] = 1;
 					}else{
 						temp_data[card]++;
-						if(temp_data[card] == 3 && card < GameConstants.POKER_VALUE_2)
+						if(temp_data[card] == 3 && (len == 4 || card < GameConstants.POKER_VALUE_2))
 						{
 							target_count++;
 							check_cards.push(card);
@@ -531,7 +531,7 @@ package game.utils
 						temp_data[card] = 1;
 					}else{
 						temp_data[card]++;
-						if(temp_data[card] == 3 && card < GameConstants.POKER_VALUE_2)
+						if(temp_data[card] == 3 && (len == 5 || card < GameConstants.POKER_VALUE_2))
 						{
 							target_count++;
 							check_cards.push(card);

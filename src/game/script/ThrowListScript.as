@@ -97,6 +97,7 @@ package game.script {
 		// 排序
 		private function sort(data:Array):Array
 		{
+			data.sort(GameFunctions.compareDes);
 			var retData:Array = new Array();
 
 			var mode:Dictionary = new Dictionary();
@@ -112,8 +113,6 @@ package game.script {
 				values.push(data[i]);
 			}
 
-			mode.keys.sort(null, Array.DESCENDING);
-
 			for(var m:int = 4; m > 0; m--)
 			{
 				for(var k:int = 0; k < mode.keys.length; k++)
@@ -122,10 +121,7 @@ package game.script {
 					var cValues:Array = mode.get(kVal);
 					if(m == cValues.length)
 					{
-						for(var x:int = 0; x < m; x++)
-						{
-							retData.push(cValues[x]);
-						}
+						retData = retData.concat(cValues);
 					}
 				}
 			}
@@ -146,7 +142,7 @@ package game.script {
 			this.ownerSprite.scale(0.8, 0.8);
 			if(this.place == 0)
 			{
-				GameFunctions.ownerList_delCell.call(null, data);
+				GameFunctions.ownerList_delCell.call(null, sortData);
 				Tween.to(this.ownerSprite, {y:target,scaleX:0.5,scaleY:0.5,alpha:1}, 300, Ease.quadInOut);
 			}else
 			{
