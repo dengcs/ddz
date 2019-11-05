@@ -82,11 +82,20 @@ package game.script {
 		private function onDeal(... data:Array):void
 		{			
 			var delay:int = 0;
-			for(var i:int = 0; i<data.length; i++)
+			var len:int = data.length;
+			for(var m:int = 0; m < 3; m++)
 			{
-				delay = 300*(i+1);
-				var value:int = data[i];
-				Laya.timer.once(delay, this, onPickUp, [value], false);
+				var batch:Array = new Array();
+				for(var n:int = 0; n < 6; n++)
+				{
+					var i:int = m*6 + n;
+					if(i < len)
+					{
+						batch.push(data[i]);
+					}
+				}
+				delay += 900 + m*180;
+				Laya.timer.once(delay, this, onPickUp, batch, false);
 			}
 			delay += 300;
 			Laya.timer.once(delay, this, tweenRotateIn);
@@ -150,9 +159,12 @@ package game.script {
 			this.dataArray.push(itemData);
 		}
 
-		private function onPickUp(rValue:int):void
+		private function onPickUp(... data:Array):void
 		{
-			this.pickUp(rValue);
+			for each(var rValue:int in data)
+			{
+				this.pickUp(rValue);
+			}
 			this.update();
 		}
 

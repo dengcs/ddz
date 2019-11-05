@@ -10,11 +10,11 @@ package game.script {
 	
 	public class DealScript extends Script {
 		private var placeX0:int = -450;
-		private var placeY0:int = 400;
-		private var placeX1:int = -403;
-		private var placeY1:int = 410;
+		private var placeY0:int = 230;
+		private var placeX1:int = -320;
+		private var placeY1:int = 608;
 		private var placeX2:int = 450;
-		private var placeY2:int = 400;
+		private var placeY2:int = 230;
 		private var placeXStep1:int = 41;
 
 		private var ownerSprite:Sprite = null;
@@ -50,6 +50,8 @@ package game.script {
 				for(var i:int = 0; i<GameConstants.GLOBAL_DEAL_NUM; i++)
 				{
 					pokerImg = new Image("game/poker/poker_bg.png");
+					pokerImg.pivotX = pokerImg.width / 2;
+					pokerImg.pivotY = pokerImg.height / 2;
 					this.pokerList.push(pokerImg);
 					this.ownerSprite.addChild(pokerImg);
 				}
@@ -75,15 +77,16 @@ package game.script {
 			var scaleX:Number = 0.3;
 			var scaleY:Number = 0.3;
 
-			var place:int = index % 3;
-
+			var chg:int = Math.floor(index / 36);
+			var place:int = Math.floor((index - chg*36) / (6 - chg)) % 3;
 			if(place == 0)
 			{
 				x = this.placeX0;
 				y = this.placeY0;
 			}else if(place == 1)
 			{
-				var offsetX:int = Math.floor(index/3) * this.placeXStep1;
+				var step:int = (Math.floor(index/18)*6) + ((index - chg*36) % (6 - chg))
+				var offsetX:int = step * this.placeXStep1;
 				x = this.placeX1 + offsetX;
 				y = this.placeY1;
 				scaleX = 1;
@@ -93,8 +96,9 @@ package game.script {
 				x = this.placeX2;
 				y = this.placeY2;
 			}
-			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 300, Ease.strongIn, Handler.create(this,dealActionComplete,[pokerImg]));
-			Laya.timer.once(100, this, dealAction, [index + 1]);
+			var delay:int = ((index % 18) == 0 && index > 0) ? 800 : 10;
+			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 800, Ease.expoOut, Handler.create(this,dealActionComplete,[pokerImg]));
+			Laya.timer.once(delay, this, dealAction, [index + 1]);
 		}
 
 		private function dealActionComplete(pokerImg:Image):void
