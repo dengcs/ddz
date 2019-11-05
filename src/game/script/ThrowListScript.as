@@ -137,7 +137,7 @@ package game.script {
 				var value:int = sortData[i];
 				this.pickUp(value);
 			}
-			this.ownerSprite.width = 151 + this.dataArray.length * 41;
+			this.ownerSprite.width = 150 + (this.dataArray.length - 1) * 41;
 			this.ownerSprite.array = this.dataArray;
 			this.ownerSprite.scale(0.8, 0.8);
 			if(this.place == 0)
