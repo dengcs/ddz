@@ -58,14 +58,6 @@ package game.control {
 			}
 		}
 
-		public static function doDouble(msg:* = null):void
-		{
-			if(msg == null)
-			{
-				BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_DOUBLE);
-			}
-		}
-
 		public static function doPlay(msg:* = null):void
 		{
 			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PLAY, msg);
@@ -105,12 +97,6 @@ package game.control {
 				{
 					trace("NetAction---bottom", uData.msg);
 					doBottom(uData.msg);
-					break;
-				}
-				case GameConstants.PLAY_STATE_DOUBLE:
-				{
-					trace("NetAction---double", uData.msg);
-					doDouble(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_PLAY:

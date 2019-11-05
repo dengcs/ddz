@@ -2,7 +2,7 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":9,
+    "selecteID":33,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
@@ -241,48 +241,6 @@
                 {
                     "x":30,
                     "type":"Sprite",
-                    "searchKey":"Sprite,double",
-                    "props":{"y":0,"x":70,"width":260,"visible":false,"name":"double"},
-                    "nodeParent":33,
-                    "label":"double",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":35,
-                    "child":[
-                        {
-                            "type":"Button",
-                            "searchKey":"Button,yes",
-                            "props":{"y":0,"x":0,"skin":"comp/button.png","name":"yes","labelColors":"#ffffff","labelBold":true,"label":"加倍"},
-                            "nodeParent":35,
-                            "label":"yes",
-                            "isOpen":false,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":40,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "searchKey":"Button,no",
-                            "props":{"y":0,"x":132,"skin":"comp/button.png","name":"no","labelColors":"#ffffff","labelBold":true,"label":"不加倍"},
-                            "nodeParent":35,
-                            "label":"no",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":41,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":true
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
                     "searchKey":"Sprite,play",
                     "props":{"y":0,"x":0,"width":400,"visible":false,"name":"play"},
                     "nodeParent":33,
@@ -325,7 +283,7 @@
                             "x":45,
                             "type":"Button",
                             "searchKey":"Button,cancel",
-                            "props":{"y":0,"x":272,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"过"},
+                            "props":{"y":0,"x":272,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"要不起"},
                             "nodeParent":36,
                             "label":"cancel",
                             "isDirectory":false,

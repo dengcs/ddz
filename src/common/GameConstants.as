@@ -33,9 +33,8 @@ package common
 		public static const PLAY_STATE_PREPARE:int			= 1; // 预备
 		public static const PLAY_STATE_DEAL:int				= 2; // 发牌
 		public static const PLAY_STATE_SNATCH:int			= 3; // 抢地主
-		public static const PLAY_STATE_DOUBLE:int			= 4; // 加倍
-		public static const PLAY_STATE_PLAY:int				= 5; // 游戏
-		public static const PLAY_STATE_OVER:int				= 6; // 结束
+		public static const PLAY_STATE_PLAY:int				= 4; // 游戏
+		public static const PLAY_STATE_OVER:int				= 5; // 结束
 		public static const PLAY_STATE_BOTTOM:int			= 11; // 底牌
 		public static const PLAY_STATE_PLAYDATA:int			= 20; // 出牌数据
 
