@@ -61,9 +61,9 @@ package game.script {
 		// 刷新x坐标
 		private function refreshX():void
 		{
-			var subCount:int = 17 - this.dataArray.length;
+			var subCount:int = 20 - this.dataArray.length;
 			var subX:Number = (subCount*41)/2;
-			this.ownerSprite.x = this.ownerX + subX;
+			this.ownerSprite.x = subX;
 		}
 
 		private function refreshY():void
@@ -218,6 +218,8 @@ package game.script {
 
 		private function tweenRotateIn():void
 		{
+			this.ownerSprite.anchorX = 0.5;
+			this.ownerSprite.anchorY = 0.5;
 			Tween.to(this.ownerSprite, {scaleX:0,scaleY:0,skewY:-15}, 300, Ease.quartIn, Handler.create(this, tweenRotateOut));
 		}
 
@@ -229,6 +231,8 @@ package game.script {
 
 		private function tweenRotateOver():void
 		{
+			this.ownerSprite.anchorX = 0;
+			this.ownerSprite.anchorY = 0;
 			NetAction.doSnatch(null);
 		}
 

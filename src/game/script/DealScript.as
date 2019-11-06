@@ -9,12 +9,12 @@ package game.script {
 	import laya.utils.Handler;
 	
 	public class DealScript extends Script {
-		private var placeX0:int = -450;
-		private var placeY0:int = 230;
-		private var placeX1:int = -320;
-		private var placeY1:int = 608;
-		private var placeX2:int = 450;
-		private var placeY2:int = 230;
+		private var placeX0:int = -285;
+		private var placeY0:int = 200;
+		private var placeX1:int = -233;
+		private var placeY1:int = 578;
+		private var placeX2:int = 285;
+		private var placeY2:int = 200;
 		private var placeXStep1:int = 41;
 
 		private var ownerSprite:Sprite = null;
@@ -50,8 +50,9 @@ package game.script {
 				for(var i:int = 0; i<GameConstants.GLOBAL_DEAL_NUM; i++)
 				{
 					pokerImg = new Image("game/poker/poker_bg.png");
-					pokerImg.pivotX = pokerImg.width / 2;
-					pokerImg.pivotY = pokerImg.height / 2;
+					pokerImg.anchorX = 0.5;
+					pokerImg.anchorY = 0.5;
+					pokerImg.pos(0, 0);
 					this.pokerList.push(pokerImg);
 					this.ownerSprite.addChild(pokerImg);
 				}
