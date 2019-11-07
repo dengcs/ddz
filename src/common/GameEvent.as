@@ -5,6 +5,7 @@ package common
 	 * @author
 	 */
 	public final class GameEvent{
+		public static const EVENT_GAME_START:String				= "START";
 		public static const EVENT_GAME_PREPARE:String			= "PREPARE";
 		public static const EVENT_GAME_DEAL:String				= "DEAL";
 		public static const EVENT_GAME_SNATCH:String			= "SNATCH";

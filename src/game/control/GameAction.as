@@ -39,6 +39,7 @@ package game.control {
             }
         }
 
+        // 收到服务器返回的出牌数据
         public static function onPlayData(msgData:Object):void
         {
             var curIdx:int = msgData.idx;
@@ -69,6 +70,12 @@ package game.control {
             {
                 saveRoundData(msgData);
             }
+        }
+
+        // 游戏开始接收服务器返回的玩家数据
+        public static function onGameStart(msgData:*):void
+        {
+            BaseAction.event(["Surface"], GameEvent.EVENT_GAME_START, msgData);
         }
 	}
 }

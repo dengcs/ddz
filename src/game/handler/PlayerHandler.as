@@ -6,6 +6,7 @@ package game.handler
 	import game.net.NetClient;
 	import game.proto.*;
 	import game.base.HandlerBase;
+	import common.GameStatic;
 
 	/**
 	 * ...
@@ -79,6 +80,7 @@ package game.handler
 
 			if(resp_data.ret == 0)
 			{
+				GameStatic.pid = resp_data.pid;
 				var loginMsg:game_login = new game_login();
 				loginMsg.pid = resp_data.pid
 				NetClient.send("game_login", loginMsg);
