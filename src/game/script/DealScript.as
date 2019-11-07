@@ -101,7 +101,7 @@ package game.script {
 			}
 			var delay:int = ((index % 18) == 0 && index > 0) ? 800 : 10;
 			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 800, Ease.expoOut, Handler.create(this,dealActionComplete,[pokerImg, place]));
-			Laya.timer.once(delay, this, dealAction, [index + 1]);
+			Laya.timer.once(delay, this, dealAction, [index + 1], false);
 		}
 
 		private function dealActionComplete(pokerImg:Image, place:int):void

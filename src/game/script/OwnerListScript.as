@@ -99,7 +99,7 @@ package game.script {
 				Laya.timer.once(delay, this, onPickUp, batch, false);
 			}
 			delay += 300;
-			Laya.timer.once(delay, this, tweenRotateIn);
+			Laya.timer.once(delay, this, tweenRotateIn, null, false);
 		}
 
 		private function onBottom(... data:Array):void
