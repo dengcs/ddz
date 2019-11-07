@@ -7,6 +7,7 @@ package common {
 		public static var ownerList_delCell:Function = null;
 		public static var ownerList_prompt:Function = null;
 		public static var ownerList_playPrompt:Function = null;
+		public static var surface_updateCounter:Function = null;
 
 		public static function send_game_update(cmd:int, msg:*=null):void
 		{

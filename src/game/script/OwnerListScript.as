@@ -56,6 +56,7 @@ package game.script {
 			this.dataArray = [];
 			this.ownerSprite.array = [];
 			this.ownerSprite.visible = false;
+			this.ownerSprite.x = this.ownerX + 60;
 		}
 
 		// 刷新x坐标

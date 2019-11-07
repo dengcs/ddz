@@ -146,7 +146,17 @@ package game.script {
 				Tween.to(this.ownerSprite, {y:target,scaleX:0.5,scaleY:0.5,alpha:1}, 300, Ease.quadInOut);
 			}else
 			{
-				Tween.to(this.ownerSprite, {x:target,scaleX:0.5,scaleY:0.5,alpha:1}, 300, Ease.quadInOut);
+				var subX:Number = this.ownerSprite.width / 4;
+				var targetX:Number = target;
+				if(this.place == 1)
+				{
+					targetX -= subX;
+				}else
+				{
+					targetX += subX;
+				}
+				Tween.to(this.ownerSprite, {x:targetX,scaleX:0.5,scaleY:0.5,alpha:1}, 300, Ease.quadInOut);
+				GameFunctions.surface_updateCounter.call(null, this.place, -sortData.length);
 			}
 		}
 

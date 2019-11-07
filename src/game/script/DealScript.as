@@ -7,15 +7,16 @@ package game.script {
 	import laya.utils.Tween;
 	import laya.utils.Ease;
 	import laya.utils.Handler;
+	import common.GameFunctions;
 	
 	public class DealScript extends Script {
-		private var placeX0:int = -285;
-		private var placeY0:int = 200;
-		private var placeX1:int = -233;
-		private var placeY1:int = 578;
-		private var placeX2:int = 285;
-		private var placeY2:int = 200;
-		private var placeXStep1:int = 41;
+		private var placeX0:int = -233;
+		private var placeY0:int = 578;
+		private var placeX1:int = -280;
+		private var placeY1:int = 278;
+		private var placeX2:int = 280;
+		private var placeY2:int = 278;
+		private var placeXStep:int = 41;
 
 		private var ownerSprite:Sprite = null;
 		private var pokerList:Array = [];
@@ -79,33 +80,38 @@ package game.script {
 			var scaleY:Number = 0.3;
 
 			var chg:int = Math.floor(index / 36);
-			var place:int = Math.floor((index - chg*36) / (6 - chg)) % 3;
+			var dealCount:int = 6 - chg;
+			var place:int = (Math.floor((index - chg*36) / dealCount) + 1) % 3;
 			if(place == 0)
-			{
-				x = this.placeX0;
+			{				
+				var step:int = (Math.floor(index/18)*6) + ((index - chg*36) % dealCount)
+				var offsetX:int = step * this.placeXStep;
+				x = this.placeX0 + offsetX;
 				y = this.placeY0;
-			}else if(place == 1)
-			{
-				var step:int = (Math.floor(index/18)*6) + ((index - chg*36) % (6 - chg))
-				var offsetX:int = step * this.placeXStep1;
-				x = this.placeX1 + offsetX;
-				y = this.placeY1;
 				scaleX = 1;
 				scaleY = 1;
+			}else if(place == 1)
+			{
+				x = this.placeX1;
+				y = this.placeY1;
 			}else
 			{
 				x = this.placeX2;
 				y = this.placeY2;
 			}
 			var delay:int = ((index % 18) == 0 && index > 0) ? 800 : 10;
-			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 800, Ease.expoOut, Handler.create(this,dealActionComplete,[pokerImg]));
+			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 800, Ease.expoOut, Handler.create(this,dealActionComplete,[pokerImg, place]));
 			Laya.timer.once(delay, this, dealAction, [index + 1]);
 		}
 
-		private function dealActionComplete(pokerImg:Image):void
+		private function dealActionComplete(pokerImg:Image, place:int):void
 		{
 			pokerImg.visible = false;
 			pokerImg.scale(1, 1).pos(0,0);
+			if(place > 0)
+			{
+				GameFunctions.surface_updateCounter.call(null, place, 1);	
+			}
 		}
 	}
 }

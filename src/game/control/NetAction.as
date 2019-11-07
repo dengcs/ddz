@@ -22,11 +22,12 @@ package game.control {
 			_mineIdx = msg.idx;
 			_rightIdx = (_mineIdx % 3) + 1
 			BaseAction.event(["DealPosition"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer3","mineList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer3","leftList"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_PREPARE);			
 			// GameAction.init();
 		}
 
@@ -65,7 +66,7 @@ package game.control {
 
 		public static function doOver(msg:* = null):void
 		{
-			
+			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_OVER);
 		}
 
 		public static function update(data:String):void
