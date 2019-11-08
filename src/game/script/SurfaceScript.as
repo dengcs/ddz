@@ -9,6 +9,8 @@ package game.script {
 	import game.proto.*;
 	import laya.ui.Image;
 	import common.GameStatic;
+	import game.proto.GameMember;
+	import laya.events.Event;
 	
 	public class SurfaceScript extends Script {
 
@@ -18,7 +20,11 @@ package game.script {
 
 		private var mineHead:Sprite = null;
 		private var leftHead:Sprite = null;
-		private var rightHead:Sprite = null;		
+		private var rightHead:Sprite = null;
+
+		private var mineHeadImg:Image = null;
+		private var leftHeadImg:Image = null;
+		private var rightHeadImg:Image = null;
 
 		override public function onAwake():void
 		{
@@ -26,6 +32,11 @@ package game.script {
 			this.leftHead = this.owner.getChildByName("leftHead") as Sprite;
 			this.rightHead = this.owner.getChildByName("rightHead") as Sprite;
 			this.counter = this.owner.getChildByName("counter") as Sprite;
+
+			this.mineHeadImg = this.mineHead.getChildAt(0) as Image;
+			this.leftHeadImg = this.leftHead.getChildAt(0) as Image;
+			this.rightHeadImg = this.rightHead.getChildAt(0) as Image;
+
 			this.leftLab = this.counter.getChildAt(0).getChildAt(0) as Label;
 			this.rightLab = this.counter.getChildAt(1).getChildAt(0) as Label;
 
@@ -35,18 +46,21 @@ package game.script {
 		override public function onEnable():void {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
-			this.owner.on(GameEvent.EVENT_GAME_START, this, onStartEvent);
+			this.owner.on(GameEvent.EVENT_GAME_START, this, onGameStart);
+
+			this.mineHeadImg.on(Event.CLICK, this, onHeadClick, [0]);
+			this.rightHeadImg.on(Event.CLICK, this, onHeadClick, [1]);
+			this.leftHeadImg.on(Event.CLICK, this, onHeadClick, [2]);
 		}
 		
 		override public function onDisable():void {
 			this.owner.offAllCaller(this);
 		}
 
-		private function onStartEvent(data:*):void
+		private function onGameStart(data:*):void
 		{
 			trace("onStartEvent--", data)
 			var mineIdx:int = -1;
-			var rightIdx:int = -1;
 			var minePid:String = GameStatic.pid;
 			var msgData:game_start_notify = data as game_start_notify;
 			
@@ -56,27 +70,11 @@ package game.script {
 				if(minePid == msgData.members[i].pid)
 				{
 					mineIdx = i;
-					rightIdx = (mineIdx + 1) % len;
 					break;
 				}				
 			}
 
-			for(var j:int = 0; j < len; j++)
-			{
-				var root:Sprite = null;
-				if(j == mineIdx)
-				{
-					root = this.mineHead;
-				}else if(j == rightIdx)
-				{
-					root = this.rightHead;
-				}else
-				{
-					root = this.leftHead;
-				}
-
-				updateHead(root, msgData.members[i]);
-			}
+			updateHead(mineIdx, msgData.members);
 		}
 
 		private function onPrepare():void
@@ -89,24 +87,44 @@ package game.script {
 		private function onOver():void
 		{
 			this.counter.visible = false;
+		}
+
+		private function onHeadClick(idx:int, e:Event):void
+		{
+			trace("onHeadClick", idx)
 		}		
 
-		private function updateHead(root:Sprite, data:*):void
+		private function updateHead(mineIdx:int, data:*):void
 		{
-			if(root != null)
+			if(mineIdx >= 0)
 			{
-				var member:GameMember = data as GameMember;
-				var headImg:Image = root.getChildAt(0) as Image;
-				var boxImg:Image = headImg.getChildAt(0) as Image;
+				var rightIdx:int = (mineIdx + 1) % 3;
+				var members:Vector.<GameMember> = data as Vector.<GameMember>;
 
-				if(member.portrait == "portrait")
+				var len:int = members.length;
+				for(var i:int = 0; i < len; i++)
 				{
-					headImg.skin = "icon/icon_head_g.jpg";
-				}
+					var member:GameMember = members[i];
+					var headImg:Image = this.leftHeadImg;
+					if(i == mineIdx)
+					{
+						headImg = this.mineHeadImg;
+					}else if(i == rightIdx)
+					{
+						headImg = this.rightHeadImg;
+					}
 
-				if(member.portraitBoxId == 0)
-				{
-					boxImg.skin = "icon/dw_s_1head.png";
+					headImg.tag = member;
+					var boxImg:Image = headImg.getChildAt(0) as Image;
+					if(member.portrait == "portrait")
+					{
+						headImg.skin = "icon/icon_head_g.jpg";
+					}
+
+					if(member.portraitBoxId == 0)
+					{
+						boxImg.skin = "icon/dw_s_1head.png";
+					}
 				}
 			}
 		}
