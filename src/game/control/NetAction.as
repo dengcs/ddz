@@ -17,18 +17,29 @@ package game.control {
 			return _mineIdx;
 		}
 
+		public static function idxIsMine(idx:int):Boolean
+		{
+			return idx == _mineIdx;
+		}
+
+		public static function idxIsRight(idx:int):Boolean
+		{
+			return idx == _rightIdx;
+		}
+
 		public static function doPrepare(msg:*):void
 		{			
 			_mineIdx = msg.idx;
 			_rightIdx = (_mineIdx % 3) + 1
+			GameAction.init();
 			BaseAction.event(["DealPosition"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer3","mineList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer3","leftList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_PREPARE);			
-			// GameAction.init();
 		}
 
 		public static function doDeal(msg:*):void
@@ -44,6 +55,7 @@ package game.control {
 				BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_SNATCH);
 			}else
 			{
+				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_SNATCH, data);
 				if(data.msg != null && data.msg == 1)
 				{
 					GameAction.ownerIdx = data.idx;
@@ -55,12 +67,18 @@ package game.control {
 		{
 			if(data)
 			{
-				BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
+				var idx:int = data.idx;
+				if(idxIsMine(idx))
+				{
+					BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
+				}
+				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_BOTTOM);
 			}
 		}
 
 		public static function doPlay(msg:* = null):void
 		{
+			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PLAY, msg);
 			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PLAY, msg);
 		}
 

@@ -306,7 +306,7 @@ package game.script {
 			var ret:int = 0;
 
 			var roundData:Object = GameAction.roundData;
-			if(roundData.idx == NetAction.mineIdx)
+			if(NetAction.idxIsMine(roundData.idx))
 			{
 				ret = 1;
 			}else

@@ -43,14 +43,14 @@ package game.control {
         public static function onPlayData(msgData:Object):void
         {
             var curIdx:int = msgData.idx;
-            if(curIdx == NetAction.mineIdx)
+            if(NetAction.idxIsMine(curIdx))
             {
                 BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_TURN);
                 if(msgData.msg is Array)
                 {                                                            
                     BaseAction.event(["Layer3","mineList"], GameEvent.EVENT_GAME_PLAY, msgData.msg);
                 }
-            }else if(curIdx == NetAction.rightIdx)
+            }else if(NetAction.idxIsRight(curIdx))
             {
                 BaseAction.event(["Layer3","leftList"], GameEvent.EVENT_GAME_TURN);
                 if(msgData.msg is Array)
