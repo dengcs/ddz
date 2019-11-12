@@ -56,7 +56,7 @@ package game.control {
 			}else
 			{
 				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_SNATCH, data);
-				if(data.msg != null && data.msg == 1)
+				if(data.msg == 1)
 				{
 					GameAction.ownerIdx = data.idx;
 				}

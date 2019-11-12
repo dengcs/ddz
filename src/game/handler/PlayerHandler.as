@@ -82,7 +82,7 @@ package game.handler
 			{
 				GameStatic.pid = resp_data.pid;
 				var loginMsg:game_login = new game_login();
-				loginMsg.pid = resp_data.pid
+				loginMsg.pid = resp_data.pid;
 				NetClient.send("game_login", loginMsg);
 			}
 		}

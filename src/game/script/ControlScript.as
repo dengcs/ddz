@@ -107,7 +107,7 @@ package game.script {
 		private function onClickSnatchNo():void
 		{
 			snatchSp.visible = false;
-			GameFunctions.send_game_update(GameConstants.PLAY_STATE_SNATCH);
+			GameFunctions.send_game_update(GameConstants.PLAY_STATE_SNATCH, 0);
 		}
 
 		private function onClickPlay():void

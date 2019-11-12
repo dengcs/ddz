@@ -64,40 +64,40 @@ package game.script {
 		private function onSnatch(data:Object):void
 		{
 			var idx:int = data.idx;
-			var isTrue:Boolean = data.msg != null;
+			var isBuJiao:Boolean = data.msg == 0;
 			if(NetAction.idxIsMine(idx))
 			{
-				if(isTrue)
-				{
-					this.mineMarkVT[2].visible = true;
-				}else
+				if(isBuJiao)
 				{
 					this.mineMarkVT[1].visible = true;
+				}else
+				{
+					this.mineMarkVT[2].visible = true;
 				}
 			}else if(NetAction.idxIsRight(idx))
 			{
-				if(isTrue)
-				{
-					this.rightMarkVT[2].visible = true;
-				}else
+				if(isBuJiao)
 				{
 					this.rightMarkVT[1].visible = true;
+				}else
+				{
+					this.rightMarkVT[2].visible = true;
 				}
 			}else
 			{
-				if(isTrue)
-				{
-					this.leftMarkVT[2].visible = true;
-				}else
+				if(isBuJiao)
 				{
 					this.leftMarkVT[1].visible = true;
+				}else
+				{
+					this.leftMarkVT[2].visible = true;
 				}
 			}
 		}
 
 		private function onBottom():void
 		{
-			this.clearSnatchMark();
+			Laya.timer.once(800, this, clearSnatchMark, null, false);
 		}
 
 		private function onPlay(msgData:Object):void
