@@ -128,6 +128,9 @@ package game.script {
 				{
 					this.turnCount = 0;
 				}
+			}else
+			{
+				this.mineMarkVT[0].visible = false;
 			}
 		}
 
