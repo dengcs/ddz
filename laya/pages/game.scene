@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":89,
-    "selecteID":102,
+    "selectedBox":2,
+    "selecteID":71,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":103,
+    "maxID":106,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -91,16 +91,17 @@
                     "props":{"y":180,"x":-550,"width":0,"rotation":0,"pivotX":0,"name":"mineHead","height":0},
                     "nodeParent":71,
                     "label":"mineHead",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":72,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,headImg",
-                            "props":{"skin":"icon/icon_head_m.jpg","name":"headImg"},
+                            "props":{"width":170,"skin":"icon/icon_head_g.jpg","name":"headImg","height":170},
                             "nodeParent":72,
                             "label":"headImg",
                             "isOpen":true,
@@ -110,6 +111,7 @@
                             "compId":76,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,boxImg",
                                     "props":{"y":-13,"x":-13,"skin":"icon/dw_s_1head.png","name":"boxImg"},
@@ -122,6 +124,20 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,boxImgs",
+                                    "props":{"y":-25,"x":-25,"skin":"icon/dw_s_1head_s.png","name":"boxImgs"},
+                                    "nodeParent":76,
+                                    "label":"boxImgs",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":103,
+                                    "child":[
+                                        ]
                                 }]
                         }],
                     "$HIDDEN":false
@@ -133,25 +149,27 @@
                     "props":{"y":-100,"x":-400,"width":0,"name":"leftHead","height":0},
                     "nodeParent":71,
                     "label":"leftHead",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":73,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,headImg",
-                            "props":{"skin":"icon/icon_head_m.jpg","name":"headImg","anchorY":0.5,"anchorX":0.5},
+                            "props":{"width":170,"skin":"icon/head_m_table.png","name":"headImg","height":170,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":73,
                             "label":"headImg",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":77,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,boxImg",
                                     "props":{"y":-13,"x":-13,"skin":"icon/dw_s_1head.png","name":"boxImg"},
@@ -164,6 +182,20 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,boxImgs",
+                                    "props":{"y":-25,"x":-25,"skin":"icon/dw_s_1head_s.png","name":"boxImgs"},
+                                    "nodeParent":77,
+                                    "label":"boxImgs",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":104,
+                                    "child":[
+                                        ]
                                 }]
                         }],
                     "$HIDDEN":false
@@ -175,25 +207,27 @@
                     "props":{"y":-100,"x":400,"width":0,"name":"rightHead","height":0},
                     "nodeParent":71,
                     "label":"rightHead",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":74,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,headImg",
-                            "props":{"skin":"icon/icon_head_m.jpg","name":"headImg","anchorY":0.5,"anchorX":0.5},
+                            "props":{"width":170,"skin":"icon/head_m_table.png","name":"headImg","height":170,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":74,
                             "label":"headImg",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":79,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,boxImg",
                                     "props":{"y":-13,"x":-13,"skin":"icon/dw_s_1head.png","name":"boxImg"},
@@ -206,6 +240,20 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,boxImgs",
+                                    "props":{"y":-25,"x":-25,"skin":"icon/dw_s_1head_s.png","name":"boxImgs"},
+                                    "nodeParent":79,
+                                    "label":"boxImgs",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":105,
+                                    "child":[
+                                        ]
                                 }]
                         }],
                     "$HIDDEN":false
@@ -217,13 +265,14 @@
                     "props":{"visible":false,"name":"counter"},
                     "nodeParent":71,
                     "label":"counter",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":83,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,left",
                             "props":{"y":-30,"x":-280,"skin":"game/poker/poker_bg.png","scaleY":0.3,"scaleX":0.3,"name":"left","anchorY":0.5,"anchorX":0.5},
@@ -236,6 +285,7 @@
                             "compId":84,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,count",
                                     "props":{"y":73,"x":24,"width":100,"valign":"middle","text":"0","name":"count","fontSize":60,"font":"Microsoft YaHei","color":"#ffffff","bold":true,"align":"center"},
@@ -250,9 +300,10 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,right",
-                            "props":{"y":-30,"x":280,"skin":"game/poker/poker_bg.png","scaleY":0.3,"scaleX":0.3,"name":"right","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":-30,"x":277,"skin":"game/poker/poker_bg.png","scaleY":0.3,"scaleX":0.3,"name":"right","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":83,
                             "label":"right",
                             "isOpen":true,
@@ -262,6 +313,7 @@
                             "compId":85,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,count",
                                     "props":{"y":73,"x":24,"width":100,"valign":"middle","text":"0","name":"count","fontSize":60,"font":"Microsoft YaHei","color":"#ffffff","bold":true,"align":"center"},

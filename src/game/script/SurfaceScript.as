@@ -116,6 +116,7 @@ package game.script {
 
 					headImg.tag = member;
 					var boxImg:Image = headImg.getChildAt(0) as Image;
+					var boxImgs:Image = headImg.getChildAt(1) as Image;
 					if(member.portrait == "portrait")
 					{
 						headImg.skin = "icon/icon_head_g.jpg";
@@ -123,7 +124,8 @@ package game.script {
 
 					if(member.portraitBoxId == 0)
 					{
-						boxImg.skin = "icon/dw_s_1head.png";
+						boxImg.skin = "icon/dw_s_2head.png";
+						boxImgs.skin = "icon/dw_s_2head_s.png";
 					}
 				}
 			}
