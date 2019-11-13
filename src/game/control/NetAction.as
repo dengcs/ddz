@@ -32,7 +32,8 @@ package game.control {
 			_mineIdx = msg.idx;
 			_rightIdx = (_mineIdx % 3) + 1
 			GameAction.init();
-			BaseAction.event(["DealPosition"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Deal"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE);
@@ -44,7 +45,7 @@ package game.control {
 
 		public static function doDeal(msg:*):void
 		{
-			BaseAction.event(["DealPosition"], GameEvent.EVENT_GAME_DEAL);
+			BaseAction.event(["Deal"], GameEvent.EVENT_GAME_DEAL);
 			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_DEAL, msg);
 		}
 
@@ -72,7 +73,9 @@ package game.control {
 				{
 					BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
 				}
+				BaseAction.event(["Deal"], GameEvent.EVENT_GAME_BOTTOM);
 				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_BOTTOM);
+				BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
 			}
 		}
 

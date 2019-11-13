@@ -84,7 +84,7 @@ package game.script {
 
 		private function onBottom():void
 		{
-			Laya.timer.once(800, this, clearMark, null, false);
+			this.owner.timerOnce(800, this, clearMark, null, false);
 		}
 
 		private function onPlay(msgData:Object):void
@@ -131,6 +131,9 @@ package game.script {
 						this.clearMark();
 					}
 				}
+			}else
+			{
+				this.mineMarkImg.visible = false;
 			}
 		}
 

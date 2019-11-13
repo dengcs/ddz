@@ -16,6 +16,8 @@ package game.script {
 		private var placeY1:int = 278;
 		private var placeX2:int = 277;
 		private var placeY2:int = 278;
+		private var placeXb:int = -90;
+		private var placeYb:int = 208;
 		private var placeXStep:int = 41;
 
 		private var ownerSprite:Sprite = null;
@@ -26,15 +28,12 @@ package game.script {
 			this.ownerSprite = this.owner as Sprite;
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_DEAL, this, onDeal);
+			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
 		}
 
 		override public function onDestroy():void
 		{
 			this.owner.offAllCaller(this);
-		}
-
-		override public function onStart():void
-		{
 		}
 
 		private function onPrepare():void
@@ -48,7 +47,7 @@ package game.script {
 			}
 			else
 			{
-				for(var i:int = 0; i<GameConstants.GLOBAL_DEAL_NUM; i++)
+				for(var i:int = 0; i<GameConstants.GLOBAL_POKER_NUM; i++)
 				{
 					pokerImg = new Image("game/poker/poker_bg.png");
 					pokerImg.anchorX = 0.5;
@@ -62,13 +61,28 @@ package game.script {
 
 		private function onDeal():void
 		{
-			this.dealAction(0);
+			this.dealPlayer(0);
 		}
 
-		public function dealAction(index:int):void
+		private function onBottom():void
+		{
+			for(var i:int = GameConstants.GLOBAL_DEAL_NUM; i < GameConstants.GLOBAL_POKER_NUM; i++)
+			{
+				var pokerImg:Image = this.pokerList[i];
+				if(pokerImg)
+				{
+					pokerImg.visible = false;
+					pokerImg.scale(1, 1).pos(0,0);
+				}
+			}
+		}
+
+		// 发牌到玩家
+		public function dealPlayer(index:int):void
 		{
 			if(index >= GameConstants.GLOBAL_DEAL_NUM)
 			{
+				this.dealBottom(index);
 				return;
 			}
 
@@ -100,11 +114,31 @@ package game.script {
 				y = this.placeY2;
 			}
 			var delay:int = ((index % 18) == 0 && index > 0) ? 800 : 10;
-			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 800, Ease.expoOut, Handler.create(this,dealActionComplete,[pokerImg, place]));
-			Laya.timer.once(delay, this, dealAction, [index + 1], false);
+			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 800, Ease.expoOut, Handler.create(this, dealComplete, [pokerImg, place]));
+			this.owner.timerOnce(delay, this, dealPlayer, [index + 1], false);
 		}
 
-		private function dealActionComplete(pokerImg:Image, place:int):void
+		// 发底牌
+		private function dealBottom(index:int):void
+		{
+			if(index >= GameConstants.GLOBAL_POKER_NUM)
+			{
+				return;
+			}
+
+			var stepX:int = index - GameConstants.GLOBAL_DEAL_NUM;
+			var pokerImg:Image = this.pokerList[index];
+
+			var x:int = this.placeXb + stepX*90; // 发牌的目标位置x坐标
+			var y:int = this.placeYb; // 发牌的目标位置y坐标
+			var scaleX:Number = 0.6;
+			var scaleY:Number = 0.6;
+
+			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 600, Ease.expoOut);
+			this.owner.timerOnce(10, this, dealBottom, [index + 1], false);
+		}
+
+		private function dealComplete(pokerImg:Image, place:int):void
 		{
 			pokerImg.visible = false;
 			pokerImg.scale(1, 1).pos(0,0);

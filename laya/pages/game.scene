@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":5,
+    "selecteID":109,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":109,
+    "maxID":118,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -44,17 +44,18 @@
         {
             "x":15,
             "type":"Sprite",
-            "searchKey":"Sprite,DealPosition",
-            "props":{"y":120,"x":570,"width":1,"name":"DealPosition","height":1},
+            "searchKey":"Sprite,Deal",
+            "props":{"y":120,"x":570,"width":1,"name":"Deal","height":1},
             "nodeParent":2,
-            "label":"DealPosition",
-            "isOpen":false,
+            "label":"Deal",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":5,
             "child":[
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/DealScript.as",
@@ -69,6 +70,117 @@
                     "compId":32,
                     "child":[
                         ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,Bottom",
+            "props":{"y":427,"x":569,"width":1,"name":"Bottom","height":1},
+            "nodeParent":2,
+            "label":"Bottom",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":109,
+            "child":[
+                {
+                    "x":30,
+                    "type":"List",
+                    "searchKey":"List,myList",
+                    "props":{"y":-100,"x":0,"visible":false,"scaleY":0.6,"scaleX":0.6,"repeatY":1,"repeatX":3,"name":"myList","height":209,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":109,
+                    "label":"myList",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":110,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "searchKey":"Box",
+                            "props":{"renderType":"render"},
+                            "nodeParent":110,
+                            "label":"Box",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":false,
+                            "hasChild":true,
+                            "compId":111,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "searchKey":"Image,content",
+                                    "props":{"skin":"game/poker/poker_fg.png","sizeGrid":"20,15,20,15","name":"content"},
+                                    "nodeParent":111,
+                                    "label":"content",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":false,
+                                    "hasChild":true,
+                                    "compId":112,
+                                    "child":[
+                                        {
+                                            "type":"Image",
+                                            "searchKey":"Image,value",
+                                            "props":{"y":5,"x":6,"name":"value"},
+                                            "nodeParent":112,
+                                            "label":"value",
+                                            "isOpen":true,
+                                            "isDirectory":true,
+                                            "isAniNode":false,
+                                            "hasChild":true,
+                                            "compId":113,
+                                            "child":[
+                                                {
+                                                    "type":"Image",
+                                                    "searchKey":"Image,type1",
+                                                    "props":{"y":42,"x":0,"scaleY":0.35,"scaleX":0.35,"name":"type1"},
+                                                    "nodeParent":113,
+                                                    "label":"type1",
+                                                    "isDirectory":false,
+                                                    "isAniNode":false,
+                                                    "hasChild":false,
+                                                    "compId":114,
+                                                    "child":[
+                                                        ]
+                                                }]
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "searchKey":"Image,type2",
+                                            "props":{"y":61,"x":35,"name":"type2"},
+                                            "nodeParent":112,
+                                            "label":"type2",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":115,
+                                            "child":[
+                                                ]
+                                        }]
+                                }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/game/script/BottomListScript.as",
+                            "searchKey":"Script,BottomListScript",
+                            "removeAble":true,
+                            "props":{},
+                            "nodeParent":110,
+                            "label":"BottomListScript",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":117,
+                            "child":[
+                                ]
+                        }]
                 }]
         },
         {
@@ -145,7 +257,7 @@
                             "x":45,
                             "type":"Image",
                             "searchKey":"Image,headImg",
-                            "props":{"width":170,"skin":"icon/head_m_table.png","name":"headImg","height":170,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"width":170,"skin":"icon/table_head_kong.jpg","name":"headImg","height":170,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":73,
                             "label":"headImg",
                             "isOpen":true,
@@ -189,7 +301,7 @@
                             "x":45,
                             "type":"Image",
                             "searchKey":"Image,headImg",
-                            "props":{"width":170,"skin":"icon/head_m_table.png","name":"headImg","height":170,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"width":170,"skin":"icon/table_head_kong.jpg","name":"headImg","height":170,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":74,
                             "label":"headImg",
                             "isOpen":true,
@@ -613,14 +725,13 @@
             "props":{"y":427,"x":570,"width":600,"pivotY":300,"pivotX":300,"name":"Layer3","height":600},
             "nodeParent":2,
             "label":"Layer3",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":47,
             "child":[
                 {
-                    "x":30,
                     "type":"List",
                     "searchKey":"List,mineList",
                     "props":{"y":470,"x":300,"width":930,"visible":true,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"rotation":0,"repeatY":1,"repeatX":20,"name":"mineList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5},
@@ -633,7 +744,6 @@
                     "compId":48,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":104,"x":75,"renderType":"render","anchorY":0.5,"anchorX":0.5},
@@ -700,7 +810,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/ThrowListScript.as",
@@ -719,7 +828,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"List",
                     "searchKey":"List,leftList",
                     "props":{"y":165,"x":-100,"width":930,"visible":true,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"repeatY":1,"repeatX":20,"name":"leftList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5},
@@ -732,7 +840,6 @@
                     "compId":55,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":104,"x":75,"renderType":"render","anchorY":0.5,"anchorX":0.5},
@@ -799,7 +906,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/ThrowListScript.as",
@@ -818,7 +924,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"List",
                     "searchKey":"List,rightList",
                     "props":{"y":165,"x":700,"width":930,"visible":true,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"repeatY":1,"repeatX":20,"name":"rightList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5},
@@ -831,7 +936,6 @@
                     "compId":61,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":104,"x":75,"renderType":"render","anchorY":0.5,"anchorX":0.5},
@@ -898,7 +1002,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/ThrowListScript.as",

@@ -4,6 +4,7 @@ package {
 	import laya.ui.View;
 	import laya.webgl.WebGL;
 	import game.script.DealScript;
+	import game.script.BottomListScript;
 	import game.script.SurfaceScript;
 	import game.script.MarkScript;
 	import game.script.OwnerListScript;
@@ -33,6 +34,7 @@ package {
 			//注册Script或者Runtime引用
 			var reg:Function = ClassUtils.regClass;
 			reg("game.script.DealScript",DealScript);
+			reg("game.script.BottomListScript",BottomListScript);
 			reg("game.script.SurfaceScript",SurfaceScript);
 			reg("game.script.MarkScript",MarkScript);
 			reg("game.script.OwnerListScript",OwnerListScript);

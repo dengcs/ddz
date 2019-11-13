@@ -96,10 +96,10 @@ package game.script {
 					}
 				}
 				delay += 900 + m*180;
-				Laya.timer.once(delay, this, onPickUp, batch, false);
+				this.owner.timerOnce(delay, this, onPickUp, batch, false);
 			}
 			delay += 300;
-			Laya.timer.once(delay, this, tweenRotateIn, null, false);
+			this.owner.timerOnce(delay, this, tweenRotateIn, null, false);
 		}
 
 		private function onBottom(... data:Array):void
