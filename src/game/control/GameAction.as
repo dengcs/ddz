@@ -14,6 +14,11 @@ package game.control {
             _roundData.idx = value;
         }
 
+        public static function haveOwner():Boolean
+        {
+            return _ownerIdx > 0;
+        }
+
         public static function get roundData():Object
         {
         	return _roundData;

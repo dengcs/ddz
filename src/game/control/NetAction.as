@@ -85,6 +85,7 @@ package game.control {
 		public static function doOver(msg:* = null):void
 		{
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_OVER);
+			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_OVER);
 		}
 
 		public static function update(data:String):void

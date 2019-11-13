@@ -111,6 +111,7 @@ package game.script {
 			}
 			this.refreshX();
 			this.sortAndUpdate();
+			this.refreshY();
 			
 			for each(var val:int in data)
 			{

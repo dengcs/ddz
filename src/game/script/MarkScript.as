@@ -4,42 +4,28 @@ package game.script {
 	import laya.display.Sprite;
 	import common.GameEvent;
 	import game.control.NetAction;
+	import game.control.GameAction;
 	
 	public class MarkScript extends Script {
-		private var buchuImg:Image = null;
-		private var bujiaoImg:Image = null;
-		private var jiaodizhuImg:Image = null;
-		private var mineMarkVT:Vector.<Image> = new Vector.<Image>();
-		private var rightMarkVT:Vector.<Image> = new Vector.<Image>();
-		private var leftMarkVT:Vector.<Image> = new Vector.<Image>();
+		private var mineMarkImg:Image = null;
+		private var rightMarkImg:Image = null;
+		private var leftMarkImg:Image = null;
+
+		private var markSkinVT:Vector.<String> = new Vector.<String>();
 
 		private var turnCount:int = 0; // 轮空次数
 
 		override public function onAwake():void
 		{
-			var mineMark:Sprite = this.owner.getChildAt(0) as Sprite;
-			var rightMark:Sprite = this.owner.getChildAt(1) as Sprite;
-			var leftMark:Sprite = this.owner.getChildAt(2) as Sprite;
+			this.mineMarkImg = this.owner.getChildAt(0) as Image;
+			this.rightMarkImg = this.owner.getChildAt(1) as Image;
+			this.leftMarkImg = this.owner.getChildAt(2) as Image;
 
-			var mineBuChuImg:Image = mineMark.getChildAt(0) as Image;
-			var mineBuJiaoImg:Image = mineMark.getChildAt(1) as Image;
-			var mineJiaoDiZhuImg:Image = mineMark.getChildAt(2) as Image;
-			var rightBuChuImg:Image = rightMark.getChildAt(0) as Image;
-			var rightBuJiaoImg:Image = rightMark.getChildAt(1) as Image;
-			var rightJiaoDiZhuImg:Image = rightMark.getChildAt(2) as Image;
-			var leftBuChuImg:Image = leftMark.getChildAt(0) as Image;
-			var leftBuJiaoImg:Image = leftMark.getChildAt(1) as Image;
-			var leftJiaoDiZhuImg:Image = leftMark.getChildAt(2) as Image;
-			
-			this.mineMarkVT.push(mineBuChuImg);
-			this.mineMarkVT.push(mineBuJiaoImg);
-			this.mineMarkVT.push(mineJiaoDiZhuImg);
-			this.rightMarkVT.push(rightBuChuImg);
-			this.rightMarkVT.push(rightBuJiaoImg);
-			this.rightMarkVT.push(rightJiaoDiZhuImg);
-			this.leftMarkVT.push(leftBuChuImg);
-			this.leftMarkVT.push(leftBuJiaoImg);
-			this.leftMarkVT.push(leftJiaoDiZhuImg);
+			this.markSkinVT.push("mark/jiaodizhu.png");
+			this.markSkinVT.push("mark/nocall.png");
+			this.markSkinVT.push("mark/qiangdizhu.png");
+			this.markSkinVT.push("mark/buqiang.png");
+			this.markSkinVT.push("mark/buchu.png");
 		}
 
 		override public function onEnable():void
@@ -48,6 +34,7 @@ package game.script {
 			this.owner.on(GameEvent.EVENT_GAME_SNATCH, this, onSnatch);
 			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
 			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onPlay);
+			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
 		}
 
 		override public function onDisable():void
@@ -63,129 +50,119 @@ package game.script {
 
 		private function onSnatch(data:Object):void
 		{
+			var toward:int = 3;
 			var idx:int = data.idx;
-			var isBuJiao:Boolean = data.msg == 0;
+			var isNocall:Boolean = data.msg == 0;
 			if(NetAction.idxIsMine(idx))
 			{
-				if(isBuJiao)
-				{
-					this.mineMarkVT[1].visible = true;
-				}else
-				{
-					this.mineMarkVT[2].visible = true;
-				}
+				toward = 1;
 			}else if(NetAction.idxIsRight(idx))
 			{
-				if(isBuJiao)
+				toward = 2;
+			}
+
+			if(GameAction.haveOwner())
+			{
+				if(isNocall)
 				{
-					this.rightMarkVT[1].visible = true;
+					this.showMark(toward, 3);
 				}else
 				{
-					this.rightMarkVT[2].visible = true;
+					this.showMark(toward, 2);
 				}
 			}else
 			{
-				if(isBuJiao)
+				if(isNocall)
 				{
-					this.leftMarkVT[1].visible = true;
+					this.showMark(toward, 1);
 				}else
 				{
-					this.leftMarkVT[2].visible = true;
+					this.showMark(toward, 0);
 				}
 			}
 		}
 
 		private function onBottom():void
 		{
-			Laya.timer.once(800, this, clearSnatchMark, null, false);
+			Laya.timer.once(800, this, clearMark, null, false);
 		}
 
 		private function onPlay(msgData:Object):void
 		{
 			if(msgData)
-			{				
+			{
+				var markSkin:String = this.markSkinVT[4];
 				var idx:int = msgData.idx;
 				var isTrue:Boolean = msgData.msg is int;
 				if(NetAction.idxIsMine(idx))
 				{
-					if(isTrue) this.mineMarkVT[0].visible = true;
+					if(isTrue)
+					{
+						this.mineMarkImg.skin = markSkin;
+						this.mineMarkImg.visible = true;
+					}
+					this.rightMarkImg.visible = false;
 				}else if(NetAction.idxIsRight(idx))
 				{
-					if(isTrue) this.rightMarkVT[0].visible = true;
+					if(isTrue)
+					{
+						this.rightMarkImg.skin = markSkin;
+						this.rightMarkImg.visible = true;
+					}
+					this.leftMarkImg.visible = false;
 				}else
 				{
-					if(isTrue) this.leftMarkVT[0].visible = true;
+					if(isTrue)
+					{
+						this.leftMarkImg.skin = markSkin;
+						this.leftMarkImg.visible = true;
+					}
+					this.mineMarkImg.visible = false;
 				}
 
 				if(isTrue)
 				{
-					this.turnCount += 1;
-					if(this.turnCount > 1)
-					{
-						this.clearMark();
-					}
+					this.turnCount += 1;					
 				}else
 				{
-					this.turnCount = 0;
+					if(this.turnCount > 2)
+					{
+						this.turnCount = 0;
+						this.clearMark();
+					}
 				}
-			}else
-			{
-				this.mineMarkVT[0].visible = false;
 			}
+		}
+
+		private function onOver():void
+		{
+			this.clearMark();
 		}
 
 		private function showMark(toward:int, idx:int):void
 		{
-			var targetVT:Vector.<Image> = this.leftMarkVT;
+			var targetImg:Image = this.leftMarkImg;
 			if(toward == 1)
 			{
-				targetVT = this.mineMarkVT;
+				targetImg = this.mineMarkImg;
 			}else if(toward == 2)
 			{
-				targetVT = this.rightMarkVT;
+				targetImg = this.rightMarkImg;
 			}
 
-			var markImg:Image = targetVT[idx];
-			if(markImg != null)
+			if(idx < this.markSkinVT.length)
 			{
-				markImg.visible = true;
+				var markSkin:String = this.markSkinVT[idx];
+				targetImg.skin = this.markSkinVT[idx];
+				targetImg.visible = true;
 			}
 		}
 
 		private function clearMark():void
 		{
-			for each(var mineImg:Image in this.mineMarkVT)
-			{
-				mineImg.visible = false;
-			}
-
-			for each(var rightImg:Image in this.rightMarkVT)
-			{
-				rightImg.visible = false;
-			}
-
-			for each(var leftImg:Image in this.leftMarkVT)
-			{
-				leftImg.visible = false;
-			}
-		}
-
-		private function clearSnatchMark():void
-		{
-			for(var x:int =1; x < 3; x++)
-			{
-				this.mineMarkVT[x].visible = false;
-			}
-
-			for(var y:int =1; y < 3; y++)
-			{
-				this.rightMarkVT[y].visible = false;
-			}
-
-			for(var z:int =1; z < 3; z++)
-			{
-				this.leftMarkVT[z].visible = false;
-			}
+			this.mineMarkImg.visible = false;
+			this.rightMarkImg.visible = false;
+			this.leftMarkImg.visible = false;
 		}
 	}
 }

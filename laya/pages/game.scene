@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":71,
+    "selecteID":5,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":106,
+    "maxID":109,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -114,7 +114,7 @@
                                     "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,boxImg",
-                                    "props":{"y":-13,"x":-13,"skin":"icon/dw_s_1head.png","name":"boxImg"},
+                                    "props":{"y":85,"x":85,"skin":"icon/dw_s_2head_s.png","name":"boxImg","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":76,
                                     "label":"boxImg",
                                     "isDirectory":false,
@@ -124,20 +124,6 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "searchKey":"Image,boxImgs",
-                                    "props":{"y":-25,"x":-25,"skin":"icon/dw_s_1head_s.png","name":"boxImgs"},
-                                    "nodeParent":76,
-                                    "label":"boxImgs",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":103,
-                                    "child":[
-                                        ]
                                 }]
                         }],
                     "$HIDDEN":false
@@ -172,7 +158,7 @@
                                     "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,boxImg",
-                                    "props":{"y":-13,"x":-13,"skin":"icon/dw_s_1head.png","name":"boxImg"},
+                                    "props":{"y":85,"x":85,"skin":"icon/dw_s_1head.png","name":"boxImg","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":77,
                                     "label":"boxImg",
                                     "isDirectory":false,
@@ -182,20 +168,6 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "searchKey":"Image,boxImgs",
-                                    "props":{"y":-25,"x":-25,"skin":"icon/dw_s_1head_s.png","name":"boxImgs"},
-                                    "nodeParent":77,
-                                    "label":"boxImgs",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":104,
-                                    "child":[
-                                        ]
                                 }]
                         }],
                     "$HIDDEN":false
@@ -230,7 +202,7 @@
                                     "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,boxImg",
-                                    "props":{"y":-13,"x":-13,"skin":"icon/dw_s_1head.png","name":"boxImg"},
+                                    "props":{"y":85,"x":85,"skin":"icon/dw_s_1head.png","name":"boxImg","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":79,
                                     "label":"boxImg",
                                     "isDirectory":false,
@@ -240,20 +212,6 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "searchKey":"Image,boxImgs",
-                                    "props":{"y":-25,"x":-25,"skin":"icon/dw_s_1head_s.png","name":"boxImgs"},
-                                    "nodeParent":79,
-                                    "label":"boxImgs",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":105,
-                                    "child":[
-                                        ]
                                 }]
                         }],
                     "$HIDDEN":false
@@ -351,176 +309,55 @@
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite,Mark",
-            "props":{"y":397,"x":540,"name":"Mark"},
+            "props":{"y":427,"x":569,"width":1,"name":"Mark","height":1},
             "nodeParent":2,
             "label":"Mark",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":89,
             "child":[
                 {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mineMark",
-                    "props":{"y":120,"x":0,"width":60,"name":"mineMark","height":60},
+                    "type":"Image",
+                    "searchKey":"Image,mine",
+                    "props":{"y":120,"x":0,"visible":false,"skin":"mark/jiaodizhu.png","name":"mine","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":89,
-                    "label":"mineMark",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "label":"mine",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":90,
+                    "hasChild":false,
+                    "compId":106,
                     "child":[
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":3,"x":-16,"visible":false,"skin":"mark/mark_buchu.png"},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":93,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":3,"x":-16,"visible":false,"skin":"mark/mark_bujiao.png"},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":94,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":3,"x":-38,"visible":false,"skin":"mark/mark_jiaodizhu.png"},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":95,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 },
                 {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,rightMark",
-                    "props":{"y":-100,"x":240,"width":60,"name":"rightMark","height":60},
+                    "type":"Image",
+                    "searchKey":"Image,right",
+                    "props":{"y":-100,"x":230,"visible":false,"skin":"mark/jiaodizhu.png","name":"right","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":89,
-                    "label":"rightMark",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "label":"right",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":91,
+                    "hasChild":false,
+                    "compId":107,
                     "child":[
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":3,"x":-16,"visible":false,"skin":"mark/mark_buchu.png"},
-                            "nodeParent":91,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":96,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":3,"x":-16,"visible":false,"skin":"mark/mark_bujiao.png"},
-                            "nodeParent":91,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":97,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":3,"x":-38,"visible":false,"skin":"mark/mark_jiaodizhu.png"},
-                            "nodeParent":91,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":98,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 },
                 {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,leftMark",
-                    "props":{"y":-100,"x":-240,"width":60,"name":"leftMark","height":60},
+                    "type":"Image",
+                    "searchKey":"Image,left",
+                    "props":{"y":-100,"x":-230,"visible":false,"skin":"mark/jiaodizhu.png","name":"left","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":89,
-                    "label":"leftMark",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "label":"left",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":92,
+                    "hasChild":false,
+                    "compId":108,
                     "child":[
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":3,"x":-16,"visible":false,"skin":"mark/mark_buchu.png"},
-                            "nodeParent":92,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":99,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":3,"x":-16,"visible":false,"skin":"mark/mark_bujiao.png"},
-                            "nodeParent":92,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":100,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":3,"x":-38,"visible":false,"skin":"mark/mark_jiaodizhu.png"},
-                            "nodeParent":92,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":101,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/MarkScript.as",
