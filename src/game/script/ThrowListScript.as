@@ -11,6 +11,7 @@ package game.script {
 	import common.GameConstants;
 	import common.GameFunctions;
 	import com.utils.Dictionary;
+	import game.control.GameAction;
 	
 	public class ThrowListScript extends Script {
 		/** @prop {name:place, tips:"0:自己;1:右边;2:左边", type:Int, default:0}*/
@@ -21,13 +22,16 @@ package game.script {
 		public var source: Number = 0;
 
 		private var ownerSprite:List = null;
+		private var dzTipImg:Image = null;
 
 		private var dataArray:Array = [];
 
 		override public function onAwake():void
 		{
 			this.ownerSprite = this.owner as List;
-			this.ownerSprite.visible = false;
+
+			this.dzTipImg = this.owner.getChildByName("dzTip") as Image;
+			
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onThrow);
 			this.owner.on(GameEvent.EVENT_GAME_TURN, this, onRecoverState);
@@ -48,7 +52,7 @@ package game.script {
 			this.dataArray = [];
 			this.ownerSprite.array = [];
 			this.ownerSprite.alpha = 0;
-			this.ownerSprite.visible = true;
+			this.dzTipImg.visible = false;
 		}
 
 		private function onListRender(cell:Box, index:int): void 
@@ -129,6 +133,37 @@ package game.script {
 			return retData;
 		}
 
+		private function refreshDZ():void
+		{
+			var canShowTip:Boolean = false;
+			if(GameAction.ownerIsMine())
+			{
+				if(this.place == 0)
+				{
+					canShowTip = true;					
+				}
+			}else if(GameAction.ownerIsRight())
+			{
+				if(this.place == 1)
+				{
+					canShowTip = true;
+				}
+			}else
+			{
+				if(this.place == 2)
+				{
+					canShowTip = true;
+				}
+			}
+
+			if(canShowTip)
+			{
+				this.dzTipImg.visible = true;
+				this.dzTipImg.x = this.ownerSprite.width;
+				this.dzTipImg.y = this.ownerSprite.height;
+			}
+		}
+
 		private function onThrow(... data:Array):void
 		{
 			var sortData:Array = this.sort(data);
@@ -158,6 +193,7 @@ package game.script {
 				Tween.to(this.ownerSprite, {x:targetX,scaleX:0.5,scaleY:0.5,alpha:1}, 300, Ease.quadInOut);
 				GameFunctions.surface_updateCounter.call(null, this.place, -sortData.length);
 			}
+			this.refreshDZ();
 		}
 
 		// 还原初始状态

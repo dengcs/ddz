@@ -11,6 +11,7 @@ package game.script {
 	import common.GameStatic;
 	import game.proto.GameMember;
 	import laya.events.Event;
+	import game.control.GameAction;
 	
 	public class SurfaceScript extends Script {
 
@@ -26,19 +27,22 @@ package game.script {
 		private var leftHeadImg:Image = null;
 		private var rightHeadImg:Image = null;
 
+		private var dzMarkImg:Image = null;
+
 		override public function onAwake():void
 		{
 			this.mineHead = this.owner.getChildByName("mineHead") as Sprite;
 			this.leftHead = this.owner.getChildByName("leftHead") as Sprite;
 			this.rightHead = this.owner.getChildByName("rightHead") as Sprite;
 			this.counter = this.owner.getChildByName("counter") as Sprite;
+			this.dzMarkImg = this.owner.getChildByName("dzMark") as Image;
 
 			this.mineHeadImg = this.mineHead.getChildAt(0) as Image;
 			this.leftHeadImg = this.leftHead.getChildAt(0) as Image;
 			this.rightHeadImg = this.rightHead.getChildAt(0) as Image;
 
 			this.leftLab = this.counter.getChildAt(0).getChildAt(0) as Label;
-			this.rightLab = this.counter.getChildAt(1).getChildAt(0) as Label;
+			this.rightLab = this.counter.getChildAt(1).getChildAt(0) as Label;			
 
 			GameFunctions.surface_updateCounter = Utils.bind(updateCounter, this);
 		}
@@ -47,6 +51,7 @@ package game.script {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
 			this.owner.on(GameEvent.EVENT_GAME_START, this, onGameStart);
+			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
 
 			this.mineHeadImg.on(Event.CLICK, this, onHeadClick, [0]);
 			this.rightHeadImg.on(Event.CLICK, this, onHeadClick, [1]);
@@ -82,6 +87,27 @@ package game.script {
 			this.counter.visible = true;
 			this.leftLab.tag = 0;
 			this.rightLab.tag = 0;
+			this.dzMarkImg.visible = false;
+		}
+
+		private function onBottom():void
+		{
+			var offsetX:int = 0;
+			var offsetY:int = -135;
+			if(GameAction.ownerIsMine())
+			{
+				this.dzMarkImg.x = this.mineHead.x + offsetX;
+				this.dzMarkImg.y = this.mineHead.y + offsetY;
+			}else if(GameAction.ownerIsRight())
+			{
+				this.dzMarkImg.x = this.rightHead.x + offsetX;
+				this.dzMarkImg.y = this.rightHead.y + offsetY;
+			}else
+			{
+				this.dzMarkImg.x = this.leftHead.x + offsetX;
+				this.dzMarkImg.y = this.leftHead.y + offsetY;
+			}
+			this.dzMarkImg.visible = true;
 		}
 
 		private function onOver():void

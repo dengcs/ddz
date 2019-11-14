@@ -75,6 +75,7 @@ package game.control {
 				}
 				BaseAction.event(["Deal"], GameEvent.EVENT_GAME_BOTTOM);
 				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_BOTTOM);
+				BaseAction.event(["Surface"], GameEvent.EVENT_GAME_BOTTOM);
 				BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
 			}
 		}

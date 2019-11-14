@@ -19,6 +19,16 @@ package game.control {
             return _ownerIdx > 0;
         }
 
+        public static function ownerIsMine():Boolean
+        {
+            return NetAction.idxIsMine(_ownerIdx);
+        }
+
+        public static function ownerIsRight():Boolean
+        {
+            return NetAction.idxIsRight(_ownerIdx);
+        }
+
         public static function get roundData():Object
         {
         	return _roundData;

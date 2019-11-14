@@ -20,13 +20,15 @@ package game.script {
 		/** @prop {name:ownerX, tips:"初始x坐标值", type:Number, default:0}*/
 		public var ownerX: Number = 0;
 		private var ownerSprite:List = null;
+		private var dzTipImg:Image = null;
 
 		private var dataArray:Array = [];
 		private var cellY:int = -30;
 
 		override public function onAwake():void
 		{
-			this.ownerSprite = this.owner as List;			
+			this.ownerSprite = this.owner as List;
+			this.dzTipImg = this.owner.getChildByName("dzTip") as Image;
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_DEAL, this, onDeal);
 			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
@@ -80,6 +82,22 @@ package game.script {
 			}
 		}
 
+		private function refreshDZ():void
+		{
+			if(GameAction.ownerIsMine())
+			{
+				var len:int = this.dataArray.length;
+				this.dzTipImg.visible = true;
+				this.dzTipImg.x = 150 + (len - 1)*41;
+
+				var cell:Box = this.ownerSprite.getCell(len - 1);
+				if(cell != null)
+				{
+					this.dzTipImg.y = this.ownerSprite.height + cell.y;
+				}
+			}
+		}
+
 		private function onDeal(... data:Array):void
 		{			
 			var delay:int = 0;
@@ -128,7 +146,8 @@ package game.script {
 						}
 					}
 				}
-			}			
+			}
+			this.owner.timerOnce(800, this, refreshDZ, null, false);
 		}
 
 		private function pickUp(rValue:int):void
@@ -195,6 +214,8 @@ package game.script {
 				{
 					e.currentTarget.y = 0;
 				}
+
+				this.refreshDZ();
 			}
 		}
 
@@ -272,6 +293,7 @@ package game.script {
 			this.update();
 			this.refreshX();
 			this.refreshY();
+			this.refreshDZ();
 		}
 
 		// 出牌提示
@@ -298,6 +320,7 @@ package game.script {
 						cell.y = this.cellY;
 					}
 				}
+				this.refreshDZ();
 			}
 		}
 
