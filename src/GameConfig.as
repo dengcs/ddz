@@ -6,6 +6,7 @@ package {
 	import game.script.DealScript;
 	import game.script.BottomListScript;
 	import game.script.SurfaceScript;
+	import game.script.ClockScript;
 	import game.script.MarkScript;
 	import game.script.OwnerListScript;
 	import game.script.ControlScript;
@@ -36,6 +37,7 @@ package {
 			reg("game.script.DealScript",DealScript);
 			reg("game.script.BottomListScript",BottomListScript);
 			reg("game.script.SurfaceScript",SurfaceScript);
+			reg("game.script.ClockScript",ClockScript);
 			reg("game.script.MarkScript",MarkScript);
 			reg("game.script.OwnerListScript",OwnerListScript);
 			reg("game.script.ControlScript",ControlScript);

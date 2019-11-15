@@ -32,6 +32,7 @@ package game.script {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_DEAL, this, onDeal);
 			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
+			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
 		}
 
 		override public function onDestroy():void
@@ -59,6 +60,13 @@ package game.script {
 			this.ownerSprite.array = [];
 			this.ownerSprite.visible = false;
 			this.ownerSprite.x = this.ownerX + 60;
+			this.dzTipImg.visible = false;
+		}
+
+		private function onOver():void
+		{
+			this.ownerSprite.visible = false;
+			this.dzTipImg.visible = false;
 		}
 
 		// 刷新x坐标
@@ -309,25 +317,31 @@ package game.script {
 
 			this.refreshY();
 
-			var retData:Object = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
-			if(retData != null)
+			if(NetAction.idxIsMine(roundData.idx))
 			{
-				for each(var idx:int in retData.indexes)
+				// 自动选择类型
+			}else
+			{
+				var retData:Object = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
+				if(retData != null)
 				{
-					var cell:Box = this.ownerSprite.getCell(idx);
-					if(cell != null)
+					for each(var idx:int in retData.indexes)
 					{
-						cell.y = this.cellY;
+						var cell:Box = this.ownerSprite.getCell(idx);
+						if(cell != null)
+						{
+							cell.y = this.cellY;
+						}
 					}
+					this.refreshDZ();
 				}
-				this.refreshDZ();
 			}
 		}
 
 		// 按钮提示
 		private function playPrompt():int
 		{
-			var ret:int = 0;
+			var ret:int = 3;
 
 			var roundData:Object = GameAction.roundData;
 			if(NetAction.idxIsMine(roundData.idx))

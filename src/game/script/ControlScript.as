@@ -9,6 +9,7 @@ package game.script {
 	import game.net.NetClient;
 	import common.GameFunctions;
 	import game.control.GameAction;
+	import laya.utils.Utils;
 	
 	public class ControlScript extends Script {
 		private var snatchSp:Sprite = null;
@@ -39,6 +40,8 @@ package game.script {
 			playBtn.on(Event.CLICK, this, onClickPlay);
 			promptBtn.on(Event.CLICK, this, onClickPrompt);
 			cancelBtn.on(Event.CLICK, this, onClickCancel);
+
+			GameFunctions.control_forcePlay = Utils.bind(forcePlay, this);
 		}
 
 		override public function onStart():void
@@ -77,7 +80,7 @@ package game.script {
 				if(type == 1)
 				{
 					playBtn.disabled = false;
-					promptBtn.disabled = true;
+					promptBtn.disabled = false;
 					cancelBtn.disabled = true;
 				}else if(type == 2)
 				{
@@ -123,6 +126,25 @@ package game.script {
 		private function onClickCancel():void
 		{
 			GameFunctions.send_game_update(GameConstants.PLAY_STATE_PLAY, 0);
+		}
+
+		// 强制操作（出牌或叫地主）
+		private function forcePlay():void
+		{
+			if(snatchSp.visible)
+			{
+				this.onClickSnatchNo();
+			}else if(playSp.visible)
+			{
+				if(promptBtn.disabled == false)
+				{
+					this.onClickPrompt();
+					this.onClickPlay();
+				}else if(cancelBtn.disabled == false)
+				{
+					this.onClickCancel();
+				}
+			}
 		}
 	}
 }

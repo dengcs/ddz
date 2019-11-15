@@ -27,15 +27,16 @@ package game.control {
 			return idx == _rightIdx;
 		}
 
-		public static function doPrepare(msg:*):void
+		public static function doPrepare(data:*):void
 		{			
-			_mineIdx = msg.idx;
+			_mineIdx = data.idx;
 			_rightIdx = (_mineIdx % 3) + 1
 			GameAction.init();
 			BaseAction.event(["Deal"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Mark", "clock"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Layer3","mineList"], GameEvent.EVENT_GAME_PREPARE);
@@ -43,10 +44,10 @@ package game.control {
 			BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_PREPARE);			
 		}
 
-		public static function doDeal(msg:*):void
+		public static function doDeal(data:*):void
 		{
 			BaseAction.event(["Deal"], GameEvent.EVENT_GAME_DEAL);
-			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_DEAL, msg);
+			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_DEAL, data);
 		}
 
 		public static function doSnatch(data:* = null):void
@@ -54,9 +55,11 @@ package game.control {
 			if(data == null)
 			{
 				BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_SNATCH);
+				BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_SNATCH);
 			}else
 			{
 				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_SNATCH, data);
+				BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_SNATCH, data);
 				if(data.msg == 1)
 				{
 					GameAction.ownerIdx = data.idx;
@@ -80,13 +83,14 @@ package game.control {
 			}
 		}
 
-		public static function doPlay(msg:* = null):void
+		public static function doPlay(data:* = null):void
 		{
-			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PLAY, msg);
-			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PLAY, msg);
+			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PLAY, data);
+			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PLAY, data);
+			BaseAction.event(["Mark", "clock"], GameEvent.EVENT_GAME_PLAY, data);
 		}
 
-		public static function doOver(msg:* = null):void
+		public static function doOver(data:* = null):void
 		{
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_OVER);
