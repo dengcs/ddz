@@ -31,6 +31,24 @@ package game.utils
 			return mode;
 		}
 
+		public static function auto_fetch(cards:Vector.<int>):Object
+		{
+			var retData:Object = null;
+			var mode:Dictionary = get_mode(cards);
+
+			retData = fetch_three(mode, 0);
+			if(retData == null)
+			{
+				retData = fetch_two(mode, 0);
+			}
+			if(retData == null)
+			{
+				retData = fetch_one(mode, cards, 0);
+			}
+
+			return retData;
+		}
+
 		public static function fetch_type(cards:Vector.<int>, type:int, value:int = 0, count:int = 0):Object
 		{
 			var retData:Object = null;

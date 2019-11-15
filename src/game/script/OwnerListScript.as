@@ -317,24 +317,27 @@ package game.script {
 
 			this.refreshY();
 
+			var retData:Object = null;
 			if(NetAction.idxIsMine(roundData.idx))
 			{
 				// 自动选择类型
+				retData = TypeFetch.auto_fetch(cards);
 			}else
 			{
-				var retData:Object = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
-				if(retData != null)
+				retData = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
+			}
+
+			if(retData != null)
+			{
+				for each(var idx:int in retData.indexes)
 				{
-					for each(var idx:int in retData.indexes)
+					var cell:Box = this.ownerSprite.getCell(idx);
+					if(cell != null)
 					{
-						var cell:Box = this.ownerSprite.getCell(idx);
-						if(cell != null)
-						{
-							cell.y = this.cellY;
-						}
+						cell.y = this.cellY;
 					}
-					this.refreshDZ();
 				}
+				this.refreshDZ();
 			}
 		}
 
