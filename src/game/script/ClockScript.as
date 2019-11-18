@@ -125,9 +125,19 @@ package game.script {
 					}else if(NetAction.idxIsRight(idx))
 					{
 						toward = this.leftPos;
-					}else
+					}
+				}else
+				{
+					var type:int = GameFunctions.ownerList_playPrompt.call();
+					if(type == 1)
 					{
 						toward = this.mineTwoPos;
+					}else if(type == 2)
+					{
+						toward = this.mineThreePos;
+					}else
+					{
+						toward = this.mineOnePos;
 					}
 				}
 			}
@@ -191,7 +201,13 @@ package game.script {
 			var position:Array = this.getPosition(toward);
 			if(position != null)
 			{
-				this.countdown = 20;
+				if(this.currentPos == this.mineOnePos)
+				{
+					this.countdown = 5;
+				}else
+				{
+					this.countdown = 20;
+				}
 				this.owner.clearTimer(this, secondTick);
 				this.owner.clearTimer(this, shakeTick);
 				Tween.to(this.ownerSprite,{x:position[0], y:position[1]}, 300, Ease.expoIn, new Handler(this, moveComplate));
