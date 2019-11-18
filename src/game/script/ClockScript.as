@@ -20,11 +20,14 @@ package game.script {
 		private var mineTwoPos:int 		= 4;
 		private var mineThreePos:int 	= 5;
 
+		private var currentPos:int 		= 1;
+
 		private var posArray:Array = null;
 
 		private var countdown:int = 0;
 		private var snatchCount:int = 0;
 		private var playCount:int = 0;
+		private var shakeCount:int = 0;
 		override public function onAwake():void
 		{
 			this.ownerSprite = this.owner as Sprite;
@@ -36,6 +39,7 @@ package game.script {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_SNATCH, this, onSnatch);
 			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onPlay);
+			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onPlay);
 		}
 		
 		override public function onDisable():void {
@@ -131,6 +135,13 @@ package game.script {
 			this.playCount++;
 		}
 
+		private function onOver():void
+		{
+			this.ownerSprite.visible = false;
+			this.owner.clearTimer(this, secondTick);
+			this.owner.clearTimer(this, shakeTick);
+		}
+
 		private function getPosition(toward:int):Array
 		{
 			if(toward == this.leftPos)
@@ -157,6 +168,7 @@ package game.script {
 			{
 				return null;
 			}
+			this.currentPos = toward;
 			return this.posArray;
 		}
 
@@ -167,14 +179,22 @@ package game.script {
 			this.owner.timerLoop(1000, this, secondTick);
 		}
 
+		private function startShake():void
+		{
+			this.shakeCount = 0;
+			this.owner.clearTimer(this, shakeTick);
+			this.owner.timerLoop(125, this, shakeTick, null, false);
+		}
+
 		private function toPosition(toward:int):void
 		{
 			var position:Array = this.getPosition(toward);
 			if(position != null)
 			{
 				this.countdown = 20;
-				this.owner.clearTimer(this, secondTick);				
-				Tween.to(this.ownerSprite,{x:position[0], y:position[1]}, 300, Ease.expoIn, new Handler(this, complatePosition));
+				this.owner.clearTimer(this, secondTick);
+				this.owner.clearTimer(this, shakeTick);
+				Tween.to(this.ownerSprite,{x:position[0], y:position[1]}, 300, Ease.expoIn, new Handler(this, moveComplate));
 			}
 		}
 
@@ -183,20 +203,54 @@ package game.script {
 			this.countdown--;
 			if(this.countdown <= 0)
 			{
-				this.complateTick();
+				this.tickComplate();
+			}else if(this.countdown <= 3)
+			{
+				this.startShake();
 			}
 			
 			this.secondLabel.text = this.countdown.toString();
 		}
 
-		private function complatePosition():void
+		private function shakeTick():void
+		{
+			var position:Array = this.getPosition(this.currentPos);
+			if(position != null)
+			{
+				var range:int = 20;
+				var x:Number = position[0];
+				if(this.shakeCount == 0)
+				{
+					x += range;
+				}else if(this.shakeCount < 4)
+				{
+					if(this.ownerSprite.x > x)
+					{
+						x -= range;
+					}else
+					{
+						x += range;
+					}
+				}else if(this.shakeCount > 4)
+				{
+					return;
+				}
+
+				this.shakeCount++;
+				
+				Tween.to(this.ownerSprite, {x:x}, 120, Ease.bounceIn, null, null, false);
+			}
+		}
+
+		private function moveComplate():void
 		{			
 			this.startTick();
 		}
 
-		private function complateTick():void
+		private function tickComplate():void
 		{			
 			this.owner.clearTimer(this, secondTick);
+			this.owner.clearTimer(this, shakeTick);
 			GameFunctions.control_forcePlay.call();
 		}
 	}
