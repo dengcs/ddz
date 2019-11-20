@@ -39,7 +39,7 @@ package game.utils
 			{
 				case GameConstants.POKER_TYPE_3WITH2:
 				{
-					for(var i32:int=4;i32 <= 1; i32--)
+					for(var i32:int=4; i32 >= 1; i32--)
 					{
 						retData = fetch_3with2(mode, 0, i32);
 						if(retData != null)
@@ -51,7 +51,7 @@ package game.utils
 				}
 				case GameConstants.POKER_TYPE_3WITH1:
 				{
-					for(var i31:int=5;i31 <= 1; i31--)
+					for(var i31:int=5; i31 >= 1; i31--)
 					{
 						retData = fetch_3with1(mode, 0, i31);
 						if(retData != null)
@@ -63,7 +63,7 @@ package game.utils
 				}
 				case GameConstants.POKER_TYPE_3STRAIGHT:
 				{
-					for(var i3:int=6;i3 <= 2; i3--)
+					for(var i3:int=6; i3 >= 2; i3--)
 					{
 						retData = fetch_3straight(mode, 0, i3);
 						if(retData != null)
@@ -75,7 +75,7 @@ package game.utils
 				}
 				case GameConstants.POKER_TYPE_2STRAIGHT:
 				{
-					for(var i2:int=10;i2 <= 3; i2--)
+					for(var i2:int=10; i2 >= 3; i2--)
 					{
 						retData = fetch_2straight(mode, 0, i2);
 						if(retData != null)
@@ -87,7 +87,7 @@ package game.utils
 				}
 				case GameConstants.POKER_TYPE_1STRAIGHT:
 				{
-					for(var i:int=20;i <= 5; i--)
+					for(var i:int=20; i >= 5; i--)
 					{
 						retData = fetch_1straight(mode, 0, i);
 						if(retData != null)
