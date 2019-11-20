@@ -4,8 +4,33 @@ package game.control {
 	import common.GameEvent;
 
 	public class NetAction {
+		// 地主索引
+        private static var _ownerIdx:int = 0;        
+		// 我的索引
 		private static var _mineIdx:int = 0;
+		// 右边索引
 		private static var _rightIdx:int = 0;
+
+		public static function set ownerIdx(idx:int):void
+        {
+        	_ownerIdx = idx;
+			GameAction.setOwnerIdx(idx);
+        }
+
+        public static function haveOwner():Boolean
+        {
+            return _ownerIdx > 0;
+        }
+
+        public static function ownerIsMine():Boolean
+        {
+            return NetAction.idxIsMine(_ownerIdx);
+        }
+
+        public static function ownerIsRight():Boolean
+        {
+            return NetAction.idxIsRight(_ownerIdx);
+        }
 
 		public static function get rightIdx():int
 		{
@@ -30,8 +55,8 @@ package game.control {
 		public static function doPrepare(data:*):void
 		{			
 			_mineIdx = data.idx;
-			_rightIdx = (_mineIdx % 3) + 1
-			GameAction.init();
+			_rightIdx = (_mineIdx % 3) + 1;
+			GameAction.gamePrepare();
 			BaseAction.event(["Deal"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_PREPARE);
@@ -60,9 +85,10 @@ package game.control {
 			{
 				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_SNATCH, data);
 				BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_SNATCH, data);
+				GameAction.incSnatchCount();
 				if(data.msg == 1)
 				{
-					GameAction.ownerIdx = data.idx;
+					ownerIdx = data.idx;
 				}
 			}
 		}
@@ -79,6 +105,7 @@ package game.control {
 				BaseAction.event(["Deal"], GameEvent.EVENT_GAME_BOTTOM);
 				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_BOTTOM);
 				BaseAction.event(["Surface"], GameEvent.EVENT_GAME_BOTTOM);
+				BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_BOTTOM, idx);
 				BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
 			}
 		}

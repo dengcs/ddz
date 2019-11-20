@@ -19,11 +19,5 @@ package common {
 			sendMsg.data = JSON.stringify(data);
 			NetClient.send("game_update", sendMsg);
 		}
-
-		public static function compareDes(a:int, b:int):Number
-		{
-			if(a < b) return 1;
-			return -1;
-		}
 	}
 }

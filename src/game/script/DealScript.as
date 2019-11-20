@@ -66,6 +66,7 @@ package game.script {
 
 		private function onBottom():void
 		{
+			// 复原底牌
 			for(var i:int = GameConstants.GLOBAL_DEAL_NUM; i < GameConstants.GLOBAL_POKER_NUM; i++)
 			{
 				var pokerImg:Image = this.pokerList[i];

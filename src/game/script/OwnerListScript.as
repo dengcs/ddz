@@ -92,7 +92,7 @@ package game.script {
 
 		private function refreshDZ():void
 		{
-			if(GameAction.ownerIsMine())
+			if(NetAction.ownerIsMine())
 			{
 				var len:int = this.dataArray.length;
 				this.dzTipImg.visible = true;

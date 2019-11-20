@@ -65,11 +65,18 @@ package game.script {
 
 		private function onSnatch():void
 		{
-			this.snatchCount++;
-			if(this.snatchCount > 1)
+			if(this.snatchCount == 1)
+			{				
+				snatchYesBtn.text.text = "叫地主";
+				snatchNoBtn.text.text = "不叫";
+				snatchSp.visible = true;
+			}else if(this.snatchCount > 1)
 			{
+				snatchYesBtn.text.text = "抢地主";
+				snatchNoBtn.text.text = "不抢";
 				snatchSp.visible = true;
 			}
+			this.snatchCount++;			
 		}
 
 		private function onPlay(data:Object = null):void

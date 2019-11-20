@@ -5,28 +5,33 @@ package game.control {
 	import game.utils.TypeCheck;
 
 	public class GameAction {
-        private static var _ownerIdx:int = 0;
-        private static var _roundData:Object = new Object();        
+        // 轮转时数据
+        private static var _roundData:Object = new Object();
+        // 抢地主数据
+        private static var _snatchData:Object = new Object();
 
-        public static function set ownerIdx(value:int):void
+        public static function setOwnerIdx(idx:int):void
         {
-        	_ownerIdx = value;
-            _roundData.idx = value;
+            _roundData.idx = idx;
+            if(idx <= 3)
+            {
+                _snatchData.mask[idx - 1] = 1;
+            }
         }
 
-        public static function haveOwner():Boolean
+        public static function incSnatchCount():void
         {
-            return _ownerIdx > 0;
+            _snatchData.count++;
         }
 
-        public static function ownerIsMine():Boolean
+        public static function nextCanSnatch(idx:int):Boolean
         {
-            return NetAction.idxIsMine(_ownerIdx);
-        }
-
-        public static function ownerIsRight():Boolean
-        {
-            return NetAction.idxIsRight(_ownerIdx);
+            var next_idx:int = idx % 3;
+            if(_snatchData.count > 1 && _snatchData.mask[next_idx] == 0)
+            {
+                return false;
+            }
+            return true;
         }
 
         public static function get roundData():Object
@@ -34,12 +39,15 @@ package game.control {
         	return _roundData;
         }
 
-        public static function init():void
+        public static function gamePrepare():void
         {
             _roundData.idx = 0;
             _roundData.type = 0;
             _roundData.value = 0;
             _roundData.count = 0;
+
+            _snatchData.count = 0;
+            _snatchData.mask = [0,0,0];
         }
 
         private static function saveRoundData(data:Object):void

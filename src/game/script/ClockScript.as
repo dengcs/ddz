@@ -26,7 +26,6 @@ package game.script {
 
 		private var countdown:int = 0;
 		private var snatchCount:int = 0;
-		private var playCount:int = 0;
 		private var shakeCount:int = 0;
 		override public function onAwake():void
 		{
@@ -38,8 +37,9 @@ package game.script {
 		override public function onEnable():void {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_SNATCH, this, onSnatch);
+			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
 			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onPlay);
-			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onPlay);
+			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
 		}
 		
 		override public function onDisable():void {
@@ -51,16 +51,15 @@ package game.script {
 			this.ownerSprite.visible = false;
 			this.countdown = 20;
 			this.snatchCount = 0;
-			this.playCount = 0;
 		}
 
 		private function onSnatch(data:Object):void
 		{			
 			var toward:int = 0;
 
-			if(this.snatchCount > 0)
+			if(data == null)
 			{
-				if(this.snatchCount == 1)
+				if(this.snatchCount > 0)
 				{
 					if(NetAction.idxIsMine(1))
 					{					
@@ -79,70 +78,89 @@ package game.script {
 					{
 						this.ownerSprite.pos(position[0], position[1]);
 					}
-				}else
+				}
+				this.snatchCount++;
+			}else
+			{
+				var idx:int = data.idx;
+				if(NetAction.idxIsMine(idx))
 				{
-					var idx:int = data.idx;
-					if(NetAction.idxIsMine(idx))
-					{					
+					if(GameAction.nextCanSnatch(idx))
+					{
 						toward = this.rightPos;
-					}else if(NetAction.idxIsRight(idx))
+					}else
+					{
+						toward = this.leftPos;
+					}
+				}else if(NetAction.idxIsRight(idx))
+				{
+					if(GameAction.nextCanSnatch(idx))
 					{
 						toward = this.leftPos;
 					}else
 					{
 						toward = this.mineTwoPos;
 					}
-
-					this.toPosition(toward);
+				}else
+				{
+					if(GameAction.nextCanSnatch(idx))
+					{
+						toward = this.mineTwoPos;
+					}else
+					{
+						toward = this.rightPos;
+					}
 				}
+
+				this.toPosition(toward);
+			}			
+		}
+
+		private function onBottom(idx:int):void
+		{
+			var toward:int = 0;
+			if(NetAction.ownerIsMine())
+			{
+				toward = this.mineTwoPos;
+			}else if(NetAction.ownerIsRight())
+			{
+				toward = this.rightPos;
+			}else
+			{
+				toward = this.leftPos;
 			}
-			this.snatchCount++;
+
+			this.toPosition(toward);
 		}
 
 		private function onPlay(data:Object = null):void
 		{
-			var toward:int = 0;
-			if(this.playCount == 0)
+			var toward:int = 0;			
+			if(data != null)
 			{
-				if(GameAction.ownerIsMine())
-				{
-					toward = this.mineTwoPos;
-				}else if(GameAction.ownerIsRight())
-				{
+				var idx:int = data.idx;
+				if(NetAction.idxIsMine(idx))
+				{					
 					toward = this.rightPos;
-				}else
+				}else if(NetAction.idxIsRight(idx))
 				{
 					toward = this.leftPos;
 				}
 			}else
 			{
-				if(data != null)
+				var type:int = GameFunctions.ownerList_playPrompt.call();
+				if(type == 1)
 				{
-					var idx:int = data.idx;
-					if(NetAction.idxIsMine(idx))
-					{					
-						toward = this.rightPos;
-					}else if(NetAction.idxIsRight(idx))
-					{
-						toward = this.leftPos;
-					}
+					toward = this.mineTwoPos;
+				}else if(type == 2)
+				{
+					toward = this.mineThreePos;
 				}else
 				{
-					var type:int = GameFunctions.ownerList_playPrompt.call();
-					if(type == 1)
-					{
-						toward = this.mineTwoPos;
-					}else if(type == 2)
-					{
-						toward = this.mineThreePos;
-					}else
-					{
-						toward = this.mineOnePos;
-					}
+					toward = this.mineOnePos;
 				}
 			}
 			this.toPosition(toward);
-			this.playCount++;
 		}
 
 		private function onOver():void

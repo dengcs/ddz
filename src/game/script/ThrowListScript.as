@@ -11,7 +11,7 @@ package game.script {
 	import common.GameConstants;
 	import common.GameFunctions;
 	import com.utils.Dictionary;
-	import game.control.GameAction;
+	import game.control.NetAction;
 	
 	public class ThrowListScript extends Script {
 		/** @prop {name:place, tips:"0:自己;1:右边;2:左边", type:Int, default:0}*/
@@ -101,7 +101,12 @@ package game.script {
 		// 排序
 		private function sort(data:Array):Array
 		{
-			data.sort(GameFunctions.compareDes);
+			function compareDes(a:int, b:int):Number
+			{
+				if(a < b) return 1;
+				return -1;
+			}
+			data.sort(compareDes);
 			var retData:Array = new Array();
 
 			var mode:Dictionary = new Dictionary();
@@ -136,13 +141,13 @@ package game.script {
 		private function refreshDZ():void
 		{
 			var canShowTip:Boolean = false;
-			if(GameAction.ownerIsMine())
+			if(NetAction.ownerIsMine())
 			{
 				if(this.place == 0)
 				{
 					canShowTip = true;					
 				}
-			}else if(GameAction.ownerIsRight())
+			}else if(NetAction.ownerIsRight())
 			{
 				if(this.place == 1)
 				{

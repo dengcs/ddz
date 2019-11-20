@@ -11,7 +11,6 @@ package game.script {
 	import common.GameStatic;
 	import game.proto.GameMember;
 	import laya.events.Event;
-	import game.control.GameAction;
 	
 	public class SurfaceScript extends Script {
 
@@ -94,11 +93,11 @@ package game.script {
 		{
 			var offsetX:int = 0;
 			var offsetY:int = -135;
-			if(GameAction.ownerIsMine())
+			if(NetAction.ownerIsMine())
 			{
 				this.dzMarkImg.x = this.mineHead.x + offsetX;
 				this.dzMarkImg.y = this.mineHead.y + offsetY;
-			}else if(GameAction.ownerIsRight())
+			}else if(NetAction.ownerIsRight())
 			{
 				this.dzMarkImg.x = this.rightHead.x + offsetX;
 				this.dzMarkImg.y = this.rightHead.y + offsetY;

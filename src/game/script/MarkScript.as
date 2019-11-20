@@ -50,18 +50,43 @@ package game.script {
 
 		private function onSnatch(data:Object):void
 		{
-			var toward:int = 3;
+			var toward:int = 0;
 			var idx:int = data.idx;
 			var isNocall:Boolean = data.msg == 0;
 			if(NetAction.idxIsMine(idx))
 			{
 				toward = 1;
+				if(GameAction.nextCanSnatch(idx))
+				{
+					this.rightMarkImg.visible = false;
+				}else
+				{
+					this.leftMarkImg.visible = false;
+				}
+				
 			}else if(NetAction.idxIsRight(idx))
 			{
 				toward = 2;
+				if(GameAction.nextCanSnatch(idx))
+				{
+					this.leftMarkImg.visible = false;
+				}else
+				{
+					this.mineMarkImg.visible = false;
+				}
+			}else
+			{
+				toward = 3;
+				if(GameAction.nextCanSnatch(idx))
+				{
+					this.mineMarkImg.visible = false;
+				}else
+				{
+					this.rightMarkImg.visible = false;
+				}
 			}
 
-			if(GameAction.haveOwner())
+			if(NetAction.haveOwner())
 			{
 				if(isNocall)
 				{
@@ -84,7 +109,7 @@ package game.script {
 
 		private function onBottom():void
 		{
-			this.owner.timerOnce(800, this, clearMark, null, false);
+			this.clearMark();
 		}
 
 		private function onPlay(msgData:Object):void
