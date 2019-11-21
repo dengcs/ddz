@@ -19,6 +19,17 @@ package game.control {
             }
         }
 
+        // 是首次叫地主
+        public static function isFirstSnatch():Boolean
+        {
+            var count:int = 0;
+            for(var i:int =0; i<3; i++)
+            {
+                count += _snatchData.mask[i];
+            }
+            return count == 0;
+        }
+
         public static function incSnatchCount():void
         {
             _snatchData.count++;
@@ -27,7 +38,7 @@ package game.control {
         public static function nextCanSnatch(idx:int):Boolean
         {
             var next_idx:int = idx % 3;
-            if(_snatchData.count > 1 && _snatchData.mask[next_idx] == 0)
+            if(_snatchData.count > 2 && _snatchData.mask[next_idx] == 0)
             {
                 return false;
             }

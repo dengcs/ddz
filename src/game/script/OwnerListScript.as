@@ -260,7 +260,8 @@ package game.script {
 
 		private function tweenRotateOver():void
 		{
-			NetAction.doSnatch(null);
+			GameFunctions.control_start.call();
+			GameFunctions.clock_start.call();
 		}
 
 		// 获取要出的牌发送到服务端

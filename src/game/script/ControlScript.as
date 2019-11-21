@@ -10,6 +10,7 @@ package game.script {
 	import common.GameFunctions;
 	import game.control.GameAction;
 	import laya.utils.Utils;
+	import game.control.NetAction;
 	
 	public class ControlScript extends Script {
 		private var snatchSp:Sprite = null;
@@ -19,8 +20,6 @@ package game.script {
 
 		private var snatchYesBtn:Button = null;
 		private var snatchNoBtn:Button = null;
-
-		private var snatchCount:int	= 0;
 
 		override public function onAwake():void
 		{
@@ -49,6 +48,7 @@ package game.script {
 			promptBtn3.on(Event.CLICK, this, onClickPrompt);
 			cancelBtn3.on(Event.CLICK, this, onClickCancel);
 
+			GameFunctions.control_start = Utils.bind(gameStart, this);
 			GameFunctions.control_forcePlay = Utils.bind(forcePlay, this);
 		}
 
@@ -70,23 +70,34 @@ package game.script {
 			playSp1.visible = false;
 			playSp2.visible = false;
 			playSp3.visible = false;
-			this.snatchCount = 0;
+		}
+
+		private function gameStart():void
+		{
+			if(NetAction.idxIsMine(1))
+			{
+				snatchYesBtn.text.text = "叫地主";
+				snatchNoBtn.text.text = "不叫";
+				snatchSp.visible = true;
+			}
 		}
 
 		private function onSnatch():void
 		{
-			if(this.snatchCount == 1)
-			{				
-				snatchYesBtn.text.text = "叫地主";
-				snatchNoBtn.text.text = "不叫";
-				snatchSp.visible = true;
-			}else if(this.snatchCount > 1)
+			if(GameAction.isFirstSnatch())
+			{
+				if(NetAction.idxIsMine(1) == false)
+				{
+					snatchYesBtn.text.text = "叫地主";
+					snatchNoBtn.text.text = "不叫";
+					snatchSp.visible = true;
+				}
+			}else
 			{
 				snatchYesBtn.text.text = "抢地主";
 				snatchNoBtn.text.text = "不抢";
 				snatchSp.visible = true;
 			}
-			this.snatchCount++;			
 		}
 
 		private function onPlay(data:Object = null):void

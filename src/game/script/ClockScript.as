@@ -9,6 +9,7 @@ package game.script {
 	import laya.utils.Handler;
 	import game.control.NetAction;
 	import game.control.GameAction;
+	import laya.utils.Utils;
 	
 	public class ClockScript extends Script {
 		private var ownerSprite:Sprite = null;
@@ -25,13 +26,14 @@ package game.script {
 		private var posArray:Array = null;
 
 		private var countdown:int = 0;
-		private var snatchCount:int = 0;
 		private var shakeCount:int = 0;
 		override public function onAwake():void
 		{
 			this.ownerSprite = this.owner as Sprite;
 			this.secondLabel = this.owner.getChildByName("second") as Label;
 			this.posArray = [0,0];
+
+			GameFunctions.clock_start = Utils.bind(gameStart, this);
 		}
 
 		override public function onEnable():void {
@@ -50,70 +52,64 @@ package game.script {
 		{
 			this.ownerSprite.visible = false;
 			this.countdown = 20;
-			this.snatchCount = 0;
+		}
+
+		private function gameStart():void
+		{
+			var toward:int = 0;			
+			if(NetAction.idxIsMine(1))
+			{					
+				toward = this.mineTwoPos;
+			}else if(NetAction.idxIsRight(1))
+			{
+				toward = this.rightPos;
+			}else
+			{
+				toward = this.leftPos;
+			}
+
+			var position:Array = this.getPosition(toward);
+			if(position != null)
+			{
+				this.ownerSprite.pos(position[0], position[1]);
+				this.startTick();
+			}
 		}
 
 		private function onSnatch(data:Object):void
-		{			
+		{
 			var toward:int = 0;
-
-			if(data == null)
+			var idx:int = data.idx;
+			if(NetAction.idxIsMine(idx))
 			{
-				if(this.snatchCount > 0)
+				if(GameAction.nextCanSnatch(idx))
 				{
-					if(NetAction.idxIsMine(1))
-					{					
-						toward = this.mineTwoPos;
-					}else if(NetAction.idxIsRight(1))
-					{
-						toward = this.rightPos;
-					}else
-					{
-						toward = this.leftPos;
-					}
-
-					this.startTick();
-					var position:Array = this.getPosition(toward);
-					if(position != null)
-					{
-						this.ownerSprite.pos(position[0], position[1]);
-					}
-				}
-				this.snatchCount++;
-			}else
-			{
-				var idx:int = data.idx;
-				if(NetAction.idxIsMine(idx))
-				{
-					if(GameAction.nextCanSnatch(idx))
-					{
-						toward = this.rightPos;
-					}else
-					{
-						toward = this.leftPos;
-					}
-				}else if(NetAction.idxIsRight(idx))
-				{
-					if(GameAction.nextCanSnatch(idx))
-					{
-						toward = this.leftPos;
-					}else
-					{
-						toward = this.mineTwoPos;
-					}
+					toward = this.rightPos;
 				}else
 				{
-					if(GameAction.nextCanSnatch(idx))
-					{
-						toward = this.mineTwoPos;
-					}else
-					{
-						toward = this.rightPos;
-					}
+					toward = this.leftPos;
 				}
+			}else if(NetAction.idxIsRight(idx))
+			{
+				if(GameAction.nextCanSnatch(idx))
+				{
+					toward = this.leftPos;
+				}else
+				{
+					toward = this.mineTwoPos;
+				}
+			}else
+			{
+				if(GameAction.nextCanSnatch(idx))
+				{
+					toward = this.mineTwoPos;
+				}else
+				{
+					toward = this.rightPos;
+				}
+			}
 
-				this.toPosition(toward);
-			}			
+			this.toPosition(toward);
 		}
 
 		private function onBottom(idx:int):void
