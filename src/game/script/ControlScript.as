@@ -13,33 +13,41 @@ package game.script {
 	
 	public class ControlScript extends Script {
 		private var snatchSp:Sprite = null;
-		private var playSp:Sprite = null;
+		private var playSp1:Sprite = null;
+		private var playSp2:Sprite = null;
+		private var playSp3:Sprite = null;
 
 		private var snatchYesBtn:Button = null;
 		private var snatchNoBtn:Button = null;
-
-		private var playBtn:Button = null;
-		private var promptBtn:Button = null;
-		private var cancelBtn:Button = null;
 
 		private var snatchCount:int	= 0;
 
 		override public function onAwake():void
 		{
 			snatchSp	= this.owner.getChildByName("snatch") as Sprite;
-			playSp		= this.owner.getChildByName("play") as Sprite;
+			playSp1		= this.owner.getChildByName("play1") as Sprite;
+			playSp2		= this.owner.getChildByName("play2") as Sprite;
+			playSp3		= this.owner.getChildByName("play3") as Sprite;
 
 			snatchYesBtn	= snatchSp.getChildAt(0) as Button;
 			snatchNoBtn		= snatchSp.getChildAt(1) as Button;
-			playBtn 	= playSp.getChildAt(0) as Button;
-			promptBtn 	= playSp.getChildAt(1) as Button;
-			cancelBtn 	= playSp.getChildAt(2) as Button;
+
+			var cancelBtn1:Button 	= playSp1.getChildAt(0) as Button;
+			var playBtn2:Button 	= playSp2.getChildAt(0) as Button;
+			var promptBtn2:Button 	= playSp2.getChildAt(1) as Button;
+			var cancelBtn3:Button 	= playSp3.getChildAt(0) as Button;
+			var playBtn3:Button 	= playSp3.getChildAt(1) as Button;
+			var promptBtn3:Button 	= playSp3.getChildAt(2) as Button;
 
 			snatchYesBtn.on(Event.CLICK, this, onClickSnatchYes);
 			snatchNoBtn.on(Event.CLICK, this, onClickSnatchNo);
-			playBtn.on(Event.CLICK, this, onClickPlay);
-			promptBtn.on(Event.CLICK, this, onClickPrompt);
-			cancelBtn.on(Event.CLICK, this, onClickCancel);
+
+			cancelBtn1.on(Event.CLICK, this, onClickCancel);
+			playBtn2.on(Event.CLICK, this, onClickPlay);
+			promptBtn2.on(Event.CLICK, this, onClickPrompt);
+			playBtn3.on(Event.CLICK, this, onClickPlay);
+			promptBtn3.on(Event.CLICK, this, onClickPrompt);
+			cancelBtn3.on(Event.CLICK, this, onClickCancel);
 
 			GameFunctions.control_forcePlay = Utils.bind(forcePlay, this);
 		}
@@ -59,7 +67,9 @@ package game.script {
 		private function onPrepare():void
 		{
 			snatchSp.visible = false;
-			playSp.visible = false;
+			playSp1.visible = false;
+			playSp2.visible = false;
+			playSp3.visible = false;
 			this.snatchCount = 0;
 		}
 
@@ -86,24 +96,25 @@ package game.script {
 				var type:int = GameFunctions.ownerList_playPrompt.call();
 				if(type == 1)
 				{
-					playBtn.disabled = false;
-					promptBtn.disabled = false;
-					cancelBtn.disabled = true;
+					playSp1.visible = false;
+					playSp2.visible = true;
+					playSp3.visible = false;
 				}else if(type == 2)
 				{
-					playBtn.disabled = false;
-					promptBtn.disabled = false;
-					cancelBtn.disabled = false;
+					playSp1.visible = false;
+					playSp2.visible = false;
+					playSp3.visible = true;
 				}else
 				{
-					playBtn.disabled = true;
-					promptBtn.disabled = true;
-					cancelBtn.disabled = false;
+					playSp1.visible = true;
+					playSp2.visible = false;
+					playSp3.visible = false;
 				}
-				playSp.visible = true;
 			}else
 			{
-				playSp.visible = false;
+				playSp1.visible = false;
+				playSp2.visible = false;
+				playSp3.visible = false;
 				GameAction.onPlayData(data);
 			}
 		}
@@ -141,16 +152,13 @@ package game.script {
 			if(snatchSp.visible)
 			{
 				this.onClickSnatchNo();
-			}else if(playSp.visible)
+			}else if(playSp1.visible)
 			{
-				if(promptBtn.disabled == false)
-				{
-					this.onClickPrompt();
-					this.onClickPlay();
-				}else if(cancelBtn.disabled == false)
-				{
-					this.onClickCancel();
-				}
+				this.onClickCancel();
+			}else
+			{
+				this.onClickPrompt();
+				this.onClickPlay();
 			}
 		}
 	}

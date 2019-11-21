@@ -45,12 +45,12 @@ public class GameMember extends Message {
         _portrait = value || "";
     }
 
-    private var _portraitBoxId:int = 0;
-    public function get portraitBoxId():int {
-        return _portraitBoxId;
+    private var _portraitBox:int = 0;
+    public function get portraitBox():int {
+        return _portraitBox;
     }
-    public function set portraitBoxId(value:int):void {
-        _portraitBoxId = value;
+    public function set portraitBox(value:int):void {
+        _portraitBox = value;
     }
 
     private var _state:int = 0;
@@ -93,8 +93,8 @@ public class GameMember extends Message {
         if (!(_portrait.length == 0)) {
             output.writeString(5, _portrait);
         }
-        if (!(_portraitBoxId == 0)) {
-            output.writeUInt32(6, _portraitBoxId);
+        if (!(_portraitBox == 0)) {
+            output.writeUInt32(6, _portraitBox);
         }
         if (!(_state == 0)) {
             output.writeUInt32(7, _state);
@@ -143,7 +143,7 @@ public class GameMember extends Message {
                     break;
                 }
                 case 48: {
-                    _portraitBoxId = input.readUInt32();
+                    _portraitBox = input.readUInt32();
                     break;
                 }
                 case 56: {

@@ -146,7 +146,7 @@ package game.script {
 						headImg.skin = "icon/icon_head_g.jpg";
 					}
 
-					if(member.portraitBoxId == 0)
+					if(member.portraitBox == 0)
 					{
 						boxImg.skin = "icon/dw_s_2head_s.png";
 					}
