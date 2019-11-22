@@ -35,8 +35,8 @@ package game.script {
 			var playBtn2:Button 	= playSp2.getChildAt(0) as Button;
 			var promptBtn2:Button 	= playSp2.getChildAt(1) as Button;
 			var cancelBtn3:Button 	= playSp3.getChildAt(0) as Button;
-			var playBtn3:Button 	= playSp3.getChildAt(1) as Button;
-			var promptBtn3:Button 	= playSp3.getChildAt(2) as Button;
+			var promptBtn3:Button 	= playSp3.getChildAt(1) as Button;
+			var playBtn3:Button 	= playSp3.getChildAt(2) as Button;
 
 			snatchYesBtn.on(Event.CLICK, this, onClickSnatchYes);
 			snatchNoBtn.on(Event.CLICK, this, onClickSnatchNo);

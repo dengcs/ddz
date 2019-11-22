@@ -178,7 +178,7 @@ package game.script {
 				this.posArray[1] = -120;
 			}else if(toward == this.mineOnePos)
 			{
-				this.posArray[0] = -70;
+				this.posArray[0] = -120;
 				this.posArray[1] = 120;
 			}else if(toward == this.mineTwoPos)
 			{

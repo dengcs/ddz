@@ -721,7 +721,7 @@
                             "x":45,
                             "type":"Button",
                             "searchKey":"Button,cancel",
-                            "props":{"y":0,"x":250,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"要不起"},
+                            "props":{"y":0,"x":196,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"要不起"},
                             "nodeParent":36,
                             "label":"cancel",
                             "isDirectory":false,
@@ -804,28 +804,28 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "searchKey":"Button,play",
-                            "props":{"y":0,"x":250,"skin":"comp/button.png","name":"play","labelColors":"#ffffff","labelBold":true,"label":"出牌"},
-                            "nodeParent":133,
-                            "label":"play",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":134,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
                             "searchKey":"Button,prompt",
-                            "props":{"y":0,"x":392,"skin":"comp/button.png","name":"prompt","labelColors":"#ffffff","labelBold":true,"label":"提示"},
+                            "props":{"y":0,"x":250,"skin":"comp/button.png","name":"prompt","labelColors":"#ffffff","labelBold":true,"label":"提示"},
                             "nodeParent":133,
                             "label":"prompt",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":135,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "searchKey":"Button,play",
+                            "props":{"y":0,"x":392,"skin":"comp/button.png","name":"play","labelColors":"#ffffff","labelBold":true,"label":"出牌"},
+                            "nodeParent":133,
+                            "label":"play",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":134,
                             "child":[
                                 ]
                         }],
