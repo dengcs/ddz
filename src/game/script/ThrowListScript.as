@@ -78,13 +78,13 @@ package game.script {
 
 			if(rValue == GameConstants.JOKER_SMALL_VALUE)
 			{
-				itemData.pValue = "game/poker/joker_small.png";
+				itemData.pValue = "poker/joker_small.png";
 				itemData.pType1 = "";
-				itemData.pType2 = "game/poker/big_small.png";
+				itemData.pType2 = "poker/big_small.png";
 			}else if(rValue == GameConstants.JOKER_BIG_VALUE){
-				itemData.pValue = "game/poker/joker_big.png";
+				itemData.pValue = "poker/joker_big.png";
 				itemData.pType1 = "";
-				itemData.pType2 = "game/poker/big_joker.png";
+				itemData.pType2 = "poker/big_joker.png";
 			}else{
 				var colorStr:String = "red";
 				if(color%2 == 0)
@@ -92,8 +92,8 @@ package game.script {
 					colorStr = "black";
 				}
 				
-				itemData.pValue = "game/poker/" + colorStr + "_" + value + ".png";
-				itemData.pType1 = itemData.pType2 = "game/poker/big_" + color + ".png";
+				itemData.pValue = "poker/" + colorStr + "_" + value + ".png";
+				itemData.pType1 = itemData.pType2 = "poker/big_" + color + ".png";
 			}
 			this.dataArray.push(itemData);
 		}

@@ -49,7 +49,7 @@ package game.script {
 			{
 				for(var i:int = 0; i<GameConstants.GLOBAL_POKER_NUM; i++)
 				{
-					pokerImg = new Image("game/poker/poker_bg.png");
+					pokerImg = new Image("poker/poker_bg.png");
 					pokerImg.anchorX = 0.5;
 					pokerImg.anchorY = 0.5;
 					pokerImg.pos(0, 0);
