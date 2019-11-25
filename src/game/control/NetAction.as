@@ -119,6 +119,7 @@ package game.control {
 
 		public static function doOver(data:* = null):void
 		{
+			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_OVER);

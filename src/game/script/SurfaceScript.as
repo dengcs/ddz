@@ -101,10 +101,12 @@ package game.script {
 			{
 				this.dzMarkImg.x = this.rightHead.x + offsetX;
 				this.dzMarkImg.y = this.rightHead.y + offsetY;
+				this.updateCounter(1, 3);
 			}else
 			{
 				this.dzMarkImg.x = this.leftHead.x + offsetX;
 				this.dzMarkImg.y = this.leftHead.y + offsetY;
+				this.updateCounter(2, 3);
 			}
 			this.dzMarkImg.visible = true;
 		}

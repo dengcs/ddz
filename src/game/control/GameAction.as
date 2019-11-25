@@ -3,6 +3,8 @@ package game.control {
 	import common.GameConstants;
 	import common.GameEvent;
 	import game.utils.TypeCheck;
+	import laya.display.Animation;
+	import game.manager.AnimationManager;
 
 	public class GameAction {
         // 轮转时数据
@@ -63,13 +65,15 @@ package game.control {
 
         private static function saveRoundData(data:Object):void
         {
-            _roundData.idx = data.idx;
             var typeData:Object = TypeCheck.test_type(Vector.<int>(data.msg));
             if(typeData != null)
             {
-                _roundData.type = typeData.type;
-                _roundData.value = typeData.value;
-                _roundData.count = typeData.count;
+                _roundData.idx      = data.idx;
+                _roundData.type     = typeData.type;
+                _roundData.value    = typeData.value;
+                _roundData.count    = typeData.count;
+
+                AnimationManager.getInstance().gamePlay(typeData.type);
             }
         }
 

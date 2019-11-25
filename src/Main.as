@@ -8,6 +8,7 @@
 	import laya.utils.Utils;
 	import game.net.NetClient;
 	import common.GameStatic;
+	import game.manager.AnimationManager;
 	
 	public class Main {
 		public function Main() {
@@ -42,6 +43,7 @@
 		private function onConfigLoaded():void {			
 			//加载场景
 			GameConfig.startScene && Scene.open(GameConfig.startScene);
+			AnimationManager.init();
 			NetClient.handshake();
 		}
 	}

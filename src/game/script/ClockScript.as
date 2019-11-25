@@ -27,6 +27,8 @@ package game.script {
 
 		private var countdown:int = 0;
 		private var shakeCount:int = 0;
+
+		private var isGameOver:Boolean = false;
 		override public function onAwake():void
 		{
 			this.ownerSprite = this.owner as Sprite;
@@ -50,8 +52,9 @@ package game.script {
 
 		private function onPrepare():void
 		{
-			this.ownerSprite.visible = false;
 			this.countdown = 20;
+			this.isGameOver = false;
+			this.ownerSprite.visible = false;
 		}
 
 		private function gameStart():void
@@ -161,6 +164,7 @@ package game.script {
 
 		private function onOver():void
 		{
+			this.isGameOver = true;
 			this.ownerSprite.visible = false;
 			this.owner.clearTimer(this, secondTick);
 			this.owner.clearTimer(this, shakeTick);
@@ -198,6 +202,7 @@ package game.script {
 
 		private function startTick():void
 		{
+			if(this.isGameOver) return;
 			this.ownerSprite.visible = true;
 			this.secondLabel.text = this.countdown.toString();
 			this.owner.timerLoop(1000, this, secondTick);
@@ -205,6 +210,7 @@ package game.script {
 
 		private function startShake():void
 		{
+			if(this.isGameOver) return;
 			this.shakeCount = 0;
 			this.owner.clearTimer(this, shakeTick);
 			this.owner.timerLoop(125, this, shakeTick, null, false);

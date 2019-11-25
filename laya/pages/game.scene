@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
-    "selecteID":71,
+    "selectedBox":133,
+    "selecteID":136,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":137,
+    "maxID":138,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -186,14 +186,13 @@
             "props":{"y":427,"x":569,"width":1,"name":"Surface","height":1},
             "nodeParent":2,
             "label":"Surface",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":71,
             "child":[
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,mineHead",
                     "props":{"y":265,"x":-465,"width":0,"rotation":0,"pivotX":0,"name":"mineHead","height":0},
@@ -235,7 +234,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,leftHead",
                     "props":{"y":-100,"x":-400,"width":0,"name":"leftHead","height":0},
@@ -277,7 +275,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,rightHead",
                     "props":{"y":-100,"x":400,"width":0,"name":"rightHead","height":0},
@@ -319,7 +316,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,counter",
                     "props":{"visible":false,"name":"counter"},
@@ -332,7 +328,6 @@
                     "compId":83,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,left",
                             "props":{"y":-30,"x":-280,"skin":"poker/poker_bg.png","scaleY":0.3,"scaleX":0.3,"name":"left","anchorY":0.5,"anchorX":0.5},
@@ -345,7 +340,6 @@
                             "compId":84,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,count",
                                     "props":{"y":73,"x":24,"width":100,"valign":"middle","text":"0","name":"count","fontSize":60,"font":"Microsoft YaHei","color":"#ffffff","bold":true,"align":"center"},
@@ -360,7 +354,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,right",
                             "props":{"y":-30,"x":277,"skin":"poker/poker_bg.png","scaleY":0.3,"scaleX":0.3,"name":"right","anchorY":0.5,"anchorX":0.5},
@@ -373,7 +366,6 @@
                             "compId":85,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,count",
                                     "props":{"y":73,"x":24,"width":100,"valign":"middle","text":"0","name":"count","fontSize":60,"font":"Microsoft YaHei","color":"#ffffff","bold":true,"align":"center"},
@@ -389,7 +381,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,dzMark",
                     "props":{"y":-235,"x":-400,"visible":false,"skin":"mark/table_dz.png","name":"dzMark","anchorY":0.5,"anchorX":0.5},
@@ -403,7 +394,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/SurfaceScript.as",
@@ -428,14 +418,13 @@
             "props":{"y":427,"x":569,"width":1,"name":"Mark","height":1},
             "nodeParent":2,
             "label":"Mark",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":89,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,mine",
                     "props":{"y":120,"x":0,"visible":false,"skin":"mark/jiaodizhu.png","name":"mine","anchorY":0.5,"anchorX":0.5},
@@ -449,7 +438,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,right",
                     "props":{"y":-120,"x":230,"visible":false,"skin":"mark/jiaodizhu.png","name":"right","anchorY":0.5,"anchorX":0.5},
@@ -463,7 +451,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,left",
                     "props":{"y":-120,"x":-230,"visible":false,"skin":"mark/jiaodizhu.png","name":"left","anchorY":0.5,"anchorX":0.5},
@@ -477,7 +464,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,clock",
                     "props":{"y":120,"x":0,"visible":false,"skin":"mark/clock01.png","name":"clock","anchorY":0.5,"anchorX":0.5},
@@ -520,7 +506,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/MarkScript.as",
@@ -665,13 +650,14 @@
             "props":{"y":520,"x":310,"width":520,"name":"Layer2"},
             "nodeParent":2,
             "label":"Layer2",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":33,
             "child":[
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,snatch",
                     "props":{"y":0,"x":70,"width":380,"visible":false,"name":"snatch"},
@@ -714,12 +700,13 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play1",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play1"},
                     "nodeParent":33,
                     "label":"play1",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -741,6 +728,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play2",
                     "props":{"y":0,"x":60,"width":400,"visible":false,"name":"play2"},
@@ -781,6 +769,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play3",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play3"},
@@ -793,35 +782,10 @@
                     "compId":133,
                     "child":[
                         {
-                            "type":"Button",
-                            "searchKey":"Button,cancel",
-                            "props":{"y":0,"x":0,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"不出"},
-                            "nodeParent":133,
-                            "label":"cancel",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":136,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "searchKey":"Button,prompt",
-                            "props":{"y":0,"x":250,"skin":"comp/button.png","name":"prompt","labelColors":"#ffffff","labelBold":true,"label":"提示"},
-                            "nodeParent":133,
-                            "label":"prompt",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":135,
-                            "child":[
-                                ]
-                        },
-                        {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,play",
-                            "props":{"y":0,"x":392,"skin":"comp/button.png","name":"play","labelColors":"#ffffff","labelBold":true,"label":"出牌"},
+                            "props":{"y":0,"x":0,"skin":"comp/button.png","name":"play","labelColors":"#ffffff","labelBold":true,"label":"出牌"},
                             "nodeParent":133,
                             "label":"play",
                             "isDirectory":false,
@@ -830,10 +794,40 @@
                             "compId":134,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "searchKey":"Button,prompt",
+                            "props":{"y":0,"x":250,"skin":"comp/button.png","name":"prompt","labelColors":"#ffffff","labelBold":true,"label":"提示"},
+                            "nodeParent":133,
+                            "label":"prompt",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":135,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "searchKey":"Button,cancel",
+                            "props":{"y":0,"x":392,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"不出"},
+                            "nodeParent":133,
+                            "label":"cancel",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":136,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/ControlScript.as",
@@ -1190,6 +1184,20 @@
                         }],
                     "$HIDDEN":true
                 }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,Animation",
+            "props":{"y":427,"x":569,"width":1,"name":"Animation","height":1},
+            "nodeParent":2,
+            "label":"Animation",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":137,
+            "child":[
+                ]
         }],
     "animations":[
         {
