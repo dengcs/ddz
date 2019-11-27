@@ -66,14 +66,46 @@ package game.manager {
 			}
 		}
 
-		public function gamePlay(type:int):void
+		public function gamePlay(type:int, count:int):void
 		{
 			this.checkRes();
 			if(this.gameAnimation)
 			{
-				if(type == GameConstants.POKER_TYPE_BOMB)
+				var name:String = null;
+				var playName:String = "";
+
+				switch(type)
 				{
-					var name:String = "ani/bomb.ani";
+					case GameConstants.POKER_TYPE_BOMB:
+					{
+						name = "ani/bomb.ani";
+						break;
+					}
+					case GameConstants.POKER_TYPE_KING:
+					{
+						name = "ani/roket.ani";
+						break;
+					}
+					case GameConstants.POKER_TYPE_2STRAIGHT:
+					{
+						name = "ani/plane.ani";
+						playName = "liandui";
+						break;
+					}
+					case GameConstants.POKER_TYPE_3WITH1:
+					case GameConstants.POKER_TYPE_3WITH2:
+					{
+						if(count > 1)
+						{
+							name = "ani/plane.ani";
+							playName = "fiji";
+						}
+						break;
+					}
+				}
+
+				if(name != null)
+				{
 					var ti:Animation = this.cacheMap.get(name);
 					if(ti == null)
 					{
@@ -82,7 +114,8 @@ package game.manager {
 						this.gameAnimation.addChild(ti);
 						this.cacheMap.set(name, ti);
 					}
-					ti.play(0, false);
+					
+					ti.play(0, false, playName);
 				}
 			}
 		}

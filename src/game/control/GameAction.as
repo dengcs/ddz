@@ -73,7 +73,7 @@ package game.control {
                 _roundData.value    = typeData.value;
                 _roundData.count    = typeData.count;
 
-                AnimationManager.getInstance().gamePlay(typeData.type);
+                AnimationManager.getInstance().gamePlay(typeData.type, typeData.count);
             }
         }
 
