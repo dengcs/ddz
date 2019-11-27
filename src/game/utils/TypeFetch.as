@@ -644,7 +644,7 @@ package game.utils
 
 		public static function fetch_3with1(mode:Dictionary, value:int, count:int):Object
 		{
-			if(count < 1)
+			if(count < 2)
 			{
 				return null;
 			}
@@ -758,7 +758,7 @@ package game.utils
 
 		public static function fetch_3with2(mode:Dictionary, value:int, count:int):Object
 		{
-			if(count < 1)
+			if(count < 2)
 			{
 				return null;
 			}

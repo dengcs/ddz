@@ -28,11 +28,6 @@ package game.manager {
             return _instance;
 		}
 
-		public static function init():AnimationManager
-		{
-			return _instance;
-		}
-
 		private function loadRes():void
 		{
 			Laya.loader.load("res/atlas/ani.atlas", new Handler(this, onLoaded));
@@ -66,7 +61,7 @@ package game.manager {
 			}
 		}
 
-		public function gamePlay(type:int, count:int):void
+		public function playGame(type:int, count:int):void
 		{
 			this.checkRes();
 			if(this.gameAnimation)

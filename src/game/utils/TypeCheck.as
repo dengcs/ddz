@@ -472,7 +472,7 @@ package game.utils
 		{
 			var len:int = cards.length;
 
-			if(len > 3)
+			if(len > 7)
 			{
 				var target_count:int = 0;
 				var temp_data:Dictionary = new Dictionary();
@@ -517,7 +517,7 @@ package game.utils
 		{
 			var len:int = cards.length;
 
-			if(len > 4)
+			if(len > 9)
 			{
 				var target_count:int = 0;
 				var type_count:int = 0;

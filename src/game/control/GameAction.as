@@ -3,8 +3,7 @@ package game.control {
 	import common.GameConstants;
 	import common.GameEvent;
 	import game.utils.TypeCheck;
-	import laya.display.Animation;
-	import game.manager.AnimationManager;
+	import common.GameManager;
 
 	public class GameAction {
         // 轮转时数据
@@ -73,7 +72,7 @@ package game.control {
                 _roundData.value    = typeData.value;
                 _roundData.count    = typeData.count;
 
-                AnimationManager.getInstance().gamePlay(typeData.type, typeData.count);
+                GameManager.playGame(_roundData);
             }
         }
 
