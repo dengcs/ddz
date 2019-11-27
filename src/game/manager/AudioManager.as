@@ -30,7 +30,7 @@ package game.manager {
 			SoundManager.playMusic("sound/music/background.mp3");
 		}
 
-		public function playGame(type:int, count:int, value:int):void
+		public function playGame(type:int, value:int = 0):void
 		{
 			var url:String = null;
 
@@ -94,6 +94,11 @@ package game.manager {
 				case GameConstants.POKER_TYPE_4WITH22:
 				{
 					url = "sound/effect/game/female_four_with_two_pair.mp3";
+					break;
+				}
+				case GameConstants.POKER_TYPE_NO:
+				{
+					url = "sound/effect/game/female_no.mp3";
 					break;
 				}
 			}

@@ -30,6 +30,8 @@ package common
 		public static const POKER_TYPE_4WITH21:int			= 17; // 4带2(两单张)
 		public static const POKER_TYPE_4WITH22:int			= 18; // 4带2(两对)
 
+		public static const POKER_TYPE_NO:int				= 101; // 不要
+
 		public static const PLAY_STATE_PREPARE:int			= 1; // 预备
 		public static const PLAY_STATE_DEAL:int				= 2; // 发牌
 		public static const PLAY_STATE_SNATCH:int			= 3; // 抢地主

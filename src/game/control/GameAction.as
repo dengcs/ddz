@@ -4,6 +4,7 @@ package game.control {
 	import common.GameEvent;
 	import game.utils.TypeCheck;
 	import common.GameManager;
+	import game.manager.AudioManager;
 
 	public class GameAction {
         // 轮转时数据
@@ -106,6 +107,9 @@ package game.control {
             if(msgData.msg is Array)
             {
                 saveRoundData(msgData);
+            }else
+            {
+                AudioManager.getInstance().playGame(GameConstants.POKER_TYPE_NO);
             }
         }
 

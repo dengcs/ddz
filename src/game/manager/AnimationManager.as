@@ -61,7 +61,7 @@ package game.manager {
 			}
 		}
 
-		public function playGame(type:int, count:int):void
+		public function playGame(type:int):void
 		{
 			this.checkRes();
 			if(this.gameAnimation)
@@ -89,12 +89,9 @@ package game.manager {
 					}
 					case GameConstants.POKER_TYPE_3WITH1:
 					case GameConstants.POKER_TYPE_3WITH2:
-					{
-						if(count > 1)
-						{
-							name = "ani/plane.ani";
-							playName = "fiji";
-						}
+					{						
+						name = "ani/plane.ani";
+						playName = "fiji";
 						break;
 					}
 				}

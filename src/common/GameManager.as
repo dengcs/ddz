@@ -12,11 +12,10 @@ package common {
         public static function playGame(roundData:Object):void
 		{
 			var type:int 	= roundData.type;
-			var count:int	= roundData.count;
 			var value:int 	= roundData.value;
 
-        	AnimationManager.getInstance().playGame(type, count);
-			AudioManager.getInstance().playGame(type, count, value);
+        	AnimationManager.getInstance().playGame(type);
+			AudioManager.getInstance().playGame(type, value);
         }
 	}
 }
