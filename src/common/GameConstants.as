@@ -24,11 +24,13 @@ package common
 		public static const POKER_TYPE_1STRAIGHT:int		= 11; // 顺子
 		public static const POKER_TYPE_2STRAIGHT:int		= 12; // 2连对
 		public static const POKER_TYPE_3STRAIGHT:int		= 13; // 3连对
-		public static const POKER_TYPE_3WITH1:int			= 14; // 3带1
-		public static const POKER_TYPE_3WITH2:int			= 15; // 3带2
-		public static const POKER_TYPE_4WITH1:int			= 16; // 4带1
-		public static const POKER_TYPE_4WITH21:int			= 17; // 4带2(两单张)
-		public static const POKER_TYPE_4WITH22:int			= 18; // 4带2(两对)
+		public static const POKER_TYPE_3STRAIGHT1:int		= 14; // 3连1
+		public static const POKER_TYPE_3STRAIGHT2:int		= 15; // 3连2
+		public static const POKER_TYPE_3WITH1:int			= 16; // 3带1
+		public static const POKER_TYPE_3WITH2:int			= 17; // 3带2
+		public static const POKER_TYPE_4WITH1:int			= 18; // 4带1
+		public static const POKER_TYPE_4WITH21:int			= 19; // 4带2(两单张)
+		public static const POKER_TYPE_4WITH22:int			= 20; // 4带2(两对)
 
 		public static const POKER_TYPE_NO:int				= 101; // 不要
 

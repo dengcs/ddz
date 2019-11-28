@@ -24,9 +24,7 @@ package game.manager {
 
 		private function loadRes():void
 		{
-			SoundManager.addChannel(new WebAudioSoundChannel());
-			SoundManager.addChannel(new WebAudioSoundChannel());
-			SoundManager.addChannel(new WebAudioSoundChannel());
+			SoundManager.autoReleaseSound = false;
 			SoundManager.playMusic("sound/music/background.mp3");
 		}
 

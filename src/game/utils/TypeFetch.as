@@ -37,11 +37,11 @@ package game.utils
 
 			switch(type)
 			{
-				case GameConstants.POKER_TYPE_3WITH2:
+				case GameConstants.POKER_TYPE_3STRAIGHT2:
 				{
-					for(var i32:int=4; i32 >= 1; i32--)
+					for(var i32:int=4; i32 >= 2; i32--)
 					{
-						retData = fetch_3with2(mode, 0, i32);
+						retData = fetch_3straight2(mode, 0, i32);
 						if(retData != null)
 						{
 							break;
@@ -49,11 +49,11 @@ package game.utils
 					}
 					break;
 				}
-				case GameConstants.POKER_TYPE_3WITH1:
+				case GameConstants.POKER_TYPE_3STRAIGHT1:
 				{
-					for(var i31:int=5; i31 >= 1; i31--)
+					for(var i31:int=5; i31 >= 2; i31--)
 					{
-						retData = fetch_3with1(mode, 0, i31);
+						retData = fetch_3straight1(mode, 0, i31);
 						if(retData != null)
 						{
 							break;
@@ -127,10 +127,10 @@ package game.utils
 
 			if(retData == null)
 			{
-				retData = loop_fetch(GameConstants.POKER_TYPE_3WITH2, mode);
+				retData = loop_fetch(GameConstants.POKER_TYPE_3STRAIGHT2, mode);
 				if(retData == null)
 				{
-					retData = loop_fetch(GameConstants.POKER_TYPE_3WITH1, mode);
+					retData = loop_fetch(GameConstants.POKER_TYPE_3STRAIGHT1, mode);
 					if(retData == null)
 					{
 						retData = loop_fetch(GameConstants.POKER_TYPE_3STRAIGHT, mode);
@@ -142,13 +142,21 @@ package game.utils
 								retData = loop_fetch(GameConstants.POKER_TYPE_1STRAIGHT, mode);
 								if(retData == null)
 								{
-									retData = fetch_three(mode, 0);
+									retData = fetch_3with1(mode, 0);
 									if(retData == null)
 									{
-										retData = fetch_two(mode, 0);
+										retData = fetch_3with2(mode, 0);
 										if(retData == null)
 										{
-											retData = fetch_one(mode, cards, 0);
+											retData = fetch_three(mode, 0);
+											if(retData == null)
+											{
+												retData = fetch_two(mode, 0);
+												if(retData == null)
+												{
+													retData = fetch_one(mode, cards, 0);
+												}
+											}
 										}
 									}
 								}
@@ -211,14 +219,24 @@ package game.utils
 					retData = fetch_3straight(mode, value, count);
 					break;
 				}
+				case GameConstants.POKER_TYPE_3STRAIGHT1:
+				{
+					retData = fetch_3straight1(mode, value, count);
+					break;
+				}
+				case GameConstants.POKER_TYPE_3STRAIGHT2:
+				{
+					retData = fetch_3straight2(mode, value, count);
+					break;
+				}
 				case GameConstants.POKER_TYPE_3WITH1:
 				{
-					retData = fetch_3with1(mode, value, count);
+					retData = fetch_3with1(mode, value);
 					break;
 				}
 				case GameConstants.POKER_TYPE_3WITH2:
 				{
-					retData = fetch_3with2(mode, value, count);
+					retData = fetch_3with2(mode, value);
 					break;
 				}
 				case GameConstants.POKER_TYPE_4WITH1:
@@ -642,7 +660,7 @@ package game.utils
 			return retData;
 		}
 
-		public static function fetch_3with1(mode:Dictionary, value:int, count:int):Object
+		public static function fetch_3straight1(mode:Dictionary, value:int, count:int):Object
 		{
 			if(count < 2)
 			{
@@ -756,7 +774,7 @@ package game.utils
 			return retData;
 		}
 
-		public static function fetch_3with2(mode:Dictionary, value:int, count:int):Object
+		public static function fetch_3straight2(mode:Dictionary, value:int, count:int):Object
 		{
 			if(count < 2)
 			{
@@ -848,6 +866,150 @@ package game.utils
 					{
 						break;
 					}
+				}
+
+				retData = new Object();
+				retData.indexes = indexes;
+				retData.max_value = max_value;
+			}
+
+			return retData;
+		}
+
+		public static function fetch_3with1(mode:Dictionary, value:int):Object
+		{
+			var attachMap:Dictionary = new Dictionary();
+			var targetMap:Dictionary = new Dictionary();
+			var attachNum:int = 0;
+			var targetNum:int = 0;
+			for each(var m:int in mode.keys)
+			{
+				var len:int = mode.get(m).length;
+
+				if(len == 3)
+				{
+					targetMap.set(m, mode.get(m));
+					targetNum++;
+				}else
+				{
+					attachMap.set(m, mode.get(m));
+					attachNum += len;
+				}
+			}
+
+			if(targetNum < 1)
+			{
+				return null;
+			}
+			if(attachNum < 1)
+			{
+				return null;
+			}
+
+			var retData:Object = null;
+			var indexes:Array = new Array();
+			var max_value:int = 0;			
+
+			for each(var card:int in targetMap.keys)
+			{
+				if(card > value)
+				{
+					max_value = card;
+					break;
+				}
+			}
+
+			if(max_value > 0)
+			{
+				indexes.push(targetMap.get(max_value)[0]);
+				indexes.push(targetMap.get(max_value)[1]);
+				indexes.push(targetMap.get(max_value)[2]);
+
+				var attachCount:int = 0;
+
+				for(var n:int = 1; n < 2; n++)
+				{
+					for each(var a:int in attachMap.keys)
+					{
+						if(attachCount > 0)
+						{
+							break;
+						}
+
+						if(attachMap.get(a).length == n)
+						{
+							for each(var b:int in attachMap.get(a))
+							{
+								indexes.push(b);
+								attachCount++;
+								break;
+							}
+						}
+					}
+				}
+
+				retData = new Object();
+				retData.indexes = indexes;
+				retData.max_value = max_value;
+			}
+
+			return retData;
+		}
+
+		public static function fetch_3with2(mode:Dictionary, value:int):Object
+		{
+			var attachMap:Dictionary = new Dictionary();
+			var targetMap:Dictionary = new Dictionary();
+			var attachNum:int = 0;
+			var targetNum:int = 0;
+			for each(var m:int in mode.keys)
+			{
+				var len:int = mode.get(m).length;
+
+				if(len == 3)
+				{
+					targetMap.set(m, mode.get(m));
+					targetNum++;
+				}else if(len == 2)
+				{
+					attachMap.set(m, mode.get(m));
+					attachNum += len;
+				}
+			}
+
+			if(targetNum < 1)
+			{
+				return null;
+			}
+			if(attachNum < 1)
+			{
+				return null;
+			}
+
+			var retData:Object = null;
+			var indexes:Array = new Array();
+			var max_value:int = 0;			
+
+			for each(var card:int in targetMap.keys)
+			{
+				if(card > value)
+				{
+					max_value = card;
+					break;
+				}
+			}
+
+			if(max_value > 0)
+			{
+				indexes.push(targetMap.get(max_value)[0]);
+				indexes.push(targetMap.get(max_value)[1]);
+				indexes.push(targetMap.get(max_value)[2]);
+
+				for each(var attach:Array in attachMap)
+				{
+					indexes.push(attach[0]);
+					indexes.push(attach[1]);
+					break;
 				}
 
 				retData = new Object();

@@ -68,6 +68,18 @@ package game.utils
 				{
 					return check_3straight(cards);
 				}
+				case GameConstants.POKER_TYPE_3STRAIGHT1:
+				{
+					return check_3straight1(cards);
+				}
+				case GameConstants.POKER_TYPE_3STRAIGHT2:
+				{
+					return check_3straight2(cards);
+				}
+				case GameConstants.POKER_TYPE_4WITH1:
+				{
+					return check_4with1(cards);
+				}
 				case GameConstants.POKER_TYPE_3WITH1:
 				{
 					return check_3with1(cards);
@@ -75,10 +87,6 @@ package game.utils
 				case GameConstants.POKER_TYPE_3WITH2:
 				{
 					return check_3with2(cards);
-				}
-				case GameConstants.POKER_TYPE_4WITH1:
-				{
-					return check_4with1(cards);
 				}
 				case GameConstants.POKER_TYPE_4WITH21:
 				{
@@ -168,7 +176,7 @@ package game.utils
 					retData = new Object();
 					retData.value = max_value;
 					retData.type = GameConstants.POKER_TYPE_3WITH1;
-					retData.count = 1;
+					retData.count = 0;
 
 					return retData;
 				}
@@ -208,6 +216,17 @@ package game.utils
 					return retData;
 				}
 
+				max_value = check_3with2(cards);
+				if(max_value > 0)
+				{
+					retData = new Object();
+					retData.value = max_value;
+					retData.type = GameConstants.POKER_TYPE_3WITH2;
+					retData.count = 0;
+
+					return retData;
+				}
+
 				max_value = check_4with1(cards);
 				if(max_value > 0)
 				{
@@ -241,23 +260,23 @@ package game.utils
 					return retData;
 				}
 
-				max_value = check_3with1(cards);
+				max_value = check_3straight1(cards);
 				if(max_value > 0)
 				{
 					retData = new Object();
 					retData.value = max_value;
-					retData.type = GameConstants.POKER_TYPE_3WITH1;
+					retData.type = GameConstants.POKER_TYPE_3STRAIGHT1;
 					retData.count = len/4;
 
 					return retData;
 				}
 
-				max_value = check_3with2(cards);
+				max_value = check_3straight2(cards);
 				if(max_value > 0)
 				{
 					retData = new Object();
 					retData.value = max_value;
-					retData.type = GameConstants.POKER_TYPE_3WITH2;
+					retData.type = GameConstants.POKER_TYPE_3STRAIGHT2;
 					retData.count = len/5;
 
 					return retData;
@@ -468,7 +487,7 @@ package game.utils
 			return 0;
 		}
 
-		public static function check_3with1(cards:Vector.<int>):int
+		public static function check_3straight1(cards:Vector.<int>):int
 		{
 			var len:int = cards.length;
 
@@ -485,7 +504,7 @@ package game.utils
 						temp_data[card] = 1;
 					}else{
 						temp_data[card]++;
-						if(temp_data[card] == 3 && (len == 4 || card < GameConstants.POKER_VALUE_2))
+						if(temp_data[card] == 3 && card < GameConstants.POKER_VALUE_2)
 						{
 							target_count++;
 							check_cards.push(card);
@@ -513,7 +532,7 @@ package game.utils
 			return 0;
 		}
 
-		public static function check_3with2(cards:Vector.<int>):int
+		public static function check_3straight2(cards:Vector.<int>):int
 		{
 			var len:int = cards.length;
 
@@ -531,7 +550,7 @@ package game.utils
 						temp_data[card] = 1;
 					}else{
 						temp_data[card]++;
-						if(temp_data[card] == 3 && (len == 5 || card < GameConstants.POKER_VALUE_2))
+						if(temp_data[card] == 3 && card < GameConstants.POKER_VALUE_2)
 						{
 							target_count++;
 							check_cards.push(card);
@@ -562,6 +581,86 @@ package game.utils
 				if((target_card - first_card + 1) == target_count)
 				{
 					return target_card;
+				}
+			}
+
+			return 0;
+		}
+
+		public static function check_3with1(cards:Vector.<int>):int
+		{
+			var len:int = cards.length;
+
+			if(len == 4)
+			{
+				var val_array:Array = new Array();
+				var temp_data:Dictionary = new Dictionary();
+				for each(var item:int in cards)
+				{
+					var card:int = getCardVal(item);
+					if(temp_data[card] == null)
+					{
+						temp_data[card] = 1;
+						val_array.push(card);
+					}else{
+						temp_data[card]++;
+					}
+				}
+
+				if(val_array.length == 2)
+				{
+					var card1:int = val_array[0];
+					var card2:int = val_array[1];
+
+					if(temp_data[card1] == 3)
+					{
+						return card1
+					}
+
+					if(temp_data[card2] == 3)
+					{
+						return card2
+					}
+				}
+			}
+
+			return 0;
+		}
+
+		public static function check_3with2(cards:Vector.<int>):int
+		{
+			var len:int = cards.length;
+
+			if(len == 5)
+			{
+				var val_array:Array = new Array();
+				var temp_data:Dictionary = new Dictionary();
+				for each(var item:int in cards)
+				{
+					var card:int = getCardVal(item);
+					if(temp_data[card] == null)
+					{
+						temp_data[card] = 1;
+						val_array.push(card);
+					}else{
+						temp_data[card]++;
+					}
+				}
+
+				if(val_array.length == 2)
+				{
+					var card1:int = val_array[0];
+					var card2:int = val_array[1];
+
+					if(temp_data[card1] == 3)
+					{
+						return card1
+					}
+
+					if(temp_data[card2] == 3)
+					{
+						return card2
+					}
 				}
 			}
 
