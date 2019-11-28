@@ -74,12 +74,12 @@ package game.manager {
 					url = "sound/effect/game/female_airplane.mp3";
 					break;
 				}
-				case GameConstants.POKER_TYPE_3WITH1:
+				case GameConstants.POKER_TYPE_3STRAIGHT1:
 				{
 					url = "sound/effect/game/female_airplane_with_wing.mp3";
 					break;
 				}
-				case GameConstants.POKER_TYPE_3WITH2:
+				case GameConstants.POKER_TYPE_3STRAIGHT2:
 				{
 					url = "sound/effect/game/female_airplane_with_wing.mp3";
 					break;

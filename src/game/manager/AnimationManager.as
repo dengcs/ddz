@@ -87,8 +87,8 @@ package game.manager {
 						playName = "liandui";
 						break;
 					}
-					case GameConstants.POKER_TYPE_3WITH1:
-					case GameConstants.POKER_TYPE_3WITH2:
+					case GameConstants.POKER_TYPE_3STRAIGHT1:
+					case GameConstants.POKER_TYPE_3STRAIGHT2:
 					{						
 						name = "ani/plane.ani";
 						playName = "fiji";
