@@ -5,7 +5,7 @@
     "searchKey":"View",
     "props":{"sceneWidth":1140,"sceneHeight":855,"sceneColor":"#000000"},
     "nodeParent":-1,
-    "maxID":7,
+    "maxID":11,
     "label":"View",
     "isDirectory":true,
     "isAniNode":true,
@@ -21,7 +21,7 @@
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":7,
             "child":[
                 ]
         },
@@ -34,7 +34,7 @@
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":4,
+            "compId":8,
             "child":[
                 ]
         },
@@ -47,7 +47,20 @@
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":6,
+            "compId":9,
+            "child":[
+                ]
+        },
+        {
+            "type":"GraphicNode",
+            "searchKey":"GraphicNode",
+            "props":{},
+            "nodeParent":2,
+            "label":"GraphicNode",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":10,
             "child":[
                 ]
         }],
@@ -55,410 +68,251 @@
         {
             "nodes":[
                 {
-                    "target":3,
+                    "target":7,
                     "keyframes":{
                         "y":[
                             {
-                                "value":-150,
+                                "value":-250,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":3,
+                                "target":7,
                                 "key":"y",
                                 "index":0
-                            },
-                            {
-                                "value":150,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"y",
-                                "index":15
-                            }],
-                        "x":[
-                            {
-                                "value":570,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"x",
-                                "index":0
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"x",
-                                "index":15
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"x",
-                                "index":25
-                            },
-                            {
-                                "value":-800,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"x",
-                                "index":40
-                            }],
-                        "skin":[
-                            {
-                                "value":"ani/plane.png",
-                                "tweenMethod":"linearNone",
-                                "tween":false,
-                                "target":3,
-                                "key":"skin",
-                                "index":0
-                            }],
-                        "rotation":[
-                            {
-                                "value":-90,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"rotation",
-                                "index":0
-                            }],
-                        "anchorY":[
-                            {
-                                "value":0.5,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"anchorY",
-                                "index":0
-                            }],
-                        "anchorX":[
-                            {
-                                "value":0.5,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"anchorX",
-                                "index":0
-                            }]
-                    }
-                },
-                {
-                    "target":4,
-                    "keyframes":{
-                        "y":[
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"y",
-                                "index":0
-                            }],
-                        "x":[
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"x",
-                                "index":0
-                            }],
-                        "skin":[
-                            {
-                                "value":"ani/plane_word_feiji.png",
-                                "tweenMethod":"linearNone",
-                                "tween":false,
-                                "target":4,
-                                "key":"skin",
-                                "index":0
-                            }],
-                        "rotation":[
-                            {
-                                "value":-90,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"rotation",
-                                "index":0
-                            }],
-                        "anchorY":[
-                            {
-                                "value":0.5,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"anchorY",
-                                "index":0
-                            }],
-                        "anchorX":[
-                            {
-                                "value":0.5,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"anchorX",
-                                "index":0
-                            }],
-                        "alpha":[
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"alpha",
-                                "index":0
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"alpha",
-                                "index":15
-                            },
-                            {
-                                "value":1,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"alpha",
-                                "index":20
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"alpha",
-                                "index":25
-                            }]
-                    }
-                },
-                {
-                    "target":6,
-                    "keyframes":{
-
-                    }
-                }],
-            "name":"fiji",
-            "id":1,
-            "frameRate":24,
-            "action":0
-        },
-        {
-            "nodes":[
-                {
-                    "target":3,
-                    "keyframes":{
-                        "y":[
-                            {
-                                "value":-150,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"y",
-                                "index":0
-                            },
-                            {
-                                "value":150,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"y",
-                                "index":15
-                            }],
-                        "x":[
-                            {
-                                "value":570,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"x",
-                                "index":0
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"x",
-                                "index":15
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"x",
-                                "index":25
-                            },
-                            {
-                                "value":-800,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"x",
-                                "index":40
-                            }],
-                        "skin":[
-                            {
-                                "value":"ani/plane.png",
-                                "tweenMethod":"linearNone",
-                                "tween":false,
-                                "target":3,
-                                "key":"skin",
-                                "index":0
-                            }],
-                        "rotation":[
-                            {
-                                "value":-90,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"rotation",
-                                "index":0
-                            }],
-                        "anchorY":[
-                            {
-                                "value":0.5,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"anchorY",
-                                "index":0
-                            }],
-                        "anchorX":[
-                            {
-                                "value":0.5,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"anchorX",
-                                "index":0
-                            }]
-                    }
-                },
-                {
-                    "target":4,
-                    "keyframes":{
-                        "y":[
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"y",
-                                "index":0
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"y",
-                                "index":15
                             },
                             {
                                 "value":-20,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":4,
-                                "key":"y",
-                                "index":20
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
+                                "target":7,
                                 "key":"y",
                                 "index":25
+                            },
+                            {
+                                "value":-20,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"y",
+                                "index":35
+                            },
+                            {
+                                "value":210,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"y",
+                                "index":60
                             }],
                         "x":[
                             {
-                                "value":0,
+                                "value":960,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":4,
+                                "target":7,
                                 "key":"x",
                                 "index":0
                             },
                             {
-                                "value":-42,
+                                "value":230,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":4,
+                                "target":7,
                                 "key":"x",
-                                "index":15
+                                "index":25
+                            },
+                            {
+                                "value":230,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"x",
+                                "index":35
+                            },
+                            {
+                                "value":-700,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"x",
+                                "index":60
                             }],
                         "skin":[
                             {
-                                "value":null,
+                                "value":"",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
-                                "target":4,
+                                "target":7,
                                 "key":"skin",
                                 "index":0
                             },
                             {
-                                "value":"ani/plane_word_0001_lian.png",
+                                "value":"",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
-                                "target":4,
+                                "target":7,
+                                "key":"skin",
+                                "index":5
+                            },
+                            {
+                                "value":"",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":10
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire1.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
                                 "key":"skin",
                                 "index":15
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire2.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":17
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire3.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":20
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire1.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":22
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire2.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":25
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire1.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":30
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire2.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":35
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire3.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":40
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire1.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":45
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire2.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":50
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire3.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":55
+                            },
+                            {
+                                "value":"ani/plane/se_plane_fire1.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":7,
+                                "key":"skin",
+                                "index":60
                             }],
                         "anchorY":[
                             {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"anchorY",
-                                "index":0
-                            },
-                            {
                                 "value":0.5,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":4,
+                                "target":7,
                                 "key":"anchorY",
-                                "index":15
+                                "index":0
                             }],
                         "anchorX":[
                             {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"anchorX",
-                                "index":0
-                            },
-                            {
                                 "value":0.5,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":4,
+                                "target":7,
                                 "key":"anchorX",
-                                "index":15
+                                "index":0
                             }],
                         "alpha":[
                             {
                                 "value":1,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":4,
+                                "target":7,
                                 "key":"alpha",
                                 "index":0
+                            },
+                            {
+                                "value":0,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"alpha",
+                                "index":5
                             },
                             {
                                 "value":1,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":4,
+                                "target":7,
+                                "key":"alpha",
+                                "index":10
+                            },
+                            {
+                                "value":0,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"alpha",
+                                "index":15
+                            },
+                            {
+                                "value":1,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
                                 "key":"alpha",
                                 "index":20
                             },
@@ -466,21 +320,77 @@
                                 "value":0,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":4,
+                                "target":7,
                                 "key":"alpha",
                                 "index":25
+                            },
+                            {
+                                "value":1,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"alpha",
+                                "index":30
+                            },
+                            {
+                                "value":0,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"alpha",
+                                "index":35
+                            },
+                            {
+                                "value":1,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"alpha",
+                                "index":40
+                            },
+                            {
+                                "value":0,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"alpha",
+                                "index":45
+                            },
+                            {
+                                "value":1,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"alpha",
+                                "index":50
+                            },
+                            {
+                                "value":0,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"alpha",
+                                "index":55
+                            },
+                            {
+                                "value":1,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"alpha",
+                                "index":60
                             }]
                     }
                 },
                 {
-                    "target":6,
+                    "target":8,
                     "keyframes":{
                         "y":[
                             {
-                                "value":0,
+                                "value":-230,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":6,
+                                "target":8,
                                 "key":"y",
                                 "index":0
                             },
@@ -488,124 +398,336 @@
                                 "value":0,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":6,
+                                "target":8,
                                 "key":"y",
-                                "index":15
-                            },
-                            {
-                                "value":20,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":6,
-                                "key":"y",
-                                "index":20
+                                "index":25
                             },
                             {
                                 "value":0,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":6,
+                                "target":8,
                                 "key":"y",
-                                "index":25
+                                "index":35
+                            },
+                            {
+                                "value":230,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":8,
+                                "key":"y",
+                                "index":60
                             }],
                         "x":[
                             {
-                                "value":0,
+                                "value":730,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":6,
+                                "target":8,
                                 "key":"x",
                                 "index":0
                             },
                             {
-                                "value":42,
+                                "value":0,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":6,
+                                "target":8,
                                 "key":"x",
-                                "index":15
+                                "index":25
+                            },
+                            {
+                                "value":0,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":8,
+                                "key":"x",
+                                "index":35
+                            },
+                            {
+                                "value":-930,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":8,
+                                "key":"x",
+                                "index":60
                             }],
                         "skin":[
                             {
-                                "value":null,
+                                "value":"ani/plane/se_plane_body_blur.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
-                                "target":6,
+                                "target":8,
                                 "key":"skin",
                                 "index":0
                             },
                             {
-                                "value":"ani/plane_word_0002_dui.png",
+                                "value":"ani/plane/se_plane_body.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
-                                "target":6,
+                                "target":8,
                                 "key":"skin",
-                                "index":15
+                                "index":25
+                            },
+                            {
+                                "value":"ani/plane/se_plane_body_blur.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":8,
+                                "key":"skin",
+                                "index":35
+                            }],
+                        "scaleY":[
+                            {
+                                "value":0.6,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":8,
+                                "key":"scaleY",
+                                "index":0
+                            }],
+                        "scaleX":[
+                            {
+                                "value":0.6,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":8,
+                                "key":"scaleX",
+                                "index":0
                             }],
                         "anchorY":[
                             {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":6,
-                                "key":"anchorY",
-                                "index":0
-                            },
-                            {
                                 "value":0.5,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":6,
+                                "target":8,
                                 "key":"anchorY",
-                                "index":15
+                                "index":0
                             }],
                         "anchorX":[
                             {
+                                "value":0.5,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":8,
+                                "key":"anchorX",
+                                "index":0
+                            }]
+                    }
+                },
+                {
+                    "target":9,
+                    "keyframes":{
+                        "y":[
+                            {
+                                "value":-255,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"y",
+                                "index":0
+                            },
+                            {
+                                "value":-25,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"y",
+                                "index":25
+                            },
+                            {
+                                "value":-25,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"y",
+                                "index":35
+                            },
+                            {
+                                "value":205,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"y",
+                                "index":60
+                            }],
+                        "x":[
+                            {
+                                "value":555,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":-175,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"x",
+                                "index":25
+                            },
+                            {
+                                "value":-175,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"x",
+                                "index":35
+                            },
+                            {
+                                "value":-1105,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"x",
+                                "index":60
+                            }],
+                        "skin":[
+                            {
+                                "value":"ani/plane/se_plane_airscrew_blur.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":9,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"ani/plane/se_plane_airscrew1.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":9,
+                                "key":"skin",
+                                "index":25
+                            },
+                            {
+                                "value":"ani/plane/se_plane_airscrew_blur.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":9,
+                                "key":"skin",
+                                "index":35
+                            }]
+                    }
+                },
+                {
+                    "target":10,
+                    "keyframes":{
+                        "y":[
+                            {
+                                "value":-225,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":10,
+                                "key":"y",
+                                "index":0
+                            },
+                            {
+                                "value":5,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":10,
+                                "key":"y",
+                                "index":25
+                            },
+                            {
+                                "value":5,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":10,
+                                "key":"y",
+                                "index":35
+                            },
+                            {
+                                "value":235,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":10,
+                                "key":"y",
+                                "index":60
+                            }],
+                        "x":[
+                            {
+                                "value":555,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":10,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":-175,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":10,
+                                "key":"x",
+                                "index":25
+                            },
+                            {
+                                "value":-175,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":10,
+                                "key":"x",
+                                "index":35
+                            },
+                            {
+                                "value":-1105,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":10,
+                                "key":"x",
+                                "index":60
+                            }],
+                        "skin":[
+                            {
+                                "value":"ani/plane/se_plane_airscrew.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":10,
+                                "key":"skin",
+                                "index":0
+                            }],
+                        "rotation":[
+                            {
                                 "value":0,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":6,
-                                "key":"anchorX",
+                                "target":10,
+                                "key":"rotation",
                                 "index":0
                             },
+                            {
+                                "value":61000,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":10,
+                                "key":"rotation",
+                                "index":60
+                            }],
+                        "anchorY":[
                             {
                                 "value":0.5,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":6,
-                                "key":"anchorX",
-                                "index":15
-                            }],
-                        "alpha":[
-                            {
-                                "value":1,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":6,
-                                "key":"alpha",
+                                "target":10,
+                                "key":"anchorY",
                                 "index":0
-                            },
+                            }],
+                        "anchorX":[
                             {
-                                "value":1,
+                                "value":0.5,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":6,
-                                "key":"alpha",
-                                "index":20
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":6,
-                                "key":"alpha",
-                                "index":25
+                                "target":10,
+                                "key":"anchorX",
+                                "index":0
                             }]
                     }
                 }],
-            "name":"liandui",
-            "id":2,
-            "frameRate":24,
+            "name":"ani1",
+            "id":1,
+            "frameRate":30,
             "action":0
         }]
 }

@@ -11,13 +11,13 @@ package game.script {
 	
 	public class DealScript extends Script {
 		private var placeX0:int = -233;
-		private var placeY0:int = 578;
+		private var placeY0:int = 497;
 		private var placeX1:int = -280;
-		private var placeY1:int = 278;
+		private var placeY1:int = 197;
 		private var placeX2:int = 277;
-		private var placeY2:int = 278;
+		private var placeY2:int = 197;
 		private var placeXb:int = -90;
-		private var placeYb:int = 208;
+		private var placeYb:int = 127;
 		private var placeXStep:int = 41;
 
 		private var ownerSprite:Sprite = null;
@@ -42,6 +42,7 @@ package game.script {
 			{
 				for each(var pokerImg:Image in this.pokerList)
 				{
+					pokerImg.scale(0.6, 0.6).pos(0, 0);
 					pokerImg.visible = true;
 				}
 			}
@@ -52,7 +53,7 @@ package game.script {
 					pokerImg = new Image("poker/poker_bg.png");
 					pokerImg.anchorX = 0.5;
 					pokerImg.anchorY = 0.5;
-					pokerImg.pos(0, 0);
+					pokerImg.scale(0.6, 0.6).pos(0, 0);
 					this.pokerList.push(pokerImg);
 					this.ownerSprite.addChild(pokerImg);
 				}
@@ -73,7 +74,7 @@ package game.script {
 				if(pokerImg)
 				{
 					pokerImg.visible = false;
-					pokerImg.scale(1, 1).pos(0,0);
+					pokerImg.pos(0,0);
 				}
 			}
 		}
@@ -132,17 +133,14 @@ package game.script {
 
 			var x:int = this.placeXb + stepX*90; // 发牌的目标位置x坐标
 			var y:int = this.placeYb; // 发牌的目标位置y坐标
-			var scaleX:Number = 0.6;
-			var scaleY:Number = 0.6;
 
-			Tween.to(pokerImg, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 600, Ease.expoOut);
+			Tween.to(pokerImg, {x:x,y:y}, 600, Ease.expoOut);
 			this.owner.timerOnce(10, this, dealBottom, [index + 1], false);
 		}
 
 		private function dealComplete(pokerImg:Image, place:int):void
 		{
 			pokerImg.visible = false;
-			pokerImg.scale(1, 1).pos(0,0);
 			if(place > 0)
 			{
 				GameFunctions.surface_updateCounter.call(null, place, 1);	

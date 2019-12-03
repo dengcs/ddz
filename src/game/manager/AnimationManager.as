@@ -14,9 +14,11 @@ package game.manager {
 		private var gameAnimation:Sprite = null;
 		private var cacheMap:Dictionary = new Dictionary();
 		private var resIsLoaded:Boolean = false;
+		private var imgIsLoaded:Boolean = false;
 		
 		public function AnimationManager(){
 			if (_instance == null) {
+				this.loadImg();
 				this.loadRes();
             }else{
                  throw new Error("只能用getInstance()来获取实例!");
@@ -28,14 +30,25 @@ package game.manager {
             return _instance;
 		}
 
-		private function loadRes():void
+		private function loadImg():void
 		{
-			Laya.loader.load("res/atlas/ani.atlas", new Handler(this, onLoaded));
+			Laya.loader.load("ani/plane/se_plane_body_blur.png", new Handler(this, onImgLoaded));
 		}
 
-		private function onLoaded():void
+		private function loadRes():void
+		{			
+			var atlasArray:Array = ["res/atlas/ani/bomb.atlas","res/atlas/ani/plane.atlas","res/atlas/ani/rocket.atlas","res/atlas/ani/shunzi.atlas","res/atlas/ani.atlas"]
+			Laya.loader.load(atlasArray, new Handler(this, onResLoaded));
+		}
+
+		private function onResLoaded():void
 		{
 			resIsLoaded = true;
+		}
+
+		private function onImgLoaded():void
+		{
+			imgIsLoaded = true;
 		}
 
 		private function extractMount():void
@@ -59,6 +72,11 @@ package game.manager {
 			{
 				this.loadRes();
 			}
+
+			if(imgIsLoaded == false)
+			{
+				this.loadImg();
+			}
 		}
 
 		public function playGame(type:int):void
@@ -71,6 +89,11 @@ package game.manager {
 
 				switch(type)
 				{
+					case GameConstants.POKER_TYPE_ONE:
+					{
+						name = "ani/plane.ani";
+						break;
+					}
 					case GameConstants.POKER_TYPE_BOMB:
 					{
 						name = "ani/bomb.ani";

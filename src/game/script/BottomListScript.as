@@ -122,10 +122,10 @@ package game.script {
 					var cell:Box = this.ownerSprite.getCell(i);
 					if(cell != null)
 					{
-						var x:Number = centerCell.x + (i - 1)*110;
-						var y:Number = -410;
-						var scaleX:Number = 0.7;
-						var scaleY:Number = 0.7;
+						var x:Number = centerCell.x + 36 + (i - 1)*98;
+						var y:Number = -420;
+						var scaleX:Number = 0.55;
+						var scaleY:Number = 0.55;
 						var delay:int = 300 + i*30;
 						Tween.to(cell, {x:x,y:y,scaleX:scaleX,scaleY:scaleY}, 300, Ease.backIn, null, delay);
 					}
