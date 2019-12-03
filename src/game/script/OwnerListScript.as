@@ -101,7 +101,7 @@ package game.script {
 				var cell:Box = this.ownerSprite.getCell(len - 1);
 				if(cell != null)
 				{
-					this.dzTipImg.y = this.ownerSprite.height + cell.y;
+					this.dzTipImg.y = cell.y;
 				}
 			}
 		}

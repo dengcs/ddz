@@ -84,6 +84,17 @@ package game.manager {
 					url = "sound/effect/game/female_airplane_with_wing.mp3";
 					break;
 				}
+				
+				case GameConstants.POKER_TYPE_3WITH1:
+				{
+					url = "sound/effect/game/female_three_with_one.mp3";
+					break;
+				}
+				case GameConstants.POKER_TYPE_3WITH2:
+				{
+					url = "sound/effect/game/female_three_with_one_pair.mp3";
+					break;
+				}
 				case GameConstants.POKER_TYPE_4WITH21:
 				{
 					url = "sound/effect/game/female_four_with_two.mp3";

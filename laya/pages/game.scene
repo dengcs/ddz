@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":133,
-    "selecteID":136,
+    "selectedBox":2,
+    "selecteID":9,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
@@ -321,7 +321,7 @@
                     "props":{"visible":false,"name":"counter"},
                     "nodeParent":71,
                     "label":"counter",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -383,7 +383,7 @@
                 {
                     "type":"Image",
                     "searchKey":"Image,dzMark",
-                    "props":{"y":-235,"x":-400,"visible":false,"skin":"mark/table_dz.png","name":"dzMark","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":-235,"x":-400,"visible":false,"skin":"mark/table_dz.png","scaleY":0.5,"scaleX":0.5,"name":"dzMark","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":71,
                     "label":"dzMark",
                     "isDirectory":false,
@@ -478,7 +478,7 @@
                         {
                             "type":"Label",
                             "searchKey":"Label,second",
-                            "props":{"y":42,"x":44,"width":60,"valign":"middle","text":"20","name":"second","height":60,"fontSize":30,"font":"Microsoft YaHei","color":"#ff0000","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
+                            "props":{"y":40,"x":37,"width":60,"valign":"middle","text":"20","name":"second","height":60,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0000","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
                             "nodeParent":125,
                             "label":"second",
                             "isDirectory":false,
@@ -529,25 +529,27 @@
             "props":{"y":600,"x":200,"width":930,"name":"Layer1","height":209},
             "nodeParent":2,
             "label":"Layer1",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":9,
             "child":[
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,myList",
                     "props":{"y":104,"x":403,"width":807,"visible":false,"spaceX":-110,"scaleY":1,"scaleX":1,"repeatY":1,"repeatX":20,"name":"myList","height":209,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":9,
                     "label":"myList",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":10,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"renderType":"render"},
@@ -560,6 +562,7 @@
                             "compId":11,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,content",
                                     "props":{"skin":"poker/poker_fg.png","sizeGrid":"20,15,20,15","name":"content"},
@@ -572,6 +575,7 @@
                                     "compId":12,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "searchKey":"Image,value",
                                             "props":{"y":5,"x":6,"name":"value"},
@@ -584,6 +588,7 @@
                                             "compId":13,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "searchKey":"Image,type1",
                                                     "props":{"y":42,"x":0,"scaleY":0.35,"scaleX":0.35,"name":"type1"},
@@ -598,6 +603,7 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "searchKey":"Image,type2",
                                             "props":{"y":61,"x":35,"name":"type2"},
@@ -613,9 +619,10 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,dzTip",
-                            "props":{"y":209,"x":807,"visible":false,"skin":"poker/poker_tip_dz.png","name":"dzTip","anchorY":1,"anchorX":1},
+                            "props":{"y":0,"x":807,"visible":false,"skin":"poker/poker_tip_dz.png","name":"dzTip","anchorY":0,"anchorX":1},
                             "nodeParent":10,
                             "label":"dzTip",
                             "isDirectory":false,
@@ -626,6 +633,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/OwnerListScript.as",
@@ -650,14 +658,13 @@
             "props":{"y":520,"x":310,"width":520,"name":"Layer2"},
             "nodeParent":2,
             "label":"Layer2",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":33,
             "child":[
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,snatch",
                     "props":{"y":0,"x":70,"width":380,"visible":false,"name":"snatch"},
@@ -700,7 +707,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play1",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play1"},
@@ -728,7 +734,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play2",
                     "props":{"y":0,"x":60,"width":400,"visible":false,"name":"play2"},
@@ -769,20 +774,18 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play3",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play3"},
                     "nodeParent":33,
                     "label":"play3",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":133,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,play",
                             "props":{"y":0,"x":0,"skin":"comp/button.png","name":"play","labelColors":"#ffffff","labelBold":true,"label":"出牌"},
@@ -796,7 +799,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,prompt",
                             "props":{"y":0,"x":250,"skin":"comp/button.png","name":"prompt","labelColors":"#ffffff","labelBold":true,"label":"提示"},
@@ -811,7 +813,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,cancel",
                             "props":{"y":0,"x":392,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"不出"},
@@ -827,7 +828,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/ControlScript.as",
@@ -851,13 +851,14 @@
             "props":{"y":427,"x":570,"width":600,"pivotY":300,"pivotX":300,"name":"Layer3","height":600},
             "nodeParent":2,
             "label":"Layer3",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":47,
             "child":[
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,mineList",
                     "props":{"y":470,"x":300,"width":930,"visible":true,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"rotation":0,"repeatY":1,"repeatX":20,"name":"mineList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5,"alpha":0},
@@ -870,6 +871,7 @@
                     "compId":48,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":104,"x":75,"renderType":"render","anchorY":0.5,"anchorX":0.5},
@@ -882,6 +884,7 @@
                             "compId":49,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,content",
                                     "props":{"skin":"poker/poker_fg.png","sizeGrid":"20,15,20,15","name":"content"},
@@ -936,9 +939,10 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,dzTip",
-                            "props":{"y":209,"x":930,"visible":false,"skin":"poker/poker_tip_dz.png","name":"dzTip","anchorY":1,"anchorX":1},
+                            "props":{"y":0,"x":930,"visible":false,"skin":"poker/poker_tip_dz.png","name":"dzTip","anchorX":1},
                             "nodeParent":48,
                             "label":"dzTip",
                             "isDirectory":false,
@@ -949,6 +953,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/ThrowListScript.as",
@@ -967,6 +972,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,leftList",
                     "props":{"y":165,"x":-100,"width":930,"visible":true,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"repeatY":1,"repeatX":20,"name":"leftList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5,"alpha":0},
@@ -979,6 +985,7 @@
                     "compId":55,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":104,"x":75,"renderType":"render","anchorY":0.5,"anchorX":0.5},
@@ -991,6 +998,7 @@
                             "compId":56,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,content",
                                     "props":{"skin":"poker/poker_fg.png","sizeGrid":"20,15,20,15","name":"content"},
@@ -1045,9 +1053,10 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,dzTip",
-                            "props":{"y":209,"x":930,"visible":false,"skin":"poker/poker_tip_dz.png","name":"dzTip","anchorY":1,"anchorX":1},
+                            "props":{"y":0,"x":930,"visible":false,"skin":"poker/poker_tip_dz.png","name":"dzTip","anchorX":1},
                             "nodeParent":55,
                             "label":"dzTip",
                             "isDirectory":false,
@@ -1058,6 +1067,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/ThrowListScript.as",
@@ -1076,6 +1086,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,rightList",
                     "props":{"y":165,"x":700,"width":930,"visible":true,"spaceX":-110,"scaleY":0.5,"scaleX":0.5,"repeatY":1,"repeatX":20,"name":"rightList","mouseThrough":true,"mouseEnabled":false,"height":209,"anchorY":0.5,"anchorX":0.5,"alpha":0},
@@ -1088,6 +1099,7 @@
                     "compId":61,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":104,"x":75,"renderType":"render","anchorY":0.5,"anchorX":0.5},
@@ -1100,6 +1112,7 @@
                             "compId":62,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,content",
                                     "props":{"skin":"poker/poker_fg.png","sizeGrid":"20,15,20,15","name":"content"},
@@ -1154,9 +1167,10 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,dzTip",
-                            "props":{"y":209,"x":930,"visible":false,"skin":"poker/poker_tip_dz.png","name":"dzTip","anchorY":1,"anchorX":1},
+                            "props":{"y":0,"x":930,"visible":false,"skin":"poker/poker_tip_dz.png","name":"dzTip","anchorX":1},
                             "nodeParent":61,
                             "label":"dzTip",
                             "isDirectory":false,
@@ -1167,6 +1181,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/ThrowListScript.as",

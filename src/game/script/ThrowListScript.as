@@ -165,7 +165,7 @@ package game.script {
 			{
 				this.dzTipImg.visible = true;
 				this.dzTipImg.x = this.ownerSprite.width;
-				this.dzTipImg.y = this.ownerSprite.height;
+				this.dzTipImg.y = 0;
 			}
 		}
 
