@@ -138,7 +138,7 @@
                             }],
                         "skin":[
                             {
-                                "value":"",
+                                "value":"ani/plane/se_plane_fire1.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":7,
@@ -146,7 +146,7 @@
                                 "index":0
                             },
                             {
-                                "value":"",
+                                "value":"ani/plane/se_plane_fire2.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":7,
@@ -154,7 +154,7 @@
                                 "index":5
                             },
                             {
-                                "value":"",
+                                "value":"ani/plane/se_plane_fire3.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":7,
@@ -175,26 +175,10 @@
                                 "tween":false,
                                 "target":7,
                                 "key":"skin",
-                                "index":17
-                            },
-                            {
-                                "value":"ani/plane/se_plane_fire3.png",
-                                "tweenMethod":"linearNone",
-                                "tween":false,
-                                "target":7,
-                                "key":"skin",
                                 "index":20
                             },
                             {
-                                "value":"ani/plane/se_plane_fire1.png",
-                                "tweenMethod":"linearNone",
-                                "tween":false,
-                                "target":7,
-                                "key":"skin",
-                                "index":22
-                            },
-                            {
-                                "value":"ani/plane/se_plane_fire2.png",
+                                "value":"ani/plane/se_plane_fire3.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":7,

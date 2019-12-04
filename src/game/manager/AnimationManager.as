@@ -7,6 +7,7 @@ package game.manager {
 	import common.GameConstants;
 	import laya.display.Animation;
 	import laya.utils.Handler;
+	import laya.net.Loader;
 
 	public final class AnimationManager{
 		private static var _instance:AnimationManager = new AnimationManager();
@@ -32,13 +33,13 @@ package game.manager {
 
 		private function loadImg():void
 		{
-			Laya.loader.load("ani/plane/se_plane_body_blur.png", new Handler(this, onImgLoaded));
+			Laya.loader.load("ani/plane/se_plane_body_blur.png", new Handler(this, onImgLoaded), null, Loader.IMAGE);
 		}
 
 		private function loadRes():void
 		{			
-			var atlasArray:Array = ["res/atlas/ani/bomb.atlas","res/atlas/ani/plane.atlas","res/atlas/ani/rocket.atlas","res/atlas/ani/shunzi.atlas","res/atlas/ani.atlas"]
-			Laya.loader.load(atlasArray, new Handler(this, onResLoaded));
+			var atlasArray:Array = ["res/atlas/ani/bomb.atlas","res/atlas/ani/plane.atlas","res/atlas/ani/rocket.atlas","res/atlas/ani/shunzi.atlas"];
+			Laya.loader.load(atlasArray, new Handler(this, onResLoaded), null, Loader.ATLAS);
 		}
 
 		private function onResLoaded():void
@@ -91,7 +92,7 @@ package game.manager {
 				{
 					case GameConstants.POKER_TYPE_ONE:
 					{
-						name = "ani/plane.ani";
+						name = "ani/shunzi.ani";
 						break;
 					}
 					case GameConstants.POKER_TYPE_BOMB:
@@ -104,17 +105,15 @@ package game.manager {
 						name = "ani/roket.ani";
 						break;
 					}
-					case GameConstants.POKER_TYPE_2STRAIGHT:
+					case GameConstants.POKER_TYPE_1STRAIGHT:
 					{
-						name = "ani/plane.ani";
-						playName = "liandui";
+						name = "ani/shunzi.ani";
 						break;
 					}
 					case GameConstants.POKER_TYPE_3STRAIGHT1:
 					case GameConstants.POKER_TYPE_3STRAIGHT2:
 					{						
 						name = "ani/plane.ani";
-						playName = "fiji";
 						break;
 					}
 				}
