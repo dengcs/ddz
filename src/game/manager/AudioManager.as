@@ -117,5 +117,35 @@ package game.manager {
 				SoundManager.playSound(url, 1);
 			}
 		}
+
+		public function playAni(type:int):void
+		{
+			var url:String = null;
+
+			switch(type)
+			{				
+				case GameConstants.POKER_TYPE_BOMB:
+				{
+					url = "sound/effect/game/eff_boom.mp3";
+					break;
+				}
+				case GameConstants.POKER_TYPE_KING:
+				{
+					url = "sound/effect/game/eff_rocket.mp3";
+					break;
+				}
+				case GameConstants.POKER_TYPE_3STRAIGHT1:
+				case GameConstants.POKER_TYPE_3STRAIGHT2:
+				{						
+					url = "sound/effect/game/eff_plane.mp3";
+					break;
+				}
+			}
+
+			if(url != null)
+			{
+				SoundManager.playSound(url, 1);
+			}
+		}
 	}
 }

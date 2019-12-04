@@ -90,11 +90,6 @@ package game.manager {
 
 				switch(type)
 				{
-					case GameConstants.POKER_TYPE_ONE:
-					{
-						name = "ani/shunzi.ani";
-						break;
-					}
 					case GameConstants.POKER_TYPE_BOMB:
 					{
 						name = "ani/bomb.ani";
@@ -102,7 +97,7 @@ package game.manager {
 					}
 					case GameConstants.POKER_TYPE_KING:
 					{
-						name = "ani/roket.ani";
+						name = "ani/rocket.ani";
 						break;
 					}
 					case GameConstants.POKER_TYPE_1STRAIGHT:
@@ -130,6 +125,7 @@ package game.manager {
 					}
 					
 					ti.play(0, false, playName);
+					AudioManager.getInstance().playAni(type);
 				}
 			}
 		}
