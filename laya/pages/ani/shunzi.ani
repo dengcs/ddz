@@ -143,7 +143,7 @@
                             }],
                         "skin":[
                             {
-                                "value":"ani/shunzi/se_shunzi_dragonboat.png",
+                                "value":"ani/shunzi/shunzi_dragonboat.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":3,
@@ -250,7 +250,7 @@
                             }],
                         "skin":[
                             {
-                                "value":"ani/shunzi/se_shunzi_wave.png",
+                                "value":"ani/shunzi/shunzi_wave.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":4,
@@ -348,7 +348,7 @@
                             }],
                         "skin":[
                             {
-                                "value":"ani/shunzi/se_shunzi_wave1.png",
+                                "value":"ani/shunzi/shunzi_wave1.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -356,7 +356,7 @@
                                 "index":0
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave2.png",
+                                "value":"ani/shunzi/shunzi_wave2.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -364,7 +364,7 @@
                                 "index":5
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave3.png",
+                                "value":"ani/shunzi/shunzi_wave3.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -372,7 +372,7 @@
                                 "index":10
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave1.png",
+                                "value":"ani/shunzi/shunzi_wave1.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -380,7 +380,7 @@
                                 "index":15
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave2.png",
+                                "value":"ani/shunzi/shunzi_wave2.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -388,7 +388,7 @@
                                 "index":20
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave3.png",
+                                "value":"ani/shunzi/shunzi_wave3.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -396,7 +396,7 @@
                                 "index":25
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave1.png",
+                                "value":"ani/shunzi/shunzi_wave1.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -404,7 +404,7 @@
                                 "index":30
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave2.png",
+                                "value":"ani/shunzi/shunzi_wave2.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -412,7 +412,7 @@
                                 "index":35
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave3.png",
+                                "value":"ani/shunzi/shunzi_wave3.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -420,7 +420,7 @@
                                 "index":40
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave1.png",
+                                "value":"ani/shunzi/shunzi_wave1.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -428,7 +428,7 @@
                                 "index":45
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave2.png",
+                                "value":"ani/shunzi/shunzi_wave2.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -436,7 +436,7 @@
                                 "index":50
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave3.png",
+                                "value":"ani/shunzi/shunzi_wave3.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -444,7 +444,7 @@
                                 "index":55
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wave1.png",
+                                "value":"ani/shunzi/shunzi_wave1.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":5,
@@ -542,7 +542,7 @@
                                 "index":0
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wsz2.png",
+                                "value":"ani/shunzi/shunzi_wsz2.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":6,
@@ -550,7 +550,7 @@
                                 "index":20
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wsz.png",
+                                "value":"ani/shunzi/shunzi_wsz.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":6,
@@ -558,7 +558,7 @@
                                 "index":25
                             },
                             {
-                                "value":"ani/shunzi/se_shunzi_wsz2.png",
+                                "value":"ani/shunzi/shunzi_wsz2.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":6,

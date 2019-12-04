@@ -104,7 +104,7 @@
                             }],
                         "skin":[
                             {
-                                "value":"ani/bomb/se_boom.png",
+                                "value":"ani/bomb/boom.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":3,
@@ -112,7 +112,7 @@
                                 "index":0
                             },
                             {
-                                "value":"ani/bomb/se_boom_smoke1.png",
+                                "value":"ani/bomb/boom_smoke1.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":3,
@@ -120,7 +120,7 @@
                                 "index":21
                             },
                             {
-                                "value":"ani/bomb/se_boom_smoke2.png",
+                                "value":"ani/bomb/boom_smoke2.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":3,
@@ -128,7 +128,7 @@
                                 "index":25
                             },
                             {
-                                "value":"ani/bomb/se_boom_smoke3.png",
+                                "value":"ani/bomb/boom_smoke3.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":3,
@@ -136,7 +136,7 @@
                                 "index":30
                             },
                             {
-                                "value":"ani/bomb/se_boom_smoke4.png",
+                                "value":"ani/bomb/boom_smoke4.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":3,
@@ -144,7 +144,7 @@
                                 "index":35
                             },
                             {
-                                "value":"ani/bomb/se_boom_smoke5.png",
+                                "value":"ani/bomb/boom_smoke5.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":3,
@@ -152,7 +152,7 @@
                                 "index":40
                             },
                             {
-                                "value":"ani/bomb/se_boom_smoke6.png",
+                                "value":"ani/bomb/boom_smoke6.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":3,
@@ -160,7 +160,7 @@
                                 "index":45
                             },
                             {
-                                "value":"ani/bomb/se_boom_wzd.png",
+                                "value":"ani/bomb/boom_wzd.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
                                 "target":3,
