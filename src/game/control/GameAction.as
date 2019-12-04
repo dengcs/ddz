@@ -83,24 +83,24 @@ package game.control {
             var curIdx:int = msgData.idx;
             if(NetAction.idxIsMine(curIdx))
             {
-                BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_TURN);
+                BaseAction.event(["ThrowCard","rightList"], GameEvent.EVENT_GAME_TURN);
                 if(msgData.msg is Array)
                 {                                                            
-                    BaseAction.event(["Layer3","mineList"], GameEvent.EVENT_GAME_PLAY, msgData.msg);
+                    BaseAction.event(["ThrowCard","mineList"], GameEvent.EVENT_GAME_PLAY, msgData.msg);
                 }
             }else if(NetAction.idxIsRight(curIdx))
             {
-                BaseAction.event(["Layer3","leftList"], GameEvent.EVENT_GAME_TURN);
+                BaseAction.event(["ThrowCard","leftList"], GameEvent.EVENT_GAME_TURN);
                 if(msgData.msg is Array)
                 {
-                    BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_PLAY, msgData.msg);
+                    BaseAction.event(["ThrowCard","rightList"], GameEvent.EVENT_GAME_PLAY, msgData.msg);
                 }
             }else
             {
-                BaseAction.event(["Layer3","mineList"], GameEvent.EVENT_GAME_TURN);
+                BaseAction.event(["ThrowCard","mineList"], GameEvent.EVENT_GAME_TURN);
                 if(msgData.msg is Array)
                 {
-                    BaseAction.event(["Layer3","leftList"], GameEvent.EVENT_GAME_PLAY, msgData.msg);
+                    BaseAction.event(["ThrowCard","leftList"], GameEvent.EVENT_GAME_PLAY, msgData.msg);
                 }
             }
 

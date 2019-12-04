@@ -10,6 +10,13 @@ package game.control {
 		private static var _mineIdx:int = 0;
 		// 右边索引
 		private static var _rightIdx:int = 0;
+		// 当前状态
+		private static var _state:int = 0;
+
+		private static function get state():int
+		{
+			return _state;
+		}
 
 		public static function set ownerIdx(idx:int):void
         {
@@ -52,6 +59,11 @@ package game.control {
 			return idx == _rightIdx;
 		}
 
+		public static function gameIsOver():Boolean
+		{
+			return _state == GameConstants.PLAY_STATE_OVER;
+		}
+
 		public static function doPrepare(data:*):void
 		{			
 			_mineIdx = data.idx;
@@ -62,24 +74,24 @@ package game.control {
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Mark", "clock"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Layer3","mineList"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Layer3","leftList"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Layer3","rightList"], GameEvent.EVENT_GAME_PREPARE);			
+			BaseAction.event(["MyCard","myList"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Control"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["ThrowCard","mineList"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["ThrowCard","leftList"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["ThrowCard","rightList"], GameEvent.EVENT_GAME_PREPARE);			
 		}
 
 		public static function doDeal(data:*):void
 		{
 			BaseAction.event(["Deal"], GameEvent.EVENT_GAME_DEAL);
-			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_DEAL, data);
+			BaseAction.event(["MyCard","myList"], GameEvent.EVENT_GAME_DEAL, data);
 		}
 
 		public static function doSnatch(data:* = null):void
 		{
 			if(data == null)
 			{
-				BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_SNATCH);
+				BaseAction.event(["Control"], GameEvent.EVENT_GAME_SNATCH);
 			}else
 			{
 				GameAction.incSnatchCount();
@@ -105,7 +117,7 @@ package game.control {
 				BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
 				if(idxIsMine(idx))
 				{
-					BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
+					BaseAction.event(["MyCard","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
 				}
 			}
 		}
@@ -113,13 +125,13 @@ package game.control {
 		public static function doPlay(data:* = null):void
 		{
 			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PLAY, data);
-			BaseAction.event(["Layer2"], GameEvent.EVENT_GAME_PLAY, data);
+			BaseAction.event(["Control"], GameEvent.EVENT_GAME_PLAY, data);
 			BaseAction.event(["Mark", "clock"], GameEvent.EVENT_GAME_PLAY, data);
 		}
 
 		public static function doOver(data:* = null):void
 		{
-			BaseAction.event(["Layer1","myList"], GameEvent.EVENT_GAME_OVER);
+			BaseAction.event(["MyCard","myList"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_OVER);
@@ -134,36 +146,42 @@ package game.control {
 			{
 				case GameConstants.PLAY_STATE_PREPARE:
 				{
+					_state = GameConstants.PLAY_STATE_PREPARE;
 					trace("NetAction---prepare", uData.msg);
 					doPrepare(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_DEAL:
 				{
+					_state = GameConstants.PLAY_STATE_DEAL;
 					trace("NetAction---deal", uData.msg);
 					doDeal(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_SNATCH:
 				{
+					_state = GameConstants.PLAY_STATE_SNATCH;
 					trace("NetAction---snatch", uData.msg);
 					doSnatch(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_BOTTOM:
 				{
+					_state = GameConstants.PLAY_STATE_BOTTOM;
 					trace("NetAction---bottom", uData.msg);
 					doBottom(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_PLAY:
 				{
+					_state = GameConstants.PLAY_STATE_PLAY;
 					trace("NetAction---play", uData.msg);
 					doPlay(uData.msg);
 					break;
 				}
 				case GameConstants.PLAY_STATE_OVER:
 				{
+					_state = GameConstants.PLAY_STATE_OVER;
 					trace("NetAction---over", uData.msg);
 					doOver(uData.msg);
 					break;

@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":89,
-    "selecteID":106,
+    "selectedBox":2,
+    "selecteID":149,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":148,
+    "maxID":154,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -16,29 +16,42 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "searchKey":"Image,Background",
-            "props":{"y":0,"x":1,"skin":"game/table_bg_cg2.jpg","name":"Background"},
+            "type":"Sprite",
+            "searchKey":"Sprite,First",
+            "props":{"y":0,"x":0,"name":"First"},
             "nodeParent":2,
-            "label":"Background",
+            "label":"First",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":3,
+            "compId":148,
             "child":[
                 {
                     "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":128,"x":0,"skin":"game/table_bg_cg1.png"},
-                    "nodeParent":3,
-                    "label":"Image",
-                    "isDirectory":false,
+                    "searchKey":"Image,Background",
+                    "props":{"y":0,"x":1,"skin":"game/table_bg_cg2.jpg","name":"Background"},
+                    "nodeParent":148,
+                    "label":"Background",
+                    "isOpen":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
+                    "hasChild":true,
+                    "compId":3,
                     "child":[
-                        ]
+                        {
+                            "type":"Image",
+                            "searchKey":"Image",
+                            "props":{"y":128,"x":0,"skin":"game/table_bg_cg1.png"},
+                            "nodeParent":3,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":4,
+                            "child":[
+                                ]
+                        }]
                 }]
         },
         {
@@ -525,14 +538,13 @@
             "props":{"y":427,"x":569,"width":1,"name":"Mark","height":1},
             "nodeParent":2,
             "label":"Mark",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":89,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,mine",
                     "props":{"y":120,"x":0,"visible":false,"skin":"mark/jiaodizhu.png","name":"mine","anchorY":0.5,"anchorX":0.5},
@@ -546,7 +558,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,right",
                     "props":{"y":-120,"x":230,"visible":false,"skin":"mark/jiaodizhu.png","name":"right","anchorY":0.5,"anchorX":0.5},
@@ -560,7 +571,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,left",
                     "props":{"y":-120,"x":-230,"visible":false,"skin":"mark/jiaodizhu.png","name":"left","anchorY":0.5,"anchorX":0.5},
@@ -574,7 +584,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,clock",
                     "props":{"y":120,"x":0,"visible":false,"skin":"mark/clock01.png","name":"clock","anchorY":0.5,"anchorX":0.5},
@@ -587,7 +596,6 @@
                     "compId":125,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,second",
                             "props":{"y":38,"x":37,"width":60,"valign":"middle","text":"20","name":"second","height":60,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0000","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
@@ -601,7 +609,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/ClockScript.as",
@@ -619,7 +626,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/MarkScript.as",
@@ -639,31 +645,29 @@
         {
             "x":15,
             "type":"Sprite",
-            "searchKey":"Sprite,Layer1",
-            "props":{"y":600,"x":200,"width":930,"name":"Layer1","height":209},
+            "searchKey":"Sprite,MyCard",
+            "props":{"y":600,"x":200,"width":930,"name":"MyCard","height":209},
             "nodeParent":2,
-            "label":"Layer1",
-            "isOpen":true,
+            "label":"MyCard",
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":9,
             "child":[
                 {
-                    "x":30,
                     "type":"List",
                     "searchKey":"List,myList",
                     "props":{"y":104,"x":403,"width":807,"visible":false,"spaceX":-110,"scaleY":1,"scaleX":1,"repeatY":1,"repeatX":20,"name":"myList","height":209,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":9,
                     "label":"myList",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":10,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"renderType":"render"},
@@ -676,7 +680,6 @@
                             "compId":11,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,content",
                                     "props":{"skin":"poker/poker_fg.png","sizeGrid":"20,15,20,15","name":"content"},
@@ -689,7 +692,6 @@
                                     "compId":12,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "searchKey":"Image,value",
                                             "props":{"y":5,"x":6,"name":"value"},
@@ -702,7 +704,6 @@
                                             "compId":13,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Image",
                                                     "searchKey":"Image,type1",
                                                     "props":{"y":42,"x":0,"scaleY":0.35,"scaleX":0.35,"name":"type1"},
@@ -717,7 +718,6 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "searchKey":"Image,type2",
                                             "props":{"y":61,"x":35,"name":"type2"},
@@ -733,7 +733,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,dzTip",
                             "props":{"y":0,"x":807,"visible":false,"skin":"poker/poker_tip_dz.png","name":"dzTip","anchorY":0,"anchorX":1},
@@ -747,7 +746,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/game/script/OwnerListScript.as",
@@ -768,10 +766,10 @@
         {
             "x":15,
             "type":"Sprite",
-            "searchKey":"Sprite,Layer2",
-            "props":{"y":520,"x":310,"width":520,"name":"Layer2"},
+            "searchKey":"Sprite,Control",
+            "props":{"y":520,"x":310,"width":520,"name":"Control"},
             "nodeParent":2,
-            "label":"Layer2",
+            "label":"Control",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
@@ -961,10 +959,10 @@
         {
             "x":15,
             "type":"Sprite",
-            "searchKey":"Sprite,Layer3",
-            "props":{"y":427,"x":570,"width":600,"pivotY":300,"pivotX":300,"name":"Layer3","height":600},
+            "searchKey":"Sprite,ThrowCard",
+            "props":{"y":427,"x":570,"width":600,"pivotY":300,"pivotX":300,"name":"ThrowCard","height":600},
             "nodeParent":2,
-            "label":"Layer3",
+            "label":"ThrowCard",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
@@ -1298,6 +1296,79 @@
                         }],
                     "$HIDDEN":true
                 }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,Menu",
+            "props":{"y":0,"x":0,"width":1140,"name":"Menu","height":1},
+            "nodeParent":2,
+            "label":"Menu",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":149,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Button",
+                    "searchKey":"Button,back",
+                    "props":{"y":10,"x":0,"stateNum":"1","skin":"button/out_touched.png","name":"back"},
+                    "nodeParent":149,
+                    "label":"back",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":151,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "searchKey":"Button,caidan",
+                    "props":{"y":10,"x":1073,"stateNum":"1","skin":"button/caidan.png","name":"caidan"},
+                    "nodeParent":149,
+                    "label":"caidan",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":152,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/game/script/MenuScript.as",
+                    "searchKey":"Script,MenuScript",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":149,
+                    "label":"MenuScript",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":153,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,ToolBar",
+            "props":{"y":0,"x":0,"name":"ToolBar"},
+            "nodeParent":2,
+            "label":"ToolBar",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":150,
+            "child":[
+                ]
         },
         {
             "x":15,

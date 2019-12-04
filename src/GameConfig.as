@@ -11,6 +11,7 @@ package {
 	import game.script.OwnerListScript;
 	import game.script.ControlScript;
 	import game.script.ThrowListScript;
+	import game.script.MenuScript;
 	import common.ButtonRunTime;
 	import game.script.StartScript;
 	import game.script.TestScript;
@@ -42,6 +43,7 @@ package {
 			reg("game.script.OwnerListScript",OwnerListScript);
 			reg("game.script.ControlScript",ControlScript);
 			reg("game.script.ThrowListScript",ThrowListScript);
+			reg("game.script.MenuScript",MenuScript);
 			reg("common.ButtonRunTime",ButtonRunTime);
 			reg("game.script.StartScript",StartScript);
 			reg("game.script.TestScript",TestScript);
