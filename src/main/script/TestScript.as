@@ -1,4 +1,4 @@
-package game.script {
+package main.script {
 	import laya.components.Script;
 	import laya.ui.TextInput;
 	import laya.ui.Button;

@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":4,
-    "selecteID":8,
+    "selecteID":7,
     "searchKey":"Scene,mainScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"mainScene","height":855},
     "nodeParent":-1,
-    "maxID":19,
+    "maxID":23,
     "label":"mainScene",
     "isOpen":true,
     "isDirectory":true,
@@ -31,7 +31,7 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button",
-                    "props":{"y":222,"x":0,"stateNum":"1","skin":"main/room_cc_xsc.png","runtime":"common.ButtonRunTime"},
+                    "props":{"y":222,"x":0,"stateNum":"1","skin":"main/room_cc_xsc.png","runtime":"main.runtime.RoomBtnRunTime"},
                     "nodeParent":4,
                     "label":"Button",
                     "isOpen":true,
@@ -44,7 +44,7 @@
                             "x":45,
                             "type":"Script",
                             "switchAble":true,
-                            "source":"src/game/script/StartScript.as",
+                            "source":"src/main/script/StartScript.as",
                             "searchKey":"Script,StartScript",
                             "removeAble":true,
                             "props":{"btnType":1},
@@ -53,7 +53,7 @@
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":15,
+                            "compId":19,
                             "child":[
                                 ]
                         }]
@@ -62,7 +62,7 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button",
-                    "props":{"y":222,"x":286,"stateNum":"1","skin":"main/room_cc_gjc.png","runtime":"common.ButtonRunTime"},
+                    "props":{"y":222,"x":286,"stateNum":"1","skin":"main/room_cc_gjc.png","runtime":"main.runtime.RoomBtnRunTime"},
                     "nodeParent":4,
                     "label":"Button",
                     "isOpen":true,
@@ -75,7 +75,7 @@
                             "x":45,
                             "type":"Script",
                             "switchAble":true,
-                            "source":"src/game/script/StartScript.as",
+                            "source":"src/main/script/StartScript.as",
                             "searchKey":"Script,StartScript",
                             "removeAble":true,
                             "props":{"btnType":2},
@@ -84,7 +84,7 @@
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":16,
+                            "compId":20,
                             "child":[
                                 ]
                         }]
@@ -93,7 +93,7 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button",
-                    "props":{"y":222,"x":572,"stateNum":"1","skin":"main/room_cc_dsc.png","runtime":"common.ButtonRunTime"},
+                    "props":{"y":222,"x":572,"stateNum":"1","skin":"main/room_cc_dsc.png","runtime":"main.runtime.RoomBtnRunTime"},
                     "nodeParent":4,
                     "label":"Button",
                     "isOpen":true,
@@ -106,7 +106,7 @@
                             "x":45,
                             "type":"Script",
                             "switchAble":true,
-                            "source":"src/game/script/StartScript.as",
+                            "source":"src/main/script/StartScript.as",
                             "searchKey":"Script,StartScript",
                             "removeAble":true,
                             "props":{"btnType":3},
@@ -115,7 +115,7 @@
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":17,
+                            "compId":21,
                             "child":[
                                 ]
                         }]
@@ -124,7 +124,7 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button",
-                    "props":{"y":222,"x":858,"stateNum":"1","skin":"main/room_cc_jyc.png","runtime":"common.ButtonRunTime"},
+                    "props":{"y":222,"x":858,"stateNum":"1","skin":"main/room_cc_jyc.png","runtime":"main.runtime.RoomBtnRunTime"},
                     "nodeParent":4,
                     "label":"Button",
                     "isOpen":true,
@@ -137,7 +137,7 @@
                             "x":45,
                             "type":"Script",
                             "switchAble":true,
-                            "source":"src/game/script/StartScript.as",
+                            "source":"src/main/script/StartScript.as",
                             "searchKey":"Script,StartScript",
                             "removeAble":true,
                             "props":{"btnType":4},
@@ -146,7 +146,7 @@
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":18,
+                            "compId":22,
                             "child":[
                                 ]
                         }]

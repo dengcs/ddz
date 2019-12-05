@@ -6,7 +6,7 @@
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":154,
+    "maxID":156,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -1314,7 +1314,7 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button,back",
-                    "props":{"y":10,"x":0,"stateNum":"1","skin":"button/out_touched.png","name":"back"},
+                    "props":{"y":10,"x":0,"stateNum":"1","skin":"button/out.png","runtime":"game.runtime.MenuBackRunTime","name":"back"},
                     "nodeParent":149,
                     "label":"back",
                     "isDirectory":false,
@@ -1337,6 +1337,34 @@
                     "compId":152,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,tips",
+                    "props":{"y":322,"x":569,"width":300,"visible":false,"skin":"common/tips_black_di.png","sizeGrid":"10,10,10,10","name":"tips","anchorY":0.5,"anchorX":0.5,"alpha":0.6},
+                    "nodeParent":149,
+                    "label":"tips",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":154,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "searchKey":"Label,word",
+                            "props":{"y":12,"x":52,"valign":"middle","text":"游 戏 中 不 能 退 出！","overflow":"hidden","name":"word","fontSize":20,"font":"Microsoft YaHei","color":"#bbbbbb","bold":false,"align":"center"},
+                            "nodeParent":154,
+                            "label":"word",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":155,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "x":30,

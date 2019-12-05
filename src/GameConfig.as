@@ -11,10 +11,11 @@ package {
 	import game.script.OwnerListScript;
 	import game.script.ControlScript;
 	import game.script.ThrowListScript;
+	import game.runtime.MenuBackRunTime;
 	import game.script.MenuScript;
-	import common.ButtonRunTime;
-	import game.script.StartScript;
-	import game.script.TestScript;
+	import main.runtime.RoomBtnRunTime;
+	import main.script.StartScript;
+	import main.script.TestScript;
 	/**
 	 * 游戏初始化配置
 	 */
@@ -43,10 +44,11 @@ package {
 			reg("game.script.OwnerListScript",OwnerListScript);
 			reg("game.script.ControlScript",ControlScript);
 			reg("game.script.ThrowListScript",ThrowListScript);
+			reg("game.runtime.MenuBackRunTime",MenuBackRunTime);
 			reg("game.script.MenuScript",MenuScript);
-			reg("common.ButtonRunTime",ButtonRunTime);
-			reg("game.script.StartScript",StartScript);
-			reg("game.script.TestScript",TestScript);
+			reg("main.runtime.RoomBtnRunTime",RoomBtnRunTime);
+			reg("main.script.StartScript",StartScript);
+			reg("main.script.TestScript",TestScript);
 		}
 		GameConfig.init();
 	}

@@ -68,7 +68,7 @@ package game.control {
 		{			
 			_mineIdx = data.idx;
 			_rightIdx = (_mineIdx % 3) + 1;
-			GameAction.gamePrepare();
+			GameAction.prepare();
 			BaseAction.event(["Deal"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_PREPARE);

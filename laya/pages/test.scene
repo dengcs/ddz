@@ -6,7 +6,7 @@
     "searchKey":"Scene",
     "props":{"width":1140,"sceneColor":"#000000","height":855},
     "nodeParent":-1,
-    "maxID":6,
+    "maxID":7,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -35,29 +35,29 @@
             "props":{"y":495,"x":506,"skin":"comp/button.png","name":"btnSubmit","labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":false,"label":"提  交"},
             "nodeParent":2,
             "label":"btnSubmit",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":4,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Script",
-            "switchAble":true,
-            "source":"src/game/script/TestScript.as",
-            "searchKey":"Script,TestScript",
-            "removeAble":true,
-            "props":{},
-            "nodeParent":2,
-            "label":"TestScript",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/main/script/TestScript.as",
+                    "searchKey":"Script,TestScript",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":4,
+                    "label":"TestScript",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":6,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

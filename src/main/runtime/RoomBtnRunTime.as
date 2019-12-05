@@ -1,4 +1,4 @@
-package common
+package main.runtime
 {
 	import laya.ui.Button;
 	import laya.events.Event;
@@ -8,8 +8,8 @@ package common
 	 * ...
 	 * @dengcs
 	 */
-	public class ButtonRunTime extends Button{
-		public function ButtonRunTime(){
+	public class RoomBtnRunTime extends Button{
+		public function RoomBtnRunTime(){
 			this.on(Event.MOUSE_DOWN, this, on_mousedown);
 			this.on(Event.MOUSE_OUT, this, on_mouseout);
 		}

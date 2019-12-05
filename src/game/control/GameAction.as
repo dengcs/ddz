@@ -52,7 +52,7 @@ package game.control {
         	return _roundData;
         }
 
-        public static function gamePrepare():void
+        public static function prepare():void
         {
             _roundData.idx = 0;
             _roundData.type = 0;
