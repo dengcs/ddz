@@ -33,7 +33,7 @@ package game.manager {
 
 		private function loadImg():void
 		{
-			Laya.loader.load("ani/plane/se_plane_body_blur.png", new Handler(this, onImgLoaded), null, Loader.IMAGE);
+			Laya.loader.load("ani/plane/plane_body_blur.png", new Handler(this, onImgLoaded), null, Loader.IMAGE);
 		}
 
 		private function loadRes():void

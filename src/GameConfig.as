@@ -11,7 +11,6 @@ package {
 	import game.script.OwnerListScript;
 	import game.script.ControlScript;
 	import game.script.ThrowListScript;
-	import game.runtime.MenuBackRunTime;
 	import game.script.MenuScript;
 	import main.runtime.RoomBtnRunTime;
 	import main.script.StartScript;
@@ -44,7 +43,6 @@ package {
 			reg("game.script.OwnerListScript",OwnerListScript);
 			reg("game.script.ControlScript",ControlScript);
 			reg("game.script.ThrowListScript",ThrowListScript);
-			reg("game.runtime.MenuBackRunTime",MenuBackRunTime);
 			reg("game.script.MenuScript",MenuScript);
 			reg("main.runtime.RoomBtnRunTime",RoomBtnRunTime);
 			reg("main.script.StartScript",StartScript);
