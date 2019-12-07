@@ -11,6 +11,7 @@ package game.script {
 	import game.control.GameAction;
 	import laya.utils.Utils;
 	import game.control.NetAction;
+	import laya.ui.Image;
 	
 	public class ControlScript extends Script {
 		private var snatchSp:Sprite = null;
@@ -20,6 +21,8 @@ package game.script {
 
 		private var snatchYesBtn:Button = null;
 		private var snatchNoBtn:Button = null;
+		private var snatchYesImg:Image = null;
+		private var snatchNoImg:Image = null;
 
 		override public function onAwake():void
 		{
@@ -29,7 +32,9 @@ package game.script {
 			playSp3		= this.owner.getChildByName("play3") as Sprite;
 
 			snatchYesBtn	= snatchSp.getChildAt(0) as Button;
-			snatchNoBtn		= snatchSp.getChildAt(1) as Button;
+			snatchYesImg	= snatchSp.getChildAt(1) as Image;
+			snatchNoBtn		= snatchSp.getChildAt(2) as Button;
+			snatchNoImg		= snatchNoBtn.getChildAt(0) as Image;
 
 			var cancelBtn1:Button 	= playSp1.getChildAt(0) as Button;
 			var playBtn2:Button 	= playSp2.getChildAt(0) as Button;
@@ -76,8 +81,8 @@ package game.script {
 		{
 			if(NetAction.idxIsMine(1))
 			{
-				snatchYesBtn.text.text = "叫地主";
-				snatchNoBtn.text.text = "不叫";
+				snatchYesImg.skin = "button/textCallLord.png";
+				snatchNoImg.skin = "button/textCallNo.png";
 				snatchSp.visible = true;
 			}
 		}
@@ -88,14 +93,14 @@ package game.script {
 			{
 				if(NetAction.idxIsMine(1) == false)
 				{
-					snatchYesBtn.text.text = "叫地主";
-					snatchNoBtn.text.text = "不叫";
+					snatchYesImg.skin = "button/textCallLord.png";
+					snatchNoImg.skin = "button/textCallNo.png";
 					snatchSp.visible = true;
 				}
 			}else
 			{
-				snatchYesBtn.text.text = "抢地主";
-				snatchNoBtn.text.text = "不抢";
+				snatchYesImg.skin = "button/textGrabLord.png";
+				snatchNoImg.skin = "button/textGrabNo.png";
 				snatchSp.visible = true;
 			}
 		}

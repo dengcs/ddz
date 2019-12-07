@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
-    "selecteID":9,
+    "selectedBox":33,
+    "selecteID":129,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":156,
+    "maxID":164,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -770,31 +770,33 @@
             "props":{"y":520,"x":310,"width":520,"name":"Control"},
             "nodeParent":2,
             "label":"Control",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":33,
             "child":[
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,snatch",
                     "props":{"y":0,"x":70,"width":380,"visible":false,"name":"snatch"},
                     "nodeParent":33,
                     "label":"snatch",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":34,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,yes",
-                            "props":{"y":0,"x":0,"skin":"comp/button.png","name":"yes","labelColors":"#ffffff","labelBold":true,"label":"叫地主"},
+                            "props":{"y":0,"x":-25,"stateNum":"2","skin":"button/btn_blue.png","sizeGrid":"30,80,30,80","scaleY":0.5,"scaleX":0.6,"name":"yes","labelColors":"#ffffff","labelBold":true},
                             "nodeParent":34,
                             "label":"yes",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -803,143 +805,265 @@
                                 ]
                         },
                         {
-                            "type":"Button",
-                            "searchKey":"Button,no",
-                            "props":{"y":0,"x":252,"skin":"comp/button.png","name":"no","labelColors":"#ffffff","labelBold":true,"label":"不叫"},
+                            "x":45,
+                            "type":"Image",
+                            "searchKey":"Image,imgYes",
+                            "props":{"y":4,"x":-10,"skin":"button/textCallLord.png","scaleY":0.5,"scaleX":0.5,"name":"imgYes"},
                             "nodeParent":34,
-                            "label":"no",
-                            "isOpen":true,
+                            "label":"imgYes",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":39,
+                            "compId":156,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "searchKey":"Button,no",
+                            "props":{"y":0,"x":249,"stateNum":"2","skin":"button/btn_yellow.png","sizeGrid":"20,40,30,40","scaleY":0.5,"scaleX":0.5,"name":"no","labelColors":"#ffffff","labelBold":true},
+                            "nodeParent":34,
+                            "label":"no",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":39,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image",
+                                    "props":{"y":8,"x":36,"skin":"button/textCallNo.png"},
+                                    "nodeParent":39,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":157,
+                                    "child":[
+                                        ]
+                                }]
                         }],
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play1",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play1"},
                     "nodeParent":33,
                     "label":"play1",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":36,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,cancel",
-                            "props":{"y":0,"x":196,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"要不起"},
+                            "props":{"y":0,"x":181,"stateNum":"2","skin":"button/btn_yellow.png","sizeGrid":"30,80,30,80","scaleY":0.5,"scaleX":0.6,"name":"cancel","labelColors":"#ffffff","labelBold":true},
                             "nodeParent":36,
                             "label":"cancel",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":44,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "searchKey":"Image",
+                            "props":{"y":3,"x":197,"skin":"button/yaobuqi.png","scaleY":0.5,"scaleX":0.5},
+                            "nodeParent":36,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":158,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play2",
                     "props":{"y":0,"x":60,"width":400,"visible":false,"name":"play2"},
                     "nodeParent":33,
                     "label":"play2",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":129,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,play",
-                            "props":{"y":0,"x":0,"skin":"comp/button.png","name":"play","labelColors":"#ffffff","labelBold":true,"label":"出牌"},
+                            "props":{"y":0,"x":0,"stateNum":"2","skin":"button/btn_blue.png","sizeGrid":"20,40,30,40","scaleY":0.5,"scaleX":0.5,"name":"play","labelColors":"#ffffff","labelBold":true},
                             "nodeParent":129,
                             "label":"play",
-                            "isDirectory":false,
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":130,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image",
+                                    "props":{"y":8,"x":36,"skin":"button/textPlay.png"},
+                                    "nodeParent":130,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":159,
+                                    "child":[
+                                        ]
+                                }]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,prompt",
-                            "props":{"y":0,"x":272,"skin":"comp/button.png","name":"prompt","labelColors":"#ffffff","labelBold":true,"label":"提示"},
+                            "props":{"y":0,"x":272,"stateNum":"2","skin":"button/btn_yellow.png","sizeGrid":"20,40,30,40","scaleY":0.5,"scaleX":0.5,"name":"prompt","labelColors":"#ffffff","labelBold":true},
                             "nodeParent":129,
                             "label":"prompt",
-                            "isDirectory":false,
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":131,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image",
+                                    "props":{"y":8,"x":36,"skin":"button/textHints.png"},
+                                    "nodeParent":131,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":160,
+                                    "child":[
+                                        ]
+                                }]
                         }],
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play3",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play3"},
                     "nodeParent":33,
                     "label":"play3",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":133,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,play",
-                            "props":{"y":0,"x":0,"skin":"comp/button.png","name":"play","labelColors":"#ffffff","labelBold":true,"label":"出牌"},
+                            "props":{"y":0,"x":0,"stateNum":"2","skin":"button/btn_blue.png","sizeGrid":"20,40,30,40","scaleY":0.5,"scaleX":0.5,"name":"play","labelColors":"#ffffff","labelBold":true},
                             "nodeParent":133,
                             "label":"play",
-                            "isDirectory":false,
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":134,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image",
+                                    "props":{"y":8,"x":36,"skin":"button/textPlay.png"},
+                                    "nodeParent":134,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":161,
+                                    "child":[
+                                        ]
+                                }]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,prompt",
-                            "props":{"y":0,"x":250,"skin":"comp/button.png","name":"prompt","labelColors":"#ffffff","labelBold":true,"label":"提示"},
+                            "props":{"y":0,"x":250,"stateNum":"2","skin":"button/btn_yellow.png","sizeGrid":"20,40,30,40","scaleY":0.5,"scaleX":0.5,"name":"prompt","labelColors":"#ffffff","labelBold":true},
                             "nodeParent":133,
                             "label":"prompt",
                             "isOpen":true,
-                            "isDirectory":false,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":135,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image",
+                                    "props":{"y":8,"x":36,"skin":"button/textHints.png"},
+                                    "nodeParent":135,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":162,
+                                    "child":[
+                                        ]
+                                }]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,cancel",
-                            "props":{"y":0,"x":392,"skin":"comp/button.png","name":"cancel","labelColors":"#ffffff","labelBold":true,"label":"不出"},
+                            "props":{"y":0,"x":392,"stateNum":"2","skin":"button/btn_yellow.png","sizeGrid":"20,40,30,40","scaleY":0.5,"scaleX":0.5,"name":"cancel","labelColors":"#ffffff","labelBold":true},
                             "nodeParent":133,
                             "label":"cancel",
-                            "isDirectory":false,
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":136,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image",
+                                    "props":{"y":8,"x":36,"skin":"button/textPass.png"},
+                                    "nodeParent":136,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":163,
+                                    "child":[
+                                        ]
+                                }]
                         }],
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/ControlScript.as",
@@ -1304,14 +1428,13 @@
             "props":{"y":0,"x":0,"width":1140,"name":"Menu","height":1},
             "nodeParent":2,
             "label":"Menu",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":149,
             "child":[
                 {
-                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,back",
                     "props":{"y":10,"x":0,"stateNum":"2","skin":"button/btn_back.png","name":"back"},
@@ -1325,7 +1448,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,caidan",
                     "props":{"y":10,"x":1073,"stateNum":"2","skin":"button/btn_menu.png","name":"caidan"},
@@ -1339,7 +1461,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,tips",
                     "props":{"y":322,"x":569,"width":300,"visible":false,"skin":"common/tips_black_di.png","sizeGrid":"10,10,10,10","name":"tips","anchorY":0.5,"anchorX":0.5,"alpha":0.6},
@@ -1352,7 +1473,6 @@
                     "compId":154,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,word",
                             "props":{"y":12,"x":52,"valign":"middle","text":"游 戏 中 不 能 退 出！","overflow":"hidden","name":"word","fontSize":20,"font":"Microsoft YaHei","color":"#dddddd","bold":false,"align":"center"},
@@ -1367,7 +1487,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/MenuScript.as",
