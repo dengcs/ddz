@@ -131,10 +131,18 @@ package game.control {
 
 		public static function doOver(data:* = null):void
 		{
-			BaseAction.event(["MyCard","myList"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_OVER);
-			BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_OVER);
+			BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_OVER);			
+		}
+
+		public static function doNotifyOver(data:* = null):void
+		{
+			if(data is Array)
+			{
+				BaseAction.event(["ThrowCard","leftList"], GameEvent.EVENT_GAME_OVER, data);
+				BaseAction.event(["ThrowCard","rightList"], GameEvent.EVENT_GAME_OVER, data);
+			}
 		}
 
 		public static function update(data:String):void
@@ -165,13 +173,6 @@ package game.control {
 					doSnatch(uData.msg);
 					break;
 				}
-				case GameConstants.PLAY_STATE_BOTTOM:
-				{
-					_state = GameConstants.PLAY_STATE_BOTTOM;
-					trace("NetAction---bottom", uData.msg);
-					doBottom(uData.msg);
-					break;
-				}
 				case GameConstants.PLAY_STATE_PLAY:
 				{
 					_state = GameConstants.PLAY_STATE_PLAY;
@@ -186,6 +187,18 @@ package game.control {
 					doOver(uData.msg);
 					break;
 				}				
+				case GameConstants.PLAY_NOTIFY_BOTTOM:
+				{
+					trace("NetAction---bottom", uData.msg);
+					doBottom(uData.msg);
+					break;
+				}				
+				case GameConstants.PLAY_NOTIFY_OVER:
+				{
+					trace("NetAction---notifyOver", uData.msg);
+					doNotifyOver(uData.msg);
+					break;
+				}
 				default:
 				{
 					trace("NetAction-----------error=", cmd)

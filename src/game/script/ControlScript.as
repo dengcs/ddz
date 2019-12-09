@@ -24,6 +24,9 @@ package game.script {
 		private var snatchYesImg:Image = null;
 		private var snatchNoImg:Image = null;
 
+		private var playBtn2:Button = null;
+		private var playBtn3:Button = null;
+
 		override public function onAwake():void
 		{
 			snatchSp	= this.owner.getChildByName("snatch") as Sprite;
@@ -37,9 +40,9 @@ package game.script {
 			snatchNoImg		= snatchNoBtn.getChildAt(0) as Image;
 
 			var cancelBtn1:Button 	= playSp1.getChildAt(0) as Button;
-			var playBtn2:Button 	= playSp2.getChildAt(0) as Button;
+			playBtn2 				= playSp2.getChildAt(0) as Button;
 			var promptBtn2:Button 	= playSp2.getChildAt(1) as Button;
-			var playBtn3:Button 	= playSp3.getChildAt(0) as Button;
+			playBtn3 				= playSp3.getChildAt(0) as Button;
 			var promptBtn3:Button 	= playSp3.getChildAt(1) as Button;
 			var cancelBtn3:Button 	= playSp3.getChildAt(2) as Button;
 
@@ -52,9 +55,6 @@ package game.script {
 			playBtn3.on(Event.CLICK, this, onClickPlay);
 			promptBtn3.on(Event.CLICK, this, onClickPrompt);
 			cancelBtn3.on(Event.CLICK, this, onClickCancel);
-
-			GameFunctions.control_start = Utils.bind(gameStart, this);
-			GameFunctions.control_forcePlay = Utils.bind(forcePlay, this);
 		}
 
 		override public function onStart():void
@@ -62,6 +62,10 @@ package game.script {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_SNATCH, this, onSnatch);
 			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onPlay);
+
+			GameFunctions.control_start = Utils.bind(gameStart, this);
+			GameFunctions.control_forcePlay = Utils.bind(forcePlay, this);
+			GameFunctions.control_markPlay = Utils.bind(markPlay, this);
 		}
 
 		override public function onDestroy():void
@@ -112,19 +116,19 @@ package game.script {
 				var type:int = GameFunctions.ownerList_playPrompt.call();
 				if(type == 1)
 				{
-					playSp1.visible = false;
-					playSp2.visible = true;
-					playSp3.visible = false;
+					playSp1.visible = true;
+					playSp2.visible = false;
+					playSp3.visible = false;					
 				}else if(type == 2)
 				{
 					playSp1.visible = false;
+					playSp2.visible = true;
+					playSp3.visible = false;
+				}else
+				{					
+					playSp1.visible = false;
 					playSp2.visible = false;
 					playSp3.visible = true;
-				}else
-				{
-					playSp1.visible = true;
-					playSp2.visible = false;
-					playSp3.visible = false;
 				}
 			}else
 			{
@@ -176,6 +180,12 @@ package game.script {
 				this.onClickPrompt();
 				this.onClickPlay();
 			}
+		}
+
+		private function markPlay(disable:Boolean):void
+		{
+			this.playBtn2.disabled	= disable;
+			this.playBtn3.disabled 	= disable;
 		}
 	}
 }

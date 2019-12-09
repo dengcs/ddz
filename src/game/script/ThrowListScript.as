@@ -35,6 +35,7 @@ package game.script {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onThrow);
 			this.owner.on(GameEvent.EVENT_GAME_TURN, this, onRecoverState);
+			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
 		}
 
 		override public function onDestroy():void
@@ -53,6 +54,42 @@ package game.script {
 			this.ownerSprite.array = [];
 			this.ownerSprite.alpha = 0;
 			this.dzTipImg.visible = false;
+		}
+
+		private function onOver(... data:Array):void
+		{
+			var throwData:* = null;
+			var targetX:Number = target;
+			var ridx:int = NetAction.rightIdx - 1;
+			var lidx:int = NetAction.rightIdx % 3;
+
+			var subX:Number = this.ownerSprite.width / 4;
+
+			if(this.place == 1)
+			{
+				throwData = data[ridx];
+				targetX -= subX;
+			}
+			else if(this.place == 2)
+			{
+				throwData = data[lidx];
+				targetX += subX;
+			}
+
+			if(throwData == null) return
+			if(throwData is Array)
+			{
+				var throwArray:Array = throwData as Array;
+				if(throwArray.length > 0)
+				{
+					this.dataArray = [];
+					this.initThrow(throwArray);
+					this.ownerSprite.x = targetX;
+					this.ownerSprite.scale(0.5, 0.5);
+					this.ownerSprite.alpha = 1;
+					this.refreshDZ();
+				}
+			}
 		}
 
 		private function onListRender(cell:Box, index:int): void 
@@ -169,7 +206,7 @@ package game.script {
 			}
 		}
 
-		private function onThrow(... data:Array):void
+		private function initThrow(data:Array):Array
 		{
 			var sortData:Array = this.sort(data);
 			for(var i:int = 0; i<sortData.length; i++)
@@ -179,6 +216,12 @@ package game.script {
 			}
 			this.ownerSprite.width = 150 + (this.dataArray.length - 1) * 41;
 			this.ownerSprite.array = this.dataArray;
+			return sortData;
+		}
+
+		private function onThrow(... data:Array):void
+		{
+			var sortData:Array = this.initThrow(data);
 			this.ownerSprite.scale(0.8, 0.8);
 			if(this.place == 0)
 			{

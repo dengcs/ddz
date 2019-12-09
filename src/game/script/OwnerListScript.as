@@ -15,6 +15,7 @@ package game.script {
 	import common.GameFunctions;
 	import game.control.GameAction;
 	import game.utils.TypeFetch;
+	import game.utils.TypeCheck;
 
 	public class OwnerListScript extends Script {
 		/** @prop {name:ownerX, tips:"初始x坐标值", type:Number, default:0}*/
@@ -32,7 +33,6 @@ package game.script {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_DEAL, this, onDeal);
 			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
-			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
 		}
 
 		override public function onDestroy():void
@@ -63,12 +63,6 @@ package game.script {
 			this.dzTipImg.visible = false;
 		}
 
-		private function onOver():void
-		{
-			this.ownerSprite.visible = false;
-			this.dzTipImg.visible = false;
-		}
-
 		// 刷新x坐标
 		private function refreshX():void
 		{
@@ -95,14 +89,21 @@ package game.script {
 			if(NetAction.ownerIsMine())
 			{
 				var len:int = this.dataArray.length;
-				this.dzTipImg.visible = true;
-				this.dzTipImg.x = 150 + (len - 1)*41;
-
-				var cell:Box = this.ownerSprite.getCell(len - 1);
-				if(cell != null)
+				if(len == 0)
 				{
-					this.dzTipImg.y = cell.y;
+					this.dzTipImg.visible = false;
+				}else
+				{
+					this.dzTipImg.visible = true;
+					this.dzTipImg.x = 150 + (len - 1)*41;
+
+					var cell:Box = this.ownerSprite.getCell(len - 1);
+					if(cell != null)
+					{
+						this.dzTipImg.y = cell.y;
+					}
 				}
+
 			}
 		}
 
@@ -213,17 +214,30 @@ package game.script {
 		private function onListMouse(e:Event, index:int):void
 		{
 			// trace("onListMouse--", e, index);
-			if(e.type == Event.CLICK)
+			switch(e.type)
 			{
-				if(e.currentTarget.y != this.cellY)
+				case Event.CLICK:
+				case Event.MOUSE_OVER:
 				{
-					e.currentTarget.y = this.cellY;
-				}else
-				{
-					e.currentTarget.y = 0;
-				}
+					if(e.type == Event.MOUSE_OVER)
+					{
+						if(e.touchId == 0) break;						
+					}
 
-				this.refreshDZ();
+					if(e.currentTarget.y != this.cellY)
+					{
+						e.currentTarget.y = this.cellY;
+					}else
+					{
+						e.currentTarget.y = 0;
+					}
+
+					this.refreshDZ();
+					this.playMark();					
+					break;
+				}
+				default:
+					break;
 			}
 		}
 
@@ -269,7 +283,7 @@ package game.script {
 		{
 			var playArray:Array = [];
 			var len:int = this.dataArray.length;
-			for(var i:int = len - 1; i>=0; i--)
+			for(var i:int = 0; i<len; i++)
 			{
 				var cell:Box = this.ownerSprite.getCell(i);
 				if(cell != null && cell.y == this.cellY)
@@ -339,18 +353,19 @@ package game.script {
 					}
 				}
 				this.refreshDZ();
+				this.playMark();
 			}
 		}
 
 		// 按钮提示
 		private function playPrompt():int
 		{
-			var ret:int = 3;
+			var ret:int = 1;
 
 			var roundData:Object = GameAction.roundData;
 			if(NetAction.idxIsMine(roundData.idx))
 			{
-				ret = 1;
+				ret = 2;
 			}else
 			{
 				var cards:Vector.<int> = new Vector.<int>();
@@ -363,11 +378,56 @@ package game.script {
 				var retData:Object = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
 				if(retData != null)
 				{
-					ret = 2;
+					ret = 3;					
 				}
-			}			
+			}
 
+			if(ret > 1)
+			{
+				this.playMark();
+			}
 			return ret;
+		}
+
+		// 控制出牌按钮是否变灰
+		private function playMark():void
+		{
+			var roundData:Object = GameAction.roundData;
+
+			var cards:Vector.<int> = new Vector.<int>();
+			var len:int = this.dataArray.length;
+			for(var i:int = 0; i<len; i++)
+			{
+				var cell:Box = this.ownerSprite.getCell(i);
+				if(cell != null && cell.y == this.cellY)
+				{
+					cards.push(this.dataArray[i].value);
+				}
+			}
+
+			if(cards.length == 0)
+			{
+				GameFunctions.control_markPlay.call(null, true);				
+			}else
+			{
+				var retData:Object = null;
+				if(NetAction.idxIsMine(roundData.idx))
+				{
+					retData = TypeCheck.test_type(cards);
+				}else
+				{
+					retData = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
+				}
+
+				if(retData != null)
+				{
+					GameFunctions.control_markPlay.call(null, false);
+				}else
+				{
+					GameFunctions.control_markPlay.call(null, true);
+				}
+			}
+
 		}
 	}
 }

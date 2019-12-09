@@ -9,6 +9,7 @@ package common {
 		public static var ownerList_playPrompt:Function = null;
 		public static var surface_updateCounter:Function = null;
 		public static var control_start:Function = null;
+		public static var control_markPlay:Function = null;
 		public static var control_forcePlay:Function = null;
 		public static var clock_start:Function = null;
 

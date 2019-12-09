@@ -150,13 +150,13 @@ package game.script {
 				var type:int = GameFunctions.ownerList_playPrompt.call();
 				if(type == 1)
 				{
-					toward = this.mineTwoPos;
+					toward = this.mineOnePos;
 				}else if(type == 2)
 				{
-					toward = this.mineThreePos;
+					toward = this.mineTwoPos;
 				}else
 				{
-					toward = this.mineOnePos;
+					toward = this.mineThreePos;
 				}
 			}
 			this.toPosition(toward);
