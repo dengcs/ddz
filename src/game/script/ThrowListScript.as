@@ -59,12 +59,11 @@ package game.script {
 		private function onOver(... data:Array):void
 		{
 			var throwData:* = null;
-			var targetX:Number = target;
+			var targetX:Number = this.target;
 			var ridx:int = NetAction.rightIdx - 1;
 			var lidx:int = NetAction.rightIdx % 3;
 
-			var subX:Number = this.ownerSprite.width / 4;
-
+			var subX:Number = this.ownerSprite.width / 2;
 			if(this.place == 1)
 			{
 				throwData = data[ridx];
@@ -74,18 +73,16 @@ package game.script {
 			{
 				throwData = data[lidx];
 				targetX += subX;
-			}
+			}			
 
-			if(throwData == null) return
-			if(throwData is Array)
+			if(throwData != null && throwData is Array)
 			{
 				var throwArray:Array = throwData as Array;
 				if(throwArray.length > 0)
 				{
-					this.dataArray = [];
 					this.initThrow(throwArray);
-					this.ownerSprite.x = targetX;
 					this.ownerSprite.scale(0.5, 0.5);
+					this.ownerSprite.x = targetX;
 					this.ownerSprite.alpha = 1;
 					this.refreshDZ();
 				}
@@ -177,52 +174,68 @@ package game.script {
 
 		private function refreshDZ():void
 		{
+			var targetX:Number 	= this.ownerSprite.width;
+			var targetY:Number 	= 0;
+			var ownerLen:int	= this.dataArray.length;
 			var canShowTip:Boolean = false;
 			if(NetAction.ownerIsMine())
 			{
 				if(this.place == 0)
 				{
-					canShowTip = true;					
+					canShowTip = true;
 				}
 			}else if(NetAction.ownerIsRight())
 			{
 				if(this.place == 1)
 				{
 					canShowTip = true;
+					targetY = 30;
+					if(ownerLen > 10)
+					{
+						targetX = 150 + (ownerLen - 11) * 41
+					}
 				}
 			}else
 			{
 				if(this.place == 2)
 				{
 					canShowTip = true;
+					targetY = 30;
+					if(ownerLen > 10)
+					{
+						targetX = 150 + (ownerLen - 11) * 41
+					}
 				}
 			}
 
 			if(canShowTip)
 			{
 				this.dzTipImg.visible = true;
-				this.dzTipImg.x = this.ownerSprite.width;
-				this.dzTipImg.y = 0;
+				this.dzTipImg.x = targetX;
+				this.dzTipImg.y = targetY;
 			}
 		}
 
 		private function initThrow(data:Array):Array
-		{
+		{			
+			this.dataArray = [];
 			var sortData:Array = this.sort(data);
 			for(var i:int = 0; i<sortData.length; i++)
 			{
 				var value:int = sortData[i];
 				this.pickUp(value);
 			}
-			this.ownerSprite.width = 150 + (this.dataArray.length - 1) * 41;
+			var len:int		= this.dataArray.length;
+			var maxLen:int 	= this.place == 0 ? len : (Math.min(10, len))
+			this.ownerSprite.width = 150 + (maxLen - 1) * 41;
 			this.ownerSprite.array = this.dataArray;
+			this.ownerSprite.scale(0.8, 0.8);
 			return sortData;
 		}
 
 		private function onThrow(... data:Array):void
 		{
-			var sortData:Array = this.initThrow(data);
-			this.ownerSprite.scale(0.8, 0.8);
+			var sortData:Array = this.initThrow(data);			
 			if(this.place == 0)
 			{
 				GameFunctions.ownerList_delCell.call(null, sortData);
@@ -247,7 +260,6 @@ package game.script {
 		// 还原初始状态
 		private function onRecoverState():void
 		{
-			this.dataArray = [];
 			this.ownerSprite.alpha = 0;
 			if(this.place == 0)
 			{

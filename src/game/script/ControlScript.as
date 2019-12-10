@@ -34,17 +34,17 @@ package game.script {
 			playSp2		= this.owner.getChildByName("play2") as Sprite;
 			playSp3		= this.owner.getChildByName("play3") as Sprite;
 
-			snatchYesBtn	= snatchSp.getChildAt(0) as Button;
-			snatchYesImg	= snatchSp.getChildAt(1) as Image;
-			snatchNoBtn		= snatchSp.getChildAt(2) as Button;
+			snatchNoBtn		= snatchSp.getChildAt(0) as Button;
 			snatchNoImg		= snatchNoBtn.getChildAt(0) as Image;
+			snatchYesBtn	= snatchSp.getChildAt(1) as Button;
+			snatchYesImg	= snatchSp.getChildAt(2) as Image;
 
 			var cancelBtn1:Button 	= playSp1.getChildAt(0) as Button;
-			playBtn2 				= playSp2.getChildAt(0) as Button;
-			var promptBtn2:Button 	= playSp2.getChildAt(1) as Button;
-			playBtn3 				= playSp3.getChildAt(0) as Button;
+			var promptBtn2:Button 	= playSp2.getChildAt(0) as Button;
+			playBtn2 				= playSp2.getChildAt(1) as Button;
+			var cancelBtn3:Button 	= playSp3.getChildAt(0) as Button;
 			var promptBtn3:Button 	= playSp3.getChildAt(1) as Button;
-			var cancelBtn3:Button 	= playSp3.getChildAt(2) as Button;
+			playBtn3 				= playSp3.getChildAt(2) as Button;
 
 			snatchYesBtn.on(Event.CLICK, this, onClickSnatchYes);
 			snatchNoBtn.on(Event.CLICK, this, onClickSnatchNo);

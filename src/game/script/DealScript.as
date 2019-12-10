@@ -13,9 +13,9 @@ package game.script {
 		private var placeX0:int = -233;
 		private var placeY0:int = 497;
 		private var placeX1:int = -280;
-		private var placeY1:int = 197;
+		private var placeY1:int = 227;
 		private var placeX2:int = 277;
-		private var placeY2:int = 197;
+		private var placeY2:int = 227;
 		private var placeXb:int = -90;
 		private var placeYb:int = 127;
 		private var placeXStep:int = 41;

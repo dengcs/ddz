@@ -48,7 +48,6 @@ package game.script {
 
 		override public function onEnable():void {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
-			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
 			this.owner.on(GameEvent.EVENT_GAME_START, this, onGameStart);
 			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
 
@@ -109,11 +108,6 @@ package game.script {
 				this.updateCounter(2, 3);
 			}
 			this.dzMarkImg.visible = true;
-		}
-
-		private function onOver():void
-		{
-			this.counter.visible = false;
 		}
 
 		private function onHeadClick(idx:int, e:Event):void

@@ -350,7 +350,7 @@ package game.utils
 				{
 					if(modeVals.length == 2)
 					{
-						if((card < firstVal && card < GameConstants.POKER_VALUE_JOKER) || firstVal == 0)
+						if((firstVal == 0 || card < firstVal) && card < GameConstants.POKER_VALUE_JOKER)
 						{
 							firstVal = card;
 						}
@@ -1005,12 +1005,8 @@ package game.utils
 				indexes.push(targetMap.get(max_value)[1]);
 				indexes.push(targetMap.get(max_value)[2]);
 
-				for each(var attach:Array in attachMap)
-				{
-					indexes.push(attach[0]);
-					indexes.push(attach[1]);
-					break;
-				}
+				indexes.push(attachMap.values[0][0]);
+				indexes.push(attachMap.values[0][1]);
 
 				retData = new Object();
 				retData.indexes = indexes;

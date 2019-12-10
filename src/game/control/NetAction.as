@@ -131,7 +131,6 @@ package game.control {
 
 		public static function doOver(data:* = null):void
 		{
-			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_OVER);
 			BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_OVER);			
 		}
