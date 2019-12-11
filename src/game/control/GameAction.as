@@ -32,8 +32,27 @@ package game.control {
             return count == 0;
         }
 
-        public static function incSnatchCount():void
+        public static function incSnatchCount(type:int):void
         {
+            if(type == 1)
+            {
+                if(_snatchData.count == 0)
+                {
+                    AudioManager.getInstance().playOther(GameConstants.SOUND_SNATCH_YES);
+                }else
+                {
+                    AudioManager.getInstance().playOther(GameConstants.SOUND_SNATCH_YES1);
+                }
+            }else
+            {
+                if(_snatchData.count == 0)
+                {
+                    AudioManager.getInstance().playOther(GameConstants.SOUND_SNATCH_NO);
+                }else
+                {
+                    AudioManager.getInstance().playOther(GameConstants.SOUND_SNATCH_NO1);
+                }
+            }
             _snatchData.count++;
         }
 

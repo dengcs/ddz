@@ -126,18 +126,52 @@ package game.manager {
 			{				
 				case GameConstants.POKER_TYPE_BOMB:
 				{
-					url = "sound/effect/game/eff_boom.mp3";
+					url = "sound/effect/game/ani_boom.mp3";
 					break;
 				}
 				case GameConstants.POKER_TYPE_KING:
 				{
-					url = "sound/effect/game/eff_rocket.mp3";
+					url = "sound/effect/game/ani_rocket.mp3";
 					break;
 				}
 				case GameConstants.POKER_TYPE_3STRAIGHT1:
 				case GameConstants.POKER_TYPE_3STRAIGHT2:
 				{						
-					url = "sound/effect/game/eff_plane.mp3";
+					url = "sound/effect/game/ani_plane.mp3";
+					break;
+				}
+			}
+
+			if(url != null)
+			{
+				SoundManager.playSound(url, 1);
+			}
+		}
+
+		public function playOther(type:int):void
+		{
+			var url:String = null;
+
+			switch(type)
+			{				
+				case GameConstants.SOUND_SNATCH_YES:
+				{
+					url = "sound/effect/game/female_callLord.mp3";
+					break;
+				}
+				case GameConstants.SOUND_SNATCH_NO:
+				{
+					url = "sound/effect/game/female_callNo.mp3";
+					break;
+				}
+				case GameConstants.SOUND_SNATCH_YES1:
+				{
+					url = "sound/effect/game/female_grabLord.mp3";
+					break;
+				}
+				case GameConstants.SOUND_SNATCH_NO1:
+				{						
+					url = "sound/effect/game/female_grabNo.mp3";
 					break;
 				}
 			}

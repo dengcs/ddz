@@ -94,7 +94,7 @@ package game.control {
 				BaseAction.event(["Control"], GameEvent.EVENT_GAME_SNATCH);
 			}else
 			{
-				GameAction.incSnatchCount();
+				GameAction.incSnatchCount(data.msg);
 				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_SNATCH, data);
 				BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_SNATCH, data);
 				if(data.msg == 1)

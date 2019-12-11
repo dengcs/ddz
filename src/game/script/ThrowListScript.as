@@ -190,10 +190,10 @@ package game.script {
 				if(this.place == 1)
 				{
 					canShowTip = true;
-					targetY = 30;
 					if(ownerLen > 10)
 					{
-						targetX = 150 + (ownerLen - 11) * 41
+						targetX = 150 + (ownerLen - 11) * 41;
+						targetY = 80;
 					}
 				}
 			}else
@@ -201,10 +201,10 @@ package game.script {
 				if(this.place == 2)
 				{
 					canShowTip = true;
-					targetY = 30;
 					if(ownerLen > 10)
 					{
-						targetX = 150 + (ownerLen - 11) * 41
+						targetX = 150 + (ownerLen - 11) * 41;
+						targetY = 80;
 					}
 				}
 			}

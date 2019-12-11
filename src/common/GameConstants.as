@@ -34,6 +34,12 @@ package common
 
 		public static const POKER_TYPE_NO:int				= 101; // 不要
 
+		public static const SOUND_SNATCH_YES:int			= 1; // 叫地主
+		public static const SOUND_SNATCH_NO:int				= 2; // 不叫地主
+		public static const SOUND_SNATCH_YES1:int			= 3; // 抢地主
+		public static const SOUND_SNATCH_YES2:int			= 4; // 抢地主
+		public static const SOUND_SNATCH_NO1:int			= 5; // 不抢地主
+
 		public static const PLAY_STATE_PREPARE:int			= 1; // 预备
 		public static const PLAY_STATE_DEAL:int				= 2; // 发牌
 		public static const PLAY_STATE_SNATCH:int			= 3; // 抢地主

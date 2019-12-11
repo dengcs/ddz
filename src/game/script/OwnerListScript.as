@@ -107,6 +107,20 @@ package game.script {
 			}
 		}
 
+		private function hasSelected():Boolean
+		{
+			var len:int = this.dataArray.length;
+			for(var i:int = 0; i < len; i++)
+			{
+				var cell:Box = this.ownerSprite.getCell(i);
+				if(cell != null && cell.y != 0)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		private function onDeal(... data:Array):void
 		{			
 			var delay:int = 0;
@@ -330,20 +344,24 @@ package game.script {
 				cards.push(this.dataArray[i].value);
 			}
 
-			this.refreshY();
-
 			var retData:Object = null;
-			if(NetAction.idxIsMine(roundData.idx))
+
+			if(this.hasSelected())
 			{
-				// 自动选择类型
-				retData = TypeFetch.auto_fetch(cards);
+				this.refreshY();
 			}else
 			{
-				retData = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
-			}
+				if(NetAction.idxIsMine(roundData.idx))
+				{
+					// 自动选择类型
+					retData = TypeFetch.auto_fetch(cards);
+				}else
+				{
+					retData = TypeFetch.fetch_type(cards, roundData.type, roundData.value, roundData.count);
+				}
 
-			if(retData != null)
-			{
+				if(retData == null) return
+				
 				for each(var idx:int in retData.indexes)
 				{
 					var cell:Box = this.ownerSprite.getCell(idx);
@@ -352,9 +370,10 @@ package game.script {
 						cell.y = this.cellY;
 					}
 				}
-				this.refreshDZ();
-				this.playMark();
 			}
+
+			this.refreshDZ();
+			this.playMark();
 		}
 
 		// 按钮提示
