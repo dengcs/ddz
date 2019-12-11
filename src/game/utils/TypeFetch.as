@@ -970,7 +970,7 @@ package game.utils
 				{
 					targetMap.set(m, mode.get(m));
 					targetNum++;
-				}else if(len == 2)
+				}else if(len == 2 && m < GameConstants.POKER_VALUE_JOKER)
 				{
 					attachMap.set(m, mode.get(m));
 					attachNum += len;

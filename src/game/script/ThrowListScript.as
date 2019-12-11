@@ -62,25 +62,26 @@ package game.script {
 			var targetX:Number = this.target;
 			var ridx:int = NetAction.rightIdx - 1;
 			var lidx:int = NetAction.rightIdx % 3;
-
-			var subX:Number = this.ownerSprite.width / 2;
+			
 			if(this.place == 1)
 			{
-				throwData = data[ridx];
-				targetX -= subX;
+				throwData = data[ridx];				
 			}
 			else if(this.place == 2)
 			{
-				throwData = data[lidx];
-				targetX += subX;
+				throwData = data[lidx];				
 			}			
 
 			if(throwData != null && throwData is Array)
 			{
-				var throwArray:Array = throwData as Array;
-				if(throwArray.length > 0)
+				if(throwData.length > 0)
 				{
-					this.initThrow(throwArray);
+					this.initThrow(throwData);
+
+					var subX:Number = this.ownerSprite.width / 4;
+					subX = this.place == 1 ? -subX : subX
+					targetX += subX;
+
 					this.ownerSprite.scale(0.5, 0.5);
 					this.ownerSprite.x = targetX;
 					this.ownerSprite.alpha = 1;
@@ -229,13 +230,13 @@ package game.script {
 			var maxLen:int 	= this.place == 0 ? len : (Math.min(10, len))
 			this.ownerSprite.width = 150 + (maxLen - 1) * 41;
 			this.ownerSprite.array = this.dataArray;
-			this.ownerSprite.scale(0.8, 0.8);
 			return sortData;
 		}
 
 		private function onThrow(... data:Array):void
 		{
 			var sortData:Array = this.initThrow(data);			
+			this.ownerSprite.scale(0.8, 0.8);
 			if(this.place == 0)
 			{
 				GameFunctions.ownerList_delCell.call(null, sortData);
