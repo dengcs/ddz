@@ -123,6 +123,7 @@ package game.script {
 
 		private function onDeal(... data:Array):void
 		{			
+			var interval:int = 500;
 			var delay:int = 0;
 			var len:int = data.length;
 			for(var m:int = 0; m < 3; m++)
@@ -136,10 +137,10 @@ package game.script {
 						batch.push(data[i]);
 					}
 				}
-				delay += 900 + m*180;
+				delay = (2 + 3*m) * interval;
 				this.owner.timerOnce(delay, this, onPickUp, batch, false);
 			}
-			delay += 300;
+			delay += 3 * interval;
 			this.owner.timerOnce(delay, this, tweenRotateIn, null, false);
 		}
 

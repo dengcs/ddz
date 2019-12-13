@@ -33,12 +33,19 @@ package common
 		public static const POKER_TYPE_4WITH22:int			= 20; // 4带2(两对)
 
 		public static const POKER_TYPE_NO:int				= 101; // 不要
+		public static const POKER_TYPE_DEAL1:int			= 201; // 发牌1
+		public static const POKER_TYPE_DEAL2:int			= 202; // 发牌2
+		public static const POKER_TYPE_DEAL3:int			= 203; // 发牌3
+		public static const POKER_TYPE_DEAL4:int			= 204; // 发牌4
+		public static const POKER_TYPE_DEAL5:int			= 205; // 发牌5
+		public static const POKER_TYPE_DEAL6:int			= 206; // 发牌5
 
 		public static const SOUND_SNATCH_YES:int			= 1; // 叫地主
 		public static const SOUND_SNATCH_NO:int				= 2; // 不叫地主
 		public static const SOUND_SNATCH_YES1:int			= 3; // 抢地主
 		public static const SOUND_SNATCH_YES2:int			= 4; // 抢地主
 		public static const SOUND_SNATCH_NO1:int			= 5; // 不抢地主
+		public static const SOUND_DEAL_CARD:int				= 6; // 发牌
 
 		public static const PLAY_STATE_PREPARE:int			= 1; // 预备
 		public static const PLAY_STATE_DEAL:int				= 2; // 发牌

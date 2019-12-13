@@ -21,6 +21,7 @@ package game.manager {
 			if (_instance == null) {
 				this.loadImg();
 				this.loadRes();
+				this.loadAni();
             }else{
                  throw new Error("只能用getInstance()来获取实例!");
 			}
@@ -33,13 +34,29 @@ package game.manager {
 
 		private function loadImg():void
 		{
-			Laya.loader.load("ani/plane/plane_body_blur.png", new Handler(this, onImgLoaded), null, Loader.IMAGE);
+			var imgArray:Array = [];
+			imgArray.push("ani/plane/plane_body_blur.png");
+			Laya.loader.load(imgArray, new Handler(this, onImgLoaded), null, Loader.IMAGE);			
 		}
 
 		private function loadRes():void
 		{			
-			var atlasArray:Array = ["res/atlas/ani/bomb.atlas","res/atlas/ani/plane.atlas","res/atlas/ani/rocket.atlas","res/atlas/ani/shunzi.atlas"];
+			var atlasArray:Array = [];
+			atlasArray.push("res/atlas/ani/bomb.atlas");
+			atlasArray.push("res/atlas/ani/plane.atlas");
+			atlasArray.push("res/atlas/ani/rocket.atlas");
+			atlasArray.push("res/atlas/ani/shunzi.atlas");
 			Laya.loader.load(atlasArray, new Handler(this, onResLoaded), null, Loader.ATLAS);
+		}
+
+		private function loadAni():void
+		{
+			// Animation.createFrames(["poker/poker_bg.png"], "ani/deal.ani#ani1");
+			// Animation.createFrames(["poker/poker_bg.png"], "ani/deal.ani#ani2");
+			// Animation.createFrames(["poker/poker_bg.png"], "ani/deal.ani#ani3");
+			// Animation.createFrames(["poker/poker_bg.png"], "ani/deal.ani#ani4");
+			// Animation.createFrames(["poker/poker_bg.png"], "ani/deal.ani#ani5");
+			// Animation.createFrames(["poker/poker_bg.png"], "ani/deal.ani#ani6");
 		}
 
 		private function onResLoaded():void
@@ -126,6 +143,70 @@ package game.manager {
 					
 					ti.play(0, false, playName);
 					AudioManager.getInstance().playAni(type);
+				}
+			}
+		}
+
+		public function playDeal(type:int):void
+		{
+			this.checkRes();
+			if(this.gameAnimation)
+			{
+				var name:String = null;
+				var playName:String = "";
+
+				switch(type)
+				{
+					case GameConstants.POKER_TYPE_DEAL1:
+					{
+						name = "ani/deal.ani";
+						playName = "ani1";
+						break;
+					}
+					case GameConstants.POKER_TYPE_DEAL2:
+					{
+						name = "ani/deal.ani";
+						playName = "ani2";
+						break;
+					}
+					case GameConstants.POKER_TYPE_DEAL3:
+					{
+						name = "ani/deal.ani";
+						playName = "ani3";
+						break;
+					}
+					case GameConstants.POKER_TYPE_DEAL4:
+					{
+						name = "ani/deal.ani";
+						playName = "ani4";
+						break;
+					}
+					case GameConstants.POKER_TYPE_DEAL5:
+					{
+						name = "ani/deal.ani";
+						playName = "ani5";
+						break;
+					}
+					case GameConstants.POKER_TYPE_DEAL6:
+					{
+						name = "ani/deal.ani";
+						playName = "ani6";
+						break;
+					}
+				}
+
+				if(name != null)
+				{
+					var ti:Animation = this.cacheMap.get(name);
+					if(ti == null)
+					{
+						ti = new Animation();
+						ti.loadAnimation(name);
+						this.gameAnimation.addChild(ti);
+						this.cacheMap.set(name, ti);
+					}
+
+					ti.play(0, false, playName);
 				}
 			}
 		}

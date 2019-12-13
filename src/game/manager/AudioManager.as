@@ -134,6 +134,7 @@ package game.manager {
 					url = "sound/effect/game/ani_rocket.mp3";
 					break;
 				}
+				case GameConstants.POKER_TYPE_3STRAIGHT:
 				case GameConstants.POKER_TYPE_3STRAIGHT1:
 				case GameConstants.POKER_TYPE_3STRAIGHT2:
 				{						
@@ -172,6 +173,11 @@ package game.manager {
 				case GameConstants.SOUND_SNATCH_NO1:
 				{						
 					url = "sound/effect/game/female_grabNo.mp3";
+					break;
+				}
+				case GameConstants.SOUND_DEAL_CARD:
+				{
+					url = "sound/effect/game/action_deal.mp3";
 					break;
 				}
 			}
