@@ -15,9 +15,23 @@ package game.script {
 
 		private var ownerSprite:Sprite = null;
 
+		private var dealCard:Image = null;
+		private var btmCard1:Image = null;
+		private var btmCard2:Image = null;
+		private var btmCard3:Image = null;
+
 		override public function onAwake():void
 		{
 			this.ownerSprite = this.owner as Sprite;
+
+			dealCard = this.owner.getChildAt(0) as Image;
+			btmCard1 = this.owner.getChildAt(1) as Image;
+			btmCard2 = this.owner.getChildAt(2) as Image;
+			btmCard3 = this.owner.getChildAt(3) as Image;
+		}		
+
+		override public function onStart():void
+		{
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_DEAL, this, onDeal);
 			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
@@ -30,6 +44,7 @@ package game.script {
 
 		private function onPrepare():void
 		{
+			this.dealCard.visible = true;
 		}
 
 		private function onDeal():void
@@ -39,7 +54,16 @@ package game.script {
 
 		private function onBottom():void
 		{
+			btmCard1.visible = false;
+			btmCard2.visible = false;
+			btmCard3.visible = false;
+		}
 
+		private function showBottom(num:int):void
+		{
+			btmCard1.visible = true;
+			btmCard2.visible = true;
+			btmCard3.visible = true;
 		}
 
 		// 发牌到玩家
@@ -51,7 +75,12 @@ package game.script {
 
 			if(index == maxIndex)
 			{
+				this.dealCard.visible = false;
 				type = GameConstants.POKER_TYPE_DEAL6;
+				for(var i:int = 0; i < 3; i++)
+				{
+					this.owner.timerOnce(delay + 300, this, showBottom, null, false);
+				}
 			}else
 			{
 				var place:int = 0;

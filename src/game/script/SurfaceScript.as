@@ -47,13 +47,16 @@ package game.script {
 		}
 
 		override public function onEnable():void {
-			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
-			this.owner.on(GameEvent.EVENT_GAME_START, this, onGameStart);
-			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
-
 			this.mineHeadImg.on(Event.CLICK, this, onHeadClick, [0]);
 			this.rightHeadImg.on(Event.CLICK, this, onHeadClick, [1]);
 			this.leftHeadImg.on(Event.CLICK, this, onHeadClick, [2]);
+		}
+
+		override public function onStart():void
+		{
+			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
+			this.owner.on(GameEvent.EVENT_GAME_START, this, onGameStart);
+			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
 		}
 		
 		override public function onDisable():void {
