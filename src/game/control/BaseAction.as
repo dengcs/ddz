@@ -9,7 +9,7 @@ package game.control {
 		public static function event(names:Array, type:String, data:* = null):void
 		{
 			var gameNode:Node = Scene.root.getChildByName("gameScene");
-			if(gameNode)
+			if(gameNode != null)
 			{
 				var childNode:Node = null;
 				var parentNode:Node = gameNode;
@@ -18,9 +18,44 @@ package game.control {
 					childNode 	= parentNode.getChildByName(names[i]);
 					parentNode 	= childNode;
 				}
-				if(childNode)
+				if(childNode != null)
 				{
 					childNode.event(type, data);
+				}
+			}
+		}
+
+		// 广播事件到子节点
+		public static function broadcastEvent(type:String, data:* = null):void
+		{
+			var gameNode:Node = Scene.root.getChildByName("gameScene");
+			if(gameNode != null)
+			{
+				var count:int = gameNode.numChildren;
+				for(var i:int = 0; i < count; i++)
+				{
+					var childNode:Node = gameNode.getChildAt(i);
+					childNode.event(type, data);
+				}
+			}
+		}
+
+		// 某节点广播事件到子节点
+		public static function broadcastEventToNode(name:String, type:String, data:* = null):void
+		{
+			var gameNode:Node = Scene.root.getChildByName("gameScene");
+			if(gameNode != null)
+			{
+				var parentNode:Node 	= gameNode.getChildByName(name);
+				if(parentNode != null)
+				{
+					parentNode.event(type, data);
+					var count:int = parentNode.numChildren;
+					for(var i:int = 0; i < count; i++)
+					{
+						var childNode:Node = parentNode.getChildAt(i);
+						childNode.event(type, data);
+					}
 				}
 			}
 		}

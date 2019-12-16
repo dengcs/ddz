@@ -69,16 +69,11 @@ package game.control {
 			_mineIdx = data.idx;
 			_rightIdx = (_mineIdx % 3) + 1;
 			GameAction.prepare();
-			BaseAction.event(["Deal"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Surface"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.broadcastEvent(GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["Mark", "clock"], GameEvent.EVENT_GAME_PREPARE);
+			BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_PREPARE);
 			BaseAction.event(["MyCard","myList"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["Control"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["ThrowCard","mineList"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["ThrowCard","leftList"], GameEvent.EVENT_GAME_PREPARE);
-			BaseAction.event(["ThrowCard","rightList"], GameEvent.EVENT_GAME_PREPARE);			
+			BaseAction.broadcastEventToNode("ThrowCard", GameEvent.EVENT_GAME_PREPARE);
 		}
 
 		public static function doDeal(data:*):void
@@ -95,8 +90,7 @@ package game.control {
 			}else
 			{
 				GameAction.incSnatchCount(data.msg);
-				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_SNATCH, data);
-				BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_SNATCH, data);
+				BaseAction.broadcastEventToNode("Mark", GameEvent.EVENT_GAME_SNATCH, data);
 				if(data.msg == 1)
 				{
 					ownerIdx = data.idx;
@@ -110,9 +104,7 @@ package game.control {
 			{
 				var idx:int = data.idx;
 				
-				BaseAction.event(["Deal"], GameEvent.EVENT_GAME_BOTTOM);
-				BaseAction.event(["Mark"], GameEvent.EVENT_GAME_BOTTOM);
-				BaseAction.event(["Surface"], GameEvent.EVENT_GAME_BOTTOM);
+				BaseAction.broadcastEvent(GameEvent.EVENT_GAME_BOTTOM);
 				BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_BOTTOM, idx);
 				BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
 				if(idxIsMine(idx))
@@ -124,23 +116,20 @@ package game.control {
 
 		public static function doPlay(data:* = null):void
 		{
-			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_PLAY, data);
+			BaseAction.broadcastEventToNode("Mark", GameEvent.EVENT_GAME_PLAY, data);
 			BaseAction.event(["Control"], GameEvent.EVENT_GAME_PLAY, data);
-			BaseAction.event(["Mark", "clock"], GameEvent.EVENT_GAME_PLAY, data);
 		}
 
 		public static function doOver(data:* = null):void
 		{
-			BaseAction.event(["Mark"], GameEvent.EVENT_GAME_OVER);
-			BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_OVER);			
+			BaseAction.broadcastEventToNode("Mark", GameEvent.EVENT_GAME_OVER, data);
 		}
 
 		public static function doNotifyOver(data:* = null):void
 		{
 			if(data is Array)
 			{
-				BaseAction.event(["ThrowCard","leftList"], GameEvent.EVENT_GAME_OVER, data);
-				BaseAction.event(["ThrowCard","rightList"], GameEvent.EVENT_GAME_OVER, data);
+				BaseAction.broadcastEventToNode("ThrowCard", GameEvent.EVENT_GAME_OVER, data);
 			}
 		}
 

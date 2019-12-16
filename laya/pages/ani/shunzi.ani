@@ -513,7 +513,7 @@
                                 "tween":true,
                                 "target":6,
                                 "key":"y",
-                                "index":20
+                                "index":15
                             }],
                         "x":[
                             {
@@ -525,12 +525,20 @@
                                 "index":0
                             },
                             {
-                                "value":0,
+                                "value":-60,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":6,
                                 "key":"x",
-                                "index":20
+                                "index":15
+                            },
+                            {
+                                "value":60,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":6,
+                                "key":"x",
+                                "index":45
                             }],
                         "skin":[
                             {
@@ -547,7 +555,7 @@
                                 "tween":false,
                                 "target":6,
                                 "key":"skin",
-                                "index":20
+                                "index":15
                             },
                             {
                                 "value":"ani/shunzi/shunzi_wsz.png",
@@ -580,7 +588,7 @@
                                 "tween":true,
                                 "target":6,
                                 "key":"anchorY",
-                                "index":20
+                                "index":15
                             }],
                         "anchorX":[
                             {
@@ -597,7 +605,7 @@
                                 "tween":true,
                                 "target":6,
                                 "key":"anchorX",
-                                "index":20
+                                "index":15
                             }],
                         "alpha":[
                             {
@@ -614,7 +622,7 @@
                                 "tween":true,
                                 "target":6,
                                 "key":"alpha",
-                                "index":20
+                                "index":15
                             },
                             {
                                 "value":1,
@@ -638,13 +646,13 @@
                                 "tween":true,
                                 "target":6,
                                 "key":"alpha",
-                                "index":40
+                                "index":45
                             }]
                     }
                 }],
             "name":"ani1",
             "id":1,
-            "frameRate":60,
+            "frameRate":30,
             "action":0
         }]
 }

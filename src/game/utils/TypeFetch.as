@@ -303,8 +303,10 @@ package game.utils
 					}
 				}else if(value == GameConstants.POKER_VALUE_JOKER)
 				{
+					var jokerIdx:int 	= modeVals[0];
+					var jokerVal:int	=  cards[jokerIdx];
 					// 类型判断时已经把大王的牌值加1了
-					if(card == GameConstants.POKER_VALUE_JOKER)
+					if(jokerVal == GameConstants.JOKER_BIG_VALUE)
 					{
 						firstVal = card;
 					}
