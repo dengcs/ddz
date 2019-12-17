@@ -35,7 +35,7 @@ package game.script {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onThrow);
 			this.owner.on(GameEvent.EVENT_GAME_TURN, this, onRecoverState);
-			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
+			this.owner.on(GameEvent.EVENT_OVER_NOTIFY, this, onOver);
 		}
 
 		override public function onDestroy():void

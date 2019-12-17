@@ -13,6 +13,7 @@ package common
 		public static const EVENT_GAME_OVER:String				= "OVER";
 		public static const EVENT_GAME_BOTTOM:String			= "BOTTOM";
 		public static const EVENT_GAME_TURN:String				= "TURN";
+		public static const EVENT_OVER_NOTIFY:String			= "OVER_NTF";
 	}
 
 }

@@ -8,8 +8,7 @@ package game.script {
 	import laya.utils.Ease;
 	import laya.utils.Handler;
 	import common.GameFunctions;
-	import game.manager.AnimationManager;
-	import com.google.protobuf.CodedInputStream;
+	import common.GameManager;
 	
 	public class DealScript extends Script {
 
@@ -59,7 +58,7 @@ package game.script {
 			btmCard3.visible = false;
 		}
 
-		private function showBottom(num:int):void
+		private function showBottom():void
 		{
 			btmCard1.visible = true;
 			btmCard2.visible = true;
@@ -70,17 +69,14 @@ package game.script {
 		public function dealPoker(index:int):void
 		{
 			var maxIndex:int = 10;
-			var delay:int = 500;
+			var delay:int = 600;
 			var type:int = 0;
 
 			if(index == maxIndex)
 			{
 				this.dealCard.visible = false;
 				type = GameConstants.POKER_TYPE_DEAL6;
-				for(var i:int = 0; i < 3; i++)
-				{
-					this.owner.timerOnce(delay + 300, this, showBottom, null, false);
-				}
+				this.owner.timerOnce(2*delay, this, showBottom, null, false);
 			}else
 			{
 				var place:int = 0;
@@ -106,7 +102,7 @@ package game.script {
 				this.owner.timerOnce(delay, this, dealComplete, [place, cardNum], false);
 			}
 
-			AnimationManager.getInstance().playDeal(type);
+			GameManager.playDeal(type);
 			if(index < maxIndex)
 			{
 				this.owner.timerOnce(delay, this, dealPoker, [index + 1], false);
@@ -119,7 +115,7 @@ package game.script {
 			{
 				for(var i:int = 0; i < count; i++)
 				{
-					this.owner.timerOnce(i * 20, this, updateCounter, [place], false);
+					this.owner.timerOnce(i * 30, this, updateCounter, [place], false);
 				}
 			}
 		}

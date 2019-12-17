@@ -45,7 +45,9 @@ package common
 		public static const SOUND_SNATCH_YES1:int			= 3; // 抢地主
 		public static const SOUND_SNATCH_YES2:int			= 4; // 抢地主
 		public static const SOUND_SNATCH_NO1:int			= 5; // 不抢地主
-		public static const SOUND_DEAL_CARD:int				= 6; // 发牌
+		public static const SOUND_LEFT_ONE:int				= 11; // 就剩1张牌了
+		public static const SOUND_LEFT_TWO:int				= 12; // 就剩2张牌了
+		public static const SOUND_BE_FAST:int				= 21; // 倒计时
 
 		public static const PLAY_STATE_PREPARE:int			= 1; // 预备
 		public static const PLAY_STATE_DEAL:int				= 2; // 发牌

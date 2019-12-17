@@ -87,12 +87,14 @@ package game.control {
             var typeData:Object = TypeCheck.test_type(Vector.<int>(data.msg));
             if(typeData != null)
             {
+                var yasi:Boolean = _roundData.type == typeData.type && _roundData.idx != data.idx;
+                
                 _roundData.idx      = data.idx;
                 _roundData.type     = typeData.type;
                 _roundData.value    = typeData.value;
                 _roundData.count    = typeData.count;
 
-                GameManager.playGame(_roundData);
+                GameManager.playGame(typeData.type, typeData.value, yasi);
             }
         }
 

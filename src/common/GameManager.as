@@ -9,13 +9,16 @@ package common {
 			AudioManager.getInstance();
 		}
 
-        public static function playGame(roundData:Object):void
+        public static function playGame(type:int, value:int, yasi:Boolean):void
 		{
-			var type:int 	= roundData.type;
-			var value:int 	= roundData.value;
-
+			AudioManager.getInstance().playGame(type, value, yasi);
         	AnimationManager.getInstance().playGame(type);
-			AudioManager.getInstance().playGame(type, value);
         }
+
+		public static function playDeal(type:int):void
+		{
+			AudioManager.getInstance().playAni(type);
+			AnimationManager.getInstance().playDeal(type);
+		}
 	}
 }

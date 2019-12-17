@@ -10,6 +10,8 @@ package game.script {
 	import game.control.NetAction;
 	import game.control.GameAction;
 	import laya.utils.Utils;
+	import game.manager.AudioManager;
+	import common.GameConstants;
 	
 	public class ClockScript extends Script {
 		private var ownerSprite:Sprite = null;
@@ -214,6 +216,7 @@ package game.script {
 			this.shakeCount = 0;
 			this.owner.clearTimer(this, shakeTick);
 			this.owner.timerLoop(125, this, shakeTick, null, false);
+			AudioManager.getInstance().playOther(GameConstants.SOUND_BE_FAST);
 		}
 
 		private function toPosition(toward:int):void
@@ -231,6 +234,7 @@ package game.script {
 				this.owner.clearTimer(this, secondTick);
 				this.owner.clearTimer(this, shakeTick);
 				Tween.to(this.ownerSprite,{x:position[0], y:position[1]}, 300, Ease.expoIn, new Handler(this, moveComplate));
+				AudioManager.getInstance().stopOther(GameConstants.SOUND_BE_FAST);
 			}
 		}
 

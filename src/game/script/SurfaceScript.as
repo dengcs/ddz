@@ -11,6 +11,8 @@ package game.script {
 	import common.GameStatic;
 	import game.proto.GameMember;
 	import laya.events.Event;
+	import game.manager.AudioManager;
+	import common.GameConstants;
 	
 	public class SurfaceScript extends Script {
 
@@ -155,15 +157,34 @@ package game.script {
 
 		private function updateCounter(place:int, count:int):void
 		{
+			var left_num:int = 0;
 			if(place == 1)
 			{
 				this.rightLab.tag += count;
 				this.rightLab.text = this.rightLab.tag as String;
+				left_num = this.rightLab.tag;
 			}else
 			{
 				this.leftLab.tag += count;
 				this.leftLab.text = this.leftLab.tag as String;
+				left_num = this.leftLab.tag;
 			}
+
+			if(NetAction.state == GameConstants.PLAY_STATE_PLAY)
+			{
+				if(left_num == 2)
+				{
+					this.owner.timerOnce(400, this, leftCardSound, [GameConstants.SOUND_LEFT_TWO], false);
+				}else if(left_num == 1)
+				{
+					this.owner.timerOnce(400, this, leftCardSound, [GameConstants.SOUND_LEFT_ONE], false);
+				}
+			}
+		}
+
+		private function leftCardSound(type:int):void
+		{
+			AudioManager.getInstance().playOther(type);
 		}
 	}
 }

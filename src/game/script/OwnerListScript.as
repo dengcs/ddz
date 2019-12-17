@@ -16,6 +16,7 @@ package game.script {
 	import game.control.GameAction;
 	import game.utils.TypeFetch;
 	import game.utils.TypeCheck;
+	import game.manager.AudioManager;
 
 	public class OwnerListScript extends Script {
 		/** @prop {name:ownerX, tips:"初始x坐标值", type:Number, default:0}*/
@@ -123,7 +124,7 @@ package game.script {
 
 		private function onDeal(... data:Array):void
 		{			
-			var interval:int = 500;
+			var interval:int = 600;
 			var delay:int = 0;
 			var len:int = data.length;
 			for(var m:int = 0; m < 3; m++)
@@ -332,6 +333,19 @@ package game.script {
 			this.refreshX();
 			this.refreshY();
 			this.refreshDZ();
+
+			if(this.dataArray.length == 2)
+			{
+				this.owner.timerOnce(400, this, leftCardSound, [GameConstants.SOUND_LEFT_TWO], false);
+			}else if(this.dataArray.length == 1)
+			{
+				this.owner.timerOnce(400, this, leftCardSound, [GameConstants.SOUND_LEFT_ONE], false);
+			}
+		}
+
+		private function leftCardSound(type:int):void
+		{
+			AudioManager.getInstance().playOther(type);
 		}
 
 		// 出牌提示

@@ -13,7 +13,7 @@ package game.control {
 		// 当前状态
 		private static var _state:int = 0;
 
-		private static function get state():int
+		public static function get state():int
 		{
 			return _state;
 		}
@@ -129,7 +129,7 @@ package game.control {
 		{
 			if(data is Array)
 			{
-				BaseAction.broadcastEventToNode("ThrowCard", GameEvent.EVENT_GAME_OVER, data);
+				BaseAction.broadcastEventToNode("ThrowCard", GameEvent.EVENT_OVER_NOTIFY, data);
 			}
 		}
 
