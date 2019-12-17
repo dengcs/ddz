@@ -2,7 +2,7 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":5,
+    "selecteID":71,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
@@ -61,7 +61,7 @@
             "props":{"y":427,"x":569,"width":1,"name":"Deal","height":1},
             "nodeParent":2,
             "label":"Deal",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -602,9 +602,10 @@
             "compId":89,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,mine",
-                    "props":{"y":120,"x":0,"visible":false,"skin":"mark/jiaodizhu.png","name":"mine","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":110,"x":0,"visible":false,"skin":"mark/jiaodizhu.png","name":"mine","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":89,
                     "label":"mine",
                     "isDirectory":false,
@@ -615,6 +616,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,right",
                     "props":{"y":-120,"x":230,"visible":false,"skin":"mark/jiaodizhu.png","name":"right","anchorY":0.5,"anchorX":0.5},
@@ -628,6 +630,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,left",
                     "props":{"y":-120,"x":-230,"visible":false,"skin":"mark/jiaodizhu.png","name":"left","anchorY":0.5,"anchorX":0.5},
@@ -641,12 +644,13 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,clock",
-                    "props":{"y":120,"x":0,"visible":false,"skin":"mark/clock01.png","name":"clock","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":110,"x":0,"visible":false,"skin":"mark/clock01.png","name":"clock","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":89,
                     "label":"clock",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -683,6 +687,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/MarkScript.as",
@@ -824,7 +829,7 @@
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite,Control",
-            "props":{"y":520,"x":310,"width":520,"name":"Control"},
+            "props":{"y":510,"x":310,"width":520,"name":"Control"},
             "nodeParent":2,
             "label":"Control",
             "isOpen":false,
@@ -834,12 +839,13 @@
             "compId":33,
             "child":[
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,snatch",
                     "props":{"y":0,"x":70,"width":380,"visible":false,"name":"snatch"},
                     "nodeParent":33,
                     "label":"snatch",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -901,12 +907,13 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play1",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play1"},
                     "nodeParent":33,
                     "label":"play1",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -942,12 +949,13 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play2",
                     "props":{"y":0,"x":60,"width":400,"visible":false,"name":"play2"},
                     "nodeParent":33,
                     "label":"play2",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -1008,12 +1016,13 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play3",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play3"},
                     "nodeParent":33,
                     "label":"play3",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -1100,6 +1109,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/ControlScript.as",

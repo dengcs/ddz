@@ -172,7 +172,7 @@ package game.script {
 					}
 				}
 			}
-			this.owner.timerOnce(800, this, refreshDZ, null, false);
+			this.owner.timerOnce(1000, this, refreshDZ, null, false);
 		}
 
 		private function pickUp(rValue:int):void

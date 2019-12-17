@@ -48,6 +48,7 @@ package common
 		public static const SOUND_LEFT_ONE:int				= 11; // 就剩1张牌了
 		public static const SOUND_LEFT_TWO:int				= 12; // 就剩2张牌了
 		public static const SOUND_BE_FAST:int				= 21; // 倒计时
+		public static const SOUND_BUTTON_DOWN:int			= 22; // 按钮
 
 		public static const PLAY_STATE_PREPARE:int			= 1; // 预备
 		public static const PLAY_STATE_DEAL:int				= 2; // 发牌

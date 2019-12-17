@@ -220,9 +220,14 @@ package game.manager {
 				}
 				case GameConstants.SOUND_BE_FAST:
 				{
-					url = "sound/effect/game/beFaster.mp3";
+					url = "sound/effect/game/be_faster.mp3";
 					break;
 				}
+				case GameConstants.SOUND_BUTTON_DOWN:
+				{
+					url = "sound/effect/game/button_click.mp3";
+					break;
+				}				
 			}
 
 			if(url != null)

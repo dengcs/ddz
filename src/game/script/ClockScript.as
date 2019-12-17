@@ -185,15 +185,15 @@ package game.script {
 			}else if(toward == this.mineOnePos)
 			{
 				this.posArray[0] = -130;
-				this.posArray[1] = 120;
+				this.posArray[1] = 110;
 			}else if(toward == this.mineTwoPos)
 			{
 				this.posArray[0] = 0;
-				this.posArray[1] = 120;
+				this.posArray[1] = 110;
 			}else if(toward == this.mineThreePos)
 			{
 				this.posArray[0] = -70;
-				this.posArray[1] = 120;
+				this.posArray[1] = 110;
 			}else
 			{
 				return null;
