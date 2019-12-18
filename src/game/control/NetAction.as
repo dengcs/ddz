@@ -18,7 +18,7 @@ package game.control {
 			return _state;
 		}
 
-		public static function set ownerIdx(idx:int):void
+		private static function set ownerIdx(idx:int):void
         {
         	_ownerIdx = idx;
 			GameAction.setOwnerIdx(idx);
@@ -31,12 +31,12 @@ package game.control {
 
         public static function ownerIsMine():Boolean
         {
-            return NetAction.idxIsMine(_ownerIdx);
+            return idxIsMine(_ownerIdx);
         }
 
         public static function ownerIsRight():Boolean
         {
-            return NetAction.idxIsRight(_ownerIdx);
+            return idxIsRight(_ownerIdx);
         }
 
 		public static function get rightIdx():int
@@ -57,6 +57,11 @@ package game.control {
 		public static function idxIsRight(idx:int):Boolean
 		{
 			return idx == _rightIdx;
+		}
+
+		public static function idxIsOwner(idx:int):Boolean
+		{
+			return idx == _ownerIdx;
 		}
 
 		public static function gameIsOver():Boolean

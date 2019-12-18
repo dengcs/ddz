@@ -11,7 +11,9 @@ package main.runtime
 	public class RoomBtnRunTime extends Button{
 		public function RoomBtnRunTime(){
 			this.on(Event.MOUSE_DOWN, this, on_mousedown);
-			this.on(Event.MOUSE_OUT, this, on_mouseout);
+			this.on(Event.MOUSE_OVER, this, on_mousedown);
+			this.on(Event.MOUSE_UP, this, on_mouseup);			
+			this.on(Event.MOUSE_OUT, this, on_mouseup);
 		}
 
 		private function on_mousedown():void
@@ -19,7 +21,7 @@ package main.runtime
 			Tween.to(this, {scaleX:1.1,scaleY:1.1}, 100);		
 		}
 
-		private function on_mouseout():void
+		private function on_mouseup():void
 		{
 			Tween.to(this, {scaleX:1,scaleY:1}, 100);
 		}

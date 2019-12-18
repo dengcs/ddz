@@ -5,6 +5,8 @@ package game.script {
 	import common.GameEvent;
 	import game.control.NetAction;
 	import game.control.GameAction;
+	import game.manager.AnimationManager;
+	import common.GameConstants;
 	
 	public class MarkScript extends Script {
 		private var mineMarkImg:Image = null;
@@ -162,9 +164,10 @@ package game.script {
 			}
 		}
 
-		private function onOver():void
+		private function onOver(data:* = null):void
 		{
 			this.clearMark();
+			this.playAni(data);
 		}
 
 		private function showMark(toward:int, idx:int):void
@@ -191,6 +194,33 @@ package game.script {
 			this.mineMarkImg.visible = false;
 			this.rightMarkImg.visible = false;
 			this.leftMarkImg.visible = false;
+		}
+
+		private function playAni(data:* = null):void
+		{
+			if(data != null)
+			{
+				var idx:int = data.idx;
+				if(NetAction.idxIsOwner(idx))
+				{
+					if(NetAction.idxIsMine(idx))
+					{
+						AnimationManager.getInstance().playGame(GameConstants.POKER_TYPE_WIN);
+					}else
+					{
+						AnimationManager.getInstance().playGame(GameConstants.POKER_TYPE_FAIL1);
+					}
+				}else
+				{
+					if(NetAction.ownerIsMine())
+					{
+						AnimationManager.getInstance().playGame(GameConstants.POKER_TYPE_FAIL);
+					}else
+					{
+						AnimationManager.getInstance().playGame(GameConstants.POKER_TYPE_WIN1);
+					}
+				}
+			}
 		}
 	}
 }

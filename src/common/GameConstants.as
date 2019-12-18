@@ -39,6 +39,10 @@ package common
 		public static const POKER_TYPE_DEAL4:int			= 204; // 发牌4
 		public static const POKER_TYPE_DEAL5:int			= 205; // 发牌5
 		public static const POKER_TYPE_DEAL6:int			= 206; // 发牌5
+		public static const POKER_TYPE_WIN:int				= 301; // 我赢了
+		public static const POKER_TYPE_FAIL:int				= 302; // 我输了
+		public static const POKER_TYPE_WIN1:int				= 303; // 我赢了
+		public static const POKER_TYPE_FAIL1:int			= 304; // 我输了
 
 		public static const SOUND_SNATCH_YES:int			= 1; // 叫地主
 		public static const SOUND_SNATCH_NO:int				= 2; // 不叫地主

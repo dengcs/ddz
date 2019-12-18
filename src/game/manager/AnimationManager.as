@@ -8,6 +8,7 @@ package game.manager {
 	import laya.display.Animation;
 	import laya.utils.Handler;
 	import laya.net.Loader;
+	import laya.events.Event;
 
 	public final class AnimationManager{
 		private static var _instance:AnimationManager = new AnimationManager();
@@ -46,6 +47,7 @@ package game.manager {
 			atlasArray.push("res/atlas/ani/plane.atlas");
 			atlasArray.push("res/atlas/ani/rocket.atlas");
 			atlasArray.push("res/atlas/ani/shunzi.atlas");
+			atlasArray.push("res/atlas/ani/settle.atlas");
 			Laya.loader.load(atlasArray, new Handler(this, onResLoaded), null, Loader.ATLAS);
 		}
 
@@ -97,6 +99,32 @@ package game.manager {
 			}
 		}
 
+		private function onLabel(lab:String = null):void
+		{
+			if(lab != null)
+			{
+				if(lab == "bomb")
+				{
+					AudioManager.getInstance().playAni(GameConstants.POKER_TYPE_BOMB);
+				}else if(lab == "rocket")
+				{
+					AudioManager.getInstance().playAni(GameConstants.POKER_TYPE_KING);
+				}else if(lab == "shunzi")
+				{
+					AudioManager.getInstance().playAni(GameConstants.POKER_TYPE_1STRAIGHT);
+				}else if(lab == "plane")
+				{
+					AudioManager.getInstance().playAni(GameConstants.POKER_TYPE_3STRAIGHT);
+				}else if(lab == "win")
+				{
+					AudioManager.getInstance().playAni(GameConstants.POKER_TYPE_WIN);
+				}else if(lab == "fail")
+				{
+					AudioManager.getInstance().playAni(GameConstants.POKER_TYPE_FAIL);
+				}
+			}
+		}
+
 		public function playGame(type:int):void
 		{
 			this.checkRes();
@@ -111,7 +139,7 @@ package game.manager {
 					{
 						name = "ani/bomb.ani";
 						break;
-					}
+					}					
 					case GameConstants.POKER_TYPE_KING:
 					{
 						name = "ani/rocket.ani";
@@ -122,10 +150,35 @@ package game.manager {
 						name = "ani/shunzi.ani";
 						break;
 					}
+					case GameConstants.POKER_TYPE_3STRAIGHT:
 					case GameConstants.POKER_TYPE_3STRAIGHT1:
 					case GameConstants.POKER_TYPE_3STRAIGHT2:
 					{						
 						name = "ani/plane.ani";
+						break;
+					}
+					case GameConstants.POKER_TYPE_WIN:
+					{
+						name = "ani/win.ani";
+						playName = "ani1";
+						break;
+					}
+					case GameConstants.POKER_TYPE_WIN1:
+					{
+						name = "ani/win.ani";
+						playName = "ani2";
+						break;
+					}
+					case GameConstants.POKER_TYPE_FAIL:
+					{
+						name = "ani/fail.ani";
+						playName = "ani1";
+						break;
+					}
+					case GameConstants.POKER_TYPE_FAIL1:
+					{
+						name = "ani/fail.ani";
+						playName = "ani2";
 						break;
 					}
 				}
@@ -137,12 +190,12 @@ package game.manager {
 					{
 						ti = new Animation();
 						ti.loadAnimation(name);
+						ti.on(Event.LABEL, this, onLabel);
 						this.gameAnimation.addChild(ti);
 						this.cacheMap.set(name, ti);
 					}
 					
-					ti.play(0, false, playName);
-					AudioManager.getInstance().playAni(type);
+					ti.play(0, false, playName);					
 				}
 			}
 		}

@@ -156,10 +156,13 @@ package game.manager {
 				{
 					url = "sound/effect/game/ani_rocket.mp3";
 					break;
+				}				
+				case GameConstants.POKER_TYPE_1STRAIGHT:
+				{
+					url = "sound/effect/game/ani_shunzi.mp3";
+					break;
 				}
 				case GameConstants.POKER_TYPE_3STRAIGHT:
-				case GameConstants.POKER_TYPE_3STRAIGHT1:
-				case GameConstants.POKER_TYPE_3STRAIGHT2:
 				{						
 					url = "sound/effect/game/ani_plane.mp3";
 					break;
@@ -172,6 +175,16 @@ package game.manager {
 				case GameConstants.POKER_TYPE_DEAL6:
 				{
 					url = "sound/effect/game/ani_deal.mp3";
+					break;
+				}
+				case GameConstants.POKER_TYPE_WIN:
+				{
+					url = "sound/effect/game/ani_win.mp3";
+					break;
+				}
+				case GameConstants.POKER_TYPE_FAIL:
+				{
+					url = "sound/effect/game/ani_fail.mp3";
 					break;
 				}
 			}

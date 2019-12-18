@@ -5,7 +5,7 @@ package game.net
 	import game.manager.DispatchManager;
 	import game.proto.NetMessage;
 	import game.proto.register;
-	import common.GameStatic;
+	import common.GameFunctions;
 
 	/**
 	 * ...
@@ -28,7 +28,7 @@ package game.net
 		{
 			var reg:register = new register();
 				
-			reg.account 	= GameStatic.gameAccount;
+			reg.account 	= GameFunctions.generateAccount();
 			reg.passwd 	= "12345678";
 			
 			NetClient.send("register", reg);

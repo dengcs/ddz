@@ -24,19 +24,6 @@
             "compId":3,
             "child":[
                 ]
-        },
-        {
-            "type":"GraphicNode",
-            "searchKey":"GraphicNode",
-            "props":{},
-            "nodeParent":2,
-            "label":"GraphicNode",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ]
         }],
     "animations":[
         {
@@ -99,6 +86,7 @@
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":3,
+                                "label":"bomb",
                                 "key":"x",
                                 "index":20
                             }],
@@ -228,133 +216,10 @@
                                 "index":0
                             }]
                     }
-                },
-                {
-                    "target":4,
-                    "keyframes":{
-                        "y":[
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"y",
-                                "index":0
-                            },
-                            {
-                                "value":-90,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"y",
-                                "index":50
-                            }],
-                        "x":[
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"x",
-                                "index":0
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"x",
-                                "index":50
-                            }],
-                        "skin":[
-                            {
-                                "value":null,
-                                "tweenMethod":"linearNone",
-                                "tween":false,
-                                "target":4,
-                                "key":"skin",
-                                "index":0
-                            },
-                            {
-                                "value":"ani/bomb/bomb2.png",
-                                "tweenMethod":"linearNone",
-                                "tween":false,
-                                "target":4,
-                                "key":"skin",
-                                "index":50
-                            }],
-                        "anchorY":[
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"anchorY",
-                                "index":0
-                            },
-                            {
-                                "value":0.5,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"anchorY",
-                                "index":50
-                            }],
-                        "anchorX":[
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"anchorX",
-                                "index":0
-                            },
-                            {
-                                "value":0.5,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"anchorX",
-                                "index":50
-                            }],
-                        "alpha":[
-                            {
-                                "value":1,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"alpha",
-                                "index":0
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"alpha",
-                                "index":50
-                            },
-                            {
-                                "value":1,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"alpha",
-                                "index":55
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"alpha",
-                                "index":60
-                            }]
-                    }
                 }],
             "name":"ani1",
             "id":1,
-            "frameRate":60,
+            "frameRate":40,
             "action":0
         }]
 }
