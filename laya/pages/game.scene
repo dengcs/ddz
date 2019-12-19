@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
-    "selecteID":71,
+    "selectedBox":149,
+    "selecteID":152,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
@@ -68,7 +68,6 @@
             "compId":5,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":-227,"visible":false,"skin":"poker/poker_bg.png","scaleY":0.6,"scaleX":0.6,"anchorY":0.5,"anchorX":0.5},
@@ -82,7 +81,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":-100,"x":-90,"visible":false,"skin":"poker/poker_bg.png","scaleY":0.6,"scaleX":0.6,"anchorY":0.5,"anchorX":0.5},
@@ -96,7 +94,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":-100,"visible":false,"skin":"poker/poker_bg.png","scaleY":0.6,"scaleX":0.6,"anchorY":0.5,"anchorX":0.5},
@@ -110,7 +107,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":-100,"x":90,"visible":false,"skin":"poker/poker_bg.png","scaleY":0.6,"scaleX":0.6,"anchorY":0.5,"anchorX":0.5},
@@ -124,7 +120,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/DealScript.as",
@@ -602,7 +597,6 @@
             "compId":89,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,mine",
                     "props":{"y":110,"x":0,"visible":false,"skin":"mark/jiaodizhu.png","name":"mine","anchorY":0.5,"anchorX":0.5},
@@ -616,7 +610,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,right",
                     "props":{"y":-120,"x":230,"visible":false,"skin":"mark/jiaodizhu.png","name":"right","anchorY":0.5,"anchorX":0.5},
@@ -630,7 +623,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,left",
                     "props":{"y":-120,"x":-230,"visible":false,"skin":"mark/jiaodizhu.png","name":"left","anchorY":0.5,"anchorX":0.5},
@@ -644,7 +636,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,clock",
                     "props":{"y":110,"x":0,"visible":false,"skin":"mark/clock01.png","name":"clock","anchorY":0.5,"anchorX":0.5},
@@ -687,7 +678,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/MarkScript.as",
@@ -839,7 +829,6 @@
             "compId":33,
             "child":[
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,snatch",
                     "props":{"y":0,"x":70,"width":380,"visible":false,"name":"snatch"},
@@ -907,7 +896,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play1",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play1"},
@@ -949,7 +937,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play2",
                     "props":{"y":0,"x":60,"width":400,"visible":false,"name":"play2"},
@@ -1016,7 +1003,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play3",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play3"},
@@ -1109,7 +1095,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/ControlScript.as",
@@ -1474,13 +1459,14 @@
             "props":{"y":0,"x":0,"width":1140,"name":"Menu","height":1},
             "nodeParent":2,
             "label":"Menu",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":149,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,back",
                     "props":{"y":10,"x":0,"stateNum":"2","skin":"button/btn_back.png","name":"back"},
@@ -1494,11 +1480,12 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "searchKey":"Button,caidan",
-                    "props":{"y":10,"x":1073,"stateNum":"2","skin":"button/btn_menu.png","name":"caidan"},
+                    "searchKey":"Button,setting",
+                    "props":{"y":10,"x":1073,"stateNum":"2","skin":"button/btn_setting.png","name":"setting"},
                     "nodeParent":149,
-                    "label":"caidan",
+                    "label":"setting",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -1507,6 +1494,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,tips",
                     "props":{"y":322,"x":569,"width":300,"visible":false,"skin":"common/tips_black_di.png","sizeGrid":"10,10,10,10","name":"tips","anchorY":0.5,"anchorX":0.5,"alpha":0.6},
@@ -1519,6 +1507,7 @@
                     "compId":154,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,word",
                             "props":{"y":12,"x":52,"valign":"middle","text":"游 戏 中 不 能 退 出！","overflow":"hidden","name":"word","fontSize":20,"font":"Microsoft YaHei","color":"#dddddd","bold":false,"align":"center"},
@@ -1533,6 +1522,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/MenuScript.as",
@@ -1567,7 +1557,7 @@
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite,Animation",
-            "props":{"y":427,"x":569,"width":1,"name":"Animation","height":1},
+            "props":{"y":427,"x":569,"width":1,"name":"Animation","mouseThrough":true,"height":1},
             "nodeParent":2,
             "label":"Animation",
             "isDirectory":false,

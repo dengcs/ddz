@@ -6,7 +6,7 @@ package main.script {
 	import game.manager.AudioManager;
 	import common.GameConstants;
 	
-	public class StartScript extends Script {
+	public class Room extends Script {
 		/** @prop {name:btnType, tips:"比赛类型", type:Int, default:0}*/
 		public var btnType: int = 0;
 

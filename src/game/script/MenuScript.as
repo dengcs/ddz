@@ -6,23 +6,24 @@ package game.script {
 	import laya.display.Scene;
 	import laya.ui.Image;
 	import laya.ui.Label;
+	import view.SettingDialog;
 	
 	public class MenuScript extends Script {
 		private var backBtn:Button 		= null;
-		private var caidanBtn:Button 	= null;
+		private var settingBtn:Button 	= null;
 		private var tipsImg:Image		= null;
 
 		override public function onAwake():void
 		{
 			backBtn 	= this.owner.getChildByName("back") as Button;
-			caidanBtn 	= this.owner.getChildByName("caidan") as Button;
+			settingBtn 	= this.owner.getChildByName("setting") as Button;
 			tipsImg		= this.owner.getChildByName("tips") as Image;
 		}
 
 		override public function onStart():void
 		{
 			backBtn.on(Event.CLICK, this, onBack);
-			caidanBtn.on(Event.CLICK, this, onCaiDan);
+			settingBtn.on(Event.CLICK, this, onSetting);
 		}
 
 		private function onBack():void
@@ -37,9 +38,9 @@ package game.script {
 			}
 		}
 
-		private function onCaiDan():void
+		private function onSetting():void
 		{
-
+			new SettingDialog().popup();
 		}
 
 		private function hideTips():void

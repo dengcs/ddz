@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":4,
-    "selecteID":7,
+    "selectedBox":2,
+    "selecteID":4,
     "searchKey":"Scene,mainScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"mainScene","height":855},
     "nodeParent":-1,
-    "maxID":23,
+    "maxID":31,
     "label":"mainScene",
     "isOpen":true,
     "isDirectory":true,
@@ -44,16 +44,16 @@
                             "x":45,
                             "type":"Script",
                             "switchAble":true,
-                            "source":"src/main/script/StartScript.as",
-                            "searchKey":"Script,StartScript",
+                            "source":"src/main/script/Room.as",
+                            "searchKey":"Script,Room",
                             "removeAble":true,
                             "props":{"btnType":1},
                             "nodeParent":7,
-                            "label":"StartScript",
+                            "label":"Room",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":19,
+                            "compId":27,
                             "child":[
                                 ]
                         }]
@@ -74,17 +74,15 @@
                         {
                             "x":45,
                             "type":"Script",
-                            "switchAble":true,
-                            "source":"src/main/script/StartScript.as",
-                            "searchKey":"Script,StartScript",
-                            "removeAble":true,
+                            "source":"src/main/script/Room.as",
+                            "searchKey":"Script,Room",
                             "props":{"btnType":2},
                             "nodeParent":8,
-                            "label":"StartScript",
+                            "label":"Room",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":20,
+                            "compId":28,
                             "child":[
                                 ]
                         }]
@@ -105,17 +103,15 @@
                         {
                             "x":45,
                             "type":"Script",
-                            "switchAble":true,
-                            "source":"src/main/script/StartScript.as",
-                            "searchKey":"Script,StartScript",
-                            "removeAble":true,
+                            "source":"src/main/script/Room.as",
+                            "searchKey":"Script,Room",
                             "props":{"btnType":3},
                             "nodeParent":9,
-                            "label":"StartScript",
+                            "label":"Room",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":21,
+                            "compId":29,
                             "child":[
                                 ]
                         }]
@@ -136,20 +132,61 @@
                         {
                             "x":45,
                             "type":"Script",
-                            "switchAble":true,
-                            "source":"src/main/script/StartScript.as",
-                            "searchKey":"Script,StartScript",
-                            "removeAble":true,
+                            "source":"src/main/script/Room.as",
+                            "searchKey":"Script,Room",
                             "props":{"btnType":4},
                             "nodeParent":10,
-                            "label":"StartScript",
+                            "label":"Room",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":22,
+                            "compId":30,
                             "child":[
                                 ]
                         }]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,menu",
+            "props":{"y":0,"x":0,"width":1140,"name":"menu","height":1},
+            "nodeParent":2,
+            "label":"menu",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":23,
+            "child":[
+                {
+                    "type":"Button",
+                    "searchKey":"Button,setting",
+                    "props":{"y":10,"x":1073,"stateNum":"2","skin":"button/btn_setting.png","name":"setting"},
+                    "nodeParent":23,
+                    "label":"setting",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/main/script/Menu.as",
+                    "searchKey":"Script,Menu",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":23,
+                    "label":"Menu",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":26,
+                    "child":[
+                        ]
                 }]
         }],
     "animations":[

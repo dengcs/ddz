@@ -13,7 +13,8 @@ package {
 	import game.script.ThrowListScript;
 	import game.script.MenuScript;
 	import main.runtime.RoomBtnRunTime;
-	import main.script.StartScript;
+	import main.script.Room;
+	import main.script.Menu;
 	import main.script.TestScript;
 	/**
 	 * 游戏初始化配置
@@ -45,7 +46,8 @@ package {
 			reg("game.script.ThrowListScript",ThrowListScript);
 			reg("game.script.MenuScript",MenuScript);
 			reg("main.runtime.RoomBtnRunTime",RoomBtnRunTime);
-			reg("main.script.StartScript",StartScript);
+			reg("main.script.Room",Room);
+			reg("main.script.Menu",Menu);
 			reg("main.script.TestScript",TestScript);
 		}
 		GameConfig.init();
