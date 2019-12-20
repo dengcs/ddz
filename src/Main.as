@@ -8,7 +8,9 @@
 	import laya.utils.Utils;
 	import game.net.NetClient;
 	import common.GameStatic;
-	import common.GameManager;
+	import common.EffectManager;
+	import laya.net.Loader;
+	import game.manager.UIManager;
 	
 	public class Main {
 		public function Main() {
@@ -41,10 +43,24 @@
 		}
 		
 		private function onConfigLoaded():void {			
+			this.gameInit();
+			NetClient.handshake();
 			//加载场景
 			GameConfig.startScene && Scene.open(GameConfig.startScene);
-			NetClient.handshake();
-			GameManager.init();
+		}
+
+		private function gameInit():void
+		{
+			this.loadRes();
+			UIManager.init();
+			EffectManager.init();
+		}
+
+		private function loadRes():void
+		{
+			var atlasArray:Array = [];
+			atlasArray.push("res/atlas/setting.atlas");
+			Laya.loader.load(atlasArray, null, null, Loader.ATLAS);
 		}
 	}
 }

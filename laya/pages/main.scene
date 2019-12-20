@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
-    "selecteID":4,
+    "selectedBox":23,
+    "selecteID":24,
     "searchKey":"Scene,mainScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"mainScene","height":855},
     "nodeParent":-1,
-    "maxID":31,
+    "maxID":32,
     "label":"mainScene",
     "isOpen":true,
     "isDirectory":true,
@@ -153,13 +153,14 @@
             "props":{"y":0,"x":0,"width":1140,"name":"menu","height":1},
             "nodeParent":2,
             "label":"menu",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":23,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,setting",
                     "props":{"y":10,"x":1073,"stateNum":"2","skin":"button/btn_setting.png","name":"setting"},
@@ -173,6 +174,21 @@
                         ]
                 },
                 {
+                    "x":30,
+                    "type":"Button",
+                    "searchKey":"Button,email",
+                    "props":{"y":0,"x":1000,"stateNum":"1","skin":"button/btn_email.png","name":"email"},
+                    "nodeParent":23,
+                    "label":"email",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":31,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/main/script/Menu.as",

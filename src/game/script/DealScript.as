@@ -8,7 +8,7 @@ package game.script {
 	import laya.utils.Ease;
 	import laya.utils.Handler;
 	import common.GameFunctions;
-	import common.GameManager;
+	import common.EffectManager;
 	
 	public class DealScript extends Script {
 
@@ -102,7 +102,7 @@ package game.script {
 				this.owner.timerOnce(delay, this, dealComplete, [place, cardNum], false);
 			}
 
-			GameManager.playDeal(type);
+			EffectManager.playDeal(type);
 			if(index < maxIndex)
 			{
 				this.owner.timerOnce(delay, this, dealPoker, [index + 1], false);

@@ -3,7 +3,7 @@ package game.control {
 	import common.GameConstants;
 	import common.GameEvent;
 	import game.utils.TypeCheck;
-	import common.GameManager;
+	import common.EffectManager;
 	import game.manager.AudioManager;
 
 	public class GameAction {
@@ -94,7 +94,7 @@ package game.control {
                 _roundData.value    = typeData.value;
                 _roundData.count    = typeData.count;
 
-                GameManager.playGame(typeData.type, typeData.value, yasi);
+                EffectManager.playGame(typeData.type, typeData.value, yasi);
             }
         }
 

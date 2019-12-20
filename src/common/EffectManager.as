@@ -2,7 +2,7 @@ package common {
 	import game.manager.AnimationManager;
 	import game.manager.AudioManager;
 
-	public final class GameManager {
+	public final class EffectManager {
 		public static function init():void
 		{
 			AnimationManager.getInstance();

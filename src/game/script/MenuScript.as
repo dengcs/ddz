@@ -6,7 +6,8 @@ package game.script {
 	import laya.display.Scene;
 	import laya.ui.Image;
 	import laya.ui.Label;
-	import view.SettingDialog;
+	import common.UIFunctions;
+	import common.UIFactory;
 	
 	public class MenuScript extends Script {
 		private var backBtn:Button 		= null;
@@ -40,7 +41,7 @@ package game.script {
 
 		private function onSetting():void
 		{
-			new SettingDialog().popup();
+			UIFunctions.showUI(UIFactory.SETTING);
 		}
 
 		private function hideTips():void
