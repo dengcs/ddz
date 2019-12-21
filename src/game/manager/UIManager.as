@@ -11,18 +11,14 @@ package game.manager {
 
 		override public function open(dialog:Dialog, closeOther:Boolean = null, showEffect:Boolean = null):void
 		{
-			trace("dcs----uimanager---open")
-			dialog.removeSelf();
+			// trace("dcs----uimanager---open", this.numChildren)
 			super.open(dialog, closeOther, showEffect);
 		}
 
 		override public function doClose(dialog:Dialog):void
 		{
-			trace("dcs----uimanager---doClose", dialog.isModal)
-			if(dialog.isModal)
-			{
-				this.maskLayer.removeSelf();
-			}
+			// trace("dcs----uimanager---doClose", this.numChildren)
+			super.doClose(dialog);
 		}
 	}
 }

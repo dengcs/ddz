@@ -25,6 +25,7 @@ package main.script {
 		private function onSetting():void
 		{
 			UIFunctions.showUI(UIFactory.SETTING);
+			UIFunctions.showUI(UIFactory.EMAIL);
 		}
 
 		private function onEmail():void
