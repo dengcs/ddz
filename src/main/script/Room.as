@@ -12,17 +12,7 @@ package main.script {
 
 		override public function onClick(e:Event):void
 		{
-			switch(btnType)
-			{
-				case 1:
-				case 2:
-				case 3:
-				case 4:
-					this.on_open_game();
-					break;
-				default:
-					break;
-			}
+			this.on_open_game();
 		}
 
 		private function on_open_game():void

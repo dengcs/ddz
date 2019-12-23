@@ -290,7 +290,7 @@ package game.script {
 
 		private function tweenRotateOver():void
 		{
-			GameFunctions.control_start.call();
+			GameFunctions.control_callLord.call();
 			GameFunctions.clock_start.call();
 		}
 

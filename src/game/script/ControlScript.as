@@ -26,6 +26,7 @@ package game.script {
 
 		private var playBtn2:Button = null;
 		private var playBtn3:Button = null;
+		private var startBtn:Button = null;
 
 		override public function onAwake():void
 		{
@@ -33,6 +34,7 @@ package game.script {
 			playSp1		= this.owner.getChildByName("play1") as Sprite;
 			playSp2		= this.owner.getChildByName("play2") as Sprite;
 			playSp3		= this.owner.getChildByName("play3") as Sprite;
+			startBtn	= this.owner.getChildByName("start") as Button;
 
 			snatchNoBtn		= snatchSp.getChildAt(0) as Button;
 			snatchNoImg		= snatchNoBtn.getChildAt(0) as Image;
@@ -46,6 +48,7 @@ package game.script {
 			var promptBtn3:Button 	= playSp3.getChildAt(1) as Button;
 			playBtn3 				= playSp3.getChildAt(2) as Button;
 
+			startBtn.on(Event.CLICK, this, onClickStart);
 			snatchYesBtn.on(Event.CLICK, this, onClickSnatchYes);
 			snatchNoBtn.on(Event.CLICK, this, onClickSnatchNo);
 
@@ -63,9 +66,10 @@ package game.script {
 			this.owner.on(GameEvent.EVENT_GAME_SNATCH, this, onSnatch);
 			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onPlay);
 
-			GameFunctions.control_start = Utils.bind(gameStart, this);
+			GameFunctions.control_callLord = Utils.bind(callLord, this);
 			GameFunctions.control_forcePlay = Utils.bind(forcePlay, this);
 			GameFunctions.control_markPlay = Utils.bind(markPlay, this);
+			GameFunctions.control_gameOver = Utils.bind(gameOver, this);
 		}
 
 		override public function onDestroy():void
@@ -79,16 +83,6 @@ package game.script {
 			playSp1.visible = false;
 			playSp2.visible = false;
 			playSp3.visible = false;
-		}
-
-		private function gameStart():void
-		{
-			if(NetAction.idxIsMine(1))
-			{
-				snatchYesImg.skin = "button/textCallLord.png";
-				snatchNoImg.skin = "button/textCallNo.png";
-				snatchSp.visible = true;
-			}
 		}
 
 		private function onSnatch():void
@@ -151,6 +145,11 @@ package game.script {
 			GameFunctions.send_game_update(GameConstants.PLAY_STATE_SNATCH, 0);
 		}
 
+		private function onClickStart():void
+		{
+			this.startBtn.visible = false;
+		}
+
 		private function onClickPlay():void
 		{
 			GameFunctions.ownerList_play.call();
@@ -164,6 +163,16 @@ package game.script {
 		private function onClickCancel():void
 		{
 			GameFunctions.send_game_update(GameConstants.PLAY_STATE_PLAY, 0);
+		}		
+
+		private function callLord():void
+		{
+			if(NetAction.idxIsMine(1))
+			{
+				snatchYesImg.skin = "button/textCallLord.png";
+				snatchNoImg.skin = "button/textCallNo.png";
+				snatchSp.visible = true;
+			}
 		}
 
 		// 强制操作（出牌或叫地主）
@@ -186,6 +195,11 @@ package game.script {
 		{
 			this.playBtn2.disabled	= disable;
 			this.playBtn3.disabled 	= disable;
+		}
+
+		private function gameOver():void
+		{
+			this.startBtn.visible = true;
 		}
 	}
 }

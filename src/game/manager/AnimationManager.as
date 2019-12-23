@@ -9,6 +9,7 @@ package game.manager {
 	import laya.utils.Handler;
 	import laya.net.Loader;
 	import laya.events.Event;
+	import common.GameFunctions;
 
 	public final class AnimationManager{
 		private static var _instance:AnimationManager = new AnimationManager();
@@ -121,6 +122,9 @@ package game.manager {
 				}else if(lab == "fail")
 				{
 					AudioManager.getInstance().playAni(GameConstants.POKER_TYPE_FAIL);
+				}else if(lab == "settle")
+				{
+					GameFunctions.control_gameOver.call();
 				}
 			}
 		}

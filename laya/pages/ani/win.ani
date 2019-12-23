@@ -50,6 +50,7 @@
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":3,
+                                "label":"win",
                                 "key":"y",
                                 "index":0
                             },
@@ -58,25 +59,8 @@
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":3,
-                                "label":"win",
-                                "key":"y",
-                                "index":10
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
                                 "key":"y",
                                 "index":20
-                            },
-                            {
-                                "value":30,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"y",
-                                "index":30
                             },
                             {
                                 "value":0,
@@ -87,18 +71,11 @@
                                 "index":40
                             },
                             {
-                                "value":-30,
+                                "value":30,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":3,
-                                "key":"y",
-                                "index":50
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
+                                "label":"settle",
                                 "key":"y",
                                 "index":60
                             }],
@@ -153,7 +130,7 @@
                                 "tween":true,
                                 "target":3,
                                 "key":"alpha",
-                                "index":50
+                                "index":40
                             },
                             {
                                 "value":0,
@@ -256,6 +233,7 @@
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":3,
+                                "label":"win",
                                 "key":"y",
                                 "index":0
                             },
@@ -264,25 +242,8 @@
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":3,
-                                "label":"win",
-                                "key":"y",
-                                "index":10
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
                                 "key":"y",
                                 "index":20
-                            },
-                            {
-                                "value":30,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"y",
-                                "index":30
                             },
                             {
                                 "value":0,
@@ -293,18 +254,11 @@
                                 "index":40
                             },
                             {
-                                "value":-30,
+                                "value":30,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":3,
-                                "key":"y",
-                                "index":50
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
+                                "label":"settle",
                                 "key":"y",
                                 "index":60
                             }],
@@ -359,7 +313,7 @@
                                 "tween":true,
                                 "target":3,
                                 "key":"alpha",
-                                "index":50
+                                "index":40
                             },
                             {
                                 "value":0,
