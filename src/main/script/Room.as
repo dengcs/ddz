@@ -28,7 +28,7 @@ package main.script {
 		private function on_open_game():void
 		{
 			var roomMsg:room_create = new room_create();
-			roomMsg.channel = 1;
+			roomMsg.channel = btnType;
 			NetClient.send("room_create", roomMsg);
 			AudioManager.getInstance().playOther(GameConstants.SOUND_BUTTON_DOWN);
 		}
