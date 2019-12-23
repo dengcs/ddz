@@ -43,7 +43,7 @@ package game.script {
 		override public function onEnable():void {
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_SNATCH, this, onSnatch);
-			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
+			this.owner.on(GameEvent.EVENT_BOTTOM_NOTIFY, this, onBottom);
 			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onPlay);
 			this.owner.on(GameEvent.EVENT_GAME_OVER, this, onOver);
 		}

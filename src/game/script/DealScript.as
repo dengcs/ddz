@@ -33,7 +33,7 @@ package game.script {
 		{
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_DEAL, this, onDeal);
-			this.owner.on(GameEvent.EVENT_GAME_BOTTOM, this, onBottom);
+			this.owner.on(GameEvent.EVENT_BOTTOM_NOTIFY, this, onBottom);
 		}
 
 		override public function onDestroy():void

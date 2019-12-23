@@ -11,9 +11,10 @@ package common
 		public static const EVENT_GAME_SNATCH:String			= "SNATCH";
 		public static const EVENT_GAME_PLAY:String				= "PLAY";
 		public static const EVENT_GAME_OVER:String				= "OVER";
-		public static const EVENT_GAME_BOTTOM:String			= "BOTTOM";
 		public static const EVENT_GAME_TURN:String				= "TURN";
+		public static const EVENT_BOTTOM_NOTIFY:String			= "BOTTOM_NTF";
 		public static const EVENT_OVER_NOTIFY:String			= "OVER_NTF";
+		public static const EVENT_DOUBLE_NOTIFY:String			= "DOUBLE_NTF";
 	}
 
 }

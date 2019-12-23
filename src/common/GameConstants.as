@@ -61,6 +61,7 @@ package common
 		public static const PLAY_STATE_OVER:int				= 5; // 结束
 		public static const PLAY_NOTIFY_BOTTOM:int			= 21; // 底牌
 		public static const PLAY_NOTIFY_OVER:int			= 22; // 结束剩余牌数据
+		public static const PLAY_NOTIFY_DOUBLE:int			= 23; // 翻倍
 
 		public static const gameScene:String				= "game.scene";
 	}

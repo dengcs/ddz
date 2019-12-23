@@ -101,23 +101,7 @@ package game.control {
 					ownerIdx = data.idx;
 				}
 			}
-		}
-
-		public static function doBottom(data:* = null):void
-		{
-			if(data != null)
-			{
-				var idx:int = data.idx;
-				
-				BaseAction.broadcastEvent(GameEvent.EVENT_GAME_BOTTOM);
-				BaseAction.event(["Mark","clock"], GameEvent.EVENT_GAME_BOTTOM, idx);
-				BaseAction.event(["Bottom","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
-				if(idxIsMine(idx))
-				{
-					BaseAction.event(["MyCard","myList"], GameEvent.EVENT_GAME_BOTTOM, data.msg);
-				}
-			}
-		}
+		}		
 
 		public static function doPlay(data:* = null):void
 		{
@@ -130,11 +114,35 @@ package game.control {
 			BaseAction.broadcastEventToNode("Mark", GameEvent.EVENT_GAME_OVER, data);
 		}
 
-		public static function doNotifyOver(data:* = null):void
+		public static function doBottomNotify(data:* = null):void
+		{
+			if(data != null)
+			{
+				var idx:int = data.idx;
+				
+				BaseAction.broadcastEvent(GameEvent.EVENT_BOTTOM_NOTIFY);
+				BaseAction.event(["Mark","clock"], GameEvent.EVENT_BOTTOM_NOTIFY, idx);
+				BaseAction.event(["Bottom","myList"], GameEvent.EVENT_BOTTOM_NOTIFY, data.msg);
+				if(idxIsMine(idx))
+				{
+					BaseAction.event(["MyCard","myList"], GameEvent.EVENT_BOTTOM_NOTIFY, data.msg);
+				}
+			}
+		}
+
+		public static function doOverNotify(data:* = null):void
 		{
 			if(data is Array)
 			{
 				BaseAction.broadcastEventToNode("ThrowCard", GameEvent.EVENT_OVER_NOTIFY, data);
+			}
+		}
+
+		public static function doDoubleNotify(data:* = null):void
+		{
+			if(data != null)
+			{
+				BaseAction.broadcastEvent(GameEvent.EVENT_DOUBLE_NOTIFY, data);
 			}
 		}
 
@@ -182,14 +190,20 @@ package game.control {
 				}				
 				case GameConstants.PLAY_NOTIFY_BOTTOM:
 				{
-					trace("NetAction---bottom", uData.msg);
-					doBottom(uData.msg);
+					trace("NetAction---bottomNotify", uData.msg);
+					doBottomNotify(uData.msg);
 					break;
 				}				
 				case GameConstants.PLAY_NOTIFY_OVER:
 				{
-					trace("NetAction---notifyOver", uData.msg);
-					doNotifyOver(uData.msg);
+					trace("NetAction---overNotify", uData.msg);
+					doOverNotify(uData.msg);
+					break;
+				}
+				case GameConstants.PLAY_NOTIFY_DOUBLE:
+				{
+					trace("NetAction---doubleNotify", uData.msg);
+					doDoubleNotify(uData.msg);
 					break;
 				}
 				default:

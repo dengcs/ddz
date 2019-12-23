@@ -4,8 +4,10 @@ package ui.dialog {
 	import laya.display.*;
 
 	public class EMailUI extends Dialog {
+		public var txtCmd:TextInput;
+		public var btnExe:Button;
 
-		public static var uiView:Object =/*[STATIC SAFE]*/{"type":"Dialog","props":{"width":920,"height":438},"compId":2,"child":[{"type":"Image","props":{"y":219,"x":460,"skin":"setting/dialog.png","anchorY":0.5,"anchorX":0.5},"compId":3},{"type":"Button","props":{"y":45,"x":870,"stateNum":2,"skin":"setting/btn_close.png","name":"close","anchorY":0.5,"anchorX":0.5},"compId":5}],"loadList":["setting/dialog.png","setting/btn_close.png"],"loadList3D":[]};
+		public static var uiView:Object =/*[STATIC SAFE]*/{"type":"Dialog","props":{"width":920,"height":438},"compId":2,"child":[{"type":"Image","props":{"y":219,"x":460,"skin":"setting/dialog.png","anchorY":0.5,"anchorX":0.5},"compId":3},{"type":"Button","props":{"y":45,"x":870,"stateNum":2,"skin":"setting/btn_close.png","name":"close","anchorY":0.5,"anchorX":0.5},"compId":5},{"type":"TextInput","props":{"y":208,"x":180,"width":300,"var":"txtCmd","valign":"middle","type":"text","promptColor":"#666666","prompt":"请输入命令","overflow":"hidden","name":"cmd","height":30,"fontSize":20,"font":"Microsoft YaHei","align":"left"},"compId":6},{"type":"Button","props":{"y":199,"x":551,"var":"btnExe","skin":"comp/button.png","name":"execute","labelSize":20,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelAlign":"center","label":"执 行"},"compId":7}],"loadList":["setting/dialog.png","setting/btn_close.png","comp/button.png"],"loadList3D":[]};
 		override protected function createChildren():void {
 			super.createChildren();
 			createView(uiView);

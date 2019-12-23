@@ -15,7 +15,6 @@ package {
 	import main.runtime.RoomBtnRunTime;
 	import main.script.Room;
 	import main.script.Menu;
-	import main.script.TestScript;
 	/**
 	 * 游戏初始化配置
 	 */
@@ -48,7 +47,6 @@ package {
 			reg("main.runtime.RoomBtnRunTime",RoomBtnRunTime);
 			reg("main.script.Room",Room);
 			reg("main.script.Menu",Menu);
-			reg("main.script.TestScript",TestScript);
 		}
 		GameConfig.init();
 	}
