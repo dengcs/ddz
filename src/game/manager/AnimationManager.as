@@ -124,7 +124,7 @@ package game.manager {
 					AudioManager.getInstance().playAni(GameConstants.POKER_TYPE_FAIL);
 				}else if(lab == "settle")
 				{
-					GameFunctions.control_gameOver.call();
+					GameFunctions.control_markStart.call(null, true);
 				}
 			}
 		}
@@ -164,7 +164,7 @@ package game.manager {
 					case GameConstants.POKER_TYPE_WIN:
 					{
 						name = "ani/win.ani";
-						playName = "ani1";
+						// playName = "ani1";
 						break;
 					}
 					case GameConstants.POKER_TYPE_WIN1:
@@ -176,7 +176,7 @@ package game.manager {
 					case GameConstants.POKER_TYPE_FAIL:
 					{
 						name = "ani/fail.ani";
-						playName = "ani1";
+						// playName = "ani1";
 						break;
 					}
 					case GameConstants.POKER_TYPE_FAIL1:

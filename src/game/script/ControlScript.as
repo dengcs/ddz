@@ -12,6 +12,9 @@ package game.script {
 	import laya.utils.Utils;
 	import game.control.NetAction;
 	import laya.ui.Image;
+	import game.handler.RoomHandler;
+	import game.proto.room_synchronize_notify;
+	import game.proto.room_restart;
 	
 	public class ControlScript extends Script {
 		private var snatchSp:Sprite = null;
@@ -69,7 +72,7 @@ package game.script {
 			GameFunctions.control_callLord = Utils.bind(callLord, this);
 			GameFunctions.control_forcePlay = Utils.bind(forcePlay, this);
 			GameFunctions.control_markPlay = Utils.bind(markPlay, this);
-			GameFunctions.control_gameOver = Utils.bind(gameOver, this);
+			GameFunctions.control_markStart = Utils.bind(markStart, this);
 		}
 
 		override public function onDestroy():void
@@ -147,7 +150,14 @@ package game.script {
 
 		private function onClickStart():void
 		{
-			this.startBtn.visible = false;
+			var synchronize:room_synchronize_notify = RoomHandler.getInstance().get("synchronize");
+			if(synchronize != null)
+			{
+				var msg_data:room_restart = new room_restart();
+				msg_data.channel = synchronize.channel;
+				msg_data.tid = synchronize.teamid;
+				NetClient.send("room_restart", msg_data);
+			}
 		}
 
 		private function onClickPlay():void
@@ -197,9 +207,9 @@ package game.script {
 			this.playBtn3.disabled 	= disable;
 		}
 
-		private function gameOver():void
+		private function markStart(visible:Boolean):void
 		{
-			this.startBtn.visible = true;
+			this.startBtn.visible = visible;
 		}
 	}
 }

@@ -1,8 +1,8 @@
 package game.proto {
 import com.google.protobuf.*;
 
-public class room_quit extends Message {
-    public function room_quit() {
+public class room_restart extends Message {
+    public function room_restart() {
     }
 
     private var _channel:int = 0;

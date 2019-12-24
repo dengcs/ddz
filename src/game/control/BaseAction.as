@@ -41,7 +41,7 @@ package game.control {
 		}
 
 		// 某节点广播事件到子节点
-		public static function broadcastEventToNode(name:String, type:String, data:* = null):void
+		public static function broadcastEventToNode(name:String, type:String, data:* = null, exclude_self:Boolean = false):void
 		{
 			var gameNode:Node = Scene.root.getChildByName("gameScene");
 			if(gameNode != null)
@@ -49,7 +49,10 @@ package game.control {
 				var parentNode:Node 	= gameNode.getChildByName(name);
 				if(parentNode != null)
 				{
-					parentNode.event(type, data);
+					if(exclude_self == false)
+					{
+						parentNode.event(type, data);
+					}
 					var count:int = parentNode.numChildren;
 					for(var i:int = 0; i < count; i++)
 					{

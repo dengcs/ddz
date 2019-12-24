@@ -142,10 +142,10 @@ package game.utils
 								retData = loop_fetch(GameConstants.POKER_TYPE_1STRAIGHT, mode);
 								if(retData == null)
 								{
-									retData = fetch_3with1(mode, 0);
+									retData = fetch_3with2(mode, 0);
 									if(retData == null)
 									{
-										retData = fetch_3with2(mode, 0);
+										retData = fetch_3with1(mode, 0);
 										if(retData == null)
 										{
 											retData = fetch_three(mode, 0);
@@ -929,7 +929,7 @@ package game.utils
 
 				var attachCount:int = 0;
 
-				for(var n:int = 1; n < 2; n++)
+				for(var n:int = 1; n < 3; n++)
 				{
 					for each(var a:int in attachMap.keys)
 					{

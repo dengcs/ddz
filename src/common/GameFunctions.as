@@ -13,7 +13,7 @@ package common {
 		public static var control_callLord:Function = null;
 		public static var control_markPlay:Function = null;
 		public static var control_forcePlay:Function = null;
-		public static var control_gameOver:Function = null;
+		public static var control_markStart:Function = null;
 		public static var clock_start:Function = null;
 
 		public static function send_game_update(cmd:int, msg:*=null):void

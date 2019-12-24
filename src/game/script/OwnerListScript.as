@@ -212,6 +212,7 @@ package game.script {
 				this.pickUp(rValue);
 			}
 			this.update();
+			this.refreshY();
 		}
 
 		private function onListRender(cell:Box, index:int):void 
@@ -324,6 +325,7 @@ package game.script {
 						var cell:Box = this.ownerSprite.getCell(j);
 						if(cell != null)
 						{
+							cell.y = 0;
 							this.dataArray.splice(j, 1);
 						}
 					}
