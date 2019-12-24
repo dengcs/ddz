@@ -155,6 +155,10 @@ package game.utils
 												if(retData == null)
 												{
 													retData = fetch_one(mode, cards, 0);
+													if(retData == null)
+													{
+														retData = fetch_bomb(mode, 0);
+													}
 												}
 											}
 										}
