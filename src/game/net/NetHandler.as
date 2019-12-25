@@ -28,7 +28,7 @@ package game.net
 		{
 			var reg:register = new register();
 				
-			reg.account 	= GameFunctions.generateAccount();
+			reg.account 	= GameFunctions.getAccount();
 			reg.passwd 	= "12345678";
 			
 			NetClient.send("register", reg);

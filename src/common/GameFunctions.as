@@ -2,9 +2,9 @@ package common {
 	import game.proto.game_update;
 	import game.net.NetClient;
 	import laya.utils.Utils;
+	import laya.net.LocalStorage;
 
 	public class GameFunctions{
-		private static var gameAccount:String = null;
 		public static var ownerList_play:Function = null;
 		public static var ownerList_delCell:Function = null;
 		public static var ownerList_prompt:Function = null;
@@ -26,19 +26,22 @@ package common {
 			NetClient.send("game_update", sendMsg);
 		}
 
-		public static function generateAccount():String
+		public static function getAccount():String
 		{
+			var gameAccount:String = LocalStorage.getItem("gameAccount");
 			if(gameAccount == null)
 			{
 				var nameArray:Array = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+				var arrayLen:int = nameArray.length;
 				var name:String = "";
-				for(var i:int = 0; i < 6; i++)
+				for(var i:int = 0; i < 10; i++)
 				{
-					var idx:int = Math.floor(Math.random() * 52) % 52;
+					var idx:int = Math.floor(Math.random() * (arrayLen + 1)) % arrayLen;
 					name += nameArray[idx];
 				}
 				var guid:Number = Utils.getGID();
 				gameAccount = name + guid
+				LocalStorage.setItem("gameAccount", gameAccount);
 			}
 			return gameAccount;
 		}

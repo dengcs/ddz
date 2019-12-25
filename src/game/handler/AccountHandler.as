@@ -62,7 +62,7 @@ package game.handler
 			{
 				var qp_msg:query_players = new query_players();
 				
-				qp_msg.account = GameFunctions.generateAccount();
+				qp_msg.account = GameFunctions.getAccount();
 				
 				NetClient.send("query_players", qp_msg);
 			}
