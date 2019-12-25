@@ -44,9 +44,10 @@ package game.handler
 			var resp_data:room_create_resp = new room_create_resp();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 			trace(resp_data)
-			if(resp_data.ret == 0)
+
+			if(resp_data.ret != 0)
 			{
-				Scene.open(GameConstants.gameScene);
+				GameFunctions.control_markStart.call(null, true);
 			}
 		}
 

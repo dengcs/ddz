@@ -12,6 +12,7 @@ package {
 	import game.script.ControlScript;
 	import game.script.ThrowListScript;
 	import game.script.MenuScript;
+	import game.script.GameScript;
 	import main.runtime.RoomBtnRunTime;
 	import main.script.Room;
 	import main.script.Menu;
@@ -44,6 +45,7 @@ package {
 			reg("game.script.ControlScript",ControlScript);
 			reg("game.script.ThrowListScript",ThrowListScript);
 			reg("game.script.MenuScript",MenuScript);
+			reg("game.script.GameScript",GameScript);
 			reg("main.runtime.RoomBtnRunTime",RoomBtnRunTime);
 			reg("main.script.Room",Room);
 			reg("main.script.Menu",Menu);

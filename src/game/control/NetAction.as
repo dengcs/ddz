@@ -66,7 +66,7 @@ package game.control {
 
 		public static function gameIsOver():Boolean
 		{
-			return _state == GameConstants.PLAY_STATE_OVER;
+			return _state == GameConstants.PLAY_STATE_OVER || _state == 0;
 		}
 
 		public static function doPrepare(data:*):void

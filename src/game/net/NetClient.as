@@ -15,18 +15,21 @@ package game.net
 		
 		public static function send(protoName:String, msg:Message):void
 		{
-			var ntHeader:NetHeader = new NetHeader();
-			var ntMessage:NetMessage = new NetMessage();
+			if(NetSocket.getInstance().isConnected())
+			{
+				var ntHeader:NetHeader = new NetHeader();
+				var ntMessage:NetMessage = new NetMessage();
 
-			ntHeader.proto = protoName;
-			ntMessage.header = ntHeader;
-			
-			var payload:ByteArray = Message.toByteArray(msg);
-			ntMessage.payload = payload;
+				ntHeader.proto = protoName;
+				ntMessage.header = ntHeader;
+				
+				var payload:ByteArray = Message.toByteArray(msg);
+				ntMessage.payload = payload;
 
-			var sendMsg:ByteArray = Message.toByteArray(ntMessage);			
+				var sendMsg:ByteArray = Message.toByteArray(ntMessage);			
 
-			NetSocket.getInstance().sendAndFlush(sendMsg.buffer);
+				NetSocket.getInstance().sendAndFlush(sendMsg.buffer);
+			}
 		}
 
 		public static function connect(url:String):void

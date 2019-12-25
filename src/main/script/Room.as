@@ -1,10 +1,10 @@
 package main.script {
 	import laya.components.Script;
 	import laya.events.Event;
-	import game.proto.room_create;
-	import game.net.NetClient;
 	import game.manager.AudioManager;
 	import common.GameConstants;
+	import common.GameGlobal;
+	import laya.display.Scene;
 	
 	public class Room extends Script {
 		/** @prop {name:btnType, tips:"比赛类型", type:Int, default:0}*/
@@ -12,14 +12,8 @@ package main.script {
 
 		override public function onClick(e:Event):void
 		{
-			this.on_open_game();
-		}
-
-		private function on_open_game():void
-		{
-			var roomMsg:room_create = new room_create();
-			roomMsg.channel = btnType;
-			NetClient.send("room_create", roomMsg);
+			GameGlobal.roomType	= btnType;
+			Scene.open(GameConstants.gameScene);
 			AudioManager.getInstance().playOther(GameConstants.SOUND_BUTTON_DOWN);
 		}
 	}

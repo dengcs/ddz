@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":33,
+    "selecteID":109,
     "searchKey":"Scene,gameScene",
     "props":{"width":1140,"sceneColor":"#000000","name":"gameScene","height":855},
     "nodeParent":-1,
-    "maxID":169,
+    "maxID":170,
     "label":"gameScene",
     "isOpen":true,
     "isDirectory":true,
@@ -152,7 +152,7 @@
                 {
                     "type":"Image",
                     "searchKey":"Image,toolbar",
-                    "props":{"y":-428,"x":0,"skin":"game/toolbar.png","name":"toolbar","anchorY":0,"anchorX":0.5},
+                    "props":{"y":-430,"x":0,"skin":"game/toolbar.png","name":"toolbar","anchorY":0,"anchorX":0.5},
                     "nodeParent":109,
                     "label":"toolbar",
                     "isOpen":false,
@@ -167,7 +167,7 @@
                             "props":{"y":30,"x":120,"skin":"game/difen.png","name":"difen","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":139,
                             "label":"difen",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -193,7 +193,7 @@
                             "props":{"y":30,"x":407,"skin":"game/beishu.png","name":"beishu","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":139,
                             "label":"beishu",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -262,7 +262,7 @@
                     "props":{"y":-102,"x":-136,"visible":false,"scaleY":0.6,"scaleX":0.6,"repeatY":1,"repeatX":3,"name":"myList","height":209,"anchorY":0.5},
                     "nodeParent":109,
                     "label":"myList",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -822,14 +822,13 @@
             "props":{"y":510,"x":310,"width":520,"name":"Control"},
             "nodeParent":2,
             "label":"Control",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":33,
             "child":[
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,snatch",
                     "props":{"y":0,"x":70,"width":380,"visible":false,"name":"snatch"},
@@ -897,7 +896,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play1",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play1"},
@@ -939,7 +937,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play2",
                     "props":{"y":0,"x":60,"width":400,"visible":false,"name":"play2"},
@@ -1006,7 +1003,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,play3",
                     "props":{"y":0,"x":0,"width":520,"visible":false,"name":"play3"},
@@ -1099,7 +1095,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,start",
                     "props":{"y":-83,"x":260,"visible":false,"stateNum":"2","skin":"button/btn_start.png","scaleY":0.6,"scaleX":0.6,"name":"start","anchorY":0.5,"anchorX":0.5},
@@ -1113,7 +1108,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/game/script/ControlScript.as",
@@ -1578,6 +1572,21 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":137,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Script",
+            "source":"src/game/script/GameScript.as",
+            "searchKey":"Script,GameScript",
+            "props":{},
+            "nodeParent":2,
+            "label":"GameScript",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":169,
             "child":[
                 ]
         }],
