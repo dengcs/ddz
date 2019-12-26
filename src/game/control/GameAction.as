@@ -12,7 +12,7 @@ package game.control {
         // 抢地主数据
         private static var _snatchData:Object = new Object();
 
-        public static function setOwnerIdx(idx:int):void
+        public static function setLordIdx(idx:int):void
         {
             _roundData.idx = idx;
             if(idx <= 3)

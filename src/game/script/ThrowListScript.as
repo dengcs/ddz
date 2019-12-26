@@ -179,13 +179,13 @@ package game.script {
 			var targetY:Number 	= 0;
 			var ownerLen:int	= this.dataArray.length;
 			var canShowTip:Boolean = false;
-			if(NetAction.ownerIsMine())
+			if(NetAction.lordIsMine())
 			{
 				if(this.place == 0)
 				{
 					canShowTip = true;
 				}
-			}else if(NetAction.ownerIsRight())
+			}else if(NetAction.lordIsRight())
 			{
 				if(this.place == 1)
 				{

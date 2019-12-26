@@ -6,6 +6,7 @@ package game.manager {
 	public final class UIManager extends DialogManager{
 		public static function init():void
 		{
+			UIConfig.closeDialogOnSide = false;
 			Dialog.manager = new UIManager();
 		}
 

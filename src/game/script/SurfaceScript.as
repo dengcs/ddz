@@ -97,11 +97,11 @@ package game.script {
 		{
 			var offsetX:int = 0;
 			var offsetY:int = -135;
-			if(NetAction.ownerIsMine())
+			if(NetAction.lordIsMine())
 			{
 				this.dzMarkImg.x = this.mineHead.x + offsetX;
 				this.dzMarkImg.y = this.mineHead.y + offsetY;
-			}else if(NetAction.ownerIsRight())
+			}else if(NetAction.lordIsRight())
 			{
 				this.dzMarkImg.x = this.rightHead.x + offsetX;
 				this.dzMarkImg.y = this.rightHead.y + offsetY;

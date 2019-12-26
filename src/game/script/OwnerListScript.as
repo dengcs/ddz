@@ -87,7 +87,7 @@ package game.script {
 
 		private function refreshDZ():void
 		{
-			if(NetAction.ownerIsMine())
+			if(NetAction.lordIsMine())
 			{
 				var len:int = this.dataArray.length;
 				if(len == 0)

@@ -120,10 +120,10 @@ package game.script {
 		private function onBottom(idx:int):void
 		{
 			var toward:int = 0;
-			if(NetAction.ownerIsMine())
+			if(NetAction.lordIsMine())
 			{
 				toward = this.mineTwoPos;
-			}else if(NetAction.ownerIsRight())
+			}else if(NetAction.lordIsRight())
 			{
 				toward = this.rightPos;
 			}else

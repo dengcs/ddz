@@ -5,7 +5,7 @@ package game.control {
 
 	public class NetAction {
 		// 地主索引
-        private static var _ownerIdx:int = 0;        
+        private static var _lordIdx:int = 0;        
 		// 我的索引
 		private static var _mineIdx:int = 0;
 		// 右边索引
@@ -18,25 +18,25 @@ package game.control {
 			return _state;
 		}
 
-		private static function set ownerIdx(idx:int):void
+		private static function set lordIdx(idx:int):void
         {
-        	_ownerIdx = idx;
-			GameAction.setOwnerIdx(idx);
+        	_lordIdx = idx;
+			GameAction.setLordIdx(idx);
         }
 
-        public static function haveOwner():Boolean
+        public static function haveLord():Boolean
         {
-            return _ownerIdx > 0;
+            return _lordIdx > 0;
         }
 
-        public static function ownerIsMine():Boolean
+        public static function lordIsMine():Boolean
         {
-            return idxIsMine(_ownerIdx);
+            return idxIsMine(_lordIdx);
         }
 
-        public static function ownerIsRight():Boolean
+        public static function lordIsRight():Boolean
         {
-            return idxIsRight(_ownerIdx);
+            return idxIsRight(_lordIdx);
         }
 
 		public static function get rightIdx():int
@@ -61,7 +61,7 @@ package game.control {
 
 		public static function idxIsOwner(idx:int):Boolean
 		{
-			return idx == _ownerIdx;
+			return idx == _lordIdx;
 		}
 
 		public static function gameIsOver():Boolean
@@ -98,7 +98,7 @@ package game.control {
 				BaseAction.broadcastEventToNode("Mark", GameEvent.EVENT_GAME_SNATCH, data);
 				if(data.msg == 1)
 				{
-					ownerIdx = data.idx;
+					lordIdx = data.idx;
 				}
 			}
 		}		

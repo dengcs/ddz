@@ -88,7 +88,7 @@ package game.script {
 				}
 			}
 
-			if(NetAction.haveOwner())
+			if(NetAction.haveLord())
 			{
 				if(isNocall)
 				{
@@ -212,7 +212,7 @@ package game.script {
 					}
 				}else
 				{
-					if(NetAction.ownerIsMine())
+					if(NetAction.lordIsMine())
 					{
 						AnimationManager.getInstance().playGame(GameConstants.POKER_TYPE_FAIL);
 					}else
