@@ -10,6 +10,8 @@ package game.manager {
 	import laya.net.Loader;
 	import laya.events.Event;
 	import common.GameFunctions;
+	import common.UIFunctions;
+	import common.UIFactory;
 
 	public final class AnimationManager{
 		private static var _instance:AnimationManager = new AnimationManager();
@@ -125,6 +127,7 @@ package game.manager {
 				}else if(lab == "settle")
 				{
 					GameFunctions.control_markStart.call(null, true);
+					UIFunctions.popup(UIFactory.SETTLE);
 				}
 			}
 		}

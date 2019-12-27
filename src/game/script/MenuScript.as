@@ -41,7 +41,7 @@ package game.script {
 
 		private function onSetting():void
 		{
-			UIFunctions.showUI(UIFactory.SETTING);
+			UIFunctions.popup(UIFactory.SETTING);
 		}
 
 		private function hideTips():void

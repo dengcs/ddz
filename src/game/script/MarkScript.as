@@ -7,6 +7,7 @@ package game.script {
 	import game.control.GameAction;
 	import game.manager.AnimationManager;
 	import common.GameConstants;
+	import common.GameGlobal;
 	
 	public class MarkScript extends Script {
 		private var mineMarkImg:Image = null;
@@ -201,6 +202,7 @@ package game.script {
 			if(data != null)
 			{
 				var idx:int = data.idx;
+				GameGlobal.overData = data;
 				if(NetAction.idxIsOwner(idx))
 				{
 					if(NetAction.idxIsMine(idx))

@@ -49,6 +49,7 @@ package game.handler
 			var resp_data:game_start_notify = new game_start_notify();
 			resp_data.readFrom(new CodedInputStream(ntMessage.payload));
 
+			this.set("start", resp_data);
 			GameAction.onGameStart(resp_data);
 		}
 

@@ -10,18 +10,30 @@ package common
 	 * @dengcs
 	 */
 	public class UIFunctions{
-		public static function showUI(index:int, isModal:Boolean = true):void
+		public static function show(index:int, closeOther:Boolean = false, showEffect:Boolean = true):void
 		{
 			var openDialog:Dialog = UIFactory.getDialog(index);
 			if(openDialog != null)
 			{
-				if(isModal)
-				{
-					openDialog.popup();
-				}else
-				{
-					openDialog.show();
-				}
+				openDialog.show(closeOther, showEffect);
+			}
+		}
+
+		public static function popup(index:int, closeOther:Boolean = false, showEffect:Boolean = true):void
+		{
+			var openDialog:Dialog = UIFactory.getDialog(index);
+			if(openDialog != null)
+			{
+				openDialog.popup(closeOther, showEffect);
+			}
+		}
+
+		public static function open(index:int, closeOther:Boolean = true, params:* = null):void
+		{
+			var openDialog:Dialog = UIFactory.getDialog(index);
+			if(openDialog != null)
+			{
+				openDialog.open(closeOther, params);
 			}
 		}
 	}

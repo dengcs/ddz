@@ -24,12 +24,12 @@ package main.script {
 
 		private function onSetting():void
 		{
-			UIFunctions.showUI(UIFactory.SETTING);
+			UIFunctions.popup(UIFactory.SETTING);
 		}
 
 		private function onEmail():void
 		{
-			UIFunctions.showUI(UIFactory.EMAIL);
+			UIFunctions.popup(UIFactory.EMAIL);
 		}
 	}
 }
