@@ -22,14 +22,6 @@ public class game_start_notify extends Message {
         _channel = value;
     }
 
-    private var _owner:String = "";
-    public function get owner():String {
-        return _owner;
-    }
-    public function set owner(value:String):void {
-        _owner = value || "";
-    }
-
     private var _state:int = 0;
     public function get state():int {
         return _state;
@@ -53,14 +45,11 @@ public class game_start_notify extends Message {
         if (!(_channel == 0)) {
             output.writeUInt32(2, _channel);
         }
-        if (!(_owner.length == 0)) {
-            output.writeString(3, _owner);
-        }
         if (!(_state == 0)) {
-            output.writeUInt32(4, _state);
+            output.writeUInt32(3, _state);
         }
         if (_members.length > 0) {
-            output.writeVector(_members, 5, FieldDescriptorType.MESSAGE);
+            output.writeVector(_members, 4, FieldDescriptorType.MESSAGE);
         }
 
         super.writeTo(output);
@@ -87,15 +76,11 @@ public class game_start_notify extends Message {
                     _channel = input.readUInt32();
                     break;
                 }
-                case 26: {
-                    _owner = input.readString();
-                    break;
-                }
-                case 32: {
+                case 24: {
                     _state = input.readUInt32();
                     break;
                 }
-                case 42: {
+                case 34: {
                     _members.push(input.readMessage(new game.proto.GameMember()));
                     break;
                 }

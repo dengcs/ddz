@@ -77,6 +77,14 @@ public class GameMember extends Message {
         _vlevel = value;
     }
 
+    private var _online:int = 0;
+    public function get online():int {
+        return _online;
+    }
+    public function set online(value:int):void {
+        _online = value;
+    }
+
     override public function writeTo(output:CodedOutputStream):void {
         if (!(_pid.length == 0)) {
             output.writeString(1, _pid);
@@ -104,6 +112,9 @@ public class GameMember extends Message {
         }
         if (!(_vlevel == 0)) {
             output.writeUInt32(9, _vlevel);
+        }
+        if (!(_online == 0)) {
+            output.writeUInt32(10, _online);
         }
 
         super.writeTo(output);
@@ -156,6 +167,10 @@ public class GameMember extends Message {
                 }
                 case 72: {
                     _vlevel = input.readUInt32();
+                    break;
+                }
+                case 80: {
+                    _online = input.readUInt32();
                     break;
                 }
             }
