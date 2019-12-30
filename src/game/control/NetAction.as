@@ -107,6 +107,7 @@ package game.control {
 		{
 			BaseAction.broadcastEventToNode("Mark", GameEvent.EVENT_GAME_PLAY, data);
 			BaseAction.event(["Control"], GameEvent.EVENT_GAME_PLAY, data);
+			BaseAction.event(["MyCard","myList"], GameEvent.EVENT_GAME_PLAY, data);
 		}
 
 		public static function doOver(data:* = null):void

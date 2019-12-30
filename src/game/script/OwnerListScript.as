@@ -33,6 +33,7 @@ package game.script {
 			this.dzTipImg = this.owner.getChildByName("dzTip") as Image;
 			this.owner.on(GameEvent.EVENT_GAME_PREPARE, this, onPrepare);
 			this.owner.on(GameEvent.EVENT_GAME_DEAL, this, onDeal);
+			this.owner.on(GameEvent.EVENT_GAME_PLAY, this, onPlay);
 			this.owner.on(GameEvent.EVENT_BOTTOM_NOTIFY, this, onBottom);
 		}
 
@@ -173,6 +174,18 @@ package game.script {
 				}
 			}
 			this.owner.timerOnce(1000, this, refreshDZ, null, false);
+		}
+
+		private function onPlay(data:Object):void
+		{
+			if(data != null && NetAction.idxIsMine(data.idx))
+			{
+				if(data.msg is int)
+				{
+					this.refreshY();
+					this.refreshDZ();
+				}
+			}
 		}
 
 		private function pickUp(rValue:int):void
