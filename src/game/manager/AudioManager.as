@@ -3,6 +3,8 @@ package game.manager {
 	import common.GameConstants;
 	import laya.media.webaudio.WebAudioSoundChannel;
 	import laya.media.SoundManager;
+	import laya.utils.Handler;
+	import laya.net.Loader;
 
 	public final class AudioManager{
 		private static var _instance:AudioManager = new AudioManager();
@@ -25,6 +27,11 @@ package game.manager {
 		private function loadRes():void
 		{
 			SoundManager.autoReleaseSound = false;
+			Laya.loader.load("sound/music/background.mp3", new Handler(this, onSoundLoaded), null, Loader.SOUND);			
+		}
+
+		private function onSoundLoaded():void
+		{
 			SoundManager.playMusic("sound/music/background.mp3");
 		}
 
