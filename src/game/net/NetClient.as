@@ -29,6 +29,7 @@ package game.net
 				var sendMsg:ByteArray = Message.toByteArray(ntMessage);			
 
 				NetSocket.getInstance().sendAndFlush(sendMsg.buffer);
+				trace(msg)
 			}
 		}
 

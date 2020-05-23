@@ -24,7 +24,7 @@ package {
 		public static var height:int = 855;
 		public static var scaleMode:String = "showall";
 		public static var screenMode:String = "horizontal";
-		public static var alignV:String = "top";
+		public static var alignV:String = "middle";
 		public static var alignH:String = "center";
 		public static var startScene:* = "main.scene";
 		public static var sceneRoot:String = "";

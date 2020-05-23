@@ -36,6 +36,12 @@ package game.manager {
             return _instance;
 		}
 
+		public function reset():void
+		{
+			resIsLoaded 	= false;
+			gameAnimation	= null;
+		}
+
 		private function loadImg():void
 		{
 			var imgArray:Array = [];

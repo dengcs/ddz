@@ -14,7 +14,7 @@ package main.script {
 		{
 			GameGlobal.roomType	= btnType;
 			Scene.open(GameConstants.gameScene);
-			AudioManager.getInstance().playOther(GameConstants.SOUND_BUTTON_DOWN);
+			AudioManager.getInstance().playOther(GameConstants.SOUND_BUTTON_DOWN);			
 		}
 	}
 }

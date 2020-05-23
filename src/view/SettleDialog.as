@@ -88,7 +88,6 @@ package view {
 			nameLab.text 	= settleData.nickname;
 			doubleLab.text	= settleData.double;
 			scoreLab.text	= settleData.score;
-			trace("dcs----render--", settleData)
 		}
     }
 }
